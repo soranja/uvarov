@@ -1,0 +1,13 @@
+---
+interface Props {
+    chapterImage: string;
+};
+
+const {chapterImage} = Astro.props;
+
+---
+
+<section class="flex items-center justify-center w-full h-screen bg-black">
+    <!-- <img src={junost.src} alt="Юность" class="max-w-full h-auto px-8 md:px-0" /> -->
+    <img src={chapterImage} alt="Юность" class="max-w-full h-auto px-8 md:px-0" />
+</section>

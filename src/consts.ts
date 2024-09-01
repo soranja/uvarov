@@ -1,5 +1,20 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
+export const SITE_TITLE = "УВАРОВ 200";
+export const SITE_DESCRIPTION = "Сайт посвященный 200-летию Уварова А. С.";
 
-export const SITE_TITLE = 'Astro Blog';
-export const SITE_DESCRIPTION = 'Welcome to my website!';
+export const BIO_NAV_LINKS = [
+  { href: "/biography/junost", label: "Юность" },
+  { href: "/biography/expeditions", label: "Экспедиции" },
+  { href: "/biography/family", label: "Семья" },
+  { href: "/biography/activities", label: "Деятельность" },
+  { href: "/biography/museum", label: "Музей" },
+  { href: "/biography/epilogue", label: "Эпилог" },
+];
+
+export const MATERIALS_NAV_LINKS = [
+  { href: "/materials/collections", label: "Коллекции" },
+  { href: "/materials/stories", label: "Сюжеты" },
+  { href: "/materials/audio", label: "Аудио" },
+  { href: "/materials/video", label: "Видео" },
+];
+
+export const ID_NOT_FOUND = true;

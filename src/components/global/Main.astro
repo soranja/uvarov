@@ -1,0 +1,13 @@
+---
+interface Props {
+    bgColor: string
+};
+
+const { bgColor } = Astro.props;
+---
+
+<main class=`mx-auto ${bgColor} w-full`>
+    <div class="mx-auto max-w-sm md:max-w-xl lg:max-w-2xl 2xl:max-w-7xl pt-24 md:pt-36">
+        <slot />
+    </div>
+</main>

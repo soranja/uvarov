@@ -1,0 +1,85 @@
+/* Font "Casus Pro" - 300, 600, 900*/
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro-DemiboldItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro-Demibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro-BlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Casus Pro Book";
+  src: url("../fonts/CasusPro-Book.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro-BoldItalic.woff2") format("woff2");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro-Italic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Casus Pro Book";
+  src: url("../fonts/CasusPro-BookItalic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Casus Pro";
+  src: url("../fonts/CasusPro-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}

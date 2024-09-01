@@ -1,0 +1,38 @@
+[
+  {
+    "id": "junost",
+    "title": "Юность",
+    "image": "/src/data/biography/_images/junost.svg",
+    "bgColor": "bg-junost"
+  },
+  {
+    "id": "expeditions",
+    "title": "Экспедиции",
+    "image": "/src/data/biography/_images/expeditions.svg",
+    "bgColor": "bg-expeditions"
+  },
+  {
+    "id": "family",
+    "title": "Семья",
+    "image": "/src/data/biography/_images/family.svg",
+    "bgColor": "bg-family"
+  },
+  {
+    "id": "activities",
+    "title": "Деятельность",
+    "image": "/src/data/biography/_images/activities.svg",
+    "bgColor": "bg-activities"
+  },
+  {
+    "id": "museum",
+    "title": "Музей",
+    "image": "/src/data/biography/_images/museum.svg",
+    "bgColor": "bg-museum"
+  },
+  {
+    "id": "epilogue",
+    "title": "Эпилог",
+    "image": "/src/data/biography/_images/epilogue.svg",
+    "bgColor": "bg-epilogue"
+  }
+]
