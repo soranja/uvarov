@@ -4,9 +4,21 @@ interface Props {
 };
 
 const { bgColor } = Astro.props;
+
+const bgColors : any = {
+    body: "bg-body",
+    junost: "bg-junost",
+    expeditions: "bg-expeditions",
+    family: "bg-family",
+    activities: "bg-activities",
+    museum: "bg-museum",
+    epilogue: "bg-epilogue",
+    materials: "bg-materials"
+    }
+
 ---
 
-<main class=`mx-auto ${bgColor} w-full`>
+<main class={`${bgColors[bgColor]} mx-auto w-full`}>
     <div class="mx-auto max-w-sm md:max-w-xl lg:max-w-2xl 2xl:max-w-7xl pt-24 md:pt-36">
         <slot />
     </div>

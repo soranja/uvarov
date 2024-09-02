@@ -4,7 +4,7 @@ import Main from "../global/Main.astro";
 import Chapter from './Chapter.astro';
 import Header from "../global/Header.astro";
 
-import common from '../../data/biography/common.json'
+import common from '../../data/biography/common.json';
 
 const pathname = Astro.url.pathname.split('/').filter(Boolean)
 const slug = pathname.length > 1 ? pathname[pathname.length - 1] : ''; 
@@ -17,7 +17,7 @@ const currentPage = common.find(chapter => chapter.id === slug);
     <header class="header-wrapper sticky top-0 z-50 w-2/3 mx-auto">
         <Header />
     </header>
-    <Main bgColor={currentPage!.bgColor}>
+    <Main bgColor={`${currentPage!.bgColor}`}>
         <slot />
     </Main>
 </Layout>
