@@ -1,62 +1,62 @@
 ---
 import BioWrapper from "../../components/biography/BioWrapper.astro";
+
+const sectionTheme = {
+    section: "relative h-screen w-full flex flex-col justify-center items-center opacity-0",
+    p: "w-full max-w-6xl my-20 px-10 lg:px-0 text-lg md:text-2xl xl:text-4xl leading-relaxed font-semibold",
+    fullScreenDiv: "w-full h-full"
+}
+
 ---
 
 <BioWrapper>
     <!-- WasBorn -->
-    <section id="palaceSection" class="relative h-screen w-full overflow-hidden flex justify-center items-center">
-        <img src="/images/biography/junost/spb-filled.png" alt="Дворец" class="absolute bottom-0 w-full h-auto lg:-mb-32 z-10" />
-        <div id="scroll-text" class="absolute top-[500%] left-1/2 transform -translate-x-1/2 text-center text-4xl font-bold text-black z-5 max-w-2xl">
+    <section id="palaceSection" class=`${sectionTheme.section} overflow-hidden`>
+        <img src="/images/biography/junost/spb-filled.png" alt="Дворец" class="absolute bottom-0 w-full h-auto z-10" />
+        <div id="scroll-text" class="absolute top-0 text-center text-4xl font-bold text-black z-5 max-w-2xl">
             А. С. Уваров, родился 28 февраля (11 марта) 1824 года в Петербурге.
         </div>
     </section>
     <!-- Parents -->
-    <section id="parents" class="relative h-screen w-full flex flex-col justify-center items-center bg-room bg-center bg-cover">
-        <div class="w-full max-w-6xl my-20 px-10 lg:px-0">
-            <p class="text-lg md:text-2xl xl:text-4xl leading-relaxed font-semibold">Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.</p>
-        </div>
-        <div class=" w-full h-full">
+    <section id="parents" class=`${sectionTheme.section} bg-room bg-center bg-cover`>
+            <p class=`${sectionTheme.p}`>Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.</p>
+        <div class=`${sectionTheme.fullScreenDiv}`>
 
         </div>
-        
+    </section>
+    <section id="regards" class=`${sectionTheme.section}`>
+        <p class=`${sectionTheme.p}`><span class="italic">«За особливые заслуги и высокие достоинства»</span> Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа с нисходящим потомством.</p>
+        <div class=`${sectionTheme.fullScreenDiv}`>
+
+        </div>
+    </section>
+    <section id="regards" class=`${sectionTheme.section}`>
+        <p class=`${sectionTheme.p}`>Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.</p>
+        <div class=`${sectionTheme.fullScreenDiv}`>
+
+        </div>
+    </section>
+    <section id="regards" class=`${sectionTheme.section}`>
+        <p class=`${sectionTheme.p}`>Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.</p>
+        <div class=`${sectionTheme.fullScreenDiv}`>
+
+        </div>
     </section>
 </BioWrapper>
 
-<!-- WasBorn -->
 <script>
-    const scrollText = document.getElementById('scroll-text');
-    const palaceSection = document.getElementById('palaceSection');
-    const palaceSectionHeight = palaceSection!.offsetHeight;
+    const sectionIds = ['palaceSection', 'parents', 'regards', 'science'];
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(el => el !== null);
 
-    function getTopValue() {
-        if (window.matchMedia('(min-width: 1280px)').matches) { // xl and 2xl
-            return 530;
-        } else if (window.matchMedia('(min-width: 1024px)').matches || window.matchMedia('(min-width: 768px)').matches) { // lg and md
-            return 540;
-        } else { // sm and smaller
-            return 550;
-        }
-    }
-
-    window.addEventListener('scroll', () => {
-        const sectionTop = palaceSection!.getBoundingClientRect().top;
-        const topValue = getTopValue();
-        console.log("winHeight", palaceSectionHeight);
-        console.log("topValue",topValue);
-        console.log("sectionTop", sectionTop);
-
-        if (sectionTop < palaceSectionHeight && sectionTop > 0) {
-            const offset = Math.max(0, (palaceSectionHeight - sectionTop) * 0.55);
-            scrollText!.style.top = `${topValue - offset}%`;
-        } else if (sectionTop <= 0) {
-            scrollText!.style.top = `${topValue - (palaceSectionHeight * 0.55)}%`;
-        } else {
-            scrollText!.style.top = `${topValue}%`;
-        }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('opacity-0');
+                entry.target.classList.add('opacity-100', 'transition-opacity', 'duration-[2000ms]', 'ease-out');
+            }
+        });
     });
-</script>
 
-<!-- Parents -->
-<script>
-    console.log('check');
+    sections.forEach((el) => observer.observe(el));
+
 </script>
