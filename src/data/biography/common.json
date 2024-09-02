@@ -2,37 +2,37 @@
   {
     "id": "junost",
     "title": "Юность",
-    "image": "/src/data/biography/_images/junost.svg",
+    "image": "/src/data/biography/_images/chapters/junost.svg",
     "bgColor": "junost"
   },
   {
     "id": "expeditions",
     "title": "Экспедиции",
-    "image": "/src/data/biography/_images/expeditions.svg",
+    "image": "/src/data/biography/_images/chapters/expeditions.svg",
     "bgColor": "expeditions"
   },
   {
     "id": "family",
     "title": "Семья",
-    "image": "/src/data/biography/_images/family.svg",
+    "image": "/src/data/biography/_images/chapters/family.svg",
     "bgColor": "family"
   },
   {
     "id": "activities",
     "title": "Деятельность",
-    "image": "/src/data/biography/_images/activities.svg",
+    "image": "/src/data/biography/_images/chapters/activities.svg",
     "bgColor": "activities"
   },
   {
     "id": "museum",
     "title": "Музей",
-    "image": "/src/data/biography/_images/museum.svg",
+    "image": "/src/data/biography/_images/chapters/museum.svg",
     "bgColor": "museum"
   },
   {
     "id": "epilogue",
     "title": "Эпилог",
-    "image": "/src/data/biography/_images/epilogue.svg",
+    "image": "/src/data/biography/_images/chapters/epilogue.svg",
     "bgColor": "epilogue"
   }
 ]

@@ -3,5 +3,60 @@ import BioWrapper from "../../components/biography/BioWrapper.astro";
 ---
 
 <BioWrapper>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quos id. Vel error, dolor numquam repudiandae quas saepe repellendus blanditiis nam fugiat nobis corporis possimus illum alias excepturi, cumque ut, doloremque veritatis! Laboriosam mollitia et non corporis est quas delectus, dolores, at itaque fugiat incidunt? Iste iusto illo ducimus odio exercitationem atque eaque in quod. Consequuntur voluptates quisquam harum! Aliquam deserunt quod veniam. Officia eius consectetur officiis quam harum asperiores iste sapiente, quo minus enim ducimus, omnis dignissimos, quidem fugit autem? Placeat minima recusandae, hic rerum non quisquam illum soluta! Id eligendi illum quas. Totam corporis ducimus voluptates quaerat eos distinctio, iste sed fuga doloremque odit. Alias iusto est aliquam. Nesciunt, reiciendis illum iusto mollitia sint ad, quod voluptate obcaecati officiis, quia sunt corrupti quidem. Animi assumenda reprehenderit exercitationem id corrupti consectetur voluptas distinctio molestiae a, minus illo soluta cupiditate. Optio veniam ipsam sequi ipsa reiciendis quasi dicta, accusantium voluptate fugiat culpa atque? Id iste, sed totam fuga nam laborum dolore delectus! Reiciendis sit architecto facilis in laborum atque repudiandae, veniam inventore soluta qui nulla autem at amet recusandae ullam est impedit. Eligendi, necessitatibus repudiandae soluta atque qui ut ducimus iure in est hic numquam asperiores consectetur adipisci quae nihil, sint doloribus. Architecto porro, totam delectus ex enim quia. Adipisci nihil distinctio eum laudantium nobis voluptatibus eius, consectetur nemo tempora in, ducimus officiis minima id iure enim dolore eveniet quasi, repellat repellendus soluta. Quae id illum, esse aut accusantium, labore aliquid sint eos eaque, quaerat omnis quo veritatis ex illo architecto sit. Magnam quisquam veritatis exercitationem ullam nobis voluptates laudantium recusandae qui, delectus placeat explicabo sunt quos sint quod modi consectetur odit nam magni reiciendis. Dolorem aliquid deleniti alias necessitatibus iure maxime blanditiis cupiditate odio quod sit delectus pariatur facilis beatae, quaerat perferendis amet facere officia non nihil odit eligendi totam voluptates tempore laborum.</p>
+    <!-- WasBorn -->
+    <section id="palaceSection" class="relative h-screen w-full overflow-hidden flex justify-center items-center">
+        <img src="/images/biography/junost/spb-filled.png" alt="Дворец" class="absolute bottom-0 w-full h-auto lg:-mb-32 z-10" />
+        <div id="scroll-text" class="absolute top-[500%] left-1/2 transform -translate-x-1/2 text-center text-4xl font-bold text-black z-5 max-w-2xl">
+            А. С. Уваров, родился 28 февраля (11 марта) 1824 года в Петербурге.
+        </div>
+    </section>
+    <!-- Parents -->
+    <section id="parents" class="relative h-screen w-full flex flex-col justify-center items-center bg-room bg-center bg-cover">
+        <div class="w-full max-w-6xl my-20 px-10 lg:px-0">
+            <p class="text-lg md:text-2xl xl:text-4xl leading-relaxed font-semibold">Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.</p>
+        </div>
+        <div class=" w-full h-full">
+
+        </div>
+        
+    </section>
 </BioWrapper>
+
+<!-- WasBorn -->
+<script>
+    const scrollText = document.getElementById('scroll-text');
+    const palaceSection = document.getElementById('palaceSection');
+    const palaceSectionHeight = palaceSection!.offsetHeight;
+
+    function getTopValue() {
+        if (window.matchMedia('(min-width: 1280px)').matches) { // xl and 2xl
+            return 530;
+        } else if (window.matchMedia('(min-width: 1024px)').matches || window.matchMedia('(min-width: 768px)').matches) { // lg and md
+            return 540;
+        } else { // sm and smaller
+            return 550;
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        const sectionTop = palaceSection!.getBoundingClientRect().top;
+        const topValue = getTopValue();
+        console.log("winHeight", palaceSectionHeight);
+        console.log("topValue",topValue);
+        console.log("sectionTop", sectionTop);
+
+        if (sectionTop < palaceSectionHeight && sectionTop > 0) {
+            const offset = Math.max(0, (palaceSectionHeight - sectionTop) * 0.55);
+            scrollText!.style.top = `${topValue - offset}%`;
+        } else if (sectionTop <= 0) {
+            scrollText!.style.top = `${topValue - (palaceSectionHeight * 0.55)}%`;
+        } else {
+            scrollText!.style.top = `${topValue}%`;
+        }
+    });
+</script>
+
+<!-- Parents -->
+<script>
+    console.log('check');
+</script>

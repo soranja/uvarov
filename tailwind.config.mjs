@@ -11,9 +11,12 @@ export default {
         activities: "#E3CCA3",
         museum: "#E8DFCC",
         epilogue: "#CDA26C",
-        materials: "#EEE"
+        materials: "#EEE",
       },
-	  
+      backgroundImage: {
+        palace: "url('/images/biography/junost/spb-filled.png')",
+        room: "url('/images/biography/junost/room.png')",
+      },
     },
   },
   plugins: [],
