@@ -1,15 +1,101 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Main from "../components/global/Main.astro";
-import Header from "../components/global/Header.astro";
+import BaseHead from '../components/global/BaseHead.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import intro from "../data/biography/_videos/intro_FHD.mp4";
+
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+	nextPage: boolean;
+	title: string;
+};
+
+const { title = SITE_TITLE } = Astro.props;
+const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
 
 ---
 
-<Layout>
-    <Main bgColor="white">
-		<Header/>
-		<div class="flex flex-col justify-center items-center text-black text-center">
-			<p class="text-6xl">ИНТРО</p>
-		</div> 
-    </Main>
-</Layout>
+<!doctype html>
+<html lang="ru">
+    <head>
+        <BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
+		<ViewTransitions />
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<style>
+            #fade {
+                opacity: 0;
+                transition: opacity 1s ease-out;
+            }
+        </style>
+    </head>
+    <body class="bg-body">
+		<div id="set-height" class="block"></div>
+		<video id="intro" class="fixed top-0 left-0 w-full h-full object-cover"  muted>
+			<source src={intro} type="video/mp4">
+		</video>
+		<div id="fade" class="fixed top-0 left-0 w-full h-full bg-black z-10 pointer-events-none"></div>
+	</body>
+</html>
+
+
+<script>
+
+	let frameNumber = 0;
+	const playbackTime = 1550;
+	const setHeight = document.getElementById("set-height");
+	const video = document.getElementById('intro') as HTMLMediaElement;
+	const lottiePlayer = document.createElement('lottie-player');
+	lottiePlayer.setAttribute('src', '../data/common/_videos/loading.json');
+	lottiePlayer.setAttribute('background', 'transparent');
+	lottiePlayer.setAttribute('speed', '1');
+	lottiePlayer.setAttribute('style', 'width: 300px; height: 300px;');
+	lottiePlayer.setAttribute('autoplay', '');
+	const redirectUrl = '/biography/junost';
+
+	const fadeOverlay = document.getElementById('fade');
+
+	video.addEventListener('loadeddata', function() {
+		if(video.readyState === HTMLMediaElement.HAVE_ENOUGH_DATA) {
+			setHeight!.style.height = Math.floor(video.duration) * playbackTime + "px";
+		} else {
+			setHeight!.insertAdjacentElement('afterend', lottiePlayer);
+		}	
+	});
+
+	window.addEventListener('load', () => {
+		window.scrollTo(0, 0);
+		video.currentTime = 0;
+		fadeOverlay!.style.opacity = '0';
+	});
+
+	function scrollPlay() {  
+		let scrollTop = window.scrollY;
+		frameNumber = scrollTop / playbackTime;
+		video.currentTime = frameNumber;
+
+		// Calculate normalized scroll value based on the document height and viewport height
+		const documentHeight = document.documentElement.scrollHeight;
+		const viewportHeight = window.innerHeight;
+		const scrollPosition = scrollTop / (documentHeight - viewportHeight);
+
+		// Start fade out when scrollPosition reaches 1
+		if (scrollPosition >= 0.95) {
+			const opacityValue = (scrollPosition - 0.9) * 10; // Fades from 0 to 1 between 0.9 and 1
+			fadeOverlay!.style.opacity = opacityValue.toString();
+
+			if (scrollPosition >= 0.95) {
+				setTimeout(() => {
+					window.location.href = redirectUrl; // Redirect after fade-out completes
+				}, 1000); // Adjust the delay if needed
+			}
+			console.log(window.location.href);
+			console.log(redirectUrl);
+		} else {
+			fadeOverlay!.style.opacity = '0';
+		}
+	}
+
+	window.addEventListener('scroll', () => {
+		window.requestAnimationFrame(scrollPlay);
+	});
+</script>
