@@ -13,7 +13,7 @@ const currentPage = common.find(chapter => chapter.id === slug);
 ---
 
 <Layout title={currentPage!.title}>
-    <Chapter chapterImage={currentPage!.image}/>
+    <Chapter chapterImage={currentPage!.id}/>
     <header class="header-wrapper sticky top-0 z-50 w-2/3 mx-auto">
         <Header />
     </header>

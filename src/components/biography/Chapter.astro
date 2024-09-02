@@ -1,13 +1,31 @@
 ---
+import activities from '../../data/biography/_images/activities.svg';
+import epilogue from '../../data/biography/_images/epilogue.svg';
+import expeditions from '../../data/biography/_images/expeditions.svg';
+import family from '../../data/biography/_images/family.svg';
+import junost from '../../data/biography/_images/junost.svg';
+import museum from '../../data/biography/_images/museum.svg';
+
+const images : any = {
+    activities,
+    epilogue,
+    expeditions,
+    family,
+    junost,
+    museum
+};
+
+
 interface Props {
     chapterImage: string;
 };
 
 const {chapterImage} = Astro.props;
+const imageSrc = images[chapterImage]?.src || '';
 
 ---
 
 <section class="flex items-center justify-center w-full h-screen bg-black">
     <!-- <img src={junost.src} alt="Юность" class="max-w-full h-auto px-8 md:px-0" /> -->
-    <img src={chapterImage} alt="Юность" class="max-w-full h-auto px-8 md:px-0" />
+    <img src={imageSrc} alt={chapterImage} class="max-w-full h-auto px-8 md:px-0" />
 </section>
