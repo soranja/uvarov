@@ -2,13 +2,13 @@
 import headerWhite from '../../data/common/_images/header-white.svg';
 ---
 
-<header id="header-content" class="bg-black shadow mx-auto absolute inset-x-0 top-24 w-full h-full flex justify-center items-center">
-	<nav id="nav" class="mx-auto flex flex-col md:flex-row justify-center items-center uppercase underline-offset-4 text-center text-xs md:text-sm xl:text-lg z-5 transition-all duration-300 ease-in-out md:px-8">
-		<a class="flex-shrink-0 pl-2 hover:underline" href='/' class="px-2">←</a>
-		<div id="links" class="flex-grow">
+<header id="header-content" class="shadow mx-auto absolute md:inset-x-0 py-8 md:py-0 -left-1/4 md:top-24 md:right-0 w-1/2 md:w-full md:h-full flex justify-center items-center">
+	<nav id="nav" class="mx-auto flex flex-col md:flex-row justify-center items-start md:items-center uppercase underline-offset-4 text-center text-xs md:text-sm xl:text-lg z-5 transition-all duration-300 ease-in-out pl-6 sm:pl-10 md:pl-0 md:px-10 xl:px-6">
+		<a class="pl-6 md:pl-2 flex-shrink-0 hover:underline self-start md:self-center" href='/' class="px-2">←</a>
+		<div id="links" class="flex-grow text-left md:text-center pl-4 md:pl-0">
 			<!-- links are inserted here -->
 		</div>
-		<div class="md:self-end pr-2">
+		<div class="pl-6 lg:pl-0 self-start md:self-end pr-2">
 			<button id="toggle-header-button" class="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 md:opacity-0">
 				-
 			</button>
@@ -33,7 +33,8 @@ import headerWhite from '../../data/common/_images/header-white.svg';
 		const navLinks = document.getElementById('links');
 		const header = document.getElementById('header-content');
 		const switchBtn = document.getElementById('toggle-header-button');
-		const headerBg = document.getElementById('header-bg') as HTMLImageElement; 
+		const headerBg = document.getElementById('header-bg') as HTMLImageElement;
+		const nav = document.getElementById('nav') as HTMLImageElement; 
 
 		// Clear previous content
 		navLinks!.innerHTML = '';
@@ -43,14 +44,13 @@ import headerWhite from '../../data/common/_images/header-white.svg';
 			header!.classList.remove('bg-black','text-white');
 			header!.classList.add('bg-white', 'text-black');
 
-
 			switchBtn!.classList.remove('bg-white', 'text-black');
 			switchBtn!.classList.add('bg-black', 'text-white');
 
 			headerBg!.classList.remove('invert');
 
-
 		} else {
+			
 			header!.classList.remove('bg-white', 'text-black');
 			header!.classList.add('bg-black','text-white');
 
@@ -58,11 +58,23 @@ import headerWhite from '../../data/common/_images/header-white.svg';
 			switchBtn!.classList.add('bg-white', 'text-black');
 
 			headerBg!.classList.add('invert');
+
+		}
+
+		if (headerBg!.complete) {
+			adjustNavWidth();
+		} else {
+			headerBg!.onload = adjustNavWidth;
+		}
+
+		function adjustNavWidth() {
+			const bgWidth = headerBg!.naturalWidth;
+			nav.style.width = `calc(${bgWidth}px - 6%)`;
 		}
 
 		// Create a wrapper div for the links
 		const linksWrapper = document.createElement('div');
-		linksWrapper.className = 'flex justify-center flex-col md:flex-row md:gap-x-0 lg:gap-x-2 xl:gap-x-6 py-2';
+		linksWrapper.className = 'flex md:justify-center flex-col md:flex-row gap-x-0 lg:gap-x-2 xl:gap-x-6 py-2';
 
 		// Insert links inside the wrapper
 		links.forEach(link => {
@@ -95,21 +107,21 @@ import headerWhite from '../../data/common/_images/header-white.svg';
 
 	});
 
-	window.addEventListener('load', () => {
-		const headerBg = document.getElementById('header-bg') as HTMLImageElement; 
-		const nav = document.getElementById('nav') as HTMLImageElement; 
+	// window.addEventListener('load', () => {
+	// 	const headerBg = document.getElementById('header-bg') as HTMLImageElement; 
+	// 	const nav = document.getElementById('nav') as HTMLImageElement; 
 
-		if (headerBg!.complete) {
-			adjustNavWidth();
-		} else {
-			headerBg!.onload = adjustNavWidth;
-		}
+	// 	if (headerBg!.complete) {
+	// 		adjustNavWidth();
+	// 	} else {
+	// 		headerBg!.onload = adjustNavWidth;
+	// 	}
 
-		function adjustNavWidth() {
-			const bgWidth = headerBg!.naturalWidth;
-			nav.style.width = `calc(${bgWidth}px - 6%)`;
-		}
-	});
+	// 	function adjustNavWidth() {
+	// 		const bgWidth = headerBg!.naturalWidth;
+	// 		nav.style.width = `calc(${bgWidth}px - 6%)`;
+	// 	}
+	// });
 </script>
 
 
