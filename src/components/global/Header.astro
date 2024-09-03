@@ -3,7 +3,7 @@ import headerWhite from '../../data/common/_images/header-white.svg';
 ---
 
 <header id="header-content" class="bg-black shadow mx-auto absolute inset-x-0 top-24 w-full h-full flex justify-center items-center">
-	<nav class="mx-auto flex flex-col md:flex-row justify-center items-center md:w-[93%] xl:w-[82%] uppercase underline-offset-4 text-center text-xs md:text-sm xl:text-lg z-50">
+	<nav id="nav" class="mx-auto flex flex-col md:flex-row justify-center items-center uppercase underline-offset-4 text-center text-xs md:text-sm xl:text-lg z-5 transition-all duration-300 ease-in-out md:px-4">
 		<a class="flex-shrink-0 pl-2 hover:underline" href='/' class="px-2">←</a>
 		<div id="links" class="flex-grow">
 			<!-- links are inserted here -->
@@ -13,8 +13,8 @@ import headerWhite from '../../data/common/_images/header-white.svg';
 				-
 			</button>
 		</div>
+		<img id="header-bg" src={headerWhite.src} alt="header" class="absolute -z-10 hidden md:block">
 	</nav>
-	<img id="header-bg" src={headerWhite.src} alt="header" class="absolute -z-10 hidden md:block">
 </header>
 
 <script>
@@ -30,13 +30,13 @@ import headerWhite from '../../data/common/_images/header-white.svg';
   
 	// Function to render links and update header style
 	const renderLinks = (links: any[], isMaterials: boolean) => {
-		const nav = document.getElementById('links');
+		const navLinks = document.getElementById('links');
 		const header = document.getElementById('header-content');
 		const switchBtn = document.getElementById('toggle-header-button');
-		const headerBg = document.getElementById('header-bg'); 
+		const headerBg = document.getElementById('header-bg') as HTMLImageElement; 
 
 		// Clear previous content
-		nav!.innerHTML = '';
+		navLinks!.innerHTML = '';
 
 		// Update header style based on the current state
 		if (isMaterials) {
@@ -73,7 +73,7 @@ import headerWhite from '../../data/common/_images/header-white.svg';
 		});
 
 		// Insert the wrapper into the nav
-		nav!.appendChild(linksWrapper);
+		navLinks!.appendChild(linksWrapper);
 
 		// Reattach the event listener to the newly inserted button
 		document.getElementById('toggle-header-button')!.addEventListener('click', toggleHeader);
@@ -92,6 +92,23 @@ import headerWhite from '../../data/common/_images/header-white.svg';
 	document.addEventListener('DOMContentLoaded', () => {
 		renderLinks(BIO_NAV_LINKS, false); // Initialize with BIO_NAV_LINKS and default style
 		isHeaderToggled.set(true); // Set the initial state
+
+	});
+
+	window.addEventListener('load', () => {
+		const headerBg = document.getElementById('header-bg') as HTMLImageElement; 
+		const nav = document.getElementById('nav') as HTMLImageElement; 
+
+		if (headerBg!.complete) {
+			adjustNavWidth();
+		} else {
+			headerBg!.onload = adjustNavWidth;
+		}
+
+		function adjustNavWidth() {
+			const bgWidth = headerBg!.naturalWidth;
+			nav.style.width = `calc(${bgWidth}px - 6%)`;
+		}
 	});
 </script>
 
