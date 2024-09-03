@@ -1,9 +1,10 @@
 ---
 import BioWrapper from "../../components/biography/BioWrapper.astro";
+import dogAnim from "../../data/biography/_videos/dog_loop.mp4";
 
 const sectionTheme = {
-    section: "relative h-screen w-full flex flex-col justify-center items-center opacity-0",
-    p: "w-full max-w-6xl my-20 px-10 lg:px-0 text-lg md:text-2xl xl:text-4xl leading-relaxed font-semibold",
+    section: "max-w-full flex flex-col justify-center items-center",
+    p: "w-full max-w-6xl my-20 px-10 xl:px-0 text-lg md:text-xl xl:text-2xl leading-relaxed font-semibold opacity-0 text-justify",
     fullScreenDiv: "w-full h-full"
 }
 
@@ -11,41 +12,101 @@ const sectionTheme = {
 
 <BioWrapper>
     <!-- WasBorn -->
-    <section id="palaceSection" class=`${sectionTheme.section} overflow-hidden`>
-        <img src="/images/biography/junost/spb-filled.png" alt="Дворец" class="absolute bottom-0 w-full h-auto z-10" />
-        <div id="scroll-text" class="absolute top-0 text-center text-4xl font-bold text-black z-5 max-w-2xl">
+    <section class=`${sectionTheme.section} relative overflow-hidden h-screen`>
+        <img src="/images/biography/junost/spb-filled.png" alt="Дворец" class="absolute bottom-0 max-w-full h-auto z-10" />
+        <p id="palaceSection" class="md:absolute md:top-[33%] xl:top-[10%] text-center font-bold text-black z-5 max-w-2xl opacity-0 px-10 lg:px-0 text-xl md:text-2xl xl:text-4xl">
             А. С. Уваров, родился 28 февраля (11 марта) 1824 года в Петербурге.
-        </div>
+        </p>
     </section>
+
     <!-- Parents -->
-    <section id="parents" class=`${sectionTheme.section} bg-room bg-center bg-cover`>
-            <p class=`${sectionTheme.p}`>Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.</p>
+    <section class=`${sectionTheme.section} bg-room bg-center bg-cover h-screen`>
+        <p id="parents" class=`${sectionTheme.p}`>
+            Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
+        </p>
         <div class=`${sectionTheme.fullScreenDiv}`>
-
         </div>
     </section>
-    <section id="regards" class=`${sectionTheme.section}`>
-        <p class=`${sectionTheme.p}`><span class="italic">«За особливые заслуги и высокие достоинства»</span> Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа с нисходящим потомством.</p>
-        <div class=`${sectionTheme.fullScreenDiv}`>
 
+    <!-- Graf -->
+    <section class=`${sectionTheme.section} h-full pb-20`>
+        <p id="regards" class=`${sectionTheme.p}`>
+            <span class="italic">«За особливые заслуги и высокие достоинства»</span>
+            <br> 
+            Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа с нисходящим потомством.
+        </p>
+        <div class="w-full h-full flex flex-col justify-center items-center">
+            <img src="/images/biography/junost/graf.png" alt="Грамота" class="h-fit" />
         </div>
     </section>
-    <section id="regards" class=`${sectionTheme.section}`>
-        <p class=`${sectionTheme.p}`>Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.</p>
-        <div class=`${sectionTheme.fullScreenDiv}`>
 
+    <!-- Library -->
+    <section class=`${sectionTheme.section} bg-library bg-center bg-cover h-screen`>
+        <p id="library" class=`${sectionTheme.p}`>
+            Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.
+        </p>
+        <div class=`${sectionTheme.fullScreenDiv}`>
         </div>
     </section>
-    <section id="regards" class=`${sectionTheme.section}`>
-        <p class=`${sectionTheme.p}`>Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.</p>
-        <div class=`${sectionTheme.fullScreenDiv}`>
 
+    <!-- Father -->
+    <section class=`${sectionTheme.section} h-full pb-20`>
+        <p id="father" class=`${sectionTheme.p}`>
+            Но главным в формировании личности А.С. Уварова стало влияние отца. Во многом, благодаря ему, Алексей Уваров сложился как человек европейской образованности и глубочайшей преданности России.
+        </p>
+        <div class=`w-full h-full flex flex-col justify-center items-center`>
+            <video class="object-cover" autoplay loop muted>
+                <source src={dogAnim} type="video/mp4">
+            </video>
         </div>
     </section>
+
+    <!-- Uni -->
+    <section class=`${sectionTheme.section} relative h-screen`>
+        <p id="uni" class="md:absolute md:top-[33%] xl:top-[10%] text-justify font-bold text-black z-5 max-w-6xl opacity-0 px-10 lg:px-0 text-lg md:text-xl xl:text-2xl">
+            В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший получил основательную подготовку по истории, словесности, географии, древним и новым европейским языкам, точным и естественным наукам. Интерес к истории, древностям привел его на словесное отделение философского факультета Петербургского университета.
+        </p>
+        <img src="/images/biography/junost/spbgu.png" alt="СПБГУ" class="absolute bottom-0 max-w-full h-auto" />
+    </section>
+
+    <!-- Grefe -->
+    <section class='py-40 max-w-full h-full flex flex-col justify-start items-center gap-y-20'>
+        <p id="grefe-1" class='w-full max-w-6xl px-10 xl:px-0 text-lg md:text-2xl xl:text-4xl leading-relaxed font-semibold opacity-0 text-justify'>
+            Серьезное влияние на формирование будущего ученого оказали профессор Ф.Б. Грефе, читавший курс греческой словесности, и профессор русской истории Н.Г. Устрялов.
+        </p>
+        <p id="grefe-2" class='w-full max-w-6xl px-10 xl:px-0 text-lg md:text-2xl xl:text-4xl leading-relaxed font-semibold opacity-0 text-justify'>
+            Под его влиянием Уваров выбрал тему диссертации 
+            <br> 
+            <span class="italic">
+                «Исследование, в какой степени дополняются сведения о первом самозванце актами, изданными Археографической комиссией».
+            </span>
+        </p>
+    </section>
+
+    <!-- Uvarov Young -->
+    <section class="h-screen bg-uvarov-young bg-[top_center] bg-cover flex xl:items-center xl:justify-start items-end justify-center">
+        <div class="text-white pb-20 md:pb-10 xl:pl-60 xl:pb-0 max-w-xl text-justify px-10 md:px-0">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus autem reprehenderit nam dolorem ex nostrum illum quisquam voluptatibus laudantium fuga rem fugiat, consequuntur sunt optio esse deserunt explicabo, amet totam natus ea ipsam ad. Ab laudantium iusto beatae quaerat eligendi? Impedit tempora eligendi sunt nobis dicta placeat, eum temporibus nihil expedita tenetur!
+            </p>
+        </div>
+    </section>
+
+        <!-- Diploma -->
+        <section class=`${sectionTheme.section} h-full pb-20`>
+            <p id="diploma" class=`${sectionTheme.p}`>
+                Окончив университет со степенью кандидата в 1845 году, поступил на службу в Министерство иностранных дел.
+            </p>
+            <div class="w-full h-full flex flex-col justify-center items-center">
+                <img src="/images/biography/junost/diploma.png" alt="Грамота" class="h-fit" />
+            </div>
+        </section>
+    
 </BioWrapper>
 
+<!-- P tag fade in (by ID) -->
 <script>
-    const sectionIds = ['palaceSection', 'parents', 'regards', 'science'];
+    const sectionIds = ['palaceSection', 'parents', 'regards', 'library', 'father', 'uni', 'grefe-1', 'grefe-2', 'diploma'];
     const sections = sectionIds.map(id => document.getElementById(id)).filter(el => el !== null);
 
     const observer = new IntersectionObserver((entries) => {
@@ -56,7 +117,5 @@ const sectionTheme = {
             }
         });
     });
-
     sections.forEach((el) => observer.observe(el));
-
 </script>

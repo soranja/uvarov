@@ -24,7 +24,7 @@ const {chapterImage} = Astro.props;
 const imageSrc = images[chapterImage]?.src || '';
 
 ---
-<div id="fade" class="fixed top-0 left-0 w-full h-full bg-black z-10 pointer-events-none opacity-100 transition-opacity duration-1000 ease-out"></div>
+<div id="fade" class="absolute top-0 left-0 w-full h-full bg-black z-10 pointer-events-none opacity-100 transition-opacity duration-1000 ease-out"></div>
 <section class="flex items-center justify-center w-full h-screen bg-black">
     <img src={imageSrc} alt={chapterImage} class="max-w-full h-auto px-8 md:px-0" />
 </section>

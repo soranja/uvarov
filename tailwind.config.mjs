@@ -16,6 +16,11 @@ export default {
       backgroundImage: {
         palace: "url('/images/biography/junost/spb-filled.png')",
         room: "url('/images/biography/junost/room.png')",
+        library: "url('/images/biography/junost/library.png')",
+        "uvarov-young": "url('/images/biography/junost/uvarov-young.png')",
+        graf: "url('/images/biography/junost/graf.png')",
+        "header-white": "url('../data/common/_images/header-white.svg')",
+        "header-black": "url('../data/common/_images/header-black.svg')",
       },
     },
   },

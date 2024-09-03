@@ -1,19 +1,20 @@
 ---
-
+import headerWhite from '../../data/common/_images/header-white.svg';
 ---
 
-<header id="header-content" class="bg-black shadow text-white mx-auto w-full absolute inset-x-0 top-6">
-	<nav class="mx-auto flex flex-col md:flex-row justify-center items-center w-full uppercase underline-offset-4 text-sm text-center xl:text-lg">
+<header id="header-content" class="bg-black shadow mx-auto absolute inset-x-0 top-24 w-full h-full flex justify-center items-center">
+	<nav class="mx-auto flex flex-col md:flex-row justify-center items-center md:w-[93%] xl:w-[82%] uppercase underline-offset-4 text-center text-xs md:text-sm xl:text-lg z-50">
 		<a class="flex-shrink-0 pl-2 hover:underline" href='/' class="px-2">←</a>
 		<div id="links" class="flex-grow">
 			<!-- links are inserted here -->
 		</div>
-		<div class="flex-shrink-0 pr-2">
-			<button id="toggle-header-button" class="bg-white text-black px-4 py-2">
-				•
+		<div class="md:self-end pr-2">
+			<button id="toggle-header-button" class="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 md:opacity-0">
+				-
 			</button>
 		</div>
 	</nav>
+	<img id="header-bg" src={headerWhite.src} alt="header" class="absolute -z-10 hidden md:block">
 </header>
 
 <script>
@@ -32,27 +33,36 @@
 		const nav = document.getElementById('links');
 		const header = document.getElementById('header-content');
 		const switchBtn = document.getElementById('toggle-header-button');
+		const headerBg = document.getElementById('header-bg'); 
 
 		// Clear previous content
 		nav!.innerHTML = '';
 
 		// Update header style based on the current state
 		if (isMaterials) {
-			header!.classList.remove('bg-black', 'text-white');
+			header!.classList.remove('bg-black','text-white');
 			header!.classList.add('bg-white', 'text-black');
+
+
 			switchBtn!.classList.remove('bg-white', 'text-black');
 			switchBtn!.classList.add('bg-black', 'text-white');
 
+			headerBg!.classList.remove('invert');
+
+
 		} else {
 			header!.classList.remove('bg-white', 'text-black');
-			header!.classList.add('bg-black', 'text-white');
+			header!.classList.add('bg-black','text-white');
+
 			switchBtn!.classList.remove('bg-black', 'text-white');
 			switchBtn!.classList.add('bg-white', 'text-black');
+
+			headerBg!.classList.add('invert');
 		}
 
 		// Create a wrapper div for the links
 		const linksWrapper = document.createElement('div');
-		linksWrapper.className = 'flex justify-center flex-col lg:flex-row gap-x-0 lg:gap-x-2 xl:gap-x-6 py-2 md:py-4';
+		linksWrapper.className = 'flex justify-center flex-col md:flex-row md:gap-x-0 lg:gap-x-2 xl:gap-x-6 py-2';
 
 		// Insert links inside the wrapper
 		links.forEach(link => {
