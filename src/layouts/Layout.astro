@@ -11,6 +11,17 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
 <html lang="ru">
     <head>
         <BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
+        <!-- Slider Script (Splide) -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css"/>
+        <script is:inline defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+        <script is:inline defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+        <!-- Lottie Player -->
+        <script is:inline src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+        <!-- GSAP -->
+        <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script is:inline src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     </head>
 
     <body class="bg-body">

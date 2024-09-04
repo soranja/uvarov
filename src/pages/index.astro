@@ -1,9 +1,11 @@
 ---
 import BaseHead from '../components/global/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import intro from "../data/biography/_videos/intro_FHD.mp4";
 
-import { ViewTransitions } from 'astro:transitions';
+import frame from "../data/intro/_images/frame.png";
+import shield from "../data/intro/_images/shield.png";
+import shieldBlack from "../data/intro/_images/shield-black.png";
+import hand from "../data/intro/_videos/hand.mp4";
 
 interface Props {
 	nextPage: boolean;
@@ -19,83 +21,102 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
 <html lang="ru">
     <head>
         <BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
-		<ViewTransitions />
-		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-		<style>
-            #fade {
-                opacity: 0;
-                transition: opacity 1s ease-out;
-            }
-        </style>
     </head>
-    <body class="bg-body">
-		<div id="set-height" class="block"></div>
-		<video id="intro" class="fixed top-0 left-0 w-full h-full object-cover"  muted>
-			<source src={intro} type="video/mp4">
-		</video>
-		<div id="fade" class="fixed top-0 left-0 w-full h-full bg-black z-10 pointer-events-none"></div>
+    <body class="bg-[url('../data/intro/_images/intro-bg.png')] bg-center bg-cover bg-fixed bg-no-repeat no-scrollbar">
+        <div id="fade" class="fixed top-0 left-0 w-full h-full bg-black pointer-events-none z-50"></div>
+        <div id="hand-container" class="fixed w-full h-screen flex items-center justify-center z-30">
+            <video id="hand-video" src={hand} autoplay playsinline muted class="min-h-screen absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+        </div>
+        <div id="intro-text" class="bg-black text-white fixed w-full min-h-screen flex flex-col items-center justify-center z-30 gap-y-20">
+            <p class="max-w-lg xl:max-w-7xl xl:text-3xl text-justify leading-loose">Алексей Сергеевич Уваров, граф, археолог, историк, почетный член Петербургской Академии наук, основатель, председатель Московского археологического общества и организатор Всероссийских археологических съездов, один из основателей Российского исторического музея.</p>
+            <p class="max-w-lg xl:max-w-7xl xl:text-3xl text-justify leading-loose">Он принадлежит к когорте ярчайших личностей, которыми так богата русская история XIX столетия. Уваров был прекрасно образован, щедро одарен способностями к наукам и обладал недюжинным талантом организатора. Происхождение, титул, родственные и дружеские связи позволяли ему быть вхожим в самые высокие сферы русского общества и использовать это на благо тому делу, которому он служил.</p>
+            <button class="italic bg-white text-black px-8 py-4 rounded-md"><a href="/biography/junost">Перейти в первую главу</a></button>
+        </div>
+        <div class="flex flex-col">
+            <div id="zoom-in-container" class="fixed w-full h-screen flex items-center justify-center">
+                <img id="frame" src={frame.src} alt="Рамка" class="min-h-screen absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0" />
+            </div>
+            <div id="zoom-in-container" class="fixed w-full h-screen flex items-center justify-center">
+                <img id="shield" src={shield.src} alt="Герб" class="min-h-screen absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10" />
+                <img id="shield-black" src={shieldBlack.src} alt="Герб" class="min-h-screen absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20" />
+            </div>
+        </div>
+        <!-- <div id="fade-2" class="fixed top-0 left-0 w-full h-full bg-black pointer-events-none z-50"></div> -->
 	</body>
 </html>
 
-
+<!-- GSAP -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script is:inline src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script>
+    const fadeOverlay = document.getElementById('fade');
+    const videoHand = document.getElementById('hand-video') as HTMLVideoElement;
+    const introText = document.getElementById('intro-text');
+    gsap.set(fadeOverlay, { opacity: 1 });
+    gsap.to(fadeOverlay, { opacity: 0, duration: 3 });
 
-	let frameNumber = 0;
-	const playbackTime = 1550;
-	const setHeight = document.getElementById("set-height");
-	const video = document.getElementById('intro') as HTMLMediaElement;
-	const lottiePlayer = document.createElement('lottie-player');
-	lottiePlayer.setAttribute('src', '../data/common/_videos/loading.json');
-	lottiePlayer.setAttribute('background', 'transparent');
-	lottiePlayer.setAttribute('speed', '1');
-	lottiePlayer.setAttribute('style', 'width: 300px; height: 300px;');
-	lottiePlayer.setAttribute('autoplay', '');
-	const redirectUrl = '/biography/junost';
+    window.addEventListener('load', () => {
+        window.scrollTo(0, 0);
+    });
 
-	const fadeOverlay = document.getElementById('fade');
+    const { innerHeight } = window;
 
-	video.addEventListener('loadeddata', function() {
-		if(video.readyState === HTMLMediaElement.HAVE_ENOUGH_DATA) {
-			setHeight!.style.height = Math.floor(video.duration) * playbackTime + "px";
-		} else {
-			setHeight!.insertAdjacentElement('afterend', lottiePlayer);
-		}	
-	});
+    const timeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#zoom-in-container",
+            pin: true,
+            scrub: 6,
+            end: `+=${innerHeight * 0.3}`,
+            // ease: "power2.out",
+        }
+    });
 
-	window.addEventListener('load', () => {
-		window.scrollTo(0, 0);
-		video.currentTime = 0;
-		fadeOverlay!.style.opacity = '0';
-	});
+    gsap.set(introText, { opacity: 0 });
+    gsap.set(videoHand, { opacity: 0 });
+    gsap.to("#shield-black", { opacity: 0, duration: 1 });
 
-	function scrollPlay() {  
-		let scrollTop = window.scrollY;
-		frameNumber = scrollTop / playbackTime;
-		video.currentTime = frameNumber;
+    timeline.to("#zoom-in-container", {
+        scale: 700, 
+        duration: 10,
+        onUpdate: function() {
+            const currentScale = gsap.getProperty("#zoom-in-container", "scale");
 
-		// Calculate normalized scroll value based on the document height and viewport height
-		const documentHeight = document.documentElement.scrollHeight;
-		const viewportHeight = window.innerHeight;
-		const scrollPosition = scrollTop / (documentHeight - viewportHeight);
+            if (currentScale > "3") {
+                gsap.to("#shield", { opacity: 0, duration: 1 });
+                gsap.to("#shield-black", { opacity: 1, duration: 1 });
+     
+            } else {
+                gsap.to("#shield", { opacity: 1, duration: 1 });
+                gsap.to("#shield-black", { opacity: 0, duration: 1 });
+            };
 
-		// Start fade out when scrollPosition reaches 1
-		if (scrollPosition >= 0.95) {
-			const opacityValue = (scrollPosition - 0.9) * 10; // Fades from 0 to 1 between 0.9 and 1
-			fadeOverlay!.style.opacity = opacityValue.toString();
+            if(currentScale > "3.3") {
+                gsap.to("#hand-video", { opacity: 1, duration: 1});
+                
+                if (videoHand.paused) {
+                    videoHand.currentTime = 0;
+                    videoHand.play();
+                }
+            } else {
+                videoHand.pause();
+                videoHand.currentTime = 0;
+                gsap.to("#hand-video", { opacity: 0, duration: 1 });
+            }
 
-			if (scrollPosition >= 0.95) {
-				setTimeout(() => {
-					window.location.href = redirectUrl; // Redirect after fade-out completes
-				}, 1000); // Adjust the delay if needed
-			}
-			console.log(window.location.href);
-			console.log(redirectUrl);
-		} else {
-			fadeOverlay!.style.opacity = '0';
-		}
-	}
+            if(currentScale > "3.5") { 
+                gsap.to("#shield-black", { opacity: 0, duration: 1 });
+            }
+        },
 
-	window.addEventListener('scroll', () => {
-		window.requestAnimationFrame(scrollPlay);
-	});
+    });
+
+    // if (!videoHand.ended) {
+    //     gsap.to(introText, { opacity: 0, duration: 2 });
+    // }
+
+    videoHand.addEventListener('ended', () => {
+        gsap.to("#hand-video", { opacity: 0, duration: 2 });
+        gsap.to(introText, { opacity: 1, duration: 1 });
+    });
+
 </script>
