@@ -53,6 +53,7 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
     const scrollArrow = document.getElementById('scroll-arrow') as HTMLElement;
     const videoIntroWrapper = document.getElementById('video-intro-wrapper') as HTMLElement;
     const introText = document.getElementById('intro-text') as HTMLElement;
+    let hasTransitioned = false;
 
     document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0,0);
@@ -69,11 +70,10 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
     });
 
     window.addEventListener('scroll', () => {
-        const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-
+        
         console.log('ScrollY:', window.scrollY);
         console.log('ScrollTop:', document.documentElement.scrollTop);
-        if (scrollPercentage > 10) {
+        if (window.scrollY > 100) {
             setTimeout(() => {
                 videoIntroWrapper.classList.add('animate-fadeOut');
                 videoIntroWrapper.classList.add('opacity-0');
@@ -83,8 +83,11 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
             }, 500);
         }
 
-        if (scrollPercentage > 20) {
-            window.location.href = '/biography/junost';
+        if (window.scrollY > 400 && !hasTransitioned) { // Increase threshold to 1000 or higher
+            setTimeout(() => {
+                hasTransitioned = true;
+                window.location.href = '/biography/junost';
+            }, 500);
         }
     });
 </script>
