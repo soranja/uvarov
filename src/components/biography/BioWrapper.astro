@@ -14,7 +14,7 @@ const currentPage = common.find(chapter => chapter.id === slug);
 
 <Layout title={currentPage!.title}>
     <Chapter chapterImage={currentPage!.id}/>
-    <header class="header-wrapper sticky top-0 z-50 w-3/4 mx-auto">
+    <header class="header-wrapper sticky top-0 z-50 w-1/2 mx-auto">
         <Header />
     </header>
     <Main bgColor={`${currentPage!.bgColor}`}>

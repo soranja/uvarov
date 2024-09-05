@@ -1,9 +1,10 @@
 ---
 import BioWrapper from "../../components/biography/BioWrapper.astro";
 import dogAnim from "../../data/biography/_videos/dog_loop.mp4";
+import scrollArrow from "../../data/common/_images/down-arrow.png";
 
 const sectionTheme = {
-    section: "max-w-full flex flex-col justify-center items-center",
+    section: "max-w-full flex flex-col justify-center items-center border-4 border-red-500",
     p: "w-full max-w-6xl my-20 px-10 xl:px-0 text-lg md:text-xl xl:text-2xl leading-relaxed font-semibold opacity-0 text-justify",
     fullScreenDiv: "w-full h-full"
 }
@@ -11,12 +12,16 @@ const sectionTheme = {
 ---
 
 <BioWrapper>
+    <div id="scroll" class="fixed bottom-10 left-10 z-50 animate-bounce invert">
+        <img src={scrollArrow.src} alt="Стрелка-скролл" class="w-2/3">
+    </div>
     <!-- WasBorn -->
-    <section class=`${sectionTheme.section} relative overflow-hidden h-screen`>
-        <img src="/images/biography/junost/spb-filled.png" alt="Дворец" class="absolute bottom-0 max-w-full h-auto z-10" />
-        <p id="palaceSection" class="md:absolute md:top-[33%] xl:top-[10%] text-center font-bold text-black z-5 max-w-2xl opacity-0 px-10 lg:px-0 text-xl md:text-2xl xl:text-4xl">
+    <section class=`${sectionTheme.section} relative overflow-hidden h-screen w-full`>
+
+        <p id="palaceSection" class="md:absolute top-[25%] text-center font-bold text-black z-5 max-w-2xl opacity-0 px-10 lg:px-0 text-xl md:text-2xl xl:text-4xl">
             А. С. Уваров, родился 28 февраля (11 марта) 1824 года в Петербурге.
         </p>
+        <img src="/images/biography/junost/spb-filled.png" alt="Дворец" class="absolute bottom-0 w-2/3 h-auto z-10" />
     </section>
 
     <!-- Parents -->
