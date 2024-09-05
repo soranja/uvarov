@@ -22,6 +22,54 @@ export default {
         "header-white": "url('../data/common/_images/header-white.svg')",
         "header-black": "url('../data/common/_images/header-black.svg')",
       },
+      keyframes: {
+        blur: {
+          "100%": { filter: "blur(0px)" },
+          "0%": { filter: "blur(16px)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        fadeOut: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        fadeInBounce: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-25%)",
+          },
+          "50%": {
+            opacity: "1",
+            transform: "none",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(-25%)",
+          },
+        },
+        bounce: {
+          "0%": {
+            transform: "translateY(-25%)",
+            "animation-timing-function": "cubic-bezier(0.8,0,1,1)",
+          },
+          "50%": {
+            transform: "none",
+            "animation-timing-function": "cubic-bezier(0,0,0.2,1)",
+          },
+          "100%": {
+            transform: "translateY(-25%)",
+            "animation-timing-function": "cubic-bezier(0.8,0,1,1)",
+          },
+        },
+      },
+      animation: {
+        blur: "blur 2s linear",
+        fadeIn: "fadeIn 1s ease-in-out forwards",
+        fadeOut: "fadeOut 1s ease-in-out forwards",
+        fadeInBounce: "fadeInBounce 1s ease-in-out forwards, bounce 1s infinite 1s",
+      },
     },
   },
   plugins: [],

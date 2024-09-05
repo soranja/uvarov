@@ -2,10 +2,12 @@
 import BaseHead from '../components/global/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
-import frame from "../data/intro/_images/frame.png";
-import shield from "../data/intro/_images/shield.png";
-import shieldBlack from "../data/intro/_images/shield-black.png";
+// import frame from "../data/intro/_images/frame.png";
+// import shield from "../data/intro/_images/shield.png";
+// import shieldBlack from "../data/intro/_images/shield-black.png";
 import hand from "../data/intro/_videos/hand.mp4";
+import scrollArrow from "../data/common/_images/down-arrow.png"
+
 
 interface Props {
 	nextPage: boolean;
@@ -22,101 +24,67 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
     <head>
         <BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
     </head>
-    <body class="bg-[url('../data/intro/_images/intro-bg.png')] bg-center bg-cover bg-fixed bg-no-repeat no-scrollbar">
-        <div id="fade" class="fixed top-0 left-0 w-full h-full bg-black pointer-events-none z-50"></div>
-        <div id="hand-container" class="fixed w-full h-screen flex items-center justify-center z-30">
-            <video id="hand-video" src={hand} autoplay playsinline muted class="min-h-screen absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-        </div>
-        <div id="intro-text" class="bg-black text-white fixed w-full min-h-screen flex flex-col items-center justify-center z-30 gap-y-20">
-            <p class="max-w-lg xl:max-w-7xl xl:text-3xl text-justify leading-loose">Алексей Сергеевич Уваров, граф, археолог, историк, почетный член Петербургской Академии наук, основатель, председатель Московского археологического общества и организатор Всероссийских археологических съездов, один из основателей Российского исторического музея.</p>
-            <p class="max-w-lg xl:max-w-7xl xl:text-3xl text-justify leading-loose">Он принадлежит к когорте ярчайших личностей, которыми так богата русская история XIX столетия. Уваров был прекрасно образован, щедро одарен способностями к наукам и обладал недюжинным талантом организатора. Происхождение, титул, родственные и дружеские связи позволяли ему быть вхожим в самые высокие сферы русского общества и использовать это на благо тому делу, которому он служил.</p>
-            <button class="italic bg-white text-black px-8 py-4 rounded-md"><a href="/biography/junost">Перейти в первую главу</a></button>
-        </div>
-        <div class="flex flex-col">
-            <div id="zoom-in-container" class="fixed w-full h-screen flex items-center justify-center">
-                <img id="frame" src={frame.src} alt="Рамка" class="min-h-screen absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0" />
+    <body class="bg-[url('../data/intro/_images/intro-bg.png')] bg-center bg-cover bg-fixed bg-no-repeat">
+        <div id="video-intro-wrapper">
+            <div id="fade-out-screen" class="fixed top-0 left-0 w-full h-full bg-black pointer-events-none z-50 animate-fadeOut"></div>
+            <div class="fixed top-40 left-40 z-10 max-w-2xl text-4xl text-justify leading-relaxed italic text-white animate-blur">
+                <p>Судьба была ко мне благосклонна, позволив в полной мере исполнить свое предназначение.</p>
             </div>
-            <div id="zoom-in-container" class="fixed w-full h-screen flex items-center justify-center">
-                <img id="shield" src={shield.src} alt="Герб" class="min-h-screen absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10" />
-                <img id="shield-black" src={shieldBlack.src} alt="Герб" class="min-h-screen absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20" />
+            <div id="hand-video-container" class="flex flex-col items-center max-h-screen overflow-x-hidden overflow-y-hidden">
+                <video id="hand-video" src={hand} autoplay playsinline muted class="relative left-20 scale-125"/>
+            </div>
+            <div id="scroll-arrow" class="fixed bottom-80 left-40 z-10 opacity-0">
+                <img src={scrollArrow.src} alt="Стрелка-скролл">
             </div>
         </div>
-        <!-- <div id="fade-2" class="fixed top-0 left-0 w-full h-full bg-black pointer-events-none z-50"></div> -->
+        <div id="intro-text" class="bg-black text-white fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-screen flex flex-col items-center justify-center z-10 gap-y-20 opacity-0 transition-opacity duration-1000">
+            <p class="max-w-lg xl:max-w-7xl xl:text-3xl text-justify leading-loose pointer-events-none">Алексей Сергеевич Уваров, граф, археолог, историк, почетный член Петербургской Академии наук, основатель, председатель Московского археологического общества и организатор Всероссийских археологических съездов, один из основателей Российского исторического музея.</p>
+            <p class="max-w-lg xl:max-w-7xl xl:text-3xl text-justify leading-loose pointer-events-none">Он принадлежит к когорте ярчайших личностей, которыми так богата русская история XIX столетия. Уваров был прекрасно образован, щедро одарен способностями к наукам и обладал недюжинным талантом организатора. Происхождение, титул, родственные и дружеские связи позволяли ему быть вхожим в самые высокие сферы русского общества и использовать это на благо тому делу, которому он служил.</p>
+            <div id="scroll-arrow-2" class="z-20 animate-bounce">
+                <img src={scrollArrow.src} alt="Стрелка-скролл">
+            </div>
+        </div>
 	</body>
 </html>
 
-<!-- GSAP -->
-<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script is:inline src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script>
-    const fadeOverlay = document.getElementById('fade');
     const videoHand = document.getElementById('hand-video') as HTMLVideoElement;
-    const introText = document.getElementById('intro-text');
-    gsap.set(fadeOverlay, { opacity: 1 });
-    gsap.to(fadeOverlay, { opacity: 0, duration: 3 });
+    const videoContainer = document.getElementById('hand-video-container') as HTMLElement;
+    const scrollArrow = document.getElementById('scroll-arrow') as HTMLElement;
+    const videoIntroWrapper = document.getElementById('video-intro-wrapper') as HTMLElement;
+    const introText = document.getElementById('intro-text') as HTMLElement;
 
-    window.addEventListener('load', () => {
-        window.scrollTo(0, 0);
-    });
-
-    const { innerHeight } = window;
-
-    const timeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#zoom-in-container",
-            pin: true,
-            scrub: 6,
-            end: `+=${innerHeight * 0.3}`,
-            // ease: "power2.out",
-        }
-    });
-
-    gsap.set(introText, { opacity: 0 });
-    gsap.set(videoHand, { opacity: 0 });
-    gsap.to("#shield-black", { opacity: 0, duration: 1 });
-
-    timeline.to("#zoom-in-container", {
-        scale: 700, 
-        duration: 10,
-        onUpdate: function() {
-            const currentScale = gsap.getProperty("#zoom-in-container", "scale");
-
-            if (currentScale > "3") {
-                gsap.to("#shield", { opacity: 0, duration: 1 });
-                gsap.to("#shield-black", { opacity: 1, duration: 1 });
-     
-            } else {
-                gsap.to("#shield", { opacity: 1, duration: 1 });
-                gsap.to("#shield-black", { opacity: 0, duration: 1 });
-            };
-
-            if(currentScale > "3.3") {
-                gsap.to("#hand-video", { opacity: 1, duration: 1});
-                
-                if (videoHand.paused) {
-                    videoHand.currentTime = 0;
-                    videoHand.play();
-                }
-            } else {
-                videoHand.pause();
-                videoHand.currentTime = 0;
-                gsap.to("#hand-video", { opacity: 0, duration: 1 });
-            }
-
-            if(currentScale > "3.5") { 
-                gsap.to("#shield-black", { opacity: 0, duration: 1 });
-            }
-        },
-
-    });
-
-    // if (!videoHand.ended) {
-    //     gsap.to(introText, { opacity: 0, duration: 2 });
-    // }
+    document.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0,0);
+    })
 
     videoHand.addEventListener('ended', () => {
-        gsap.to("#hand-video", { opacity: 0, duration: 2 });
-        gsap.to(introText, { opacity: 1, duration: 1 });
+        setTimeout(() => {
+            scrollArrow.classList.remove('opacity-0');
+            scrollArrow.classList.add('animate-fadeInBounce');
+            videoContainer.classList.remove('overflow-hidden');
+            videoContainer.classList.remove('max-h-screen');
+            videoContainer.classList.add('overflow-scroll');
+        }, 1000);
     });
 
+    window.addEventListener('scroll', () => {
+        const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+        console.log('ScrollY:', window.scrollY);
+        console.log('ScrollTop:', document.documentElement.scrollTop);
+        if (scrollPercentage > 10) {
+            setTimeout(() => {
+                videoIntroWrapper.classList.add('animate-fadeOut');
+                videoIntroWrapper.classList.add('opacity-0');
+                videoIntroWrapper.classList.add('pointer-events-none');
+                introText.classList.remove('opacity-0');
+                videoIntroWrapper.classList.add('mb-80');
+            }, 500);
+        }
+
+        if (scrollPercentage > 20) {
+            window.location.href = '/biography/junost';
+        }
+    });
 </script>
