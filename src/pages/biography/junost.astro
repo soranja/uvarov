@@ -75,12 +75,12 @@ const sectionTheme = {
     }
 
     #scroll {
-    filter: invert(0);
-    transition: filter 0.5s ease-in-out;
-}
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
 
-    #scroll.invert {
-        filter: invert(1);
+    #scroll.opacity-100 {
+        opacity: 1;
     }
 
     .text-hidden {
@@ -401,10 +401,10 @@ const sectionTheme = {
         entries.forEach((entry) => {
             if (!entry.isIntersecting) {
                 header.classList.add('opacity-100');  // Fade in when scrolled past
-                scrollArrow.classList.add('invert');
+                scrollArrow.classList.remove('opacity-100');
             } else {
                 header.classList.remove('opacity-100');  // Fade out when back in view   
-                scrollArrow.classList.remove('invert');  // Fade out when back in view   
+                scrollArrow.classList.add('opacity-100');  // Fade out when back in view   
             }
         });
     }, { threshold: 0.1 });
