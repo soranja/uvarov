@@ -1,8 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Main from "../global/Main.astro";
-import Chapter from './Chapter.astro';
-import Header from "../global/Header.astro";
+// import Chapter from './Chapter.astro';
+// import Header from "../global/Header.astro";
 
 import common from '../../data/biography/common.json';
 
@@ -13,10 +13,8 @@ const currentPage = common.find(chapter => chapter.id === slug);
 ---
 
 <Layout title={currentPage!.title}>
-    <Chapter chapterImage={currentPage!.id}/>
-    <header class="header-wrapper sticky top-0 z-50 w-1/2 mx-auto">
-        <Header />
-    </header>
+    <!-- <Chapter chapterImage={currentPage!.id}/> -->
+     
     <Main bgColor={`${currentPage!.bgColor}`}>
         <slot />
     </Main>

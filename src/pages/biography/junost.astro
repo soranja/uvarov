@@ -1,126 +1,537 @@
 ---
 import BioWrapper from "../../components/biography/BioWrapper.astro";
-import dogAnim from "../../data/biography/_videos/dog_loop.mp4";
+
 import scrollArrow from "../../data/common/_images/down-arrow.png";
+import junost from '../../data/biography/_images/chapters/junost.svg';
+import Header from "../../components/global/Header.astro";
+import father from "../../data/biography/_images/junost/father.png";
+import mother from "../../data/biography/_images/junost/mother.png";
+
+import portrait_1 from "../../data/biography/_images/junost/portraits/shevyrev.png";
+import portrait_2 from "../../data/biography/_images/junost/portraits/granovsky.png";
+import portrait_3 from "../../data/biography/_images/junost/portraits/pletnev.png";
+import portrait_4 from "../../data/biography/_images/junost/portraits/jukovsky.png";
+import portrait_5 from "../../data/biography/_images/junost/portraits/pogodin.png";
+
+const portraits = [
+    { id: 1, src: portrait_1.src, alt: "Portrait 1" },
+    { id: 2, src: portrait_2.src, alt: "Portrait 2" },
+    { id: 3, src: portrait_3.src, alt: "Portrait 3" },
+    { id: 4, src: portrait_4.src, alt: "Portrait 4" },
+    { id: 5, src: portrait_5.src, alt: "Portrait 5" },
+  ];
+
+
+import dogAnim from "../../data/biography/_videos/dog_start.mp4";
+import handwrite_1 from "../../data/biography/_images/junost/handwrite_1.png";
+
+import handwrite_2 from "../../data/biography/_images/junost/handwrite_2.png";
 
 const sectionTheme = {
-    section: "max-w-full flex flex-col justify-center items-center border-4 border-red-500",
-    p: "w-full max-w-6xl my-20 px-10 xl:px-0 text-lg md:text-xl xl:text-2xl leading-relaxed font-semibold opacity-0 text-justify",
-    fullScreenDiv: "w-full h-full"
+    p: "w-full max-w-4xl xl:max-w-6xl px-10 xl:px-0 text-lg md:text-2xl xl:text-5xl xl:leading-relaxed font-semibold text-justify",
+    fullScreenDiv: "w-full h-full",
+    bgJunost: "bg-junost-bg bg-no-repeat bg-cover"
 }
-
 ---
 
+<style>
+    .section {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        align-content: center;
+
+    }
+
+    .fixed-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        opacity: 0;
+        transition: all 1s ease-in-out;
+        z-index: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .show {
+        opacity: 1;
+        z-index: 10;
+    }
+
+    #header {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    #header.opacity-100 {
+        opacity: 1;
+    }
+
+    #scroll {
+    filter: invert(0);
+    transition: filter 0.5s ease-in-out;
+}
+
+    #scroll.invert {
+        filter: invert(1);
+    }
+
+    .text-hidden {
+        transition: all 1s ease-out;
+        transform: translateY(250%);
+        opacity: 0;
+    }
+
+    .show-text {
+        transform: translateY(0);
+        opacity: 1;
+        animation-fill-mode: both;
+    }
+
+    #info-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 1000;
+    }
+
+    #info-overlay.visible {
+        display: block;
+    }
+
+    #info-overlay.visible {
+        display: block;
+    }
+
+    #close-overlay {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    #close-overlay:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    #overlay-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+    }
+
+    #content {
+        max-width: 90%;  /* Set maximum width to 90% of the viewport */
+        max-height: 90%; /* Set maximum height to 90% of the viewport */
+        object-fit: contain;  /* Ensure the image scales proportionally */
+    }
+
+</style>
+
 <BioWrapper>
-    <div id="scroll" class="fixed bottom-10 left-10 z-50 animate-bounce invert">
-        <img src={scrollArrow.src} alt="Стрелка-скролл" class="w-2/3">
+    <!-- Scroll Hint -->
+    <div id="scroll" class="fixed bottom-6 left-0 w-full flex justify-center z-150 animate-bounce">
+        <img src={scrollArrow.src} alt="Стрелка-скролл" class="max-w-[50px] h-auto">
     </div>
-    <!-- WasBorn -->
-    <section class=`${sectionTheme.section} relative overflow-hidden h-screen w-full`>
 
-        <p id="palaceSection" class="md:absolute top-[25%] text-center font-bold text-black z-5 max-w-2xl opacity-0 px-10 lg:px-0 text-xl md:text-2xl xl:text-4xl">
-            А. С. Уваров, родился 28 февраля (11 марта) 1824 года в Петербурге.
-        </p>
-        <img src="/images/biography/junost/spb-filled.png" alt="Дворец" class="absolute bottom-0 w-2/3 h-auto z-10" />
-    </section>
+    <!-- Chapter Intro -->
+    <section id="chapter-intro" class="section">
+        <div class="fixed-wrapper bg-black">
+            <img src={junost.src} alt='Юность' class="max-w-full h-auto px-8 md:px-0" />
+        </div>
+      </section>
+    
+    <!-- Header -->
+    <header id="header" class="header-wrapper fixed top-0 z-150 w-full mx-auto opacity-0 transition-opacity duration-1000">
+        <Header />
+    </header>
 
-    <!-- Parents -->
-    <section class=`${sectionTheme.section} bg-room bg-center bg-cover h-screen`>
-        <p id="parents" class=`${sectionTheme.p}`>
-            Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
-        </p>
-        <div class=`${sectionTheme.fullScreenDiv}`>
+    <!-- Was Born -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <div class="show-up-text-wrapper flex flex-col justify-end items-center h-full py-20">
+                <p class="text-hidden text-center font-bold text-black max-w-2xl text-4xl z-5 leading-normal">
+                    А. С. Уваров, родился 28 февраля (11 марта) 1824 года в Петербурге.
+                </p>
+                <img src="/images/biography/junost/spb-filled.png" alt="Дворец" class="w-full h-auto z-10" />
+            </div>
+        </div>
+    </section> 
+
+    <!-- Parents Text -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <p class=`${sectionTheme.p}`>
+                Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
+            </p>
+        </div>
+      </section>
+
+    <!-- Father / Mother -->
+    <section class="section father-mother-wrapper">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <div class="bg-room bg-center bg-cover w-full h-full">
+                <div class="father-wrapper fixed flex justify-between items-center px-20 font-semibold">
+                    <img src={father.src} alt="Отец">
+                    <p class="max-w-3xl">Отец Алексея Сергеевича, Сергей Семенович Уваров (1786–1855) – выдающийся государственный деятель, президент Петербургской Академии наук (1818–1855), министр народного просвещения (1833–1849), с именем которого связано становление в России системы общественного образования.</p>
+                </div>
+                <div class="mother-wrapper fixed flex justify-between items-center px-20 font-semibold">
+                    <img src={mother.src} alt="Мать">
+                    <p class="max-w-3xl">Мать А. С. Уварова, Екатерина Алексеевна, урожденная Разумовская – дочь министра народного просвещения Алексея Кирилловича и внучатая племянница Алексея Григорьевича Разумовских.</p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Graf Text -->
+      <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <p class=`${sectionTheme.p}`>
+                <span class="italic">
+                    «За особливые заслуги и высокие достоинства»
+                </span> 
+                <br>
+                <br>
+                Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа с нисходящим потомством.
+            </p>
+        </div>
+      </section>
+
+    <!-- Graf Image -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <img src="/images/biography/junost/graf.png" alt="Грамота" class="max-h-[75%]" />
         </div>
     </section>
 
-    <!-- Graf -->
-    <section class=`${sectionTheme.section} h-full pb-20`>
-        <p id="regards" class=`${sectionTheme.p}`>
-            <span class="italic">«За особливые заслуги и высокие достоинства»</span>
-            <br> 
-            Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа с нисходящим потомством.
-        </p>
-        <div class="w-full h-full flex flex-col justify-center items-center">
-            <img src="/images/biography/junost/graf.png" alt="Грамота" class="w-full max-w-lg md:max-w-2xl lg:max-w-7xl" />
+    <!-- Science Text -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <p class=`${sectionTheme.p}`>
+                Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.
+            </p>
+        </div>
+    </section>
+    
+    
+    <!-- Science Slider -->
+    <section class="section science-slider-wrapper">
+        <div class={`fixed-wrapper ${sectionTheme.bgJunost}`}>
+            <div class="bg-library bg-center bg-cover pt-28 w-full h-full">
+                <div class="w-full h-[80%]">
+                    <div x-data="{ init() {
+                            new Splide(this.$refs.splide, {
+                                perPage: 3,
+                                perMove: 1,
+                                pagination: false,
+                                breakpoints: {
+                                    640: {
+                                        perPage: 1,
+                                    },
+                                },
+                            }).mount();
+                        },
+                    }">
+                        <section
+                            class="splide"
+                            aria-label="Science Portraits Slider"
+                            x-ref="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    {portraits.map((portrait) => (
+                                        <li class="splide__slide flex justify-center">
+                                            <div class="w-[600px] h-[750px]">
+                                                <img
+                                                    alt={portrait.alt}
+                                                    src={portrait.src}
+                                                    class="object-cover bottom-0 w-full h-full"
+                                                />
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Library -->
-    <section class=`${sectionTheme.section} bg-library bg-center bg-cover h-screen`>
-        <p id="library" class=`${sectionTheme.p}`>
-            Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.
-        </p>
-        <div class=`${sectionTheme.fullScreenDiv}`>
-        </div>
-    </section>
-
-    <!-- Father -->
-    <section class=`${sectionTheme.section} h-full pb-24`>
-        <p id="father" class=`${sectionTheme.p}`>
-            Но главным в формировании личности А.С. Уварова стало влияние отца. Во многом, благодаря ему, Алексей Уваров сложился как человек европейской образованности и глубочайшей преданности России.
-        </p>
-        <div class=`w-full h-full flex flex-col justify-center items-center`>
-            <video class="object-cover" autoplay loop muted>
-                <source src={dogAnim} type="video/mp4">
-            </video>
-        </div>
-    </section>
-
-    <!-- Uni -->
-    <section class=`${sectionTheme.section} relative h-screen xl:mt-24 xl:mb-24`>
-        <p id="uni" class="md:absolute md:top-[15%]  xl:-top-16 text-justify font-bold text-black z-5 max-w-6xl opacity-0 px-10 xl:px-0 text-lg md:text-xl xl:text-2xl">
-            В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший получил основательную подготовку по истории, словесности, географии, древним и новым европейским языкам, точным и естественным наукам. Интерес к истории, древностям привел его на словесное отделение философского факультета Петербургского университета.
-        </p>
-        <img src="/images/biography/junost/spbgu.png" alt="СПБГУ" class="absolute -bottom-10 max-w-full h-auto" />
-    </section>
-
-    <!-- Grefe -->
-    <section class='py-40 max-w-full h-full flex flex-col justify-start items-center gap-y-20 xl:mb-24'>
-        <p id="grefe-1" class='w-full max-w-6xl px-10 xl:px-0 text-lg md:text-2xl xl:text-4xl leading-relaxed font-semibold opacity-0 text-justify'>
-            Серьезное влияние на формирование будущего ученого оказали профессор Ф.Б. Грефе, читавший курс греческой словесности, и профессор русской истории Н.Г. Устрялов.
-        </p>
-        <p id="grefe-2" class='w-full max-w-6xl px-10 xl:px-0 text-lg md:text-2xl xl:text-4xl leading-relaxed font-semibold opacity-0 text-justify'>
-            Под его влиянием Уваров выбрал тему диссертации 
-            <br> 
-            <span class="italic">
-                «Исследование, в какой степени дополняются сведения о первом самозванце актами, изданными Археографической комиссией».
-            </span>
-        </p>
-    </section>
-
-    <!-- Uvarov Young -->
-    <section class="h-screen bg-uvarov-young bg-[top_center] bg-cover flex xl:items-center xl:justify-start items-end justify-center">
-        <div class="text-white pb-20 md:pb-10 xl:pl-60 xl:pb-0 max-w-xl text-justify px-10 md:px-0">
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus autem reprehenderit nam dolorem ex nostrum illum quisquam voluptatibus laudantium fuga rem fugiat, consequuntur sunt optio esse deserunt explicabo, amet totam natus ea ipsam ad.
+    <!-- Father Influence Text -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <p class=`${sectionTheme.p}`>
+                Но главным в формировании личности А.С. Уварова стало влияние отца. Во многом, благодаря ему, Алексей Уваров сложился как человек европейской образованности и глубочайшей преданности России.
             </p>
         </div>
     </section>
 
-    <!-- Diploma -->
-    <section class=`${sectionTheme.section} h-full pb-20`>
-        <p id="diploma" class=`${sectionTheme.p}`>
-            Окончив университет со степенью кандидата в 1845 году, поступил на службу в Министерство иностранных дел.
-        </p>
-        <div class="w-full h-full flex flex-col justify-center items-center">
-            <img src="/images/biography/junost/diploma.png" alt="Диплом" class="w-full max-w-lg md:max-w-2xl lg:max-w-7xl" />
+    <!-- Dog Animation -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <div class="w-full max-h-screen flex justify-center items-center">
+                <div class="info-icon-video z-120 cursor-pointer">
+                    <i class="fas fa-info-circle text-2xl text-black"></i>
+                </div>
+                <video id="dog-anim" class="object-cover h-[75%] relative left-20" autoplay muted>
+                    <source src={dogAnim} type="video/mp4">
+                </video>
+                <img src={handwrite_1.src} alt="Почерк-1" class="max-h-[75%] relative right-20 hover:filter hover:drop-shadow-[0_15px_5px_rgba(0,0,0,0.9)] transition-filter duration-300" />
+                <div class="info-icon-img z-120 cursor-pointer">
+                    <i class="fas fa-info-circle text-2xl text-black"></i>
+                </div>
+            </div>
         </div>
     </section>
-    
+
+    <!-- Education Text Scroll Up -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <div class="show-up-text-wrapper flex flex-col justify-center items-center h-full py-20">
+                <p class="text-hidden text-left font-bold text-black max-w-4xl text-xl z-5 leading-snug relative top-28 -left-28">
+                    В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший получил основательную подготовку по истории, словесности, географии, древним и новым европейским языкам, точным и естественным наукам. Интерес к истории, древностям привел его на словесное отделение философского факультета Петербургского университета.
+                </p>
+                <img src="/images/biography/junost/spbgu.png" alt="СПБГУ" class="w-full h-auto z-10" />
+            </div>
+        </div>
+    </section> 
+
+    <!-- Father Influence Text -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <div class="flex flex-col gap-y-20">
+                <p class='w-full max-w-4xl xl:max-w-6xl px-10 xl:px-0 text-lg md:text-2xl xl:text-4xl xl:leading-normal font-semibold text-justify'>
+                    Серьезное влияние на формирование будущего ученого оказали профессор Ф.Б. Грефе, читавший курс греческой словесности, и профессор русской истории Н.Г. Устрялов. 
+                </p>
+                <p class='w-full max-w-4xl xl:max-w-6xl px-10 xl:px-0 text-lg md:text-2xl xl:text-4xl xl:leading-normal font-semibold text-justify'>
+                    Под его влиянием Уваров выбрал тему диссертации 
+                    <br>
+                    <span class="italic">
+                        «Исследование, в какой степени дополняются сведения о первом самозванце актами, изданными Археографической комиссией».
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Uvarov Young -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost} `>
+            <div class="bg-uvarov-young w-full h-full bg-no-repeat bg-[top_left] flex justify-start items-center" style="background-size: 115%;">
+                <div class="h-[60vh] w-[40vw] overflow-hidden pl-40">
+                    <img src={handwrite_2.src} alt="Почерк-2" class="h-full w-full object-cover object-left-top">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Father Influence Text -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <p class=`${sectionTheme.p}`>
+                Окончив университет со степенью кандидата в 1845 году, поступил на службу в Министерство иностранных дел.
+            </p>
+        </div>
+    </section>
+
+    <!-- Diploma Image -->
+    <section class="section">
+        <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
+            <img src="/images/biography/junost/diploma.png" alt="Диплом" class="max-h-[85%]" />
+        </div>
+    </section>
+
+    <!-- Info Overlay -->
+    <div id="info-overlay">
+        <button id="close-overlay" class="absolute top-5 right-5 text-white text-3xl z-1100">
+            &times;
+        </button>
+        <div id="overlay-content" class="flex justify-center items-center h-full w-full">
+            <img id="content" class="text-white" src="" alt="">
+        </div>
+    </div>
+
 </BioWrapper>
 
-<!-- P tag fade in (by ID) -->
-<script>
-    const sectionIds = ['palaceSection', 'parents', 'regards', 'library', 'father', 'uni', 'grefe-1', 'grefe-2', 'diploma'];
-    const sections = sectionIds.map(id => document.getElementById(id)).filter(el => el !== null);
 
-    const observer = new IntersectionObserver((entries) => {
+<script>
+
+
+    // SECTIONS OBSERVER
+    const sections = document.querySelectorAll('.section');
+    const sectionsObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.remove('opacity-0');
-                entry.target.classList.add('opacity-100', 'transition-opacity', 'duration-[2000ms]', 'ease-out');
+            const wrapper = entry.target.querySelector('.fixed-wrapper');
+            if(wrapper) {
+                if (entry.isIntersecting) {
+                    wrapper.classList.add('show');
+
+                } else {
+                    wrapper.classList.remove('show');
+                }
             }
         });
+    }, { threshold: 0.5 });
+
+    sections.forEach((section) => sectionsObserver.observe(section));
+
+
+    // HEADER FADE OBSERVER
+    const chapterIntro = document.getElementById('chapter-intro') as HTMLElement;
+    const header = document.getElementById('header') as HTMLElement;
+    const scrollArrow = document.getElementById('scroll') as HTMLElement; // Scroll arrow element
+    const headerObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                header.classList.add('opacity-100');  // Fade in when scrolled past
+                scrollArrow.classList.add('invert');
+            } else {
+                header.classList.remove('opacity-100');  // Fade out when back in view   
+                scrollArrow.classList.remove('invert');  // Fade out when back in view   
+            }
+        });
+    }, { threshold: 0.1 });
+
+    headerObserver.observe(chapterIntro);
+
+
+    // SHOW UP TEXT OBSERVER (Works only once yet, need fix)
+    const showUpTextWrappers = document.querySelectorAll('.show-up-text-wrapper');
+    const textWrapperObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const text = entry.target.querySelector('.text-hidden') as HTMLElement;
+            console.log(text);
+            if(entry.isIntersecting) {
+                text.classList.add('show-text');
+                
+            } else {
+                text.classList.remove('show-text');
+            }
+        });
+    }, { threshold: 1 });
+
+    showUpTextWrappers.forEach((section) => textWrapperObserver.observe(section));
+
+
+    // FATHER + MOTHER --- GSAP
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Create a GSAP timeline for both father and mother animations
+    const fatherMotherTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".father-mother-wrapper",
+            start: "top 75%", // Trigger the animation when the section hits 75% of the viewport height
+            end: "bottom 25%", // End when the bottom of the section hits 25% of the viewport
+            scrub: 1.5, // Link the animation to the scroll position more smoothly
+            toggleActions: "play none none reverse", // Play forward on enter, reverse on leave
+            invalidateOnRefresh: true, // Recalculate positions on refresh
+        }
     });
-    sections.forEach((el) => observer.observe(el));
+
+    // Father animation - comes from the left and then moves away
+    fatherMotherTimeline
+        .fromTo(
+            ".father-wrapper",
+            { x: "-120%", opacity: 0 }, // Initially off-screen to the left
+            { x: "0%", opacity: 1, duration: 1.5, ease: "power2.inOut" } // Smoothly scrolls in and appears
+        )
+        .to(
+            ".father-wrapper",
+            { x: "-120%", opacity: 0, duration: 1.5, ease: "power2.inOut" }, // Moves out smoothly
+            "+=1" // Slight pause before it scrolls out
+        );
+
+    // Mother animation - stays on screen after the father moves out
+    fatherMotherTimeline
+        .fromTo(
+            ".mother-wrapper",
+            { x: "120%", opacity: 0 }, // Initially off-screen to the right
+            { x: "0%", opacity: 1, duration: 1.5, ease: "power2.inOut" }, // Smoothly scrolls in and appears
+            "-=1" // Mother comes in slightly before the father moves away
+        )
+        .to(
+            ".mother-wrapper",
+            { opacity: 1, duration: 2 }, // Keep mother visible without moving her out
+            "+=0.5"
+        );
+
+    // VIDEO PLAY ON HOVER
+    const dogAnimation = document.getElementById('dog-anim') as HTMLVideoElement; // Use getElementById instead of querySelector
+    let reverseInterval : any;
+
+    dogAnimation.addEventListener('mouseenter', () => {
+        clearInterval(reverseInterval);  // Clear reverse interval if already running
+        dogAnimation.play();  // Play the video when mouse enters
+    });
+
+    dogAnimation.addEventListener('mouseleave', () => {
+        dogAnimation.pause();  // Pause the video on mouse leave
+        reverseVideo();  // Start reverse playback
+    });
+
+    function reverseVideo() {
+        reverseInterval = setInterval(() => {
+            if (dogAnimation.currentTime <= 0) {
+                clearInterval(reverseInterval);  // Stop when the video reaches the start
+            } else {
+                dogAnimation.currentTime -= 0.05;  // Move the video time backwards
+            }
+        }, 50);  // Adjust the speed of reverse playback
+    }
+
+    // INFO OVERLAY
+    const infoOverlay = document.getElementById('info-overlay') as HTMLElement;
+    const infoIcons = document.querySelectorAll('.info-icon-video, .info-icon-img');
+    const closeOverlay = document.getElementById('close-overlay') as HTMLElement;
+    const overlayContent = document.getElementById('overlay-content') as HTMLElement;
+
+    import handwrite1Full from '../../data/biography/_images/junost/handwrite_1_full.png';
+    import uvarovYouung1 from '../../data/biography/_images/junost/uvarov_young_1.png';
+
+    infoIcons.forEach((icon) => {
+        icon.addEventListener('click', (e) => {
+            // Determine which content to display based on the clicked icon
+            const contentToShow = document.getElementById('content') as HTMLImageElement;
+            
+            if (icon.classList.contains('info-icon-video')) {
+                contentToShow.src = `${uvarovYouung1.src}`;
+                contentToShow.alt = 'Портрет с собакой';
+            } else if (icon.classList.contains('info-icon-img')) {
+                contentToShow.src = `${handwrite1Full.src}`;
+                contentToShow.alt = 'Почерк-1';
+            }
+
+            // Clear any existing content in the overlay
+            overlayContent.innerHTML = '';
+            overlayContent.appendChild(contentToShow);
+
+            // Show the overlay
+            infoOverlay.classList.add('visible');
+        });
+    });
+
+    closeOverlay.addEventListener('click', () => {
+        infoOverlay.classList.remove('visible'); // Hide the overlay
+    });
+
 </script>

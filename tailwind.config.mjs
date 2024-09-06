@@ -13,7 +13,9 @@ export default {
         epilogue: "#CDA26C",
         materials: "#EEE",
       },
+
       backgroundImage: {
+        "junost-bg": "url('../data/biography/_images/junost/junost-bg.jpg')",
         palace: "url('/images/biography/junost/spb-filled.png')",
         room: "url('/images/biography/junost/room.png')",
         library: "url('/images/biography/junost/library.png')",
@@ -68,7 +70,21 @@ export default {
         blur: "blur 2s linear",
         fadeIn: "fadeIn 1s ease-in-out forwards",
         fadeOut: "fadeOut 1s ease-in-out forwards",
-        fadeInBounce: "fadeInBounce 1s ease-in-out forwards, bounce 1s infinite 1s",
+        fadeInBounce:
+          "fadeInBounce 1s ease-in-out forwards, bounce 1s infinite 1s",
+      },
+      zIndex: {
+        60: "60",
+        70: "70",
+        80: "80",
+        90: "90",
+        100: "100",
+        110: "110",
+        120: "120",
+        130: "130",
+        140: "140",
+        150: "150",
+        160: "160",
       },
     },
   },
