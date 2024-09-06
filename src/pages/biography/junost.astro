@@ -24,6 +24,8 @@ const portraits = [
 
 import dogAnim from "../../data/biography/_videos/dog_start.mp4";
 import handwrite_1 from "../../data/biography/_images/junost/handwrite_1.png";
+import handwrite1Full from '../../data/biography/_images/junost/handwrite_1_full.png';
+import uvarovYoung1 from '../../data/biography/_images/junost/uvarov_young_1.png';
 
 import handwrite_2 from "../../data/biography/_images/junost/handwrite_2.png";
 
@@ -142,6 +144,29 @@ const sectionTheme = {
         object-fit: contain;  /* Ensure the image scales proportionally */
     }
 
+    .splide__slide img {
+        max-width: 90%; 
+        max-height: 80vh;
+        margin: 20px auto;
+        object-fit: contain;
+    }
+
+    /* .img-magnifier-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .img-magnifier-glass {
+        position: absolute;
+        border: 3px solid #000;
+        cursor: none;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        pointer-events: none;
+    } */
+    
 </style>
 
 <BioWrapper>
@@ -216,7 +241,9 @@ const sectionTheme = {
     <!-- Graf Image -->
     <section class="section">
         <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
-            <img src="/images/biography/junost/graf.png" alt="Грамота" class="max-h-[75%]" />
+            <!-- <div class="img-magnifier-container"> -->
+                <img id="grafImage" src="/images/biography/junost/graf.png" alt="Грамота" class="max-h-[75%]" />
+            <!-- </div> -->
         </div>
     </section>
 
@@ -286,15 +313,12 @@ const sectionTheme = {
     <!-- Dog Animation -->
     <section class="section">
         <div class=`fixed-wrapper ${sectionTheme.bgJunost}`>
-            <div class="w-full max-h-screen flex justify-center items-center">
-                <div class="info-icon-video z-120 cursor-pointer">
-                    <i class="fas fa-info-circle text-2xl text-black"></i>
-                </div>
+            <div class="w-full h-[90%] flex justify-center items-center">
                 <video id="dog-anim" class="object-cover h-[75%] relative left-20" autoplay muted>
                     <source src={dogAnim} type="video/mp4">
                 </video>
                 <img src={handwrite_1.src} alt="Почерк-1" class="max-h-[75%] relative right-20 hover:filter hover:drop-shadow-[0_15px_5px_rgba(0,0,0,0.9)] transition-filter duration-300" />
-                <div class="info-icon-img z-120 cursor-pointer">
+                <div class="info-icon-slider z-200 cursor-pointer absolute bottom-20 left-1/2 transform -translate-x-1/2">
                     <i class="fas fa-info-circle text-2xl text-black"></i>
                 </div>
             </div>
@@ -334,9 +358,12 @@ const sectionTheme = {
     <!-- Uvarov Young -->
     <section class="section">
         <div class=`fixed-wrapper ${sectionTheme.bgJunost} `>
-            <div class="bg-uvarov-young w-full h-full bg-no-repeat bg-[top_left] flex justify-start items-center" style="background-size: 115%;">
-                <div class="h-[60vh] w-[40vw] overflow-hidden pl-40">
+            <div class="bg-uvarov-young w-full h-full bg-no-repeat bg-[top_-200px_left] flex justify-between items-center px-40" style="background-size: 120%;">
+                <div class="h-[60vh] w-[40vw] overflow-hidden">
                     <img src={handwrite_2.src} alt="Почерк-2" class="h-full w-full object-cover object-left-top">
+                </div>
+                <div class="info-icon-young z-120 cursor-pointer">
+                    <i class="fas fa-info-circle text-2xl text-white"></i>
                 </div>
             </div>
         </div>
@@ -364,8 +391,9 @@ const sectionTheme = {
             &times;
         </button>
         <div id="overlay-content" class="flex justify-center items-center h-full w-full">
-            <img id="content" class="text-white" src="" alt="">
-        </div>
+            <div id="overlay-content" class="flex justify-center items-center h-full w-full">
+                <!-- Overlay Content -->
+            </div>
     </div>
 
 </BioWrapper>
@@ -500,38 +528,126 @@ const sectionTheme = {
     }
 
     // INFO OVERLAY
-    const infoOverlay = document.getElementById('info-overlay') as HTMLElement;
-    const infoIcons = document.querySelectorAll('.info-icon-video, .info-icon-img');
-    const closeOverlay = document.getElementById('close-overlay') as HTMLElement;
-    const overlayContent = document.getElementById('overlay-content') as HTMLElement;
 
     import handwrite1Full from '../../data/biography/_images/junost/handwrite_1_full.png';
-    import uvarovYouung1 from '../../data/biography/_images/junost/uvarov_young_1.png';
+    import uvarovYoung1 from '../../data/biography/_images/junost/uvarov_young_1.png';
+    import uvarovYoung2 from '../../data/biography/_images/junost/uvarov_young_2.png';
 
-    infoIcons.forEach((icon) => {
-        icon.addEventListener('click', (e) => {
-            // Determine which content to display based on the clicked icon
-            const contentToShow = document.getElementById('content') as HTMLImageElement;
-            
-            if (icon.classList.contains('info-icon-video')) {
-                contentToShow.src = `${uvarovYouung1.src}`;
-                contentToShow.alt = 'Портрет с собакой';
-            } else if (icon.classList.contains('info-icon-img')) {
-                contentToShow.src = `${handwrite1Full.src}`;
-                contentToShow.alt = 'Почерк-1';
-            }
+    const infoOverlay = document.getElementById('info-overlay') as HTMLElement;
+    const overlayContent = document.getElementById('overlay-content') as HTMLElement;
+    const closeOverlay = document.getElementById('close-overlay') as HTMLElement;
 
-            // Clear any existing content in the overlay
-            overlayContent.innerHTML = '';
-            overlayContent.appendChild(contentToShow);
-
-            // Show the overlay
-            infoOverlay.classList.add('visible');
-        });
-    });
-
+    // Add event listener for the close button
     closeOverlay.addEventListener('click', () => {
         infoOverlay.classList.remove('visible'); // Hide the overlay
+        overlayContent.innerHTML = ''; // Clear previous content
     });
+
+    // Function to open the overlay with dynamic content
+    function openOverlay(contentType : string) {
+        // Clear any existing content
+        overlayContent.innerHTML = '';
+
+        if (contentType === 'slider') {
+            // Add slider HTML to the overlay content
+            overlayContent.innerHTML = `
+                <div x-data="{ init() {
+                    new Splide(this.$refs.splideOverlay, {
+                        perPage: 1,
+                        pagination: true,
+                        breakpoints: {
+                            640: {
+                                perPage: 1,
+                            },
+                        },
+                    }).mount();
+                }}">
+                    <section class="splide" aria-label="Overlay Image Slider" x-ref="splideOverlay">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide flex justify-center">
+                                    <img src="${uvarovYoung1.src}" alt="Dog Portrait" style="max-width: 90%; max-height: 80vh; margin: 20px auto; object-fit: contain;" />
+                                </li>
+                                <li class="splide__slide flex justify-center">
+                                    <img src="${handwrite1Full.src}" alt="Handwrite 1" style="max-width: 90%; max-height: 80vh; margin: 20px auto; object-fit: contain;" />
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            `;
+        } else if (contentType === 'image') {
+            // Add single image HTML to the overlay content
+            overlayContent.innerHTML = `
+                <img src="${uvarovYoung2.src}" alt="Uvarov Full Portrait" class="object-cover max-w-[90%] max-h-[90%]" />
+            `;
+        }
+
+        // Show the overlay
+        infoOverlay.classList.add('visible');
+    }
+
+    // Add event listeners for the relevant icons to trigger the overlay
+    document.querySelector('.info-icon-slider')!.addEventListener('click', () => openOverlay('slider'));
+    document.querySelector('.info-icon-young')!.addEventListener('click', () => openOverlay('image'));
+
+
+    // MAGNIFIER
+    // function magnify(imgID : any, zoom : any) {
+    //     const img = document.getElementById(imgID) as HTMLImageElement;
+
+    //     if (!img) return; // Ensure the image exists
+
+    //     const glass = document.createElement("div");
+    //     glass.setAttribute("class", "img-magnifier-glass");
+
+    //     img.parentElement!.insertBefore(glass, img); // Insert the magnifier glass before the image
+
+    //     // Set the background of the glass to be the image source
+    //     glass.style.backgroundImage = "url('" + img.src + "')";
+    //     glass.style.backgroundRepeat = "no-repeat";
+    //     glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+
+    //     let bw = 3;
+    //     let w = glass.offsetWidth / 2;
+    //     let h = glass.offsetHeight / 2;
+
+    //     // Event listeners for mouse and touch interactions
+    //     glass.addEventListener("mousemove", moveMagnifier);
+    //     img.addEventListener("mousemove", moveMagnifier);
+    //     glass.addEventListener("touchmove", moveMagnifier);
+    //     img.addEventListener("touchmove", moveMagnifier);
+
+    //     function moveMagnifier(e) {
+    //         e.preventDefault();
+
+    //         const pos = getCursorPos(e);
+    //         let x = pos.x;
+    //         let y = pos.y;
+
+    //         // Prevent the glass from moving out of the image bounds
+    //         if (x > img.width - (w / zoom)) { x = img.width - (w / zoom); }
+    //         if (x < w / zoom) { x = w / zoom; }
+    //         if (y > img.height - (h / zoom)) { y = img.height - (h / zoom); }
+    //         if (y < h / zoom) { y = h / zoom; }
+
+    //         // Set the position of the glass
+    //         glass.style.left = (x - w) + "px";
+    //         glass.style.top = (y - h) + "px";
+
+    //         // Set the background position of the glass
+    //         glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+    //     }
+
+    //     function getCursorPos(e : any) {
+    //         const a = img.getBoundingClientRect();
+    //         const x = e.pageX - a.left;
+    //         const y = e.pageY - a.top;
+    //         return { x: x - window.scrollX, y: y - window.scrollY };
+    //     }
+    // }
+
+    // Call the magnify function for each image
+    // magnify("grafImage", 2); // Zoom level 2 for the Graf Image
 
 </script>
