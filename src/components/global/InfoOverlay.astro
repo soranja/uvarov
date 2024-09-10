@@ -1,0 +1,141 @@
+---
+interface Props {
+    isVisible?: boolean;
+    contentType: 'slider' | 'image';
+    images: Array<{ src: string; alt: string }>;
+    iconPosition?: string;
+    isIconInverted?: boolean;
+    overlayId: string;
+}
+
+const { 
+  isVisible = false, 
+  contentType, 
+  images = [], 
+  iconPosition = "absolute bottom-20 left-1/2 transform -translate-x-1/2", 
+  isIconInverted = false,
+  overlayId
+} = Astro.props;
+
+---
+
+<style>
+  .info-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+  }
+
+  .info-overlay.visible {
+    display: block;
+  }
+
+  .overlay-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+
+  .splide__slide img {
+    max-width: 90%; 
+    max-height: 80vh;
+    margin: 20px auto;
+    object-fit: contain;
+  }
+
+</style>
+
+
+<button 
+  class=`
+    info-icon-${overlayId} 
+    z-200 
+    cursor-pointer 
+    ${iconPosition} 
+    ${isIconInverted ? 'invert' : ''}
+    `>
+  <i class="fas fa-info-circle text-2xl text-black"></i>
+</button>
+<info-overlay
+  data-visible={isVisible} 
+  data-content-type={contentType} 
+  data-images={JSON.stringify(images)}
+  data-overlay-id={overlayId}
+  >
+    <div class="info-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-1000">
+      <button class="close-button absolute top-5 right-5 text-white text-3xl z-1100">&times;</button>
+      <div class="overlay-content flex justify-center items-center h-full w-full"></div>
+    </div>
+</info-overlay>
+
+
+<script>
+  class InfoOverlay extends HTMLElement {
+    connectedCallback() {
+      const overlayId = this.dataset.overlayId;
+      const contentType = this.dataset.contentType;
+      const images: Array<{ src: string; alt: string }> = JSON.parse(this.dataset.images ?? '[]');
+      const overlayWrapper = this.querySelector('.info-overlay') as HTMLElement;
+      const overlayContent = this.querySelector('.overlay-content') as HTMLElement;
+      const closeButton = this.querySelector('.close-button') as HTMLElement;
+      const infoButton = document.querySelector(`.info-icon-${overlayId}`) as HTMLElement;    
+      let isVisible: boolean = this.dataset.visible === 'false';
+
+
+
+      closeButton.addEventListener('click', () => {
+        isVisible = false;
+        overlayWrapper.classList.remove('visible');
+        overlayWrapper.classList.add('hidden');
+        overlayContent.innerHTML = ''; 
+      });
+
+      infoButton.addEventListener('click', () => {
+        isVisible = true;
+        overlayWrapper.classList.add('visible');
+        overlayWrapper.classList.remove('hidden');
+          
+        console.log(contentType);
+        console.log(images);
+        console.log(isVisible);
+
+        if (contentType === 'slider') {
+          overlayContent.innerHTML = `
+            <div x-data="{ init() {
+                new Splide(this.$refs.splideOverlay, {
+                  perPage: 1,
+                  pagination: true,
+                }).mount();
+              }}">
+              <section class="splide" aria-label="Overlay Image Slider" x-ref="splideOverlay">
+                <div class="splide__track">
+                  <ul class="splide__list">
+                    ${images.map(image  => `
+                      <li class="splide__slide flex justify-center">
+                        <img src="${image.src}" alt="${image.alt}" class="max-w-[90%] max-h-[80vh] object-contain" />
+                      </li>
+                    `).join('')}
+                  </ul>
+                </div>
+              </section>
+            </div>
+          `;
+        } else if (contentType === 'image') {
+          overlayContent.innerHTML = `
+            <img src="${images[0].src}" alt="${images[0].alt}" class="object-cover max-w-[90%] max-h-[90%]" />
+          `;
+        }
+      });
+    }
+  }
+
+  customElements.define('info-overlay', InfoOverlay);
+</script>

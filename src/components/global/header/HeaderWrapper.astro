@@ -1,0 +1,39 @@
+---
+import Header from "./Header.astro";
+---
+
+<style>
+    #header {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    #header.opacity-100 {
+        opacity: 1;
+    }
+
+</style>
+
+<header id="header" class="header-wrapper fixed top-0 z-150 w-full mx-auto opacity-0 transition-opacity duration-1000">
+    <Header />
+</header>
+
+<script>
+    // HEADER FADE OBSERVER
+    const chapterIntro = document.getElementById('chapter-intro') as HTMLElement;
+    const header = document.getElementById('header') as HTMLElement;
+    const scrollArrow = document.getElementById('scroll') as HTMLElement; // Scroll arrow element
+    const headerObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                header.classList.add('opacity-100');  // Fade in when scrolled past
+                scrollArrow.classList.remove('opacity-100');
+            } else {
+                header.classList.remove('opacity-100');  // Fade out when back in view   
+                scrollArrow.classList.add('opacity-100');  // Fade out when back in view          
+            }
+        });
+    }, { threshold: 0.1 });
+
+    headerObserver.observe(chapterIntro);
+</script>

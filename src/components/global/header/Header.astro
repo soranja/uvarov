@@ -1,0 +1,181 @@
+---
+import header from '../../../data/common/_images/header.svg';
+import burger from '../../../data/common/_images/header.svg';
+---
+
+<header 
+	id="header-content" 
+	class="
+		mx-auto
+		absolute
+		md:inset-x-0
+		py-8
+		md:py-0
+		md:top-12
+		md:right-0
+		md:w-2/3
+		xl:w-[1440px]
+		md:h-full
+		flex
+		justify-center
+		items-center
+	">
+	<nav 
+		id="nav" 
+		class="
+			mx-auto
+			flex
+			flex-col
+			md:flex-row
+			justify-around
+			items-start
+			md:items-center
+			uppercase
+			underline-offset-4
+			text-center
+			text-sm
+			md:text-base
+			z-5
+			transition-all
+			duration-300
+			ease-in-out
+			px-6
+			sm:px-10
+			md:px-20 
+			2xl:px-12
+		">
+		<!-- HOME (TEMP) -->
+		<a
+			href='/'
+			class="
+			pl-6
+			md:pl-2
+			flex-shrink-0
+			hover:underline
+			self-start
+			md:self-center
+			px-2
+			">
+			←
+		</a>
+		<!-- LINKS -->
+		<div 
+			id="links" 
+			class="
+			flex-grow
+			text-left
+			md:text-center
+			pl-4
+			md:pl-0
+		">
+			<!-- links are inserted here -->
+		</div>
+		<!-- BURGER -->
+		<div 
+			class="
+			self-start
+			md:self-center
+			flex
+			justify-center
+			items-center
+		">
+			<button 
+			id="toggle-header-button" 
+			class="
+				w-6
+				h-6
+				md:w-8
+				md:h-8
+				lg:w-10
+				lg:h-10
+
+			">
+				<img src={burger.src} alt="Бургер">
+			</button>
+		</div>
+		<img 
+		id="header-bg"
+		src={header.src}
+		alt="header"
+		class="
+			absolute
+			-z-10
+			hidden
+			md:block
+		">
+	</nav>
+</header>
+
+<script>
+	import { isHeaderToggled } from "../../../store";
+	import { BIO_NAV_LINKS, MATERIALS_NAV_LINKS } from "../../../consts";
+
+	const isLinkActive = (href: string) => {
+		const pathname = window.location.pathname;
+		const subpath = pathname.match(/[^\/]+/g);
+		return href === pathname || href === '/' + subpath?.[0];
+	};
+  
+	const renderLinks = (links: any[], isMaterials: boolean) => {
+		const navLinks = document.getElementById('links');
+		const header = document.getElementById('header-content');
+		const switchBtn = document.querySelector('#toggle-header-button img');
+		const headerBg = document.getElementById('header-bg') as HTMLImageElement;
+		const nav = document.getElementById('nav') as HTMLImageElement; 
+
+		navLinks!.innerHTML = '';
+
+		if (isMaterials) {
+			header!.classList.remove('bg-black','text-white');
+			header!.classList.add('bg-white', 'text-black');
+			switchBtn!.classList.add('invert');
+			headerBg!.classList.add('invert');
+		} else {
+			header!.classList.remove('bg-white', 'text-black');
+			header!.classList.add('bg-black','text-white');
+			switchBtn!.classList.remove('invert');
+			headerBg!.classList.remove('invert');
+		}
+
+		if (headerBg!.complete) {
+			adjustNavWidth();
+		} else {
+			headerBg!.onload = adjustNavWidth;
+		}
+
+		function adjustNavWidth() {
+			const bgWidth = headerBg!.naturalWidth;
+			nav.style.width = `calc(${bgWidth}px - 6%)`;
+		}
+
+		const linksWrapper = document.createElement('div');
+		linksWrapper.className = 'flex md:justify-center flex-col md:flex-row gap-x-0 lg:gap-x-2 xl:gap-x-6 py-2';
+
+		links.forEach(link => {
+			const isActive = isLinkActive(link.href);
+			const activeClass = isActive ? 'underline' : '';
+			const linkElement = `<a href="${link.href}" class="px-2 ${activeClass} hover:underline">${link.label}</a>`;
+			linksWrapper.insertAdjacentHTML('beforeend', linkElement);
+		});
+
+		// Insert the wrapper into the nav
+		navLinks!.appendChild(linksWrapper);
+
+		document.getElementById('toggle-header-button')!.addEventListener('click', toggleHeader);
+  	};
+
+	const toggleHeader = () => {
+		const toggled = !isHeaderToggled.get(); // Toggle the state
+		isHeaderToggled.set(toggled);
+
+		const links = toggled ? BIO_NAV_LINKS : MATERIALS_NAV_LINKS;
+		renderLinks(links, !toggled);
+	};
+
+	document.addEventListener('DOMContentLoaded', () => {
+		renderLinks(BIO_NAV_LINKS, false);
+		isHeaderToggled.set(true);
+	});
+</script>
+
+

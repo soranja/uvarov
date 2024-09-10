@@ -4,7 +4,6 @@ interface Props {
 };
 
 const { bgColor } = Astro.props;
-
 const bgColors : any = {
     body: "bg-body",
     junost: "bg-junost",
@@ -16,7 +15,6 @@ const bgColors : any = {
     materials: "bg-materials",
     white: "bg-white",
     }
-
 ---
 
 <main class={`${bgColors[bgColor]} mx-auto w-full max-w-full`}>

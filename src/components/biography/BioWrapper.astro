@@ -1,21 +1,16 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Main from "../global/Main.astro";
-// import Chapter from './Chapter.astro';
-// import Header from "../global/Header.astro";
 
-import common from '../../data/biography/common.json';
-
-const pathname = Astro.url.pathname.split('/').filter(Boolean)
-const slug = pathname.length > 1 ? pathname[pathname.length - 1] : ''; 
-const currentPage = common.find(chapter => chapter.id === slug);
+import { getCurrentChapter } from '../../utils/currentChapter.astro';
+const currentChapter = getCurrentChapter(Astro);
 
 ---
 
-<Layout title={currentPage!.title}>
-    <!-- <Chapter chapterImage={currentPage!.id}/> -->
-     
-    <Main bgColor={`${currentPage!.bgColor}`}>
+<Layout title={currentChapter!.alt}>  
+    <Main bgColor={`${currentChapter!.id}`}>
         <slot />
     </Main>
 </Layout>
+
+<script src="../../utils/slowScroll"></script>

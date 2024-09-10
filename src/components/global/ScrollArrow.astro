@@ -1,0 +1,40 @@
+---
+import { common } from "../../data/data";
+
+interface Props {
+  position?: string;
+  invert?: string;
+  visible?: string;
+}
+
+const { position = 'w-full fixed bottom-6 left-0', invert, visible } = Astro.props;
+---
+
+<div 
+    id="scroll"
+    class=`
+        ${position}
+        ${visible}
+        flex
+        justify-center
+        z-150
+        animate-bounce
+        ${invert}
+    `>
+    <img 
+        src={common.scrollArrow.src}
+        alt={common.scrollArrow.alt}
+        class="max-w-[50px] h-auto"
+    >
+</div>
+
+<style>
+    #scroll {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+  
+    #scroll.opacity-100 {
+      opacity: 1;
+    }
+</style>
