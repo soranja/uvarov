@@ -1,0 +1,37 @@
+
+<!-- LOADING ANIMATION -->
+<div id="loading-wrapper" class="fixed top-0 left-0 w-full h-screen flex justify-center items-center bg-body z-1000">
+    <div id="lottie-container">
+        <lottie-player src="/loading.json" background="transparent" speed="2" style="width: 300px; height: 300px; filter: invert(1);" direction="1" mode="normal" loop autoplay></lottie-player>
+    </div>
+</div>
+
+<script>
+    const loadingWrapper = document.getElementById('loading-wrapper') as HTMLElement;
+    const firstSection = document.querySelector('.section') as HTMLElement;
+
+    let windowLoaded = false;
+    let firstSectionCompleted = false;
+
+    function checkCompletion() {
+        if (windowLoaded && firstSectionCompleted) {
+            loadingWrapper.classList.add('hidden');
+        }
+    }
+
+    window.onload = function () {
+        windowLoaded = true;
+        checkCompletion();
+    };
+
+    function firstSectionCompletion() {
+        firstSection.classList.contains('show');
+        setTimeout(() => {
+            firstSectionCompleted = true;
+            checkCompletion();
+        }, 1000); 
+    }
+
+    firstSectionCompletion();
+
+</script>

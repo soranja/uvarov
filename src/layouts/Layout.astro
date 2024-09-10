@@ -1,6 +1,8 @@
 ---
 import BaseHead from '../components/global/BaseHead.astro';
 import Footer from '../components/global/Footer.astro';
+import Loading from '../components/global/Loading.astro';
+
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 const { title = SITE_TITLE } = Astro.props;
@@ -25,6 +27,7 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
     </head>
 
     <body class="bg-body">
+        <Loading />
         <slot/>
         <!-- <Footer /> -->
     </body>

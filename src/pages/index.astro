@@ -2,8 +2,9 @@
 import BaseHead from '../components/global/BaseHead.astro';
 import ScrollArrow from '../components/global/ScrollArrow.astro';
 import Section from '../components/global/Section.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Loading from '../components/global/Loading.astro';
 
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { intro } from "../data/data";
 
 interface Props {
@@ -23,6 +24,8 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
     </head>
 
     <body class="bg-[url('../data/common/_images/chapter-bg.png')] bg-cover bg-no-repeat bg-fixed">
+        <Loading />
+
         <Section id='intro-cover'>
             <div class="bg-black w-full flex justify-center items-center">
                 <ScrollArrow position='absolute right-[23%] xl:right-[23%] 2xl:right-[0%] 2xl:left-[37.5%] bottom-[20%] xl:bottom-[32%]' visible='opacity-100'/>
@@ -52,6 +55,8 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
 
     <script src="../utils/slowScroll"></script>
 <script>
+    console.log(window.onload);
+    console.log(document.onload);
 
     // VIDEO UPDATE FOR 1440 / 1920
     import { intro } from "../data/data";
