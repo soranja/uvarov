@@ -22,27 +22,12 @@ const {
 <style>
   .info-overlay {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 1000;
   }
 
   .info-overlay.visible {
     display: block;
   }
 
-  .overlay-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-  }
 
   .splide__slide img {
     max-width: 90%; 
@@ -57,7 +42,7 @@ const {
 <button 
   class=`
     info-icon-${overlayId} 
-    z-200 
+    z-200
     cursor-pointer 
     ${iconPosition} 
     ${isIconInverted ? 'invert' : ''}
@@ -69,10 +54,11 @@ const {
   data-content-type={contentType} 
   data-images={JSON.stringify(images)}
   data-overlay-id={overlayId}
+  class="relative z-[1000]"
   >
-    <div class="info-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-1000">
+    <div class="info-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-85 z-1000">
       <button class="close-button absolute top-5 right-5 text-white text-3xl z-1100">&times;</button>
-      <div class="overlay-content flex justify-center items-center h-full w-full"></div>
+      <div class="overlay-content relative flex justify-center items-center h-full w-full p-20 z-1000"></div>
     </div>
 </info-overlay>
 
@@ -89,23 +75,29 @@ const {
       const infoButton = document.querySelector(`.info-icon-${overlayId}`) as HTMLElement;    
       let isVisible: boolean = this.dataset.visible === 'false';
 
+      const header = document.getElementById('header') as HTMLElement;
 
+      const updateHeaderZIndex = (visible : boolean) => {
+        if (visible) {
+          header.style.zIndex = '10';
+        } else {
+          header.style.zIndex = '50';
+        }
+      };
 
       closeButton.addEventListener('click', () => {
         isVisible = false;
         overlayWrapper.classList.remove('visible');
         overlayWrapper.classList.add('hidden');
-        overlayContent.innerHTML = ''; 
+        overlayContent.innerHTML = '';
+        updateHeaderZIndex(false); // Patch to loewr header z-index
       });
 
       infoButton.addEventListener('click', () => {
         isVisible = true;
         overlayWrapper.classList.add('visible');
         overlayWrapper.classList.remove('hidden');
-          
-        console.log(contentType);
-        console.log(images);
-        console.log(isVisible);
+        updateHeaderZIndex(true); 
 
         if (contentType === 'slider') {
           overlayContent.innerHTML = `

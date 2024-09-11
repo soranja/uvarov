@@ -14,7 +14,7 @@ import Header from "./Header.astro";
 
 </style>
 
-<header id="header" class="header-wrapper fixed top-0 z-150 w-full mx-auto opacity-0 transition-opacity duration-1000">
+<header id="header" class="fixed top-6 z-[50] w-full mx-auto opacity-0 transition-opacity duration-1000">
     <Header />
 </header>
 
@@ -22,12 +22,13 @@ import Header from "./Header.astro";
     // HEADER FADE OBSERVER
     const chapterIntro = document.getElementById('chapter-intro') as HTMLElement;
     const header = document.getElementById('header') as HTMLElement;
-    const scrollArrow = document.getElementById('scroll') as HTMLElement; // Scroll arrow element
+    const scrollArrow = document.getElementById('scroll') as HTMLElement;
     const headerObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (!entry.isIntersecting) {
                 header.classList.add('opacity-100');  // Fade in when scrolled past
                 scrollArrow.classList.remove('opacity-100');
+
             } else {
                 header.classList.remove('opacity-100');  // Fade out when back in view   
                 scrollArrow.classList.add('opacity-100');  // Fade out when back in view          

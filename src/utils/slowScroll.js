@@ -27,24 +27,52 @@ function slowScroll(targetScrollY) {
 window.addEventListener(
   "wheel",
   (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (!isScrolling) {
-      isScrolling = true;
-      let targetScrollY =
-        window.scrollY +
-        (event.deltaY > 0 ? window.innerHeight : -window.innerHeight);
-      slowScroll(targetScrollY);
-    }
-  },
-  { passive: false }
+  // Select all elements with the class 'scrollable'
+  const scrollableElements = document.querySelectorAll(".scrollable");
+  
+  let isInsideScrollable = false;
+
+  // Check if the event target is inside any scrollable element
+  scrollableElements.forEach((scrollable) => {
+      if (scrollable.contains(event.target)) {
+        isInsideScrollable = true;
+      }
+    });
+
+      // If the event is not inside a scrollable section, apply global scroll
+      if (!isInsideScrollable) {
+        if (!isScrolling) {
+          isScrolling = true;
+          let targetScrollY =
+            window.scrollY +
+            (event.deltaY > 0 ? window.innerHeight : -window.innerHeight);
+          slowScroll(targetScrollY);
+        }
+      }
+    },
+    { passive: false }
 );
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowDown" || event.key === "ArrowUp") {
     event.preventDefault();
 
-    if (!isScrolling) {
+    // Select all elements with the class 'scrollable'
+    const scrollableElements = document.querySelectorAll(".scrollable");
+
+    let isInsideScrollable = false;
+
+    // Check if the active element is inside any scrollable element
+    scrollableElements.forEach((scrollable) => {
+      if (scrollable.contains(document.activeElement)) {
+        isInsideScrollable = true;
+      }
+    });
+
+    // If the event is not inside a scrollable section, apply global scroll
+    if (!isInsideScrollable && !isScrolling) {
       isScrolling = true;
       let targetScrollY =
         window.scrollY +

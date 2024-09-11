@@ -13,6 +13,8 @@ import epilogue from "./biography/_images/chapters/epilogue.svg";
 
 // COMMON
 import scrollArrow from "./common/_images/down-arrow.png";
+import prevArrow from "./common/_images/prev-arrow.svg";
+import nextArrow from "./common/_images/next-arrow.svg";
 
 /* ==========
 
@@ -39,6 +41,7 @@ import handwrite1Full from "./biography/_images/junost/handwrite_1_full.png";
 import handwrite_2 from "./biography/_images/junost/handwrite_2.png";
 import uvarovYoung1 from "./biography/_images/junost/uvarov_young_1.png";
 import uvarovYoung2 from "./biography/_images/junost/uvarov_young_2.png";
+import uvarovYoung2Full from "./biography/_images/junost/uvarov_young_2_portrait.png";
 
 // LIBRARY PORTRAITS
 import portrait_1 from "./biography/_images/junost/portraits/shevyrev.png";
@@ -61,6 +64,8 @@ export const intro = {
 
 export const common = {
   scrollArrow: { src: scrollArrow.src, alt: "Стрелка скролла" },
+  prevArrow: { src: prevArrow.src, alt: "Стрелка назад" },
+  nextArrow: { src: nextArrow.src, alt: "Стрелка вперед" },
 };
 
 export const chapters = [
@@ -79,19 +84,59 @@ export const junostAssets = {
   handwrite_1: { src: handwrite_1.src, alt: "Письмо 1" },
   handwrite1Full: { src: handwrite1Full.src, alt: "Письмо 1 полное" },
   uvarovYoung1: { src: uvarovYoung1.src, alt: "Уваров молодой - Рисунок" },
-  uvarovYoung2: { src: uvarovYoung2.src, alt: "Уваров молодой - Портрет" },
+  uvarovYoung2: { src: uvarovYoung2.src, alt: "Уваров молодой - Фон" },
+  uvarovYoung2Full: {
+    src: uvarovYoung2Full.src,
+    alt: "Уваров молодой - Портрет",
+  },
   handwrite_2: { src: handwrite_2.src, alt: "Письмо 2" },
   spb: { src: spb.src, alt: "Санкт-Петербург" },
   spbgu: { src: spbgu.src, alt: "СПБГУ" },
   roomBg: { src: roomBg.src, alt: "Комната" },
   libraryBg: { src: libraryBg.src, alt: "Библиотека" },
-  graf: { src: graf.src, alt: "Графская грамота" },
+  graf: {
+    src: graf.src,
+    alt: "Графская грамота",
+    description:
+      "Патент императора Николая I действительному статскому советнику С. С. Уварову на чин тайного советника",
+  },
   diploma: { src: diploma.src, alt: "Диплом" },
   libraryPortraits: [
-    { id: 1, src: portrait_1.src, alt: "Шевырёв" },
-    { id: 2, src: portrait_2.src, alt: "Грановский" },
-    { id: 3, src: portrait_3.src, alt: "Плетнёв" },
-    { id: 4, src: portrait_4.src, alt: "Юрковский" },
-    { id: 5, src: portrait_5.src, alt: "Погодин" },
+    {
+      id: 1,
+      src: portrait_1.src,
+      alt: "Шевырёв",
+      fullName: "Степан Петрович Шевырёв",
+      description:
+        "русский литературный критик, историк литературы, поэт, общественный деятель",
+    },
+    {
+      id: 2,
+      src: portrait_2.src,
+      alt: "Грановский",
+      fullName: "Тимофей Николаевич Грановский",
+      description: "русский историк-медиевист",
+    },
+    {
+      id: 3,
+      src: portrait_3.src,
+      alt: "Плетнёв",
+      fullName: "Петр Александрович Плетнёв",
+      description: "русский литературный критик, поэт и журналист",
+    },
+    {
+      id: 4,
+      src: portrait_4.src,
+      alt: "Юрковский",
+      fullName: "...",
+      description: "...",
+    },
+    {
+      id: 5,
+      src: portrait_5.src,
+      alt: "Погодин",
+      fullName: "...",
+      description: "...",
+    },
   ],
 };
