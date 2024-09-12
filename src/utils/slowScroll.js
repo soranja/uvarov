@@ -1,4 +1,5 @@
-const SCROLL_DURATION = 1000;
+const SCROLL_DURATION = 500; // 0.5 sec transition
+const SCROLL_DELAY = 2000;   // 2 sec delay
 
 let isScrolling = false;
 
@@ -17,7 +18,10 @@ function slowScroll(targetScrollY) {
     if (scrollProgress < 1) {
       requestAnimationFrame(animationScroll);
     } else {
-      isScrolling = false;
+      // Wait for 2 seconds before allowing the next scroll
+      setTimeout(() => {
+        isScrolling = false;
+      }, SCROLL_DELAY);
     }
   }
 
@@ -27,32 +31,32 @@ function slowScroll(targetScrollY) {
 window.addEventListener(
   "wheel",
   (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  // Select all elements with the class 'scrollable'
-  const scrollableElements = document.querySelectorAll(".scrollable");
-  
-  let isInsideScrollable = false;
+    // Select all elements with the class 'scrollable'
+    const scrollableElements = document.querySelectorAll(".scrollable");
+    
+    let isInsideScrollable = false;
 
-  // Check if the event target is inside any scrollable element
-  scrollableElements.forEach((scrollable) => {
+    // Check if the event target is inside any scrollable element
+    scrollableElements.forEach((scrollable) => {
       if (scrollable.contains(event.target)) {
         isInsideScrollable = true;
       }
     });
 
-      // If the event is not inside a scrollable section, apply global scroll
-      if (!isInsideScrollable) {
-        if (!isScrolling) {
-          isScrolling = true;
-          let targetScrollY =
-            window.scrollY +
-            (event.deltaY > 0 ? window.innerHeight : -window.innerHeight);
-          slowScroll(targetScrollY);
-        }
+    // If the event is not inside a scrollable section, apply global scroll
+    if (!isInsideScrollable) {
+      if (!isScrolling) {
+        isScrolling = true;
+        let targetScrollY =
+          window.scrollY +
+          (event.deltaY > 0 ? window.innerHeight : -window.innerHeight);
+        slowScroll(targetScrollY);
       }
-    },
-    { passive: false }
+    }
+  },
+  { passive: false }
 );
 
 window.addEventListener("keydown", (event) => {

@@ -43,7 +43,7 @@ const diploma = [junostAssets.diploma];
                 <br>
                 (11 марта) 1824 года в Петербурге.
             </p>
-            <img src={junostAssets.spb.src} alt={junostAssets.spb.alt} class="max-h-[500px] absolute bottom-0" />
+            <img src={junostAssets.spb.src} alt={junostAssets.spb.alt} class="max-w-[1440px] absolute bottom-0" />
         </div>
     </Section> 
 
@@ -55,11 +55,11 @@ const diploma = [junostAssets.diploma];
         <Section id="father" bgClass="none" extraHvh="h-[90vh]">
             <div class="h-full w-full flex justify-center items-center">
                 <div class="grid grid-cols-2 gap-4 max-w-[1440px]">
-                    <div class="flex items-center justify-center">
+                    <div class="flex items-bottom justify-bottom max-h-[500px]">
                         <img src={junostAssets.father.src} alt={junostAssets.father.alt} class="father-img h-auto max-h-full">
                     </div>
             
-                    <div class="flex flex-col justify-between gap-y-12 items-center h-full py-24 font-medium text-right text-3xl">
+                    <div class="flex flex-col justify-between gap-y-12 items-center h-full py-24 font-medium text-right text-2xl">
                         <p class="top-text max-w-3xl">
                             Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
                         </p>
@@ -75,11 +75,11 @@ const diploma = [junostAssets.diploma];
         <Section id="mother" bgClass="none" extraHvh="h-[90vh]">
             <div class="h-full w-full flex justify-center items-center">
                 <div class="grid grid-cols-2 gap-4 max-w-[1440px]">
-                    <div class="flex items-center justify-center">
+                    <div class="flex items-bottom justify-bottom max-h-[500px]">
                         <img src={junostAssets.mother.src} alt={junostAssets.mother.alt} class="mother-img h-auto max-h-full">
                     </div>
             
-                    <div class="flex flex-col justify-between gap-y-12 items-center h-full py-24 font-medium text-right text-3xl">
+                    <div class="flex flex-col justify-between gap-y-12 items-center h-full py-24 font-medium text-right text-2xl">
                         <p class="top-text max-w-3xl">
                             Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
                         </p>
@@ -243,10 +243,9 @@ const diploma = [junostAssets.diploma];
         </div>
     </Section>
 
-
+     <!-- Uvarov Young -->
     <div class="relative w-full">
         <div id="uvarov-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/uvarov_young_2.png')] bg-center bg-cover bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
-        <!-- Uvarov Young -->
         <Section id="u-young" extraTvh="top-[5vh]">
             <div class=" w-full h-full flex justify-center items-center">
                 <div class="max-w-[1440px] max-h-[520px] w-full">
@@ -289,6 +288,7 @@ const diploma = [junostAssets.diploma];
         </div>
     </Section>
 
+    <!-- To Expeditions -->
     <Section id="expeditions" bgChapter="bg-chapter-bg">
     </Section>
 
