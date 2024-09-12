@@ -26,19 +26,19 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
     <body class="bg-[url('../data/common/_images/chapter-bg.png')] bg-cover bg-no-repeat bg-fixed">
         <Loading />
 
-        <Section id='intro-cover'>
+        <Section id='intro-cover' extraTvh='top-0'>
             <div class="bg-black w-full flex justify-center items-center">
                 <ScrollArrow position='absolute right-[23%] xl:right-[23%] 2xl:right-[0%] 2xl:left-[37.5%] bottom-[20%] xl:bottom-[32%]' visible='opacity-100'/>
                 <img src={intro.cover.src} alt={intro.cover.alt} class="w-full max-w-[1440px] mx-auto relative">
             </div>
         </Section>
-        <Section id='intro-hand'>
+        <Section id='intro-hand' extraTvh='top-0'>
             <video autoplay muted>
                 <source id="intro-video-src" src={intro.hand1440.src} type="video/mp4">
             </video>
         </Section>
-        <Section id='intro-text'>
-            <div class="text-white max-w-[1440px] text-2xl leading-loose pointer-events-none flex flex-col h-[70%] border-4 border-orange-500 gap-y-20">
+        <Section id='intro-text' extraTvh='top-0'>
+            <div class="text-white max-w-[1440px] text-2xl leading-loose pointer-events-none flex flex-col h-[70%] gap-y-20">
                 <p>
                     Алексей Сергеевич Уваров, граф, археолог, историк, почетный член Петербургской Академии наук, основатель, председатель Московского археологического общества и организатор Всероссийских археологических съездов, один из основателей Российского исторического музея.
                 </p>
@@ -48,7 +48,7 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
                 <ScrollArrow position='absolute left-1/2 transform -translate-x-1/2 bottom-[15%]' visible='opacity-100'/>
             </div>
         </Section>
-        <Section id='intro-transition'>
+        <Section id='intro-transition' extraTvh='top-0'>
         </Section>
     </body>
 </html>
