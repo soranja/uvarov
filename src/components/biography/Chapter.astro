@@ -1,38 +1,19 @@
 ---
-import activities from '../../data/biography/_images/chapters/activities.svg';
-import epilogue from '../../data/biography/_images/chapters/epilogue.svg';
-import expeditions from '../../data/biography/_images/chapters/expeditions.svg';
-import family from '../../data/biography/_images/chapters/family.svg';
-import junost from '../../data/biography/_images/chapters/junost.svg';
-import museum from '../../data/biography/_images/chapters/museum.svg';
-
-const images : any = {
-    activities,
-    epilogue,
-    expeditions,
-    family,
-    junost,
-    museum
-};
-
-import { chapters } from '../../data/data';
-
-interface Props {
-    chapterImage: string;
-};
-
-const {chapterImage} = Astro.props;
-const imageSrc = images[chapterImage]?.src || '';
+import { getCurrentChapter } from "../../utils/currentChapter.astro";
+const currentChapter = getCurrentChapter(Astro); // Retrieves the current chapter dynamically
 
 ---
-<div id="fade" class="absolute top-0 left-0 w-full h-full bg-black z-10 pointer-events-none opacity-100 transition-opacity duration-1000 ease-out"></div>
-<section class="flex items-center justify-center w-full h-screen bg-black">
-    <img src={imageSrc} alt={chapterImage} class="max-w-full h-auto px-8 md:px-0" />
-</section>
 
-<script>
-    window.addEventListener('load', () => {
-    document.getElementById('fade')!.classList.remove('opacity-100');
-    document.getElementById('fade')!.classList.add('opacity-0');
-});
-</script>
+<section id="chapter-intro" class="section relative w-full min-h-screen grid place-items-center content-center">
+    <div class="fixed-wrapper flex items-center justify-center w-full h-screen bg-chapter-bg  fixed top-0 left-0 bg-cover bg-no-repeat transform-all duration-1000 ease-in-out">
+        {currentChapter ? (
+            <img 
+                src={currentChapter.src} 
+                alt={currentChapter.alt} 
+                class="max-w-full h-auto px-8 md:px-0" 
+            />
+        ) : (
+            <p class="text-white">Chapter not found</p>
+        )}
+    </div>
+</section>

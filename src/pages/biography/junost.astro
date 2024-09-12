@@ -5,10 +5,11 @@ import HeaderWrapper from "../../components/global/header/HeaderWrapper.astro";
 import ScrollArrow from "../../components/global/ScrollArrow.astro";
 import Section from "../../components/global/Section.astro";
 import InfoOverlay from "../../components/global/InfoOverlay.astro";
+import Chapter from "../../components/biography/Chapter.astro";
 
 import { common, junostAssets } from "../../data/data";
-import { getCurrentChapter } from "../../utils/currentChapter.astro";
-const currentChapter = getCurrentChapter(Astro);
+
+
 
 const dogSlider = [junostAssets.uvarovYoung1, junostAssets.handwrite1Full];
 const uvarovYoung = [junostAssets.uvarovYoung2Full];
@@ -29,37 +30,36 @@ const diploma = [junostAssets.diploma];
     <ScrollArrow />
 
     <!-- Chapter Intro -->
-    <Section id="chapter-intro" bgChapter="bg-chapter-bg">
-            <img src={currentChapter?.src} alt={currentChapter?.alt} class="max-w-full h-auto px-8 md:px-0" />
-    </Section>
+    <Chapter />
 
+    <!-- Header -->
     <HeaderWrapper />
 
     <!-- Was Born -->
-    <Section id="was-born">
+    <Section id="was-born" extraHvh="h-[90vh]">
         <div class="flex flex-col justify-start items-center w-full h-screen relative">
-            <p class="text-center font-medium max-w-6xl text-5xl leading-normal pt-40">
+            <p class="text-center font-medium max-w-6xl text-5xl leading-normal pt-[8vh]">
                 А. С. Уваров, родился 28 февраля
                 <br>
                 (11 марта) 1824 года в Петербурге.
             </p>
-            <img src={junostAssets.spb.src} alt={junostAssets.spb.alt} class="w-full max-w-[1440px] absolute bottom-0" />
+            <img src={junostAssets.spb.src} alt={junostAssets.spb.alt} class="w-full max-w-[1440px] h-auto absolute bottom-0" />
         </div>
     </Section> 
 
     <!-- Father / Mother -->
     <div class="relative w-full">
-        <div class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/room.png')] bg-center bg-cover z-0 transition-opacity duration-1000 opacity-0 room-fade"></div>
+        <div id="room-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/room.png')] bg-center bg-cover z-0 transition-opacity duration-1000 opacity-0"></div>
 
         <!-- Father section -->
-        <Section id="father" bgClass="none">
+        <Section id="father" bgClass="none" extraHvh="h-[90vh]">
             <div class="h-full w-full flex justify-center items-center">
                 <div class="grid grid-cols-2 gap-4 max-w-[1440px]">
                     <div class="flex items-center justify-center">
                         <img src={junostAssets.father.src} alt={junostAssets.father.alt} class="father-img h-auto max-h-full">
                     </div>
             
-                    <div class="flex flex-col justify-between items-center h-full py-16 font-medium text-right text-3xl">
+                    <div class="flex flex-col justify-between gap-y-12 items-center h-full py-24 font-medium text-right text-3xl">
                         <p class="top-text max-w-3xl">
                             Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
                         </p>
@@ -72,19 +72,19 @@ const diploma = [junostAssets.diploma];
         </Section>
 
         <!-- Mother section -->
-        <Section id="mother" bgClass="none">
+        <Section id="mother" bgClass="none" extraHvh="h-[90vh]">
             <div class="h-full w-full flex justify-center items-center">
                 <div class="grid grid-cols-2 gap-4 max-w-[1440px]">
                     <div class="flex items-center justify-center">
                         <img src={junostAssets.mother.src} alt={junostAssets.mother.alt} class="mother-img h-auto max-h-full">
                     </div>
             
-                    <div class="flex flex-col justify-between items-center h-full py-16 font-medium text-right text-3xl ">
-                        <p class="max-w-3xl top-text">
-                        Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
+                    <div class="flex flex-col justify-between gap-y-12 items-center h-full py-24 font-medium text-right text-3xl">
+                        <p class="top-text max-w-3xl">
+                            Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
                         </p>
-                        <p class="max-w-3xl bottom-text">
-                        Мать А. С. Уварова, Екатерина Алексеевна, урожденная Разумовская – дочь министра народного просвещения Алексея Кирилловича и внучатая племянница Алексея Григорьевича Разумовских.
+                        <p class="bottom-text max-w-3xl">
+                            Мать А. С. Уварова, Екатерина Алексеевна, урожденная Разумовская – дочь министра народного просвещения Алексея Кирилловича и внучатая племянница Алексея Григорьевича Разумовских.
                         </p>
                     </div>
                 </div>
@@ -93,7 +93,7 @@ const diploma = [junostAssets.diploma];
     </div>
 
     <!-- Graf -->
-    <Section id="graf">
+    <Section id="graf" extraHvh="h-[85%]">
         <div class="h-full w-full flex justify-center items-center">
             <div class="grid grid-cols-2 gap-x-16 max-w-[1440px] px-20">
 
@@ -120,71 +120,72 @@ const diploma = [junostAssets.diploma];
         </div>
     </Section>
 
-    <!-- Library Slider -->
-    <Section id="library">
-        <div class="bg-[url('../data/biography/_images/junost/library.png')] bg-center bg-cover bg-no-repeat py-28 w-full h-full">
-            <div class="flex flex-col justify-center items-center gap-y-8">
-                <p class="max-w-7xl pt-8 font-semibold text-2xl leading-normal">
-                    Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.
-                </p>
-                <div class="w-full max-w-[1440px]">
-                    <div x-data="{ init() {
-                            new Splide(this.$refs.splide, {
-                                perPage: 3,
-                                perMove: 1,
-                                pagination: false,
-                                breakpoints: {
-                                    640: {
-                                        perPage: 1,
+    <div class="relative w-full">
+        <div id="library-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/library.png')] bg-center bg-cover bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
+            <!-- Library Slider -->
+        <Section id="library" extraHvh="h-[65vh]" extraTvh="bottom-[15vh]">
+                <div class="flex flex-col justify-center items-center gap-y-8 ">
+                    <p class="max-w-7xl pt-8 font-semibold text-2xl leading-normal">
+                        Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.
+                    </p>
+                    <div class="w-full max-w-[1440px]">
+                        <div x-data="{ init() {
+                                new Splide(this.$refs.splide, {
+                                    perPage: 3,
+                                    perMove: 1,
+                                    pagination: false,
+                                    breakpoints: {
+                                        640: {
+                                            perPage: 1,
+                                        },
                                     },
-                                },
-                            }).mount();
-                        },
-                    }">
-                        <section
-                            class="splide"
-                            aria-label="Library Slider"
-                            x-ref="splide"
-                            style="padding-left: 4rem; padding-right: 4rem;"
-                            >
-                            
-                            <div class="splide__arrows">
-                                <button class="splide__arrow splide__arrow--prev">
-                                    <img src={common.prevArrow.src} alt={common.prevArrow.alt}>
-                                </button>
-                                <button class="splide__arrow splide__arrow--next">
-                                    <img src={common.nextArrow.src} alt={common.nextArrow.alt}>
-                                </button>
-                          </div>
-
-                            <div class="splide__track">
-                                <ul class="splide__list">
-                                    {junostAssets.libraryPortraits.map((portrait) => (
-                                        <li class="splide__slide flex flex-col justify-center">
-                                            <div class="w-[400px] h-[450px]">
-                                                <img
-                                                    alt={portrait.alt}
-                                                    src={portrait.src}
-                                                    class="object-contain bottom-0 w-full h-full"
-                                                />
-                                            </div>
-                                            <div class="text-center mt-4">
-                                                <h3 class="font-semibold text-lg">{portrait.fullName}</h3>
-                                                <p class="text-sm">{portrait.description}</p>
-                                            </div>
-                                        </li>
-                                    ))}
-                                </ul>
+                                }).mount();
+                            },
+                        }">
+                            <section
+                                class="splide"
+                                aria-label="Library Slider"
+                                x-ref="splide"
+                                style="padding-left: 4rem; padding-right: 4rem;"
+                                >
+                                
+                                <div class="splide__arrows">
+                                    <button class="splide__arrow splide__arrow--prev">
+                                        <img src={common.prevArrow.src} alt={common.prevArrow.alt}>
+                                    </button>
+                                    <button class="splide__arrow splide__arrow--next">
+                                        <img src={common.nextArrow.src} alt={common.nextArrow.alt}>
+                                    </button>
                             </div>
-                        </section>
+
+                                <div class="splide__track">
+                                    <ul class="splide__list">
+                                        {junostAssets.libraryPortraits.map((portrait) => (
+                                            <li class="splide__slide flex flex-col justify-center">
+                                                <div class="w-[400px] h-[450px]">
+                                                    <img
+                                                        alt={portrait.alt}
+                                                        src={portrait.src}
+                                                        class="object-contain bottom-0 w-full h-full"
+                                                    />
+                                                </div>
+                                                <div class="text-center mt-4">
+                                                    <h3 class="font-semibold text-lg">{portrait.fullName}</h3>
+                                                    <p class="text-sm">{portrait.description}</p>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </Section>
+        </Section>
+    </div>
 
     <!-- Father Influence Text -->
-    <Section id="father-influence">
+    <Section id="father-influence" extraTvh="top-0">
         <div class="max-w-7xl px-10 flex justify-center items-center text-4xl leading-normal font-semibold">
             <p >
                 Но главным в формировании личности А.С. Уварова стало влияние отца. Во многом, благодаря ему, Алексей Уваров сложился как человек европейской образованности и глубочайшей преданности России.
@@ -193,26 +194,29 @@ const diploma = [junostAssets.diploma];
     </Section>
 
     <!-- Dog Animation -->
-    <Section id="dog">
-        <div class="flex flex-col justify-center items-center">
+    <Section id="dog" extraHvh="h-[70vh]">
+
             <div class="flex justify-between max-w-[1440px] h-[90%] items-center pt-20 px-40">
-                <div class="h-[50%] relative left-20">
+
+                <div class="h-[80vh] relative left-20">
                     <video id="dog-anim" class="object-contain h-full" autoplay muted>
                         <source src={junostAssets.dogAnim.src} type="video/mp4">
                     </video>
                     <InfoOverlay contentType="slider" images={dogSlider} overlayId="dog" iconPosition="absolute bottom-6 left-1/2 transform -translate-x-1/2"/>
                 </div>
-                <img src={junostAssets.handwrite_1.src} alt="Почерк-1" class="h-[50%] relative right-20" />
+
+                <div class="flex flex-col items-center">
+                    <img src={junostAssets.handwrite_1.src} alt="Почерк-1" class="h-[80vh] relative right-20" />
+                    <p class="text-sm text-right mt-4 self-end pr-20">Алексей Сергеевич Уваров</p>
+                </div>
+
             </div>
-            <p class="absolute text-sm text-right self-end bottom-20">Алексей Сергеевич Уваров</p>
-        </div>
-        
     </Section>
 
-
-    <Section id="uni">
+    <!-- Uni -->
+    <Section id="uni" extraHvh="h-[90vh]">
         <div class="max-w-[1250px] w-full h-[300px] mb-72">
-            <p class="text-left font-medium max-w-3xl text-2xl leading-normal">
+            <p class="text-left font-medium max-w-3xl text-xl leading-normal">
 
                 В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший получил основательную подготовку по истории, словесности, географии, древним и новым европейским языкам, точным и естественным наукам.
                 <br>
@@ -220,12 +224,12 @@ const diploma = [junostAssets.diploma];
                 Интерес к истории, древностям привел его на словесное отделение философского факультета Петербургского университета.
             </p>
         </div>
-        <img src={junostAssets.spbgu.src} src={junostAssets.spbgu.alt} class="w-full max-w-[1440px] absolute bottom-0" />
+        <img src={junostAssets.spbgu.src} src={junostAssets.spbgu.alt} class="w-full max-w-[1440px] h-[90%] absolute bottom-0" />
     </Section> 
 
     <!-- Grefe -->
-    <Section id="grefe">
-        <div class="flex flex-col justify-center items-center gap-y-28 max-w-[1440px] text-lg md:text-2xl xl:text-4xl xl:leading-normal font-semibold">
+    <Section id="grefe" extraTvh="top-0">
+        <div class="flex flex-col justify-center items-center gap-y-20 max-w-[1440px] text-lg md:text-2xl xl:text-3xl xl:leading-normal font-semibold">
             <p class='w-full max-w-4xl xl:max-w-5xl px-10 xl:px-0'>
                 Серьезное влияние на формирование будущего ученого оказали профессор Ф.Б. Грефе, читавший курс греческой словесности, и профессор русской истории Н.Г. Устрялов. 
             </p>
@@ -239,22 +243,26 @@ const diploma = [junostAssets.diploma];
         </div>
     </Section>
 
-    <!-- Uvarov Young -->
-    <Section id="u-young">
-        <div class="bg-[url('../data/biography/_images/junost/uvarov_young_2.png')] w-full h-full bg-no-repeat flex justify-center items-center">
-            <div class="max-w-[1440px] max-h-[520px] w-full">
-                <div class="h-[530px] w-[550px] overflow-hidden relative scrollable">
-                    <div class="absolute h-[1040px] w-[550px]">
-                        <img src={junostAssets.handwrite_2.src} alt="Почерк-2" class="h-[1040px] w-full object-cover object-left-top">
-                      </div>
+
+    <div class="relative w-full">
+        <div id="uvarov-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/uvarov_young_2.png')] bg-center bg-cover bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
+        <!-- Uvarov Young -->
+        <Section id="u-young" extraTvh="top-[5vh]">
+            <div class=" w-full h-full flex justify-center items-center">
+                <div class="max-w-[1440px] max-h-[520px] w-full">
+                    <div class="h-[530px] w-[550px] overflow-hidden relative scrollable">
+                        <div class="absolute h-[1040px] w-[550px]">
+                            <img src={junostAssets.handwrite_2.src} alt="Почерк-2" class="h-[1040px] w-full object-cover object-left-top">
+                        </div>
+                    </div>
                 </div>
+                <InfoOverlay contentType="image" images={uvarovYoung} isIconInverted={true} overlayId="u-young" iconPosition="absolute bottom-16 left-1/2"/>
             </div>
-            <InfoOverlay contentType="image" images={uvarovYoung} isIconInverted={true} overlayId="u-young" iconPosition="absolute bottom-16 left-1/2"/>
-        </div>
-    </Section>
+        </Section>
+    </div>
 
     <!-- Diploma -->
-    <Section id="diploma">
+    <Section id="diploma" extraHvh="h-[80vh]" extraTvh="top-[15vh]">
         <div class="h-full w-full flex justify-center items-center">
             <div class="grid grid-cols-[2fr,1fr] gap-x-16 max-w-[1440px] px-20">
 
@@ -290,8 +298,10 @@ const diploma = [junostAssets.diploma];
 <script>
 
     // SHARED BG OBSERVER
-    const fadeRoom = document.querySelector('.room-fade') as HTMLElement;
-    const targetSections = document.querySelectorAll('#mother, #father');
+    const roomBg = document.querySelector('#room-bg') as HTMLElement;
+    const libraryBg = document.querySelector('#library-bg') as HTMLElement;
+    const uvarovBg = document.querySelector('#uvarov-bg') as HTMLElement;
+    const targetSections = document.querySelectorAll('#mother, #father, #library, #u-young');
 
     let visibleSections = new Set(); // To keep track of visible sections
 
@@ -303,16 +313,36 @@ const diploma = [junostAssets.diploma];
                 visibleSections.delete(entry.target.id); // Remove section ID when it leaves
             }
 
-            if (visibleSections.size > 0) {
-                fadeRoom.classList.add('opacity-100');
-                fadeRoom.classList.remove('opacity-0');
+            // Handle room-bg (mother & father)
+            if (visibleSections.has('mother') || visibleSections.has('father')) {
+                roomBg.classList.add('opacity-100');
+                roomBg.classList.remove('opacity-0');
             } else {
-                fadeRoom.classList.remove('opacity-100');
-                fadeRoom.classList.add('opacity-0');
+                roomBg.classList.remove('opacity-100');
+                roomBg.classList.add('opacity-0');
+            }
+
+            // Handle library-bg (library section)
+            if (visibleSections.has('library')) {
+                libraryBg.classList.add('opacity-100');
+                libraryBg.classList.remove('opacity-0');
+            } else {
+                libraryBg.classList.remove('opacity-100');
+                libraryBg.classList.add('opacity-0');
+            }
+
+            // Handle uvarov-bg (portrait section)
+            if (visibleSections.has('u-young')) {
+                uvarovBg.classList.add('opacity-100');
+                uvarovBg.classList.remove('opacity-0');
+            } else {
+                uvarovBg.classList.remove('opacity-100');
+                uvarovBg.classList.add('opacity-0');
             }
         });
     }, { threshold: 0.5 });
 
+    // Observe target sections
     targetSections.forEach(section => observer.observe(section));
 
 
@@ -439,10 +469,10 @@ const diploma = [junostAssets.diploma];
             if (entry.isIntersecting) {
                 setTimeout(() => {
                     window.location.href = '/biography/expeditions';
-                }, 500);
+                }, 1000);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.5 });
 
     transitionObserver.observe(expeditions);
 

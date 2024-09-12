@@ -3,17 +3,17 @@ import ScrollArrow from "../../components/global/ScrollArrow.astro";
 import BioWrapper from "../../components/biography/BioWrapper.astro";
 import HeaderWrapper from "../../components/global/header/HeaderWrapper.astro";
 import Section from "../../components/global/Section.astro";
+import Chapter from "../../components/biography/Chapter.astro";
 
-import { getCurrentChapter } from "../../utils/currentChapter.astro";
-const currentChapter = getCurrentChapter(Astro);
+
 ---
 
 <BioWrapper>
+    <!-- Scroll Arrow -->
     <ScrollArrow />
 
-    <Section id="chapter-intro" bgChapter="bg-chapter-bg">
-        <img src={currentChapter?.src} alt={currentChapter?.alt} class="max-w-full h-auto px-8 md:px-0" />
-    </Section>
+    <!-- Chapter Intro -->
+    <Chapter />
 
     <HeaderWrapper />
 

@@ -6,8 +6,8 @@ interface Props {
 const { bgColor } = Astro.props;
 const bgColors : any = {
     body: "bg-body",
-    junost: "bg-junost",
-    expeditions: "bg-expeditions",
+    junost: "bg-junost-bg",
+    expeditions: "bg-expeditions-bg",
     family: "bg-family",
     activities: "bg-activities",
     museum: "bg-museum",
@@ -17,7 +17,12 @@ const bgColors : any = {
     }
 ---
 
-<main class={`${bgColors[bgColor]} mx-auto w-full max-w-full`}>
+<main class={`${bgColors[bgColor]} bg-fixed mx-auto w-full max-w-full`}>
         <slot />
 </main>
 
+<script>
+    // window.onbeforeunload = function () {
+    //     window.scrollTo(0, 0);
+    // };
+</script>
