@@ -24,41 +24,67 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
     </head>
 
     <body class="bg-[url('../data/common/_images/chapter-bg.png')] bg-cover bg-no-repeat bg-fixed">
+
         <Loading />
 
-        <Section id='intro-cover' extraTvh='top-0'>
-            <div class="w-full flex justify-center items-center">
-                <!-- <ScrollArrow position='absolute right-[23%] xl:right-[23%] 2xl:right-[0%] 2xl:left-[37.5%] bottom-[20%] xl:bottom-[32%]' visible='opacity-100'/> -->
-                <img src={intro.cover.src} alt={intro.cover.alt} class="w-full mx-auto relative 2xl:top-32">
+        <Section id='intro-cover'>
+            <div class="fixed inset-0 w-full h-full">
+                <div class="relative w-full h-screen bg-[url('../data/intro/_images/intro-cover.png')] bg-cover bg-no-repeat">
+                </div>
             </div>
         </Section>
-        <Section id='intro-hand' extraTvh='top-0'>
-            <div class="w-full h-wull bg-black">
-                <video autoplay muted>
-                    <source id="intro-video-src" src={intro.hand1440.src} type="video/mp4">
-                </video>
+
+        <div class="relative w-full h-screen">
+            <section id="intro-hand" class="section w-full h-full">
+                <div class="fixed-wrapper fixed inset-0 w-full h-full">
+                    <video autoplay muted class="w-full h-full object-cover">
+                        <source id="intro-video-src" src={intro.hand1440.src} type="video/mp4">
+                    </video>
+                </div>
+            </section>
+        </div>
+        
+        <Section id="intro-text">
+            <div class="
+            text-white
+
+            flex
+            flex-col
+            justify-start
+            items-center
+            gap-y-20
+
+            text-base 2xl:text-lg 3xl:text-xl
+
+            px-16
+            pt-[10vh]
+
+            w-full
+            h-[90%]
+            ">
+              <p>
+                Алексей Сергеевич Уваров, граф, археолог, историк, почетный член Петербургской Академии наук, основатель, председатель Московского археологического общества и организатор Всероссийских археологических съездов, один из основателей Российского исторического музея.
+              </p>
+              <p>
+                Он принадлежит к когорте ярчайших личностей, которыми так богата русская история XIX столетия. Уваров был прекрасно образован, щедро одарен способностями к наукам и обладал недюжинным талантом организатора. Происхождение, титул, родственные и дружеские связи позволяли ему быть вхожим в самые высокие сферы русского общества и использовать это на благо тому делу, которому он служил.
+              </p>
+              <ScrollArrow position="absolute mx-auto inset-x-0 bottom-[10%] md:bottom-[12%] lg:bottom-[15%]" visible="opacity-100"/>
             </div>
-        </Section>
-        <Section id='intro-text' extraTvh='top-0'>
-            <div class="text-white max-w-[1440px] text-2xl leading-loose pointer-events-none flex flex-col h-[70%] gap-y-20">
-                <p>
-                    Алексей Сергеевич Уваров, граф, археолог, историк, почетный член Петербургской Академии наук, основатель, председатель Московского археологического общества и организатор Всероссийских археологических съездов, один из основателей Российского исторического музея.
-                </p>
-                <p>
-                    Он принадлежит к когорте ярчайших личностей, которыми так богата русская история XIX столетия. Уваров был прекрасно образован, щедро одарен способностями к наукам и обладал недюжинным талантом организатора. Происхождение, титул, родственные и дружеские связи позволяли ему быть вхожим в самые высокие сферы русского общества и использовать это на благо тому делу, которому он служил.
-                </p>
-                <ScrollArrow position='absolute left-1/2 transform -translate-x-1/2 bottom-[15%]' visible='opacity-100'/>
-            </div>
-        </Section>
-        <Section id='intro-transition' extraTvh='top-0'>
-        </Section>
+          </Section>
+        
+        <!-- <Section id='intro-transition'>
+        </Section> -->
     </body>
 </html>
 
-    <script src="../utils/slowScroll"></script>
+
+<script src="../utils/slowScroll"></script>
 <script>
+
     // VIDEO UPDATE FOR 1440 / 1920
     import { intro } from "../data/data";
+
+    let resizeTimeout : any;
 
     function updateVideoSource() {
         const videoElement = document.querySelector('video') as HTMLVideoElement;
@@ -76,9 +102,14 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
         }
     }
 
-    window.addEventListener('DOMContentLoaded', updateVideoSource);
-    window.addEventListener('resize', updateVideoSource);
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            updateVideoSource();
+        }, 200); // Adjust the delay if necessary
+    });
 
+    window.addEventListener('DOMContentLoaded', updateVideoSource);
 
     // INTRO COVER OBSERVER
     const introHand = document.getElementById('intro-hand') as HTMLElement;

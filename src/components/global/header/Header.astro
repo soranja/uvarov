@@ -5,50 +5,49 @@ import burger from '../../../data/common/_images/burger.svg';
 
 <header 
 	id="header-content" 
-	class="
-		mx-auto
+	class=`
 		absolute
-		md:inset-x-0
-		py-8
-		md:py-0
-		md:top-12
-		md:right-0
-		xl:w-[1440px]
-		md:h-full
+		mx-auto
+		w-full
+		max-w-[90%]
+		top-[6vh]
+		inset-x-0
+		h-full
+
 		flex
 		justify-center
 		items-center
-	">
+		
+		text-base 2xl:text-lg 3xl:text-xl
+	`>
 	<nav 
 		id="nav" 
-		class="
+		class=`
+		
 			mx-auto
+			w-full
+			max-w-[95%]
+
 			flex
 			flex-col
 			md:flex-row
-			justify-around
+			justify-between
 			items-start
 			md:items-center
+
 			uppercase
 			underline-offset-4
-			text-center
-			text-sm
-			lg:text-base
+
 			z-20
 			transition-all
 			duration-300
 			ease-in-out
-			px-6
-			sm:px-10
-			md:px-20 
-			2xl:px-12
-		">
+		`>
+
 		<!-- HOME (TEMP) -->
 		<a
 			href='/'
 			class="
-			pl-6
-			md:pl-2
 			flex-shrink-0
 			hover:underline
 			self-start
@@ -57,6 +56,7 @@ import burger from '../../../data/common/_images/burger.svg';
 			">
 			←
 		</a>
+
 		<!-- LINKS -->
 		<div 
 			id="links" 
@@ -69,6 +69,7 @@ import burger from '../../../data/common/_images/burger.svg';
 		">
 			<!-- links are inserted here -->
 		</div>
+
 		<!-- BURGER -->
 		<div 
 			class="
@@ -91,17 +92,19 @@ import burger from '../../../data/common/_images/burger.svg';
 				<img src={burger.src} alt="Бургер">
 			</button>
 		</div>
-		<img 
-		id="header-bg"
-		src={header.src}
-		alt="header"
-		class="
-			absolute
-			-z-20
-			hidden
-			md:block
-		">
 	</nav>
+	<img 
+	id="header-bg"
+	src={header.src}
+	alt="header"
+	class="
+		absolute
+		-z-20
+		hidden
+		md:block
+		object-cover
+		w-full
+	">
 </header>
 
 <script>
@@ -133,17 +136,6 @@ import burger from '../../../data/common/_images/burger.svg';
 			header!.classList.add('bg-black','text-white');
 			switchBtn!.classList.remove('invert');
 			headerBg!.classList.remove('invert');
-		}
-
-		if (headerBg!.complete) {
-			adjustNavWidth();
-		} else {
-			headerBg!.onload = adjustNavWidth;
-		}
-
-		function adjustNavWidth() {
-			const bgWidth = headerBg!.naturalWidth;
-			nav.style.width = `calc(${bgWidth}px - 6%)`;
 		}
 
 		const linksWrapper = document.createElement('div');

@@ -1,4 +1,4 @@
-const SCROLL_DURATION = 500; // 0.5 sec transition
+const SCROLL_DURATION = 1000; // 0.5 sec transition
 const SCROLL_DELAY = 2000;   // 2 sec delay
 
 let isScrolling = false;

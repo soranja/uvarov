@@ -12,7 +12,7 @@ import museum from "./biography/_images/chapters/museum.svg";
 import epilogue from "./biography/_images/chapters/epilogue.svg";
 
 // COMMON
-import scrollArrow from "./common/_images/down-arrow.png";
+import scrollArrow from "./common/_images/down-arrow.svg";
 import prevArrow from "./common/_images/prev-arrow.svg";
 import nextArrow from "./common/_images/next-arrow.svg";
 

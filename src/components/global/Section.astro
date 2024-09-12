@@ -1,45 +1,29 @@
 ---
-import { getCurrentChapter } from "../../utils/currentChapter.astro";
-const currentChapter = getCurrentChapter(Astro);
 
 interface Props {
     id: string,
     sectionClass?: string,
     extraClass?: string,
-    bgChapter?: string,
     fixedWrapperClass?: string,
-    bgClass?: string
-    extraHvh?: string,
-    extraTvh?: string
 };
 
 const { 
     id, 
-    // bgClass = `bg-${currentChapter?.id}-bg` || 'none',
-    bgChapter = "",
     extraClass = "",
-    sectionClass = "section relative w-full min-h-screen grid place-items-center content-center",
-    fixedWrapperClass = "fixed-wrapper fixed left-0 w-full bg-cover bg-no-repeat transform-all duration-1000 ease-in-out flex flex-col justify-center items-center",
-    extraHvh = 'h-screen',
-    extraTvh = 'top-[15vh]'
+    sectionClass = "section relative w-full min-h-screen",
+    fixedWrapperClass = "fixed-wrapper fixed inset-x-0 bottom-0 w-[90%] h-[90%] mx-auto",
 } = Astro.props;
 
-// const finalBg = bgChapter ? bgChapter : bgClass;
 ---
 
 <section 
     id={id} class=`${sectionClass}`>
-    <div class=`${bgChapter} w-full`>
-        <div class=
-            {`
-                ${extraTvh}
-                ${extraHvh}
-                ${fixedWrapperClass}
-                ${extraClass}
-            `}>
-            <!-- <div class="fixed w-[1440px] h-screen border-4 border-red-500"></div> -->
-            <slot />
-        </div>
+    <div class=
+        {`
+            ${fixedWrapperClass}
+            ${extraClass}
+        `}>
+        <slot />
     </div>
 </section>
 
@@ -59,17 +43,17 @@ const {
                 }
             }
         });
-    }, { threshold: 0.6 });
+    }, { threshold: [0.5, 0.7] });
 
     sections.forEach((section) => sectionsObserver.observe(section));
 </script>
 
 <style is:global>
-    .section {
-    }
+
     .fixed-wrapper {
         opacity: 0;
         z-index: 0;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     }
     .show {
         opacity: 1;

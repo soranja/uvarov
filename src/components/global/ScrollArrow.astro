@@ -5,10 +5,9 @@ interface Props {
   position?: string;
   invert?: string;
   visible?: string;
-  maxWidth?: string
 }
 
-const { position = 'w-full fixed bottom-6 left-0', invert, visible, maxWidth = 'max-w-[50px]' } = Astro.props;
+const { position = 'w-full fixed bottom-6 left-0', invert, visible } = Astro.props;
 ---
 
 <div 
@@ -25,7 +24,7 @@ const { position = 'w-full fixed bottom-6 left-0', invert, visible, maxWidth = '
     <img 
         src={common.scrollArrow.src}
         alt={common.scrollArrow.alt}
-        class=`${maxWidth} h-auto`
+        class="max-w-full w-auto h-[10vh] 3xl:h-[5vh] 4xl:h-[10vh]"
     >
 </div>
 
