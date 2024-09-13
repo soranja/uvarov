@@ -5,13 +5,18 @@ interface Props {
     sectionClass?: string,
     extraClass?: string,
     fixedWrapperClass?: string,
+    maxW?: string,
+    maxH?: string
 };
 
 const { 
     id, 
     extraClass = "",
     sectionClass = "section relative w-full min-h-screen",
-    fixedWrapperClass = "fixed-wrapper fixed inset-x-0 bottom-0 w-[90%] h-[90%] mx-auto",
+    fixedWrapperClass = "fixed-wrapper fixed inset-x-0 bottom-0 mx-auto",
+    // maxW = 'w-[90%]',
+    maxW = 'w-[1920px]',
+    maxH = 'h-[90%]'
 } = Astro.props;
 
 ---
@@ -20,6 +25,8 @@ const {
     id={id} class=`${sectionClass}`>
     <div class=
         {`
+            ${maxW}
+            ${maxH}
             ${fixedWrapperClass}
             ${extraClass}
         `}>
