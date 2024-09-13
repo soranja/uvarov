@@ -27,7 +27,7 @@ const diploma = [junostAssets.diploma];
 
 <BioWrapper>
     <!-- Scroll Arrow -->
-    <ScrollArrow />
+    <ScrollArrow size="w-3/4" position="fixed bottom-6 left-1/2 transform -translate-x-1/2"/>
 
     <!-- Chapter Intro -->
     <Chapter />
@@ -37,13 +37,13 @@ const diploma = [junostAssets.diploma];
 
     <!-- Was Born -->
     <Section id="was-born">
-        <div class="flex flex-col justify-start items-center w-full h-screen relative">
+        <div class="flex flex-col justify-start items-center w-full relative max-h-[1024px]">
             <p class="text-center font-medium max-w-6xl text-5xl leading-normal pt-[8vh]">
                 А. С. Уваров, родился 28 февраля
                 <br>
                 (11 марта) 1824 года в Петербурге.
             </p>
-            <img src={junostAssets.spb.src} alt={junostAssets.spb.alt} class="max-w-[1440px] absolute bottom-0" />
+            <img src={junostAssets.spb.src} alt={junostAssets.spb.alt} class="" />
         </div>
     </Section> 
 
