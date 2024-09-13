@@ -39,6 +39,7 @@ import dogAnim from "./biography/_videos/junost/dog_start.mp4";
 import handwrite_1 from "./biography/_images/junost/handwrite_1.png";
 import handwrite1Full from "./biography/_images/junost/handwrite_1_full.png";
 import handwrite_2 from "./biography/_images/junost/handwrite_2.png";
+import handwrite2Full from "./biography/_images/junost/handwrite_2_full.png";
 import uvarovYoung1 from "./biography/_images/junost/uvarov_young_1.png";
 import uvarovYoung2 from "./biography/_images/junost/uvarov_young_2.png";
 import uvarovYoung2Full from "./biography/_images/junost/uvarov_young_2_portrait.png";
@@ -90,6 +91,7 @@ export const junostAssets = {
     alt: "Уваров молодой - Портрет",
   },
   handwrite_2: { src: handwrite_2.src, alt: "Письмо 2" },
+  handwrite2Full: { src: handwrite2Full.src, alt: "Письмо 2 полное" },
   spb: { src: spb.src, alt: "Санкт-Петербург" },
   spbgu: { src: spbgu.src, alt: "СПБГУ" },
   roomBg: { src: roomBg.src, alt: "Комната" },

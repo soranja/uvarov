@@ -44,7 +44,7 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
             </section>
         </div>
         
-        <Section id="intro-text" maxW='w-[90%]' maxH='h-[90%] top-0'>
+        <Section id="intro-text" maxW='w-[90%]' maxH='top-0' h='h-[90vh]'>
             <div class="
             text-white
 
@@ -52,13 +52,15 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
             flex-col
             justify-center
             items-center
-            gap-y-20
+            xl:gap-y-16
             3xl:gap-y-40
             4xl:gap-y-80
 
             text-base 2xl:text-2xl 3xl:text-4xl 4xl:text-6xl
 
-            px-16
+            px-[7%]
+            2xl:px-[5%]
+            3xl:px-[10%]
             pt-[10vh]
 
             w-full
@@ -70,12 +72,12 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
               <p>
                 Он принадлежит к когорте ярчайших личностей, которыми так богата русская история XIX столетия. Уваров был прекрасно образован, щедро одарен способностями к наукам и обладал недюжинным талантом организатора. Происхождение, титул, родственные и дружеские связи позволяли ему быть вхожим в самые высокие сферы русского общества и использовать это на благо тому делу, которому он служил.
               </p>
-              <ScrollArrow position="absolute mx-auto inset-x-0 bottom-[10%] md:bottom-[12%] lg:bottom-[15%]" visible="opacity-100" size='w-[4%]'/>
+              <ScrollArrow position="absolute mx-auto inset-x-0 bottom-0" visible="opacity-100" size='w-[4%]'/>
             </div>
           </Section>
         
-        <!-- <Section id='intro-transition'>
-        </Section> -->
+        <Section id='intro-transition'>
+        </Section>
     </body>
 </html>
 
