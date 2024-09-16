@@ -36,7 +36,7 @@ const diploma = [junostAssets.diploma];
     <HeaderWrapper />
 
     <!-- Was Born -->
-    <Section id="was-born" >
+    <Section id="was-born" w="w-[1250px] 2xl:w-[1920px]">
         <div class="flex flex-col justify-between items-center">
             <p class="text-center font-medium max-w-6xl text-5xl leading-normal pt-8">
                 А. С. Уваров, родился 28 февраля
@@ -52,18 +52,18 @@ const diploma = [junostAssets.diploma];
         <div id="room-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/room.png')] bg-center bg-cover z-0 transition-opacity duration-1000 opacity-0"></div>
 
         <!-- Father section -->
-        <Section id="father" maxW="w-[1260px]">
+        <Section id="father"  h="h-[550px]">
             <div class="flex justify-center items-center">
                 <div class="grid grid-cols-2">
                     <div class="flex items-bottom justify-bottom">
-                        <img src={junostAssets.father.src} alt={junostAssets.father.alt} class="father-img max-h-[600px]">
+                        <img src={junostAssets.father.src} alt={junostAssets.father.alt} class="father-img max-h-[550px]">
                     </div>
             
-                    <div class="flex flex-col justify-between items-end h-full py-20 font-medium text-right text-2xl">
-                        <p class="top-text max-w-lg self-end">
+                    <div class="flex flex-col justify-between items-end h-full py-20 font-medium text-right ">
+                        <p class="top-text max-w-lg self-end text-lg">
                             Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
                         </p>
-                        <p class="bottom-text">
+                        <p class="bottom-text text-2xl">
                             Отец Алексея Сергеевича, Сергей Семенович Уваров (1786–1855) – выдающийся государственный деятель, президент Петербургской Академии наук (1818–1855), министр народного просвещения (1833–1849), с именем которого связано становление в России системы общественного образования.
                         </p>
                     </div>
@@ -72,18 +72,18 @@ const diploma = [junostAssets.diploma];
         </Section>
 
         <!-- Mother section -->
-        <Section id="mother" maxW="w-[1260px]">
+        <Section id="mother"  h="h-[550px]">
             <div class="flex justify-center items-center">
                 <div class="grid grid-cols-2">
                     <div class="flex items-bottom justify-bottom">
-                        <img src={junostAssets.mother.src} alt={junostAssets.mother.alt} class="mother-img max-h-[600px]">
+                        <img src={junostAssets.mother.src} alt={junostAssets.mother.alt} class="mother-img max-h-[550px]">
                     </div>
             
-                    <div class="flex flex-col justify-between items-end h-full py-20 font-medium text-right text-2xl">
-                        <p class="top-text max-w-lg self-end">
+                    <div class="flex flex-col justify-between items-end h-full py-20 font-medium text-right ">
+                        <p class="top-text max-w-lg text-lg">
                             Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
                         </p>
-                        <p class="bottom-text ">
+                        <p class="bottom-text text-2xl">
                             Мать А. С. Уварова, Екатерина Алексеевна, урожденная Разумовская – 
                             <br>
                             дочь министра народного просвещения
@@ -99,13 +99,13 @@ const diploma = [junostAssets.diploma];
     </div>
 
     <!-- Graf -->
-    <Section id="graf" maxW="w-[1260px]" h="h-[700px]">
+    <Section id="graf"  h="h-[550px]" maxH='top-[20vh] 4xl:top-[10vh]'>
         <div class="h-full w-full flex justify-center items-center">
             <div class="grid grid-cols-2 gap-x-8">
 
                 <div id="graf-image" class="flex flex-col items-center justify-center relative">
                     <img src={junostAssets.graf.src} alt={junostAssets.graf.alt} />
-                    <InfoOverlay contentType="image" images={graf} overlayId="graf" iconPosition="relative bottom-[4vh] 4xl:bottom-[2vh]"/>
+                    <InfoOverlay contentType="image" images={graf} overlayId="graf" iconPosition="relative md:bottom-[6vh] 2xl:bottom-[4vh] 4xl:bottom-[2vh]"/>
                 </div>
 
                 <div class="flex flex-col justify-between items-end font-medium text-right">
@@ -133,9 +133,9 @@ const diploma = [junostAssets.diploma];
     <!-- Library -->
     <div class="relative w-full">
         <div id="library-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/library.png')] bg-center bg-cover bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
-        <Section id="library" maxW="w-[1360px]">
+        <Section id="library" w="w-[1360px]">
                 <div class="flex flex-col justify-center items-center gap-y-[5vh]">
-                    <p class="max-w-[1260px] pt-8 font-medium text-2xl leading-normal">
+                    <p class="max-w-[1250px] pt-8 font-medium text-2xl leading-normal">
                         Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.
                     </p>
                     <div class="w-full">
@@ -172,7 +172,7 @@ const diploma = [junostAssets.diploma];
                                     <ul class="splide__list">
                                         {junostAssets.libraryPortraits.map((portrait) => (
                                             <li class="splide__slide flex flex-col justify-center items-center">
-                                                <div class="w-[400px] h-[350px]">
+                                                <div class="w-[330px] h-[290px]">
                                                     <img
                                                         alt={portrait.alt}
                                                         src={portrait.src}
@@ -195,7 +195,7 @@ const diploma = [junostAssets.diploma];
     </div>
 
     <!-- Father Influence Text -->
-    <Section id="father-influence" maxW="w-[1260px]">
+    <Section id="father-influence" >
         <div class="flex justify-center items-center text-4xl leading-normal font-semibold h-full px-[5%] pb-[10%]">
             <p>
                 Но главным в формировании личности А.С. Уварова стало влияние отца. Во многом, благодаря ему, Алексей Уваров сложился как человек европейской образованности и глубочайшей преданности России.
@@ -204,7 +204,7 @@ const diploma = [junostAssets.diploma];
     </Section>
 
     <!-- Dog Animation -->
-    <Section id="dog" maxW="w-[1260px]" h='h-[700px]'>
+    <Section id="dog"  h="h-[600px] 2xl:h-[700px]">
         <div class="grid grid-cols-2 gap-2" >
             <div class="relative max-h-[600px] 3xl:max-h-[700px] left-[7%]">
                 <video id="dog-anim" class="w-full h-full" autoplay muted>
@@ -220,7 +220,7 @@ const diploma = [junostAssets.diploma];
     </Section>
 
     <!-- Uni -->
-    <Section id="uni" maxW="w-[1260px]" maxH='2xl:max-h-[650px] 3xl:max-h-[750px] top-[15vh] 4xl:top-[10vh]'>
+    <Section id="uni"  h="h-[650px] 3xl:h-[750px]" maxH='top-[15vh] 4xl:top-[10vh]'>
         <p class="ml-[6%] text-left font-medium max-w-2xl text-xl leading-normal">
             В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший получил основательную подготовку по истории, словесности, географии, древним и новым европейским языкам, точным и естественным наукам.
             <br>
@@ -231,7 +231,7 @@ const diploma = [junostAssets.diploma];
     </Section> 
 
     <!-- Grefe -->
-    <Section id="grefe" maxW="w-[1260px]">
+    <Section id="grefe" >
         <div class="flex flex-col justify-center items-start gap-y-20 text-lg md:text-2xl xl:text-3xl 3xl:text-4xl leading-normal font-semibold h-full px-[1%] pb-[10%]">
             <p>
                 Серьезное влияние на формирование будущего ученого оказали профессор Ф.Б. Грефе, читавший курс греческой словесности, 
@@ -251,7 +251,7 @@ const diploma = [junostAssets.diploma];
      <!-- Uvarov Young -->
     <div class="relative w-full">
         <div id="uvarov-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/uvarov_young_2.png')] bg-center bg-cover bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
-        <Section id="u-young" maxW="w-[1260px]" maxH='2xl:max-h-[600px] 3xl:max-h-[700px] top-[15vh] 4xl:top-[10vh]'>
+        <Section id="u-young"  h="h-[550px] 2xl:h-[600px] 3xl:h-[700px]" maxH='top-[15vh] 4xl:top-[10vh]'>
             <div class=" w-full h-full flex justify-center items-center">
                 <div class="w-full">
                     <div class="h-[530px] w-[550px] overflow-hidden relative scrollable">
@@ -267,11 +267,11 @@ const diploma = [junostAssets.diploma];
     </div>
 
     <!-- Diploma -->
-    <Section id="diploma" maxW="w-[1260px]" h="h-[700px]"  maxH='max-h-[750px] 2xl:top-[5vh] 3xl:top-[15vh] 4xl:top-[10vh]',>
+    <Section id="diploma"  h="h-[600px] 2xl:h-[700px]" maxH='top-[10vh] 2xl:top-[5vh]'>
         <div class="h-full w-full flex justify-center items-center">
             <div class="grid grid-cols-3 gap-x-16">
-                <div id="diploma-image" class="col-span-2 flex flex-col items-center justify-center relative 2xl:max-w-[600px] 3xl:max-w-full">
-                    <img src={junostAssets.diploma.src} alt={junostAssets.diploma.alt}/>
+                <div id="diploma-image" class="col-span-2 flex flex-col items-center justify-center relative max-w-[600px]">
+                    <img src={junostAssets.diploma.src} alt={junostAssets.diploma.alt} class="max-h-[500px]"/>
                     <InfoOverlay contentType="image" images={diploma} overlayId="diploma" iconPosition="absolute bottom-4"/>
                 </div>
 
@@ -309,8 +309,8 @@ const diploma = [junostAssets.diploma];
     </Section>
 
     <!-- To Expeditions -->
-    <Section id="expeditions">
-    </Section>
+    <!-- <Section id="expeditions">
+    </Section> -->
 
 </BioWrapper>
 

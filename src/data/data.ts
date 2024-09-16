@@ -129,16 +129,16 @@ export const junostAssets = {
     {
       id: 4,
       src: portrait_4.src,
-      alt: "Юрковский",
-      fullName: "...",
-      description: "...",
+      alt: "Жуковский",
+      fullName: "Василий Андреевич Жуковский",
+      description: "русский поэт, один из основоположников романтизма в русской поэзии",
     },
     {
       id: 5,
       src: portrait_5.src,
       alt: "Погодин",
-      fullName: "...",
-      description: "...",
+      fullName: "Михаил Петрович Погодин",
+      description: "русский историк, коллекционер, журналист и публицист, писатель-беллетрист, издатель",
     },
   ],
 };

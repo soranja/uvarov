@@ -5,9 +5,9 @@ interface Props {
     sectionClass?: string,
     extraClass?: string,
     fixedWrapperClass?: string,
-    maxW?: string,
-    maxH?: string,
+    w?: string,
     h?:string
+    maxH?: string,
 };
 
 const { 
@@ -16,8 +16,8 @@ const {
     sectionClass = "section relative w-full min-h-screen",
     fixedWrapperClass = "fixed-wrapper fixed inset-x-0 mx-auto",
     // maxW = 'w-[90%]',
-    maxW = 'max-w-[1920px]',
     maxH = 'max-h-[750px] top-[15vh] 4xl:top-[10vh]',
+    w = 'w-[1250px]',
     h = 'h-[750px]',
 } = Astro.props;
 
@@ -28,7 +28,7 @@ const {
     <div class=
         {`
             ${h}
-            ${maxW}
+            ${w}
             ${maxH}
             ${fixedWrapperClass}
             ${extraClass}
