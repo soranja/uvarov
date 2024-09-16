@@ -5,6 +5,9 @@ let isScrolling = false;
 
 // List of section IDs to observe
 const sectionIds = [
+  "intro-cover",
+  "intro-hand",
+  "intro-text",
   "chapter-intro",
   "was-born",
   "father",
