@@ -51,6 +51,43 @@ import portrait_3 from "./biography/_images/junost/portraits/pletnev.png";
 import portrait_4 from "./biography/_images/junost/portraits/jukovsky.png";
 import portrait_5 from "./biography/_images/junost/portraits/pogodin.png";
 
+/* ==========
+
+    EXPEDITIONS
+
+  ========== */
+
+// BGs, MAPS, ETC.
+import archaeologists from "./biography/_images/expeditions/archaeologists.png";
+import expeditionsImg from "./biography/_images/expeditions/expeditions-img.jpg";
+import nordMapBg from "./biography/_images/expeditions/nord-map-bg.png";
+import olviaBg from "./biography/_images/expeditions/olvia-bg.png";
+import porechyeBg from "./biography/_images/expeditions/porechye-bg.png";
+import pozharskySketch from "./biography/_images/expeditions/pozharsky-sketch.png";
+import researchCover from "./biography/_images/expeditions/research-cover.png";
+import suzdal from "./biography/_images/expeditions/suzdal.png";
+import zabelin from "./biography/_images/expeditions/zabelin.png";
+
+// KHERSONES
+import hersones from "./biography/_images/expeditions/hersones.png";
+import hersonesBg from "./biography/_images/expeditions/hersones-bg.png";
+import hersonesWallBg from "./biography/_images/expeditions/hersones-wall-bg.png";
+
+// KHERSON
+import kherson1 from "./biography/_images/expeditions/kherson-1.png";
+import kherson2 from "./biography/_images/expeditions/kherson-2.png";
+import kherson3 from "./biography/_images/expeditions/kherson-3.png";
+import khersonBg from "./biography/_images/expeditions/kherson-bg.png";
+
+// GALLERY FROM THE TRIP TO THE SOUTH
+import research1 from "./biography/_images/expeditions/research/1.jpg";
+import research2 from "./biography/_images/expeditions/research/2.jpg";
+import research3 from "./biography/_images/expeditions/research/3.jpg";
+import research4 from "./biography/_images/expeditions/research/4.jpg";
+import research5 from "./biography/_images/expeditions/research/5.jpg";
+import research6 from "./biography/_images/expeditions/research/6.jpg";
+import research7 from "./biography/_images/expeditions/research/7.jpg";
+
 /* ============================================================
 
     EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS 
@@ -131,14 +168,137 @@ export const junostAssets = {
       src: portrait_4.src,
       alt: "Жуковский",
       fullName: "Василий Андреевич Жуковский",
-      description: "русский поэт, один из основоположников романтизма в русской поэзии",
+      description:
+        "русский поэт, один из основоположников романтизма в русской поэзии",
     },
     {
       id: 5,
       src: portrait_5.src,
       alt: "Погодин",
       fullName: "Михаил Петрович Погодин",
-      description: "русский историк, коллекционер, журналист и публицист, писатель-беллетрист, издатель",
+      description:
+        "русский историк, коллекционер, журналист и публицист, писатель-беллетрист, издатель",
+    },
+  ],
+};
+
+export const expeditionsAssets = {
+  archaeologists: { src: archaeologists.src, alt: "Группа археологов" },
+  expeditionsImg: { src: expeditionsImg.src, alt: "Изображение экспедиции" },
+
+  khersones: [
+    {
+      id: 1,
+      src: hersones.src,
+      alt: "Развалины Херсонеса",
+    },
+    {
+      id: "bg",
+      src: hersonesBg.src,
+      alt: "Фон Херсонеса",
+    },
+    {
+      id: "wall",
+      src: hersonesWallBg.src,
+      alt: "Стена Херсонеса",
+    },
+  ],
+
+  kherson: [
+    {
+      id: 1,
+      src: kherson1.src,
+      alt: "Херсон - изображение 1",
+    },
+    {
+      id: 1,
+      src: kherson2.src,
+      alt: "Херсон - изображение 2",
+    },
+    {
+      id: 1,
+      src: kherson3.src,
+      alt: "Херсон - изображение 3",
+    },
+    {
+      id: "bg",
+      src: khersonBg.src,
+      alt: "Небо Херсона",
+    },
+  ],
+
+  nordMapBg: { src: nordMapBg.src, alt: "Карта Севера" },
+  olviaBg: { src: olviaBg.src, alt: "Ольвия" },
+  porechyeBg: { src: porechyeBg.src, alt: "Поречье" },
+  pozharskySketch: { src: pozharskySketch.src, alt: "Пожарский - Рисунок" },
+  researchCover: { src: researchCover.src, alt: "Путешествие на юг - Обложка" },
+  suzdal: { src: suzdal.src, alt: "Суздаль" },
+  zabelin: { src: zabelin.src, alt: "Портрет Забелина" },
+
+  research: [
+    {
+      id: 1,
+      src: research1.src,
+      alt: "Ольвия. Внутренняя часть кургана",
+      author: "М.Б. Вебель",
+      location: "Ольвия. Внутренняя часть кургана",
+      published:
+        "Уваров А.С. Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного Моря. СПб., 1851.",
+    },
+    {
+      id: 2,
+      src: research2.src,
+      alt: "Мангуп. Развалины греческой церкви и гробницы",
+      author: "М.Б. Вебель",
+      location: "Мангуп. Развалины греческой церкви и гробницы",
+      published:
+        "Уваров А.С. Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного Моря. СПб., 1851.",
+    },
+    {
+      id: 3,
+      src: research3.src,
+      alt: "Бакла-Кая. Внутренняя часть большой пещеры",
+      author: "М.Б. Вебель",
+      location: "Бакла-Кая. Внутренняя часть большой пещеры",
+      published:
+        "Уваров А.С. Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного Моря. СПб., 1851.",
+    },
+    {
+      id: 4,
+      src: research4.src,
+      alt: "Фресковая роспись храма «Трех всадников»",
+      author: "М.Б. Вебель",
+      location: "Фресковая роспись храма «Трех всадников»",
+      published:
+        "Уваров А.С. Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного Моря. СПб., 1851.",
+    },
+    {
+      id: 5,
+      src: research5.src,
+      alt: "Фрагменты фресковой росписи пещерного храма",
+      author: "М.Б. Вебель",
+      location: "Фрагменты фресковой росписи пещерного храма",
+      published:
+        "Уваров А.С. Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного Моря. СПб., 1851.",
+    },
+    {
+      id: 6,
+      src: research6.src,
+      alt: "Гурзуф. Развалины крепости Юстиниана",
+      author: "М.Б. Вебель",
+      location: "Гурзуф. Развалины крепости Юстиниана",
+      published:
+        "Уваров А.С. Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного Моря. СПб., 1851.",
+    },
+    {
+      id: 7,
+      src: research7.src,
+      alt: "Археологические разыскания в 1853 году",
+      description:
+        "Всеподданнейший отчет министра уделов и управляющего Кабинетом Е.И.В. графа Л.А. Перовского императору Николаю I об археологических разысканиях в 1853 году. ",
+      location: "Санкт-Петербург, 15 апреля 1854 г.",
+      shownInfo:
+        "На развороте: изображение серебряной наградной пайцзы монгольской династии Юань (1279–1368) (найдена в Суздале, хранится в Государственном Эрмитаже)",
     },
   ],
 };

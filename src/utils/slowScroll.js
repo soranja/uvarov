@@ -1,7 +1,51 @@
-const SCROLL_DURATION = 500; // 0.5 sec transition
-const SCROLL_DELAY = 2000;   // 2 sec delay
-
+let scrollDuration;
+let scrollDelay;
+let scrollDistance;
 let isScrolling = false;
+
+// List of section IDs to observe
+const sectionIds = [
+  "chapter-intro",
+  "was-born",
+  "father",
+  "mother",
+  "graf",
+  "library",
+];
+
+// SLOW SCROLL OBSERVER (JUNOST 4-5 SLIDES)
+const slowScrollObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.id;
+
+      if (entry.isIntersecting) {
+        console.log(`${id} is in view`);
+        scrollDelay = 3000;
+        scrollDuration = 500;
+        scrollDistance = window.innerHeight;
+      } else {
+        scrollDelay = 0;
+        scrollDuration = 10;
+        scrollDistance = window.innerHeight * 0.15;
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+sectionIds.forEach((id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    slowScrollObserver.observe(section); // Pass the DOM element to observe
+  } else {
+    console.warn(`Element with id ${id} not found`);
+  }
+});
+
+function easeInOutQuad(t) {
+  return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
 
 function slowScroll(targetScrollY) {
   let startScrollY = window.scrollY;
@@ -11,17 +55,20 @@ function slowScroll(targetScrollY) {
   function animationScroll(currentTime) {
     if (startTime === null) startTime = currentTime;
     let timeElapsed = currentTime - startTime;
-    let scrollProgress = Math.min(timeElapsed / SCROLL_DURATION, 1); // Normalize to a value between 0 and 1
 
-    window.scrollTo(0, startScrollY + distance * scrollProgress);
+    // Use the easeInOutQuad function for smooth scrolling
+    let scrollProgress = Math.min(timeElapsed / scrollDuration, 1); // Normalize to a value between 0 and 1
+    let easing = easeInOutQuad(scrollProgress); // Apply easing function
+
+    window.scrollTo(0, startScrollY + distance * easing);
 
     if (scrollProgress < 1) {
       requestAnimationFrame(animationScroll);
     } else {
-      // Wait for 2 seconds before allowing the next scroll
+      // Wait for the specified delay before allowing the next scroll
       setTimeout(() => {
         isScrolling = false;
-      }, SCROLL_DELAY);
+      }, scrollDelay);
     }
   }
 
@@ -33,25 +80,21 @@ window.addEventListener(
   (event) => {
     event.preventDefault();
 
-    // Select all elements with the class 'scrollable'
+    // LOGIC FOR SCROLLABLE
     const scrollableElements = document.querySelectorAll(".scrollable");
-    
     let isInsideScrollable = false;
-
-    // Check if the event target is inside any scrollable element
     scrollableElements.forEach((scrollable) => {
       if (scrollable.contains(event.target)) {
         isInsideScrollable = true;
       }
     });
 
-    // If the event is not inside a scrollable section, apply global scroll
     if (!isInsideScrollable) {
       if (!isScrolling) {
         isScrolling = true;
         let targetScrollY =
           window.scrollY +
-          (event.deltaY > 0 ? window.innerHeight : -window.innerHeight);
+          (event.deltaY > 0 ? scrollDistance : -scrollDistance);
         slowScroll(targetScrollY);
       }
     }
@@ -63,24 +106,20 @@ window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowDown" || event.key === "ArrowUp") {
     event.preventDefault();
 
-    // Select all elements with the class 'scrollable'
+    // LOGIC FOR SCROLLABLE
     const scrollableElements = document.querySelectorAll(".scrollable");
-
     let isInsideScrollable = false;
-
-    // Check if the active element is inside any scrollable element
     scrollableElements.forEach((scrollable) => {
       if (scrollable.contains(document.activeElement)) {
         isInsideScrollable = true;
       }
     });
 
-    // If the event is not inside a scrollable section, apply global scroll
     if (!isInsideScrollable && !isScrolling) {
       isScrolling = true;
       let targetScrollY =
         window.scrollY +
-        (event.key === "ArrowDown" ? window.innerHeight : -window.innerHeight);
+        (event.key === "ArrowDown" ? scrollDistance : -scrollDistance);
       slowScroll(targetScrollY);
     }
   }
