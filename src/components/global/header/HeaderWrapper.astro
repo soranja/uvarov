@@ -19,22 +19,28 @@ import Header from "./Header.astro";
 </header>
 
 <script>
-    // HEADER FADE OBSERVER
-    const chapterIntro = document.getElementById('chapter-intro') as HTMLElement;
-    const header = document.getElementById('header') as HTMLElement;
-    const scrollArrow = document.getElementById('scroll') as HTMLElement;
-    const headerObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-                header.classList.add('opacity-100');  // Fade in when scrolled past
-                scrollArrow.classList.remove('opacity-100');
+    document.addEventListener('DOMContentLoaded', () => {
+        const chapterIntro = document.getElementById('chapter-intro') as HTMLElement;
+        const header = document.getElementById('header') as HTMLElement;
+        const scrollArrow = document.getElementById('scroll-arrow') as HTMLElement;
 
-            } else {
-                header.classList.remove('opacity-100');  // Fade out when back in view   
-                scrollArrow.classList.add('opacity-100');  // Fade out when back in view          
-            }
-        });
-    }, { threshold: 0.1 });
+        if (chapterIntro && header && scrollArrow) {
+            // HEADER FADE OBSERVER
+            const headerObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        header.classList.add('opacity-100');  // Fade in when scrolled past
+                        scrollArrow.classList.remove('opacity-100');
+                    } else {
+                        header.classList.remove('opacity-100');  // Fade out when back in view   
+                        scrollArrow.classList.add('opacity-100');  // Fade out when back in view          
+                    }
+                });
+            }, { threshold: 0.1 });
 
-    headerObserver.observe(chapterIntro);
+            headerObserver.observe(chapterIntro);
+        } else {
+            console.error('One or more elements were not found: chapterIntro, header, scrollArrow');
+        }
+    });
 </script>

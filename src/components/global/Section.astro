@@ -8,13 +8,15 @@ interface Props {
     w?: string,
     h?:string
     maxH?: string,
+    isFixed?: boolean
 };
 
 const { 
     id, 
     extraClass = "",
     sectionClass = "section relative w-full min-h-screen",
-    fixedWrapperClass = "fixed-wrapper fixed inset-x-0 mx-auto",
+    fixedWrapperClass = "fixed-wrapper inset-x-0 mx-auto",
+    isFixed = false,
     // maxW = 'w-[90%]',
     maxH = 'max-h-[750px] top-[15vh] 4xl:top-[10vh]',
     w = 'w-[1250px]',
@@ -30,6 +32,7 @@ const {
             ${h}
             ${w}
             ${maxH}
+            ${isFixed ? "fixed" : 'absolute'}
             ${fixedWrapperClass}
             ${extraClass}
         `}>

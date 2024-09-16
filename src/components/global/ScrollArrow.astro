@@ -6,28 +6,34 @@ interface Props {
   invert?: string;
   visible?: string;
   size?: string
+  animated?: boolean
+  redirectUrl?: string;
 }
 
-const { position = 'fixed bottom-6 left-0', invert, visible, size = 'w-full' } = Astro.props;
+const { position = 'fixed bottom-6 left-0', invert, visible, size = 'w-full', animated = true, redirectUrl = '' } = Astro.props;
 ---
 
-<div 
-    id="scroll"
+<scroll-arrow 
+    id="scroll-arrow"
+    aria-label="Scroll down"
+    data-redirect-url={redirectUrl}
     class=`
         ${position}
         ${visible}
         flex
         justify-center
         z-150
-        animate-bounce
+
         ${invert}
+        ${!animated ? 'cursor-pointer' : 'pointer-events-none'}
+        ${animated ? 'animate-bounce' : ''}
     `>
     <img 
         src={common.scrollArrow.src}
         alt={common.scrollArrow.alt}
         class=`max-w-full ${size}`
     >
-</div>
+</scroll-arrow>
 
 <style>
     #scroll {
@@ -41,6 +47,19 @@ const { position = 'fixed bottom-6 left-0', invert, visible, size = 'w-full' } =
 </style>
 
 <script>
-
-
+  class ScrollArrow extends HTMLElement {
+     connectedCallback() {
+       const redirectURL = this.dataset.redirectUrl || '';
+       
+       // Attach the click event listener directly to the custom element
+       this.addEventListener('click', () => {
+         if (redirectURL) {
+           window.location.href = redirectURL;
+           console.log("Redirecting to: ", redirectURL);
+         }
+       });
+     }
+   }
+ 
+ customElements.define('scroll-arrow', ScrollArrow);
 </script>

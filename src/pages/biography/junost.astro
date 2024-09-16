@@ -26,9 +26,6 @@ const diploma = [junostAssets.diploma];
 </style>
 
 <BioWrapper>
-    <!-- Scroll Arrow -->
-    <ScrollArrow size="w-3/4" position="fixed bottom-6 left-1/2 transform -translate-x-1/2"/>
-
     <!-- Chapter Intro -->
     <Chapter />
 
@@ -36,23 +33,23 @@ const diploma = [junostAssets.diploma];
     <HeaderWrapper />
 
     <!-- Was Born -->
-    <Section id="was-born" w="w-[1250px] 2xl:w-[1920px]">
+    <Section id="was-born" w="w-[1250px] 2xl:w-full" isFixed={true}>
         <div class="flex flex-col justify-between items-center">
-            <p class="text-center font-medium max-w-6xl text-5xl leading-normal pt-8">
+            <p class="text-center font-medium max-w-6xl text-4xl 2xl:text-5xl 2xl:leading-normal pt-8">
                 А. С. Уваров, родился 28 февраля
                 <br>
                 (11 марта) 1824 года в Петербурге.
             </p>
-            <img src={junostAssets.spb.src} alt={junostAssets.spb.alt} class="relative bottom-[-2vh]"/>
+            <img src={junostAssets.spb.src} alt={junostAssets.spb.alt} class="relative 2xl:bottom-[-5vh]"/>
         </div>
     </Section> 
 
     <!-- Father / Mother -->
-    <div class="relative w-full">
+    <div class="relative w-full overflow-hidden" >
         <div id="room-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/room.png')] bg-center bg-cover z-0 transition-opacity duration-1000 opacity-0"></div>
 
         <!-- Father section -->
-        <Section id="father"  h="h-[550px]">
+        <Section id="father"  h="h-[550px]" isFixed={true}>
             <div class="flex justify-center items-center">
                 <div class="grid grid-cols-2">
                     <div class="flex items-bottom justify-bottom">
@@ -72,7 +69,7 @@ const diploma = [junostAssets.diploma];
         </Section>
 
         <!-- Mother section -->
-        <Section id="mother"  h="h-[550px]">
+        <Section id="mother"  h="h-[550px]" isFixed={true}>
             <div class="flex justify-center items-center">
                 <div class="grid grid-cols-2">
                     <div class="flex items-bottom justify-bottom">
@@ -99,7 +96,7 @@ const diploma = [junostAssets.diploma];
     </div>
 
     <!-- Graf -->
-    <Section id="graf"  h="h-[550px]" maxH='top-[20vh] 4xl:top-[10vh]'>
+    <Section id="graf"  h="h-[550px]" maxH='top-[20vh] 4xl:top-[10vh]' isFixed={true}>
         <div class="h-full w-full flex justify-center items-center">
             <div class="grid grid-cols-2 gap-x-8">
 
@@ -131,9 +128,9 @@ const diploma = [junostAssets.diploma];
     </Section>
 
     <!-- Library -->
-    <div class="relative w-full">
+    <div class="relative w-full overflow-hidden" >
         <div id="library-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/library.png')] bg-center bg-cover bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
-        <Section id="library" w="w-[1360px]">
+        <Section id="library" w="w-[1360px]" isFixed={true}>
                 <div class="flex flex-col justify-center items-center gap-y-[5vh]">
                     <p class="max-w-[1250px] pt-8 font-medium text-2xl leading-normal">
                         Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.
@@ -249,7 +246,7 @@ const diploma = [junostAssets.diploma];
     </Section>
 
      <!-- Uvarov Young -->
-    <div class="relative w-full">
+    <div class="relative w-full overflow-hidden">
         <div id="uvarov-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/uvarov_young_2.png')] bg-center bg-cover bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
         <Section id="u-young"  h="h-[550px] 2xl:h-[600px] 3xl:h-[700px]" maxH='top-[15vh] 4xl:top-[10vh]'>
             <div class=" w-full h-full flex justify-center items-center">
@@ -301,16 +298,19 @@ const diploma = [junostAssets.diploma];
                     <div class="relative">
                         <p>следующая глава</p>
                         
-                        <ScrollArrow position="absolute mx-auto inset-x-0 2xl:bottom-[-15vh] 3xl:bottom-[-9vh] 4xl:bottom-[-6vh]" invert="invert" visible="opacity-100" size="w-1/2" />
+                        <ScrollArrow 
+                            position="absolute mx-auto inset-x-0 bottom-[-10vh] 3xl:bottom-[-9vh] 4xl:bottom-[-6vh]" 
+                            invert="invert" 
+                            visible="opacity-100" 
+                            size="w-1/3"
+                            animated={false}
+                            redirectUrl="/biography/expeditions"
+                            />
                     </div>
                 </div>
             </div>
         </div>
     </Section>
-
-    <!-- To Expeditions -->
-    <!-- <Section id="expeditions">
-    </Section> -->
 
 </BioWrapper>
 
@@ -480,20 +480,5 @@ const diploma = [junostAssets.diploma];
             
     });
 
-
-    // REDIRECT AFTER SCROLL TO EXPEDITIONS
-    const expeditions = document.getElementById('expeditions') as HTMLElement;
-
-    const transitionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    window.location.href = '/biography/expeditions';
-                }, 1000);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    transitionObserver.observe(expeditions);
 
 </script>
