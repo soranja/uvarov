@@ -9,8 +9,6 @@ import Chapter from "../../components/biography/Chapter.astro";
 
 import { common, junostAssets } from "../../data/data";
 
-
-
 const uvarovYoung1 = [junostAssets.uvarovYoung1, junostAssets.handwrite1Full];
 const uvarovYoung2 = [junostAssets.uvarovYoung2Full, junostAssets.handwrite2Full];
 const graf = [junostAssets.graf];
@@ -325,7 +323,7 @@ const diploma = [junostAssets.diploma];
 
     let visibleSections = new Set(); // To keep track of visible sections
 
-    const observer = new IntersectionObserver((entries) => {
+    const sharedBgObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 visibleSections.add(entry.target.id); // Add section ID when it enters
@@ -363,7 +361,7 @@ const diploma = [junostAssets.diploma];
     }, { threshold: 0.5 });
 
     // Observe target sections
-    targetSections.forEach(section => observer.observe(section));
+    targetSections.forEach(section => sharedBgObserver.observe(section));
 
 
     // FATHER / MOTHER SCROLL --- GSAP 

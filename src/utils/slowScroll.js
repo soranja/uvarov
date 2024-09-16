@@ -20,24 +20,27 @@ const slowScrollObserver = new IntersectionObserver(
       const id = entry.target.id;
 
       if (entry.isIntersecting) {
-        console.log(`${id} is in view`);
-        scrollDelay = 3000;
+        scrollDelay = 2000;
         scrollDuration = 500;
         scrollDistance = window.innerHeight;
+        console.log(`${id} is in view`);
+        console.log("delay:", scrollDelay);
       } else {
         scrollDelay = 0;
         scrollDuration = 10;
-        scrollDistance = window.innerHeight * 0.15;
+        scrollDistance = window.innerHeight * 0.175;
+        console.log(`${id} is not in view`);
+        console.log("delay:", scrollDelay);
       }
     });
   },
-  { threshold: 0.5 }
+  { threshold: [0.1] }
 );
 
 sectionIds.forEach((id) => {
   const section = document.getElementById(id);
   if (section) {
-    slowScrollObserver.observe(section); // Pass the DOM element to observe
+    slowScrollObserver.observe(section);
   } else {
     console.warn(`Element with id ${id} not found`);
   }
