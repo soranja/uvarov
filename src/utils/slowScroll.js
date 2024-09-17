@@ -20,8 +20,8 @@ const slowScrollObserver = new IntersectionObserver(
         console.log("delay:", scrollDelay);
       } else {
         scrollDelay = 0;
-        scrollDuration = 10;
-        scrollDistance = window.innerHeight * 0.175;
+        scrollDuration = 5;
+        scrollDistance = window.innerHeight * 0.15;
         console.log(`${id} is not in view`);
         console.log("delay:", scrollDelay);
       }

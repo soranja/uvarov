@@ -61,9 +61,9 @@ import portrait_5 from "./biography/_images/junost/portraits/pogodin.png";
 import archaeologists from "./biography/_images/expeditions/archaeologists.png";
 import expeditionsImg from "./biography/_images/expeditions/expeditions-img.jpg";
 import nordMapBg from "./biography/_images/expeditions/nord-map-bg.png";
-import olviaBg from "./biography/_images/expeditions/olvia-bg.png";
-import porechyeBg from "./biography/_images/expeditions/porechye-bg.png";
-import pozharskySketch from "./biography/_images/expeditions/pozharsky-sketch.png";
+// import olviaBg from "./biography/_images/expeditions/olvia-bg.png";
+// import porechyeBg from "./biography/_images/expeditions/porechye-bg.png";
+import pozharskySketch from "./biography/_videos/expeditions/pozharsky-sketch.webm";
 import researchCover from "./biography/_images/expeditions/research-cover.png";
 import suzdal from "./biography/_images/expeditions/suzdal.png";
 import zabelin from "./biography/_images/expeditions/zabelin.png";
@@ -77,7 +77,7 @@ import hersonesWallBg from "./biography/_images/expeditions/hersones-wall-bg.png
 import kherson1 from "./biography/_images/expeditions/kherson-1.png";
 import kherson2 from "./biography/_images/expeditions/kherson-2.png";
 import kherson3 from "./biography/_images/expeditions/kherson-3.png";
-import khersonBg from "./biography/_images/expeditions/kherson-bg.png";
+// import khersonBg from "./biography/_images/expeditions/kherson-bg.png";
 
 // GALLERY FROM THE TRIP TO THE SOUTH
 import research1 from "./biography/_images/expeditions/research/1.jpg";
@@ -211,26 +211,21 @@ export const expeditionsAssets = {
       alt: "Херсон - изображение 1",
     },
     {
-      id: 1,
+      id: 2,
       src: kherson2.src,
       alt: "Херсон - изображение 2",
     },
     {
-      id: 1,
+      id: 3,
       src: kherson3.src,
       alt: "Херсон - изображение 3",
-    },
-    {
-      id: "bg",
-      src: khersonBg.src,
-      alt: "Небо Херсона",
     },
   ],
 
   nordMapBg: { src: nordMapBg.src, alt: "Карта Севера" },
-  olviaBg: { src: olviaBg.src, alt: "Ольвия" },
-  porechyeBg: { src: porechyeBg.src, alt: "Поречье" },
-  pozharskySketch: { src: pozharskySketch.src, alt: "Пожарский - Рисунок" },
+  // olviaBg: { src: olviaBg.src, alt: "Ольвия" },
+  // porechyeBg: { src: porechyeBg.src, alt: "Поречье" },
+  pozharskySketch: { src: pozharskySketch, alt: "Пожарский - Рисунок" },
   researchCover: { src: researchCover.src, alt: "Путешествие на юг - Обложка" },
   suzdal: { src: suzdal.src, alt: "Суздаль" },
   zabelin: { src: zabelin.src, alt: "Портрет Забелина" },
