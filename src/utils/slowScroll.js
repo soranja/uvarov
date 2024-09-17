@@ -4,17 +4,7 @@ let scrollDistance;
 let isScrolling = false;
 
 // List of section IDs to observe
-const sectionIds = [
-  "intro-cover",
-  "intro-hand",
-  "intro-text",
-  "chapter-intro",
-  "was-born",
-  "father",
-  "mother",
-  "graf",
-  "library",
-];
+const sectionIds = ["intro-cover", "intro-hand", "intro-text", "chapter-intro"];
 
 // SLOW SCROLL OBSERVER (JUNOST 4-5 SLIDES)
 const slowScrollObserver = new IntersectionObserver(

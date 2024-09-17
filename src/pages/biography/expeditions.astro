@@ -47,17 +47,17 @@ import { common, expeditionsAssets } from "../../data/data";
     </Section>
 
     <!-- Zabelin -->
-    <Section id="zabelin" w="w-[1150px]" h="h-[600px] 2xl:h-[700px]" maxH='top-[10vh] 2xl:top-[5vh]'>
+    <Section id="zabelin" h="h-[600px] 2xl:h-[700px]" maxH='top-[10vh] 2xl:top-[5vh]'>
         <div class="h-full w-full flex flex-col justify-center items-center">
             <div class="grid grid-cols-3 gap-x-8">
-                <div id="zabelin-image" class="col-span-1 flex flex-col items-start justify-center">
-                    <img src={expeditionsAssets.zabelin.src} alt={expeditionsAssets.zabelin.alt} class="max-w-[320px] 2xl:max-w-[450px]"/>
+                <div id="zabelin-image" class="col-span-1 flex flex-col items-start justify-center min-w-[400px]">
+                    <img src={expeditionsAssets.zabelin.src} alt={expeditionsAssets.zabelin.alt} class="max-w-[300px] 2xl:max-w-[400px]"/>
                 </div>
                 <div class="col-span-2 flex flex-col justify-between items-end font-medium text-right">
-                    <p class="max-w-lg text-2xl font-semibold">
+                    <p class="max-w-md text-lg font-semibold">
                         Он предложил начать работу по составлению Русского археологического словаря и подготовил для него ряд статей. В 1849 году Уваров назначил денежные вознаграждения за исследования в области русских древностей, и среди награжденных авторов были И. Е. Забелин и Д. А. Ровинский.
                     </p>
-                    <p class="max-w-sm text-sm pb-[4vh]">
+                    <p class="max-w-sm text-sm">
                         Забелин Иван Егорович (с дагерротипа 1856 г.) Москва. 1900-е гг.
                     </p>
                 </div>
@@ -67,6 +67,7 @@ import { common, expeditionsAssets } from "../../data/data";
     </Section>
 
     
+    <!-- Hersones Map BG -->
     <div id="hersones-bg" class="fixed top-[10vh] left-0 w-full h-[90vh] bg-[url('../data/biography/_images/expeditions/hersones-bg.png')] bg-center bg-contain bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
 
     <!-- Hersones Text -->
@@ -81,10 +82,11 @@ import { common, expeditionsAssets } from "../../data/data";
     <!-- Hersones Image -->
     <Section id="hersones-image">
         <div class="flex flex-col items-center justify-center h-full">
-            <img src={expeditionsAssets.khersones[0].src} alt={expeditionsAssets.khersones[0].alt} class=""/>
+            <img src={expeditionsAssets.khersones[0].src} alt={expeditionsAssets.khersones[0].alt} class="max-h-[550px] 2xl:max-h-[700px]"/>
         </div>
     </Section>
 
+    <!-- Hersones Wall (Vertical BG) -->
     <div 
         id="hersones-wall-bg" 
         class="
@@ -95,11 +97,13 @@ import { common, expeditionsAssets } from "../../data/data";
             h-full 
             overflow-hidden
             mx-auto
+            pt-[20vh]
+            pb-[40vh]
 
             bg-[url('../data/biography/_images/expeditions/hersones-wall-bg.png')] 
             bg-center
             bg-cover
-            2xl:bg-contain 
+            3xl:bg-contain 
             bg-no-repeat 
             z-0 
 
@@ -107,8 +111,8 @@ import { common, expeditionsAssets } from "../../data/data";
             duration-1000 
             opacity-0 
             
-            border-4 border-orange-500">
-        <Section id="hersones-wall-top">
+        ">
+        <Section id="hersones-wall-top" w="w-[1250px]">
             <div class="flex justify-center items-center text-5xl leading-normal font-semibold h-full px-[5%] text-white">
                 <p>
                     Он посетил Каменское городище, Херсон, Ольвию, Херсонес и другие.
@@ -116,16 +120,91 @@ import { common, expeditionsAssets } from "../../data/data";
             </div>
         </Section>
     
-        <Section id="hersones-wall-bottom">
+        <Section id="hersones-wall-bottom" w="w-[1250px]">
             <div class="flex justify-center items-center text-5xl leading-normal font-semibold h-full px-[5%] text-white">
                 <p>
                     Раскопки ученый не вел, все приобретенные им антики либо «подъемный» материал (фрагменты керамических стеклянных сосудов, лепная керамика, монеты), либо покупки у местного населения.
                 </p>
             </div>
         </Section>
+
+
     </div>
 
+    <!-- Zabelin -->
+    <Section id="research" h="h-[600px] 2xl:h-[700px]" maxH='top-[10vh] 2xl:top-[5vh]'>
+        <div class="h-full w-full flex flex-col justify-center items-center">
+            <div class="grid grid-cols-3 gap-x-8">
+                <div id="research-image" class="col-span-1 flex flex-col items-start justify-center min-w-[400px]">
+                    <img src={expeditionsAssets.researchCover.src} alt={expeditionsAssets.researchCover.alt} class="max-w-[300px] 2xl:max-w-[400px]"/>
+                </div>
+                <div class="col-span-2 flex flex-col justify-center items-center font-medium">
+                    <p class="max-w-3xl text-4xl font-semibold px-[2%]">
+                        Частично, эти предметы послужили источником при написании Уваровым первой части 
+                        <br>
+                        <span class="italic">«Исследования о древностях Южной России и берегов Чёрного моря». </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Section>
 
+<!-- Research --- Trip to the South -->
+<Section id="research-slider" w="w-full" isFixed={true}> <!-- Updated: w-full for full width -->
+    <div class="flex flex-col justify-center items-center h-screen"> <!-- Updated: h-screen for full height -->
+        <div class="w-full h-full"> <!-- Updated: h-full to match full screen height -->
+            <div x-data="{ init() {
+                    new Splide(this.$refs.splide, {
+                        perPage: 3,
+                        perMove: 1,
+                        pagination: false,
+                        breakpoints: {
+                            640: {
+                                perPage: 1,
+                            },
+                        },
+                    }).mount();
+                },
+            }">
+                <section
+                    class="splide h-full"
+                    aria-label="Library Slider"
+                    x-ref="splide"
+                    style="padding-left: 0; padding-right: 0;"
+                    >
+                    <div class="splide__arrows">
+                        <button class="splide__arrow splide__arrow--prev absolute left-4 top-1/2 transform -translate-y-1/2 z-10"> <!-- Updated: Absolute positioning for arrows -->
+                            <img src={common.prevArrow.src} alt={common.prevArrow.alt}>
+                        </button>
+                        <button class="splide__arrow splide__arrow--next absolute right-4 top-1/2 transform -translate-y-1/2 z-10"> <!-- Updated: Absolute positioning for arrows -->
+                            <img src={common.nextArrow.src} alt={common.nextArrow.alt}>
+                        </button>
+                    </div>
+
+                    <div class="splide__track h-full"> <!-- Updated: h-full for full height track -->
+                        <ul class="splide__list h-full flex items-center"> <!-- Updated: h-full for list and center alignment -->
+                            {expeditionsAssets.research.map((researchItem) => (
+                                <li class="splide__slide flex flex-col justify-center items-center">
+                                    <div class="w-[330px] h-[290px]">
+                                        <img
+                                            alt={researchItem.alt}
+                                            src={researchItem.src}
+                                            class="object-contain bottom-0 w-full h-full"
+                                        />
+                                    </div>
+                                    {/* <div class="flex-grow text-center mt-6">
+                                        <h4 class="font-semibold text-md leading-snug">{researchItem.author}</h4>
+                                        <p class="text-sm">{researchItem?.description}</p>
+                                    </div> */}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</Section>
 
 
 </BioWrapper>
