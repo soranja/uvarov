@@ -14,8 +14,8 @@ interface Props {
 const { 
     id, 
     extraClass = "",
-    sectionClass = "section relative w-full min-h-screen",
-    fixedWrapperClass = "fixed-wrapper inset-x-0 mx-auto",
+    sectionClass = "section relative w-full min-h-screen border-4 border-blue-500",
+    fixedWrapperClass = "fixed-wrapper inset-x-0 mx-auto border-4 border-red-500",
     isFixed = false,
     // maxW = 'w-[90%]',
     maxH = 'max-h-[750px] top-[15vh] 4xl:top-[10vh]',
@@ -27,15 +27,7 @@ const {
 
 <section 
     id={id} class=`${sectionClass}`>
-    <div class=
-        {`
-            ${h}
-            ${w}
-            ${maxH}
-            ${isFixed ? "fixed" : 'absolute'}
-            ${fixedWrapperClass}
-            ${extraClass}
-        `}>
+    <div class={`${h} ${w} ${maxH} ${fixedWrapperClass} ${isFixed ? "fixed" : 'relative'} ${extraClass}`}>
         <slot />
     </div>
 </section>
