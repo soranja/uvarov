@@ -104,6 +104,23 @@ import wifeYoung from "./biography/_images/family/wife-young.png";
 import children from "./biography/_images/family/children.png";
 import venice from "./biography/_images/family/venice.png";
 
+/* ==========
+
+    ACTIVITIES
+
+  ========== */
+
+// ACTIVITIES ASSETS
+import kremlin from "./biography/_images/activities/kremlin.png";
+import lection from "./biography/_images/activities/lection.png";
+import lectionFull from "./biography/_images/activities/lection-full.png";
+// import maoBg from "./biography/_images/activities/mao-bg.png";
+import mao from "./biography/_images/activities/mao.png";
+import princesLection from "./biography/_images/activities/princes-lection.png";
+import uvarovMedal from "./biography/_images/activities/uvarov-medal.png";
+import uvarovMedalBack from "./biography/_images/activities/uvarov-medal-back.png";
+// import uvarovMedalPortrait from "./biography/_images/activities/uvarov-medal-portrait.png";
+
 /* ============================================================
 
     EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS 
@@ -323,4 +340,16 @@ export const familyAssets = {
   wife: { src: wife.src, alt: "Фото жены" },
   wifeYoung: { src: wifeYoung.src, alt: "Портрет жены" },
   venice: { src: venice.src, alt: "Венеция" },
+};
+
+export const activitiesAssets = {
+  kremlin: { src: kremlin.src, alt: "Кремль" },
+  mao: { src: mao.src, alt: "МАО" },
+  princesLection: { src: princesLection.src, alt: "Принцы на лекции" },
+  lection: { src: lection.src, alt: "Лекция" },
+  lectionFull: { src: lectionFull.src, alt: "Полный текст лекции" },
+  uvarovMedal: { src: uvarovMedal.src, alt: "Медаль Уварова" },
+  uvarovMedalBack: { src: uvarovMedalBack.src, alt: "Медаль Уварова (обратная сторона)" },
+  // uvarovMedalPortrait: { src: uvarovMedalPortrait.src, alt: "Портрет на медали Уварова" },
+  // maoBgMin: { src: maoBg.src, alt: "Фон Мао" },
 };

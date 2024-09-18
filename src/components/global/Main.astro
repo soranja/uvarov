@@ -9,7 +9,7 @@ const bgColors : any = {
     junost: "bg-junost-bg",
     expeditions: "bg-expeditions-bg",
     family: "bg-family-bg",
-    activities: "bg-activities",
+    activities: "bg-activities-bg",
     museum: "bg-museum",
     epilogue: "bg-epilogue",
     materials: "bg-materials",
@@ -17,7 +17,7 @@ const bgColors : any = {
     }
 ---
 
-<main class={`${bgColors[bgColor]} bg-fixed bg-center bg-cover mx-auto w-full max-w-full`}>
+<main class={`${bgColors[bgColor]} bg-fixed bg-center bg-cover bg-no-repeat mx-auto w-full max-w-full`}>
         <slot />
 </main>
 

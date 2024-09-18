@@ -14,12 +14,16 @@ export default {
         materials: "#EEE",
       },
       backgroundImage: {
+        "chapter-bg": "url('../data/common/_images/chapter-bg.png')",
         "junost-bg": "url('../data/biography/_images/junost/junost-img.jpg')",
-        "expeditions-bg": "url('../data/biography/_images/expeditions/expeditions-img.jpg')",
+        "expeditions-bg":
+          "url('../data/biography/_images/expeditions/expeditions-img.jpg')",
         "family-bg": "url('../data/biography/_images/family/family-img.png')",
+        "activities-bg":
+          "url('../data/biography/_images/activities/activities-img.png')",
+
         "header-white": "url('../data/common/_images/header-white.svg')",
         "header-black": "url('../data/common/_images/header-black.svg')",
-        "chapter-bg": "url('../data/common/_images/chapter-bg.png')",
       },
       keyframes: {
         blur: {
@@ -87,10 +91,10 @@ export default {
         1100: "1100",
       },
       screens: {
-        '3xl': '1920px',
-        '4xl': '2560px',
-        '5xl': '3840px'
-     }
+        "3xl": "1920px",
+        "4xl": "2560px",
+        "5xl": "3840px",
+      },
     },
   },
   plugins: [],
