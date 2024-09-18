@@ -90,6 +90,20 @@ import research5 from "./biography/_images/expeditions/research/5.jpg";
 import research6 from "./biography/_images/expeditions/research/6.jpg";
 import research7 from "./biography/_images/expeditions/research/7.jpg";
 
+/* ==========
+
+    FAMILY
+
+  ========== */
+
+// FAMILY ASSETS
+import uvarovWifeBg from "./biography/_images/family/uvarov-wife-bg.png";
+import husband from "./biography/_images/family/husband.png";
+import wife from "./biography/_images/family/wife.png";
+import wifeYoung from "./biography/_images/family/wife-young.png";
+import children from "./biography/_images/family/children.png";
+import venice from "./biography/_images/family/venice.png";
+
 /* ============================================================
 
     EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS 
@@ -98,8 +112,8 @@ import research7 from "./biography/_images/expeditions/research/7.jpg";
 
 export const intro = {
   cover: { src: cover.src, alt: "Уварову - 200 лет!" },
-  intro1440: {src: intro1440, alt: "Уварову - 200 лет! - 1440"},
-  intro1920: {src: intro1920, alt: "Уварову - 200 лет! - 1920"},
+  intro1440: { src: intro1440, alt: "Уварову - 200 лет! - 1440" },
+  intro1920: { src: intro1920, alt: "Уварову - 200 лет! - 1920" },
   hand1440: { src: hand1440, alt: "Видео с рукой - 1440" },
   hand1920: { src: hand1920, alt: "Видео с рукой - 1920" },
 };
@@ -300,4 +314,13 @@ export const expeditionsAssets = {
         "На развороте: изображение серебряной наградной пайцзы монгольской династии Юань (1279–1368) (найдена в Суздале, хранится в Государственном Эрмитаже)",
     },
   ],
+};
+
+export const familyAssets = {
+  children: { src: children.src, alt: "Фото детей" },
+  uvarovWifeBg: { src: uvarovWifeBg.src, alt: "Фон для жены и мужа" },
+  husband: { src: husband.src, alt: "Фото мужа" },
+  wife: { src: wife.src, alt: "Фото жены" },
+  wifeYoung: { src: wifeYoung.src, alt: "Портрет жены" },
+  venice: { src: venice.src, alt: "Венеция" },
 };

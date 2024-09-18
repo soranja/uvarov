@@ -23,6 +23,7 @@ import { common, expeditionsAssets } from "../../data/data";
     <!-- Chapter Intro -->
     <Chapter />
 
+    <!-- Header -->
     <HeaderWrapper />
 
     <!-- Archeology Text -->
@@ -138,14 +139,14 @@ import { common, expeditionsAssets } from "../../data/data";
 
     </div>
 
-    <!-- Research --- Trip to the South -->
+    <!-- Research --- Trip to the South --- Cover -->
     <Section id="research" h="h-[600px] 2xl:h-[700px]" maxH='top-[20vh] 4xl:top-[10vh]''>
         <div class="h-full w-full flex flex-col justify-center items-center">
             <div class="grid grid-cols-3 gap-x-8">
                 <div id="research-image" class="col-span-1 flex flex-col items-start justify-center min-w-[400px]">
                     <img src={expeditionsAssets.researchCover.src} alt={expeditionsAssets.researchCover.alt} class="max-w-[300px] 2xl:max-w-[400px]"/>
                 </div>
-                <div class="col-span-2 flex flex-col justify-center items-center font-medium">
+                <div class="col-span-2 flex flex-col justify-center items-center">
                     <p class="max-w-3xl text-4xl font-semibold px-[2%]">
                         Частично, эти предметы послужили источником при написании Уваровым первой части 
                         <br>
@@ -157,7 +158,7 @@ import { common, expeditionsAssets } from "../../data/data";
     </Section>
 
     <!-- Research --- Trip to the South --- Slider -->
-    <Section id="research-slider" w="w-full" extraClass="flex justify-center items-center">
+    <Section id="research-slider"  extraClass="flex justify-center items-center">
                 <div class="w-full">
                     <div x-data="{ init() {
                             new Splide(this.$refs.splide, {
@@ -253,8 +254,8 @@ import { common, expeditionsAssets } from "../../data/data";
     </Section>
 
     <!-- Olvia -->
-    <Section id="olvia" maxH="" w="w-full" h="h-screen" extraClass="bg-[url('../data/biography/_images/expeditions/olvia-bg.png')] bg-center bg-cover bg-no-repeat flex justify-center items-center">
-        <div class="flex justify-center items-center text-4xl leading-normal font-semibold h-full px-[2%] pb-[15%] max-w-[1250px]">
+    <Section id="olvia" maxH="" w="w-[1440px]" h="h-[1024px]" extraClass="bg-[url('../data/biography/_images/expeditions/olvia-bg.png')] bg-center bg-cover bg-no-repeat flex justify-center items-center">
+        <div class="flex justify-center items-center text-4xl leading-normal font-semibold h-full px-[2%] pb-[15%] max-w-[1200px]">
             <p>
                 Позднее, в 1853–1854 годах Уваров возглавил экспедицию в Таврическую губернию, работал в Ольвии, Неаполе Скифском, Херсонесе. 
             </p>
@@ -331,7 +332,7 @@ import { common, expeditionsAssets } from "../../data/data";
 
     
     <!-- Porechye Image -->
-    <Section id="porechye" maxH="" w="w-full" h="h-screen" extraClass="bg-[url('../data/biography/_images/expeditions/porechye-bg.png')] bg-center bg-contain bg-no-repeat flex justify-center items-center">
+    <Section id="porechye" maxH="" w="w-[1440px]" h="h-[1024px]" extraClass="bg-[url('../data/biography/_images/expeditions/porechye-bg.png')] bg-center bg-contain bg-no-repeat">
     </Section>
 
     <!-- Perovsky -->

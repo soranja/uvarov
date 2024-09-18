@@ -5,6 +5,7 @@ import Section from "../../components/global/Section.astro";
 import Chapter from "../../components/biography/Chapter.astro";
 import ScrollArrow from "../../components/global/ScrollArrow.astro";
 
+import { familyAssets } from "../../data/data";
 
 ---
 
@@ -12,16 +13,100 @@ import ScrollArrow from "../../components/global/ScrollArrow.astro";
     <!-- Chapter Intro -->
     <Chapter />
 
+    <!-- Header -->
     <HeaderWrapper />
 
-    <!-- Archeology Text -->
-    <Section id="archeology-text">
-        <div class="flex justify-center items-center text-4xl leading-normal font-semibold h-full px-[5%]">
+    <!-- Uvarov & Wife -->
+    <Section id="uvarov-wife" w="w-[1440px]" h="h-[600px] 2xl:h-[900px]" maxH='' extraClass="bg-[url('../data/biography/_images/family/uvarov-wife-bg.png')] bg-center bg-cover 2xl:bg-contain bg-no-repeat">
+        <div class="h-full w-full flex flex-col justify-center items-center pt-[15vh] 2xl:pt-[20vh] 4xl:pt-[10vh]">
+            <div class="grid grid-cols-2 gap-x-8">
+                <div class="flex flex-col items-start justify-center min-w-[400px]">
+                    <img src={familyAssets.husband.src} alt={familyAssets.husband.alt} class="max-w-[450px] 2xl:max-w-[550px]"/>
+                </div>
+                <div class="flex flex-col justify-center items-center min-w-[400px]">
+                    <img src={familyAssets.wife.src} alt={familyAssets.wife.alt} class="max-w-[450px] 2xl:max-w-[550px]"/>
+                </div>
+            </div>
+        </div>
+    </Section>
+
+    <!-- Praskovya -->
+    <Section id="praskovya" h="h-[500px]" maxH='max-h-[750px] top-[20vh] 4xl:top-[10vh]'>
+        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-2xl leading-normal  font-semibold h-full px-[5%] ">
             <p>
-                Окончив университет со степенью кандидата в 1845 году, поступил на службу в Министерство иностранных дел. По окончании университета, параллельно службе, Уваров увлекся археологией.
+                В 1859 году граф Уваров венчался с юной княжной Прасковьей Сергеевной. 
+            </p>
+            <p>
+                Умная, красивая, получившая прекрасное домашнее образование, княжна Щербатова стала прообразом одной из любимых героинь Л. Н. Толстого – Кити Щербацкой. Юная Щербатова была замечательно воспитана любящими и строгими родителями. Серьезная и ответственная, приняв предложение А. С. Уварова, она обещала ему быть не только хорошей женой, но и помощницей.
             </p>
         </div>
     </Section>
 
+    <!-- Wife Young -->
+    <Section id="wife-young" h="h-[600px] 2xl:h-[700px]" maxH='top-[20vh] 4xl:top-[10vh]''>
+        <div class="h-full w-full flex flex-col justify-center items-center">
+            <div class="grid grid-cols-3 gap-x-8">
+
+                <div class="col-span-1 flex flex-col justify-center items-center">
+                    <p class="max-w-4xl text-4xl font-medium italic">
+                        «Ты всегда участвовала во всех моих путешествиях и постоянно содействовала мне в моих изысканиях».
+                    </p>
+                </div>
+                <div id="wife-young-image" class="col-span-2 flex flex-col items-end justify-center min-w-[400px]">
+                    <img src={familyAssets.wifeYoung.src} alt={familyAssets.wifeYoung.alt} class="max-w-[400px] 2xl:max-w-[600px]"/>
+                </div>
+            </div>
+        </div>
+    </Section>
+
+    <!-- Venice Image -->
+    <Section id="venice" maxH="" w="w-[1440px]" h="h-[1024px]" extraClass="bg-[url('../data/biography/_images/family/venice.png')] bg-center bg-contain bg-no-repeat">
+    </Section>
+
+    <!-- Italy Text -->
+    <Section id="italy" maxH='max-h-[550px] top-[20vh] 4xl:top-[10vh]'>
+        <div class="flex justify-center items-center text-4xl leading-normal font-semibold h-full px-[5%]">
+            <p>
+                В Риме, Флоренции и Неаполе ученый изучал книжные, музейные, документальные коллекции, работая в архивах, музеях, городских и монастырских библиотеках.
+            </p>
+        </div>
+    </Section>
+
+    <!-- Children -->
+    <Section id="children-young" w="w-[1150px]" h="h-[600px] 2xl:h-[700px]" maxH='top-[20vh] 4xl:top-[10vh]''>
+        <div class="h-full w-full flex flex-col justify-center items-center">
+            <div class="grid grid-cols-3 gap-x-8">
+                <div id="children-image" class="col-span-2 flex flex-col items-start justify-center min-w-[400px]">
+                    <img src={familyAssets.children.src} alt={familyAssets.children.alt} class="max-w-[400px] 2xl:max-w-[550px]"/>
+                </div>
+                <div class="col-span-1 flex flex-col justify-center items-center">
+                    <p class="max-w-4xl text-3xl font-medium">
+                        Графиня Прасковья Сергеевна сдержала слово и была не только хранительницей очага и матерью шестерых детей. Граф высоко ценил способность жены делить с ним все заботы, и, прежде всего, связанные с его деятельностью в Археологическом обществе.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Section>
+
+    <!-- Family Conclusion -->
+    <Section id="family-conclusion" maxH='max-h-[550px] top-[20vh] 4xl:top-[10vh]'>
+        <div class="flex flex-col justify-center items-start text-3xl leading-normal font-medium h-full px-[5%] gap-y-[10vh] 4xl:gap-y-[5vh]">
+            <p>
+                Возглавив Московское археологическое общество после кончины мужа, П.С. Уварова многое сделала для развития Общества. При ней прошли восемь археологических съездов; под ее редакцией выходили почти все издания Общества и Труды Съездов, благодаря ей увидела свет и большая часть творческого наследия А. С. Уварова, и, в частности, «любимое детище графа» первый том исследования «Христианская символика».
+            </p>
+            <div class="relative text-3xl">
+                <p>следующая глава</p>
+                
+                <ScrollArrow 
+                    position="absolute mx-auto inset-x-0 bottom-[-10vh] 3xl:bottom-[-9vh] 4xl:bottom-[-6vh]" 
+                    invert="invert" 
+                    visible="opacity-100" 
+                    size="w-1/3"
+                    animated={false}
+                    redirectUrl="/biography/activities"
+                    />
+            </div>
+        </div>
+    </Section>
     
 </BioWrapper>

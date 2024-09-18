@@ -16,6 +16,7 @@ export default {
       backgroundImage: {
         "junost-bg": "url('../data/biography/_images/junost/junost-img.jpg')",
         "expeditions-bg": "url('../data/biography/_images/expeditions/expeditions-img.jpg')",
+        "family-bg": "url('../data/biography/_images/family/family-img.png')",
         "header-white": "url('../data/common/_images/header-white.svg')",
         "header-black": "url('../data/common/_images/header-black.svg')",
         "chapter-bg": "url('../data/common/_images/chapter-bg.png')",
