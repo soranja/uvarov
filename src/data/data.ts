@@ -1,5 +1,7 @@
 // INTRO
 import cover from "./intro/_images/intro-cover.png";
+import intro1440 from "./intro/_videos/intro-1440.mp4";
+import intro1920 from "./intro/_videos/intro-1920.mp4";
 import hand1440 from "./intro/_videos/hand-1440.mp4";
 import hand1920 from "./intro/_videos/hand-1920.mp4";
 
@@ -96,6 +98,8 @@ import research7 from "./biography/_images/expeditions/research/7.jpg";
 
 export const intro = {
   cover: { src: cover.src, alt: "Уварову - 200 лет!" },
+  intro1440: {src: intro1440, alt: "Уварову - 200 лет! - 1440"},
+  intro1920: {src: intro1920, alt: "Уварову - 200 лет! - 1920"},
   hand1440: { src: hand1440, alt: "Видео с рукой - 1440" },
   hand1920: { src: hand1920, alt: "Видео с рукой - 1920" },
 };

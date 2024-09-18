@@ -27,18 +27,28 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
 
         <Loading />
 
-        <Section id='intro-cover' isFixed={true}>
+        <!-- <Section id='intro-cover' isFixed={true}>
             <div class="fixed inset-0 w-full h-full">
                 <div class="relative w-full h-screen bg-[url('../data/intro/_images/intro-cover.png')] bg-cover bg-no-repeat">
                 </div>
             </div>
-        </Section>
+        </Section> -->
+
+        <div class="relative w-full h-screen">
+            <section id="intro-cover" class="section w-full h-full">
+                <div class="fixed-wrapper fixed inset-0 w-full h-full">
+                    <video autoplay muted loop class="w-full h-full object-cover">
+                        <source id="intro-cover-src" src={intro.intro1440.src} type="video/mp4">
+                    </video>
+                </div>
+            </section>
+        </div>
 
         <div class="relative w-full h-screen">
             <section id="intro-hand" class="section w-full h-full">
                 <div class="fixed-wrapper fixed inset-0 w-full h-full">
                     <video autoplay muted class="w-full h-full object-cover">
-                        <source id="intro-video-src" src={intro.hand1440.src} type="video/mp4">
+                        <source id="intro-hand-src" src={intro.hand1440.src} type="video/mp4">
                     </video>
                 </div>
             </section>
@@ -53,10 +63,10 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
             justify-center
             items-center
             gap-y-16
-            3xl:gap-y-40
+            3xl:gap-y-30
             4xl:gap-y-80
 
-            text-base 2xl:text-2xl 3xl:text-4xl 4xl:text-6xl
+            text-base 3xl:text-2xl 4xl:text-4xl 5xl:text-6xl
 
             px-[7%]
             2xl:px-[5%]
@@ -74,7 +84,7 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
               </p>
               <ScrollArrow position="absolute mx-auto inset-x-0 bottom-0" visible="opacity-100" size='w-[4%]'/>
             </div>
-          </Section>
+        </Section>
         
         <Section id='intro-transition' isFixed={true}>
         </Section>
@@ -87,20 +97,28 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
 
     // VIDEO UPDATE FOR 1440 / 1920
     import { intro } from "../data/data";
-
-    let resizeTimeout : any;
+    let resizeTimeout: any;
 
     function updateVideoSource() {
-        const videoElement = document.querySelector('video') as HTMLVideoElement;
-        const videoSourceElement = document.getElementById('intro-video-src') as HTMLSourceElement;
+        const introCoverVideo = document.querySelector('#intro-cover video') as HTMLVideoElement;
+        const introHandVideo = document.querySelector('#intro-hand video') as HTMLVideoElement;
+        const introHandSrc = document.getElementById('intro-hand-src') as HTMLSourceElement;
+        const introCoverSrc = document.getElementById('intro-cover-src') as HTMLSourceElement;
 
-        if (videoSourceElement && videoElement) {
-            const newSrc = window.innerWidth > 1440 ? `${intro.hand1920.src}` : `${intro.hand1440.src}`;
-            if (videoSourceElement.src !== newSrc) {
-                videoSourceElement.src = newSrc;
-                videoElement.load();
-                console.log("Video source updated to:", newSrc);
+        if (introCoverSrc && introHandSrc && introCoverVideo && introHandVideo) {
+            const newHandSrc = window.innerWidth > 1440 ? `${intro.hand1920.src}` : `${intro.hand1440.src}`;
+            const newCoverSrc = window.innerWidth > 1440 ? `${intro.intro1920.src}` : `${intro.intro1440.src}`;
+
+            if (introHandSrc.src !== newHandSrc) {
+                introHandSrc.src = newHandSrc;
             }
+
+            if (introCoverSrc.src !== newCoverSrc) {
+                introCoverSrc.src = newCoverSrc;
+            }
+
+            introCoverVideo.load();
+            introHandVideo.load();
         } else {
             console.error("Video or source element not found");
         }
@@ -110,32 +128,33 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
             updateVideoSource();
-        }, 200); // Adjust the delay if necessary
+        }, 200);
     });
 
     window.addEventListener('DOMContentLoaded', updateVideoSource);
 
-    // INTRO COVER OBSERVER
+    // INTRO HAND OBSERVER
     const introHand = document.getElementById('intro-hand') as HTMLElement;
-    const videoElement = document.querySelector('video') as HTMLVideoElement;
+    const introHandVideo = document.querySelector('#intro-hand video') as HTMLVideoElement;
 
-    const introObserver = new IntersectionObserver((entries) => {
+    const handObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                videoElement.play();
-                videoElement.currentTime = 0;
+                introHandVideo.play();
+                introHandVideo.currentTime = 0;
             } else {
-                videoElement.pause();
-                videoElement.currentTime = 0;
+                introHandVideo.pause();
+                introHandVideo.currentTime = 0;
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.5 });
 
-    introObserver.observe(introHand);
+    handObserver.observe(introHand);
+    const introCoverVideo = document.querySelector('#intro-cover video') as HTMLVideoElement;
+    introCoverVideo.play();
 
     // REDIRECT AFTER SCROLL TO INTRO TEXT
     const introTransition = document.getElementById('intro-transition') as HTMLElement;
-
     const transitionObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
