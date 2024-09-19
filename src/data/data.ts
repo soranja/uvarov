@@ -136,6 +136,17 @@ import gimPhoto from "./biography/_images/museum/gim-photo.png";
 import building1 from "./biography/_images/museum/gim-slider-1.png";
 import hall1 from "./biography/_images/museum/interior-slider-1.png";
 
+/* ==========
+
+    EPILOGUE
+
+  ========== */
+
+// Epilogue Files
+import uvarovDead from "./biography/_images/epilogue/uvarov-dead.png";
+import uvarovTomb from "./biography/_images/epilogue/uvarov-tomb.png";
+import uvarovPhotoEpilogue from "./biography/_images/epilogue/uvarov-photo-epilogue.png";
+
 /* ============================================================
 
     EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS 
@@ -393,4 +404,13 @@ export const museumAssets = {
       alt: "Зал - 1",
     },
   ],
+};
+
+export const epilogueAssets = {
+  uvarovDead: { src: uvarovDead.src, alt: "Уваров на смертном одре" },
+  uvarovPhotoEpilogue: {
+    src: uvarovPhotoEpilogue.src,
+    alt: "Фотография Уварова",
+  },
+  uvarovTomb: { src: uvarovTomb.src, alt: "Гробница Уварова" },
 };

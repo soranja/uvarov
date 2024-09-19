@@ -1,7 +1,66 @@
 ---
 import BioWrapper from "../../components/biography/BioWrapper.astro";
+import HeaderWrapper from "../../components/global/header/HeaderWrapper.astro";
+import Section from "../../components/global/Section.astro";
+import Chapter from "../../components/biography/Chapter.astro";
+import ScrollArrow from "../../components/global/ScrollArrow.astro";
+
+import { common, epilogueAssets } from "../../data/data";
+
 ---
 
 <BioWrapper>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quos id. Vel error, dolor numquam repudiandae quas saepe repellendus blanditiis nam fugiat nobis corporis possimus illum alias excepturi, cumque ut, doloremque veritatis! Laboriosam mollitia et non corporis est quas delectus, dolores, at itaque fugiat incidunt? Iste iusto illo ducimus odio exercitationem atque eaque in quod. Consequuntur voluptates quisquam harum! Aliquam deserunt quod veniam. Officia eius consectetur officiis quam harum asperiores iste sapiente, quo minus enim ducimus, omnis dignissimos, quidem fugit autem? Placeat minima recusandae, hic rerum non quisquam illum soluta! Id eligendi illum quas. Totam corporis ducimus voluptates quaerat eos distinctio, iste sed fuga doloremque odit. Alias iusto est aliquam. Nesciunt, reiciendis illum iusto mollitia sint ad, quod voluptate obcaecati officiis, quia sunt corrupti quidem. Animi assumenda reprehenderit exercitationem id corrupti consectetur voluptas distinctio molestiae a, minus illo soluta cupiditate. Optio veniam ipsam sequi ipsa reiciendis quasi dicta, accusantium voluptate fugiat culpa atque? Id iste, sed totam fuga nam laborum dolore delectus! Reiciendis sit architecto facilis in laborum atque repudiandae, veniam inventore soluta qui nulla autem at amet recusandae ullam est impedit. Eligendi, necessitatibus repudiandae soluta atque qui ut ducimus iure in est hic numquam asperiores consectetur adipisci quae nihil, sint doloribus. Architecto porro, totam delectus ex enim quia. Adipisci nihil distinctio eum laudantium nobis voluptatibus eius, consectetur nemo tempora in, ducimus officiis minima id iure enim dolore eveniet quasi, repellat repellendus soluta. Quae id illum, esse aut accusantium, labore aliquid sint eos eaque, quaerat omnis quo veritatis ex illo architecto sit. Magnam quisquam veritatis exercitationem ullam nobis voluptates laudantium recusandae qui, delectus placeat explicabo sunt quos sint quod modi consectetur odit nam magni reiciendis. Dolorem aliquid deleniti alias necessitatibus iure maxime blanditiis cupiditate odio quod sit delectus pariatur facilis beatae, quaerat perferendis amet facere officia non nihil odit eligendi totam voluptates tempore laborum.</p>
+    <!-- Chapter Intro -->
+    <Chapter />
+
+    <!-- Header -->
+    <HeaderWrapper />
+
+    <!-- Uvarov Dead -->
+    <Section id="uvarov-dead"  w="w-[1440px]" h="h-[1024px]" extraClass="flex flex-col justify-center items-center">
+        <div class="h-full w-full flex flex-col justify-center items-center text-4xl leading-normal gap-y-[5vh]">
+            <p class="max-w-3xl">
+                29 декабря 1884 года (10 января 1885 года) Алексей Сергеевич Уваров скончался.
+            </p>
+            <div id="dead-image" class="flex flex-col items-center justify-center">
+                <img src={epilogueAssets.uvarovDead.src} alt={epilogueAssets.uvarovDead.alt} class=""/>
+            </div>
+        </div>
+    </Section>
+
+    <!-- Uvarov Tomb -->
+    <Section id="uvarov-tomb" h="h-[600px] 2xl:h-[700px]" maxH='top-[20vh] 4xl:top-[10vh]''>
+        <div class="h-full w-full flex flex-col justify-center items-center">
+            <div class="grid grid-cols-2 gap-x-8">
+                <div class="flex flex-col justify-center items-center">
+                    <p class="max-w-2xl text-4xl leading-normal px-[10%]">
+                        Его смерть стала невосполнимой потерей для русской науки, для русской культуры, но замыслы и начинания ученого не ушли в небытие.
+                    </p>
+                </div>
+                <div id="tomb-image" class="flex flex-col items-center justify-center min-w-[500px]">
+                    <img src={epilogueAssets.uvarovTomb.src} alt={epilogueAssets.uvarovTomb.alt} class="max-w-[400px] 2xl:max-w-[550px]"/>
+                </div>
+            </div>
+        </div>
+    </Section>
+
+    <!-- Uvarov Tomb -->
+    <Section id="uvarov-tomb" h="h-[600px] 2xl:h-[700px]" maxH='top-[20vh] 4xl:top-[10vh]''>
+        <div class="h-full w-full flex flex-col justify-center items-center">
+            <div class="grid grid-cols-2 gap-x-8">
+                <div id="tomb-image" class="flex flex-col items-center justify-center min-w-[500px]">
+                    <img src={epilogueAssets.uvarovPhotoEpilogue.src} alt={epilogueAssets.uvarovPhotoEpilogue.alt} class="max-w-[400px] 2xl:max-w-[500px]"/>
+                </div>
+                <div class="flex flex-col justify-center items-center text-xl gap-y-[10vh] max-w-2xl leading-normal px-[10%]">
+                    <p class="">
+                        Уваровское наследие является составной частью национальной культуры, и жизнеспособность его во многом определили те, кто принял и продолжал дело графа Уварова. 
+                    </p>
+                    <p>
+                        В Российском историческом музее эта забота пришлась на долю выдающегося историка И.Е. Забелина, в Московском Археологическом обществе – на долю вдовы ученого, Прасковьи Сергеевны Уваровой.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </Section>
+    
 </BioWrapper>
