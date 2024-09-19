@@ -121,6 +121,21 @@ import uvarovMedal from "./biography/_images/activities/uvarov-medal.png";
 import uvarovMedalBack from "./biography/_images/activities/uvarov-medal-back.png";
 // import uvarovMedalPortrait from "./biography/_images/activities/uvarov-medal-portrait.png";
 
+/* ==========
+
+    MUSEUM
+
+  ========== */
+
+// MUSEUM ASSETS
+import gim from "./biography/_images/museum/gim.png";
+// import gimBg from "./biography/_images/museum/gim-bg.png";
+import ustav from "./biography/_images/museum/ustav.png";
+import gimPhoto from "./biography/_images/museum/gim-photo.png";
+
+import building1 from "./biography/_images/museum/gim-slider-1.png";
+import hall1 from "./biography/_images/museum/interior-slider-1.png";
+
 /* ============================================================
 
     EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS 
@@ -349,7 +364,33 @@ export const activitiesAssets = {
   lection: { src: lection.src, alt: "Лекция" },
   lectionFull: { src: lectionFull.src, alt: "Полный текст лекции" },
   uvarovMedal: { src: uvarovMedal.src, alt: "Медаль Уварова" },
-  uvarovMedalBack: { src: uvarovMedalBack.src, alt: "Медаль Уварова (обратная сторона)" },
+  uvarovMedalBack: {
+    src: uvarovMedalBack.src,
+    alt: "Медаль Уварова (обратная сторона)",
+  },
   // uvarovMedalPortrait: { src: uvarovMedalPortrait.src, alt: "Портрет на медали Уварова" },
   // maoBgMin: { src: maoBg.src, alt: "Фон Мао" },
+};
+
+export const museumAssets = {
+  gim: { src: gim.src, alt: "Здание ГИМ (Государственный Исторический Музей)" },
+  // gimBg: { src: gimBg.src, alt: "ГИМ" },
+  ustav: { src: ustav.src, alt: "Устав Государственного Исторического Музея" },
+  gimPhoto: { src: gimPhoto.src, alt: "Фотография ГИМ" },
+
+  building: [
+    {
+      id: 1,
+      src: building1.src,
+      alt: "ГИМ Слайдер - 1",
+    },
+  ],
+
+  halls: [
+    {
+      id: 1,
+      src: hall1.src,
+      alt: "Зал - 1",
+    },
+  ],
 };
