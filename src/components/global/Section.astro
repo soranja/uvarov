@@ -14,13 +14,12 @@ interface Props {
 const { 
     id, 
     extraClass = "",
-    sectionClass = "section relative w-full h-[1024px]",
-    fixedWrapperClass = "fixed-wrapper inset-x-0 mx-auto",
+    sectionClass = "section relative w-full h-[1024px] 4xl:h-[2048px] flex items-center 4xl:items-start 4xl:pt-[10vh] border-4 border-blue-500",
+    fixedWrapperClass = "fixed-wrapper inset-x-0 mx-auto border-4 border-red-500",
     isFixed = false,
-    // maxW = 'w-[90%]',
-    maxH = 'max-h-[750px] top-[15vh] 4xl:top-[10vh]',
+    maxH = '',
     w = 'w-[1250px]',
-    h = 'h-[750px]',
+    h = '',
 } = Astro.props;
 
 ---
@@ -36,21 +35,35 @@ const {
     
     // SECTIONS OBSERVER
     const sections = document.querySelectorAll('.section');
+
+    const thresholdByIdMap: { [key: string]: number } = {
+    'hersones-wall': 0.2,
+    };
+
+    // Function to get the threshold based on the section's ID
+    function getSectionThreshold(section: Element): number | number[] {
+    const sectionId = section.id;
+    return thresholdByIdMap[sectionId] || [0.5, 0.7];
+    }
+
+    sections.forEach((section) => {
+    const threshold = getSectionThreshold(section);
+    
     const sectionsObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            const wrapper = entry.target.querySelector('.fixed-wrapper');
-            if(wrapper) {
-                if (entry.isIntersecting) {
-                    wrapper.classList.add('show');
-
-                } else {
-                    wrapper.classList.remove('show');
-                }
+        const wrapper = entry.target.querySelector('.fixed-wrapper');
+        if (wrapper) {
+            if (entry.isIntersecting) {
+            wrapper.classList.add('show');
+            } else {
+            wrapper.classList.remove('show');
             }
+        }
         });
-    }, { threshold: [0.5, 0.7] });
+    }, { threshold });
 
-    sections.forEach((section) => sectionsObserver.observe(section));
+    sectionsObserver.observe(section);
+    });
 </script>
 
 <style is:global>

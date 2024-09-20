@@ -27,13 +27,6 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
 
         <Loading />
 
-        <!-- <Section id='intro-cover' isFixed={true}>
-            <div class="fixed inset-0 w-full h-full">
-                <div class="relative w-full h-screen bg-[url('../data/intro/_images/intro-cover.png')] bg-cover bg-no-repeat">
-                </div>
-            </div>
-        </Section> -->
-
         <div class="relative w-full h-screen">
             <section id="intro-cover" class="section w-full h-full">
                 <div class="fixed-wrapper fixed inset-0 w-full h-full">
@@ -163,7 +156,7 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
                 }, 500);
             }
         });
-    }, { threshold: 0.6 });
+    }, { threshold: 0.4 });
 
     transitionObserver.observe(introTransition);
 

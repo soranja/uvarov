@@ -4,10 +4,13 @@ import HeaderWrapper from "../../components/global/header/HeaderWrapper.astro";
 import Section from "../../components/global/Section.astro";
 import Chapter from "../../components/biography/Chapter.astro";
 import ScrollArrow from "../../components/global/ScrollArrow.astro";
+import InfoOverlay from "../../components/global/InfoOverlay.astro";
 
 import { activitiesAssets } from "../../data/data";
-import { act } from "react";
+
+const princes = [activitiesAssets.princesLection, activitiesAssets.lectionFull]
 ---
+
 
 <BioWrapper>
     <!-- Chapter Intro -->
@@ -17,12 +20,12 @@ import { act } from "react";
     <HeaderWrapper />
     
     <!-- Moscow Image -->
-    <Section id="moscow" maxH="" w="w-[1440px]" h="h-[1024px]" extraClass="bg-[url('../data/biography/_images/activities/kremlin.png')] bg-center bg-contain bg-no-repeat">
+    <Section id="moscow" w="w-[1440px]" h="h-[800px]" extraClass="bg-[url('../data/biography/_images/activities/kremlin.png')] bg-center bg-contain bg-no-repeat">
     </Section>
 
     <!-- MAO Text 1 -->
-    <Section id="mao-text-1" h="h-[500px]" maxH='top-[20vh] 4xl:top-[10vh]'>
-        <div class="flex flex-col justify-center items-start text-3xl leading-normal h-full px-[5%] gap-y-[10vh] 4xl:gap-y-[5vh]">
+    <Section id="mao-text-1">
+        <div class="flex flex-col justify-center text-4xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
             <p>
                 Свой замысел о создании Московского Археологического общества (МАО) Уваров обнародовал 17 февраля 1864 года.
             </p>
@@ -37,43 +40,39 @@ import { act } from "react";
     </Section>
 
     <!-- MAO Text 2 -->
-    <Section id="mao-text-2" maxH='max-h-[550px] top-[20vh] 4xl:top-[10vh]'>
-        <div class="flex justify-center items-center text-4xl leading-normal h-full px-[5%]">
-            <p>
+    <Section id="mao-text-2">
+            <p class="text-5xl leading-normal px-[5%]">
                 Уваров стремился привлечь в МАО всех интересующихся русской историей. Образование и сословная принадлежность не имели здесь решающего значения.
             </p>
-        </div>
     </Section>
 
     <!-- MAO Image 2 -->
-    <Section id="mao-image-2" maxH="" w="w-[1440px]" h="h-[1024px]" extraClass="bg-[url('../data/biography/_images/activities/mao-bg.png')] bg-center bg-cover bg-no-repeat flex justify-center items-center">
-        <div class="flex justify-center items-center text-4xl leading-normal h-full px-[2%] max-w-[1200px]">
-            <p>
+    <Section id="mao-image-2" w="w-[1440px]" h="h-[1024px]" extraClass="bg-[url('../data/biography/_images/activities/mao-bg.png')] bg-center bg-cover bg-no-repeat flex justify-center items-center">
+            <p class="text-4xl leading-normal px-[2%] max-w-[1180px] pb-[10%]">
                 Программа нового Общества, организационные принципы его деятельности привлекли к участию в нем профессоров Московского университета, литераторов, архитекторов, художников: среди них – Ф. И. Буслаев, С. М. Соловьев, И. Е. Забелин, М. П. Погодин, Л. В. Даль.
             </p>
-        </div>
     </Section>
 
     <!-- MAO Text 3 -->
-    <Section id="mao-text-3" maxH='max-h-[550px] top-[20vh] 4xl:top-[10vh]'>
-        <div class="flex justify-center items-center text-4xl leading-normal h-full px-[5%]">
-            <p>
-                Поставив задачу поистине общенационального масштаба – обратить русское общество к своим истокам, Уваров не ограничил деятельность МАО лишь Москвой.
-            </p>
-        </div>
+    <Section id="mao-text-3">
+        <p class="text-5xl leading-normal px-[5%]">
+            Поставив задачу поистине общенационального масштаба – обратить русское общество к своим истокам, Уваров не ограничил деятельность МАО лишь Москвой.
+        </p>
     </Section>
 
     <!-- Uvarov Medal -->
-    <Section id="uvarov-medal" maxH='max-h-[750px] top-[20vh] 4xl:top-[10vh]' w="w-[1440px]" h="h-[550px] 2xl:h-[650px]" sectionClass="section relative w-full min-h-screen bg-[url('../data/biography/_images/activities/uvarov-medal-portait.png')] bg-center bg-cover bg-no-repeat" extraClass="flex items-center">
-        <div class="flex flex-col justify-center items-start w-full max-w-[600px]">
-            <img src={activitiesAssets.uvarovMedal.src} alt={activitiesAssets.uvarovMedal.alt} class="max-w-[250px] 2xl:max-w-[350px]"/>
-            <img src={activitiesAssets.uvarovMedalBack.src} alt={activitiesAssets.uvarovMedalBack.alt} class="max-w-[200px] 2xl:max-w-[300px] self-end"/>
+    <Section id="uvarov-medal"
+    w="w-[1440px]" h="h-[1024px]"
+    extraClass="bg-[url('../data/biography/_images/activities/uvarov-medal-portait.png')] bg-center bg-cover bg-no-repeat flex items-center px-[5%]">
+        <div class="w-[530px] max-h-[500px] 2xl:max-h-[730px] flex flex-col items-start">
+            <img src={activitiesAssets.uvarovMedal.src} alt={activitiesAssets.uvarovMedal.alt} class="max-w-[250px] 2xl:max-w-[360px]"/>
+            <img src={activitiesAssets.uvarovMedalBack.src} alt={activitiesAssets.uvarovMedalBack.alt} class="max-w-[180px] 2xl:max-w-[310px] self-end"/>
         </div>
     </Section>
 
     <!-- MAO Text 4 -->
-    <Section id="mao-text-4" h="h-[720px]" maxH='top-[20vh] 4xl:top-[10vh]'>
-        <div class="flex flex-col justify-center items-start text-2xl leading-normal h-full px-[2%] gap-y-[8vh] 4xl:gap-y-[3vh]">
+    <Section id="mao-text-4">
+        <div class="flex flex-col justify-center items-start text-2xl leading-normal px-[2%] gap-y-[8vh] 4xl:gap-y-[3vh]">
             <p>
                 С 1869 года по его инициативе начинают собираться всероссийские археологические съезды в различных городах России – Москве, Петербурге, Киеве, Казани, Тифлисе, Одессе. Съездам предшествовало всестороннее изучение памятников истории и культуры тех регионов, где они проводились. На съездах обсуждались вопросы изучения и охраны памятников, состояние архивного дела, анализировалось положение с изучением древностей данного региона. В рамках дискуссий регулярно подчеркивалась необходимость преподавания археологии в российских университетах.
             </p>
@@ -89,28 +88,28 @@ import { act } from "react";
     <!-- Princes Images -->
     <div class="relative w-full overflow-hidden">
         <div id="princes-bg" class="absolute top-0 left-0 w-full h-full bg-[url('../data/biography/_images/activities/princes-lection.png')] bg-center bg-contain bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
-        <Section id="princes" h="h-[550px] 2xl:h-[600px] 3xl:h-[700px]" maxH='top-[15vh] 4xl:top-[10vh]'>
-            <div class=" w-full h-full flex justify-end items-center">
+        <Section id="princes">
+            <div class="w-full flex justify-end">
                 <img src={activitiesAssets.lection.src} alt={activitiesAssets.lection.alt}>
             </div>
-            <!-- <InfoOverlay contentType="slider" images={uvarovYoung2} isIconInverted={true} overlayId="u-young" iconPosition="absolute bottom-[1vh] left-1/2"/> -->
+            <InfoOverlay contentType="slider" images={princes} isIconInverted={true} overlayId="princes" iconPosition="absolute bottom-[1vh] left-1/2"/>
         </Section>
     </div>
 
     <!-- Princes Text -->
-    <Section id="princes-text" maxH="" w="w-[1440px]" h="h-[1024px]" extraClass="flex justify-center items-center">
-        <div class="flex flex-col justify-center items-start text-4xl leading-normal h-full px-[2%] max-w-[1150px] gap-y-[10vh] 4xl:gap-y-[5vh]">
+    <Section id="princes-text">
+        <div class="flex flex-col justify-between text-4xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
             <p>
                 Будучи приближенным к Императорской чете и располагая их доверием, А. С. Уваров с середины 1870-х годов читал курс лекций по археологии и руководил образовательными археологическими экскурсиями великих князей Сергея и Павла Александровичей в Крым, Новгород и Псков.
             </p>
-            <div class="relative text-3xl">
+            <div class="relative flex flex-col gap-y-[5vh] 4xl:gap-y-[2vh] text-3xl w-[22%]">
                 <p>следующая глава</p>
                 
                 <ScrollArrow 
-                    position="absolute mx-auto inset-x-0 bottom-[-10vh] 3xl:bottom-[-9vh] 4xl:bottom-[-6vh]" 
+                    position="0" 
                     invert="invert" 
                     visible="opacity-100" 
-                    size="w-1/3"
+                    size="w-auto"
                     animated={false}
                     redirectUrl="/biography/museum"
                     />
@@ -120,35 +119,5 @@ import { act } from "react";
 
 </BioWrapper>
 
-<script>
 
-    // SHARED BG OBSERVER
-    const princesBg = document.querySelector('#princes-bg') as HTMLElement;
-    const targetSections = document.querySelectorAll('#princes');
-
-    let visibleSections = new Set();
-
-    const sharedBgObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                visibleSections.add(entry.target.id);
-            } else {
-                visibleSections.delete(entry.target.id);
-            }
-
-            // Handle visibility of princes-bg
-            if (visibleSections.has('princes')) {
-                princesBg.classList.add('opacity-100');
-                princesBg.classList.remove('opacity-0');
-            } else {
-                princesBg.classList.remove('opacity-100');
-                princesBg.classList.add('opacity-0');
-            }
-
-        });
-    }, { threshold: 0.5 });
-
-    // Observe target sections
-    targetSections.forEach(section => sharedBgObserver.observe(section));
-
-</script>
+<script src="../../utils/sharedBgObserver.js"></script>

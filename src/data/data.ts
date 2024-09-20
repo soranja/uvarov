@@ -63,8 +63,6 @@ import portrait_5 from "./biography/_images/junost/portraits/pogodin.png";
 import archaeologists from "./biography/_images/expeditions/archaeologists.png";
 import expeditionsImg from "./biography/_images/expeditions/expeditions-img.jpg";
 import nordMapBg from "./biography/_images/expeditions/nord-map-bg.png";
-// import olviaBg from "./biography/_images/expeditions/olvia-bg.png";
-// import porechyeBg from "./biography/_images/expeditions/porechye-bg.png";
 import pozharskySketch from "./biography/_videos/expeditions/pozharsky-sketch.webm";
 import researchCover from "./biography/_images/expeditions/research-cover.png";
 import suzdal from "./biography/_images/expeditions/suzdal.png";
@@ -79,7 +77,6 @@ import hersonesWallBg from "./biography/_images/expeditions/hersones-wall-bg.png
 import kherson1 from "./biography/_images/expeditions/kherson-1.png";
 import kherson2 from "./biography/_images/expeditions/kherson-2.png";
 import kherson3 from "./biography/_images/expeditions/kherson-3.png";
-// import khersonBg from "./biography/_images/expeditions/kherson-bg.png";
 
 // GALLERY FROM THE TRIP TO THE SOUTH
 import research1 from "./biography/_images/expeditions/research/1.jpg";
@@ -114,12 +111,10 @@ import venice from "./biography/_images/family/venice.png";
 import kremlin from "./biography/_images/activities/kremlin.png";
 import lection from "./biography/_images/activities/lection.png";
 import lectionFull from "./biography/_images/activities/lection-full.png";
-// import maoBg from "./biography/_images/activities/mao-bg.png";
 import mao from "./biography/_images/activities/mao.png";
 import princesLection from "./biography/_images/activities/princes-lection.png";
 import uvarovMedal from "./biography/_images/activities/uvarov-medal.png";
 import uvarovMedalBack from "./biography/_images/activities/uvarov-medal-back.png";
-// import uvarovMedalPortrait from "./biography/_images/activities/uvarov-medal-portrait.png";
 
 /* ==========
 
@@ -129,12 +124,40 @@ import uvarovMedalBack from "./biography/_images/activities/uvarov-medal-back.pn
 
 // MUSEUM ASSETS
 import gim from "./biography/_images/museum/gim.png";
-// import gimBg from "./biography/_images/museum/gim-bg.png";
 import ustav from "./biography/_images/museum/ustav.png";
 import gimPhoto from "./biography/_images/museum/gim-photo.png";
 
-import building1 from "./biography/_images/museum/gim-slider-1.png";
-import hall1 from "./biography/_images/museum/interior-slider-1.png";
+// BUILDING SLIDER
+import building1 from "./biography/_images/museum/building/1.jpg";
+import building2 from "./biography/_images/museum/building/2.jpg";
+import building3 from "./biography/_images/museum/building/3.jpg";
+import building4 from "./biography/_images/museum/building/4.jpg";
+import building5 from "./biography/_images/museum/building/5.jpg";
+import building6 from "./biography/_images/museum/building/6.jpg";
+import building7 from "./biography/_images/museum/building/7.jpg";
+import building8 from "./biography/_images/museum/building/8.jpg";
+import building9 from "./biography/_images/museum/building/9.jpg";
+import building10 from "./biography/_images/museum/building/10.jpg";
+import building11 from "./biography/_images/museum/building/11.jpg";
+import building12 from "./biography/_images/museum/building/12.jpg";
+import building13 from "./biography/_images/museum/building/13.jpg";
+
+// HALL SLIDER
+import hall1 from "./biography/_images/museum/halls/1.jpg";
+import hall2 from "./biography/_images/museum/halls/2.jpg";
+import hall3 from "./biography/_images/museum/halls/3.jpg";
+import hall4 from "./biography/_images/museum/halls/4.jpg";
+import hall5 from "./biography/_images/museum/halls/5.jpg";
+import hall6 from "./biography/_images/museum/halls/6.jpg";
+import hall7 from "./biography/_images/museum/halls/7.jpg";
+import hall8 from "./biography/_images/museum/halls/8.jpg";
+import hall9 from "./biography/_images/museum/halls/9.jpg";
+import hall10 from "./biography/_images/museum/halls/10.jpg";
+import hall11 from "./biography/_images/museum/halls/11.jpg";
+import hall12 from "./biography/_images/museum/halls/12.jpg";
+import hall13 from "./biography/_images/museum/halls/13.jpg";
+import hall14 from "./biography/_images/museum/halls/14.jpg";
+import hall15 from "./biography/_images/museum/halls/15.jpg";
 
 /* ==========
 
@@ -389,20 +412,38 @@ export const museumAssets = {
   ustav: { src: ustav.src, alt: "Устав Государственного Исторического Музея" },
   gimPhoto: { src: gimPhoto.src, alt: "Фотография ГИМ" },
 
-  building: [
-    {
-      id: 1,
-      src: building1.src,
-      alt: "ГИМ Слайдер - 1",
-    },
+  buildingSlider: [
+    { id: 1, src: building1.src, alt: "Постройка музея - Фото 1" },
+    { id: 2, src: building2.src, alt: "Постройка музея - Фото 2" },
+    { id: 3, src: building3.src, alt: "Постройка музея - Фото 3" },
+    { id: 4, src: building4.src, alt: "Постройка музея - Фото 4" },
+    { id: 5, src: building5.src, alt: "Постройка музея - Фото 5" },
+    { id: 6, src: building6.src, alt: "Постройка музея - Фото 6" },
+    { id: 7, src: building7.src, alt: "Постройка музея - Фото 7" },
+    { id: 8, src: building8.src, alt: "Постройка музея - Фото 8" },
+    { id: 9, src: building9.src, alt: "Постройка музея - Фото 9" },
+    { id: 10, src: building10.src, alt: "Постройка музея - Фото 10" },
+    { id: 11, src: building11.src, alt: "Постройка музея - Фото 11" },
+    { id: 12, src: building12.src, alt: "Постройка музея - Фото 12" },
+    { id: 13, src: building13.src, alt: "Постройка музея - Фото 13" },
   ],
 
   halls: [
-    {
-      id: 1,
-      src: hall1.src,
-      alt: "Зал - 1",
-    },
+    { id: 1, src: hall1.src, alt: "Залы музея - Фото 1" },
+    { id: 2, src: hall2.src, alt: "Залы музея - Фото 2" },
+    { id: 3, src: hall3.src, alt: "Залы музея - Фото 3" },
+    { id: 4, src: hall4.src, alt: "Залы музея - Фото 4" },
+    { id: 5, src: hall5.src, alt: "Залы музея - Фото 5" },
+    { id: 6, src: hall6.src, alt: "Залы музея - Фото 6" },
+    { id: 7, src: hall7.src, alt: "Залы музея - Фото 7" },
+    { id: 8, src: hall8.src, alt: "Залы музея - Фото 8" },
+    { id: 9, src: hall9.src, alt: "Залы музея - Фото 9" },
+    { id: 10, src: hall10.src, alt: "Залы музея - Фото 10" },
+    { id: 11, src: hall11.src, alt: "Залы музея - Фото 11" },
+    { id: 12, src: hall12.src, alt: "Залы музея - Фото 12" },
+    { id: 13, src: hall13.src, alt: "Залы музея - Фото 13" },
+    { id: 14, src: hall14.src, alt: "Залы музея - Фото 14" },
+    { id: 15, src: hall15.src, alt: "Залы музея - Фото 15" },
   ],
 };
 
