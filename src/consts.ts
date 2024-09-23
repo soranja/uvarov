@@ -11,8 +11,8 @@ export const BIO_NAV_LINKS = [
 ];
 
 export const MATERIALS_NAV_LINKS = [
-  { href: "/materials/collections", label: "Коллекции" },
-  { href: "/materials/stories", label: "Сюжеты" },
+  { href: "/materials/porechye", label: "Поречье" },
+  { href: "/materials/praskovya", label: "Прасковья" },
   { href: "/materials/audio", label: "Аудио" },
   { href: "/materials/video", label: "Видео" },
 ];
