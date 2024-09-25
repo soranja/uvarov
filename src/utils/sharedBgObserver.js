@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const bgSectionMap = [
     {
       bgElement: document.getElementById("room-bg"),
-      sectionIds: ["mother", "father"],
+      sectionIds: ["father-mother"],
+      threshold: 0.4
     },
     {
       bgElement: document.getElementById("library-bg"),
@@ -52,6 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       bgElement: document.getElementById("uvarov-bg"),
       sectionIds: ["u-young"],
+    },
+    {
+      bgElement: document.getElementById("uvarov-bg"),
+      sectionIds: ["uvarov-young"],
+      threshold: 0.1
     },
     {
       bgElement: document.getElementById("hersones-bg"),
@@ -69,6 +75,16 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       bgElement: document.getElementById("princes-bg"),
       sectionIds: ["princes"],
+    },
+    {
+      bgElement: document.getElementById("olvia-bg"),
+      sectionIds: ["olvia"],
+      threshold: 0.3
+    },
+    {
+      bgElement: document.getElementById("porechye-bg"),
+      sectionIds: ["porechye"],
+      threshold: 0.3
     },
   ];
 

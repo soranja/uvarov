@@ -47,10 +47,10 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
             </section>
         </div>
         
-        <Section id="intro-text" w='w-[90%]' maxH='top-0' h='h-[90vh]' isFixed={true}>
+        <Section id="intro-text" sectionClass='section relative w-full h-screen flex flex-col justify-center mb-[20vh]' fixedWrapperClass = "fixed-wrapper fixed inset-x-0 mx-auto" h='h-[80vh]' w='w-[90%]'>
             <div class="
+            
             text-white
-
             flex
             flex-col
             justify-center
@@ -59,15 +59,13 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
             3xl:gap-y-30
             4xl:gap-y-80
 
-            text-base 3xl:text-2xl 4xl:text-4xl 5xl:text-6xl
+            text-base 2xl:text-2xl 4xl:text-4xl
 
             px-[7%]
             2xl:px-[5%]
             3xl:px-[10%]
             pt-[10vh]
 
-            w-full
-            h-[90%]
             ">
               <p>
                 Алексей Сергеевич Уваров, граф, археолог, историк, почетный член Петербургской Академии наук, основатель, председатель Московского археологического общества и организатор Всероссийских археологических съездов, один из основателей Российского исторического музея.
@@ -79,7 +77,7 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
             </div>
         </Section>
         
-        <Section id='intro-transition' isFixed={true}>
+        <Section id='intro-transition' sectionClass='section relative w-full h-[50vh] flex flex-col justify-center' fixedWrapperClass = "fixed-wrapper fixed inset-x-0 mx-auto" h='h-[50vh]' w='w-[90%]'>
         </Section>
     </body>
 </html>

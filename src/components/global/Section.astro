@@ -1,13 +1,17 @@
 ---
-
 interface Props {
     id: string,
+
     sectionClass?: string,
+    sectionFlex?: string,
+    sectionSize?: string,
+
     extraClass?: string,
     fixedWrapperClass?: string,
-    w?: string,
-    h?:string
-    maxH?: string,
+
+    contentWidth?: string,
+    contentHeight?:string
+
     isFixed?: boolean
 };
 
@@ -15,20 +19,23 @@ const {
     id, 
     extraClass = "",
 
-    sectionClass = "section relative w-full h-screen flex items-end border-4 border-blue-500",
+    sectionClass = "section relative border-4 border-blue-500",
+    sectionSize = "w-full h-screen",
+    sectionFlex =  "flex flex-col justify-end",
+
     fixedWrapperClass = "fixed-wrapper inset-x-0 mx-auto border-4 border-red-500",
     isFixed = false,
 
-    w = 'w-[87%]',
-    h = 'h-[89vh]',
+    contentWidth = 'w-[87%]',
+    contentHeight = 'h-[85vh]',
     
 } = Astro.props;
 
 ---
 
 <section 
-    id={id} class=`${sectionClass}`>
-    <div class={`${h} ${w} ${fixedWrapperClass} ${isFixed ? "fixed" : 'relative'} ${extraClass}`}>
+    id={id} class=`${sectionSize} ${sectionFlex} ${sectionClass} `>
+    <div class={`${contentHeight} ${contentWidth} ${fixedWrapperClass} ${isFixed ? "fixed" : 'relative'} ${extraClass}`}>
         <slot />
     </div>
 </section>
@@ -41,10 +48,23 @@ const {
 
     // sections to crossfade + custom threshhold (null - default [0.5 - 0.7])
     const crossfadeSections: { [sectionId: string]: number | null } = {
-        'hersones-wall': 0.2,
+        'intro-cover': null,
+        'intro-hand': null,
+        'intro-text': null,
+        'intro-transition': null,
         'chapter-intro': null,
-        'graf': null,
+        'hersones-wall': 0.1,
+        'hersones-slider': 0.1
     };
+
+    // Dynamically add overlay sections to crossfadeSections
+    const overlays = document.querySelectorAll('info-overlay') as NodeListOf<HTMLElement>;
+    overlays.forEach((overlay: HTMLElement) => {
+        const overlayId = overlay.dataset.overlayId;
+        if (overlayId) {
+            crossfadeSections[overlayId] = null; // Default to null or set a custom threshold if needed
+        }
+    });
 
     // function to get the threshold based on the section's ID
     function getSectionThreshold(section: HTMLElement): number | number[] {

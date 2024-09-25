@@ -6,6 +6,7 @@ import Header from "./Header.astro";
     #header {
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
+        z-index: 50;
     }
 
     #header.opacity-100 {
@@ -14,7 +15,7 @@ import Header from "./Header.astro";
 
 </style>
 
-<header id="header" class="fixed top-[8vh] z-[50] w-[90%] inset-x-0 mx-auto opacity-0 transition-opacity duration-1000">
+<header id="header" class="fixed top-[8vh] w-[90%] inset-x-0 mx-auto opacity-0 transition-opacity duration-1000">
     <Header />
 </header>
 

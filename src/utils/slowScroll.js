@@ -4,7 +4,7 @@ let scrollDistance;
 let isScrolling = false;
 
 // List of section IDs to observe
-const sectionIds = ["intro-cover", "intro-hand", "intro-text", "chapter-intro"];
+const sectionIds = ["intro-cover", "intro-hand", "intro-text", "intro-transition", "chapter-intro"];
 
 // SLOW SCROLL OBSERVER (JUNOST 4-5 SLIDES)
 const slowScrollObserver = new IntersectionObserver(
@@ -15,7 +15,7 @@ const slowScrollObserver = new IntersectionObserver(
       if (entry.isIntersecting) {
         scrollDelay = 2000;
         scrollDuration = 500;
-        scrollDistance = window.innerHeight;
+        scrollDistance = window.innerHeight * 1.01;
         console.log(`${id} is in view`);
         console.log("delay:", scrollDelay);
       } else {
@@ -26,8 +26,7 @@ const slowScrollObserver = new IntersectionObserver(
         console.log("delay:", scrollDelay);
       }
     });
-  },
-  { threshold: [0.1] }
+  }
 );
 
 sectionIds.forEach((id) => {

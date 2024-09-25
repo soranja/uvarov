@@ -10,7 +10,7 @@ interface Props {
   redirectUrl?: string;
 }
 
-const { position = 'fixed bottom-6 left-0', invert, visible, size = 'w-full', animated = true, redirectUrl = '' } = Astro.props;
+const { position = 'fixed bottom-6 left-0', invert, visible, size = 'w-[5vw]', animated = true, redirectUrl = '' } = Astro.props;
 ---
 
 <scroll-arrow 
@@ -27,11 +27,12 @@ const { position = 'fixed bottom-6 left-0', invert, visible, size = 'w-full', an
         ${invert}
         ${!animated ? 'cursor-pointer' : 'pointer-events-none'}
         ${animated ? 'animate-bounce' : ''}
+
     `>
     <img 
         src={common.scrollArrow.src}
         alt={common.scrollArrow.alt}
-        class=`max-w-full ${size}`
+        class=`${size}`
     >
 </scroll-arrow>
 

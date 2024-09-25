@@ -53,6 +53,12 @@ import portrait_3 from "./biography/_images/junost/portraits/pletnev.png";
 import portrait_4 from "./biography/_images/junost/portraits/jukovsky.png";
 import portrait_5 from "./biography/_images/junost/portraits/pogodin.png";
 
+import portrait__orig_1 from "./biography/_images/junost/portraits/originals/shevyrev.jpg";
+import portrait__orig_2 from "./biography/_images/junost/portraits/originals/granovsky.jpg";
+import portrait__orig_3 from "./biography/_images/junost/portraits/originals/pletnev.jpg";
+import portrait__orig_4 from "./biography/_images/junost/portraits/originals/jukovsky.jpg";
+import portrait__orig_5 from "./biography/_images/junost/portraits/originals/pogodin.jpg";
+
 /* ==========
 
     EXPEDITIONS
@@ -86,6 +92,14 @@ import research4 from "./biography/_images/expeditions/research/4.jpg";
 import research5 from "./biography/_images/expeditions/research/5.jpg";
 import research6 from "./biography/_images/expeditions/research/6.jpg";
 import research7 from "./biography/_images/expeditions/research/7.jpg";
+
+import research__orig_1 from "./biography/_images/expeditions/research/originals/1.jpg";
+import research__orig_2 from "./biography/_images/expeditions/research/originals/2.jpg";
+import research__orig_3 from "./biography/_images/expeditions/research/originals/3.jpg";
+import research__orig_4 from "./biography/_images/expeditions/research/originals/4.jpg";
+import research__orig_5 from "./biography/_images/expeditions/research/originals/5.jpg";
+import research__orig_6 from "./biography/_images/expeditions/research/originals/6.jpg";
+import research__orig_7 from "./biography/_images/expeditions/research/originals/7.jpg";
 
 /* ==========
 
@@ -228,38 +242,43 @@ export const junostAssets = {
     {
       id: 1,
       src: portrait_1.src,
+      srcOrig: portrait__orig_1.src,
       alt: "Шевырёв",
-      fullName: "Степан Петрович Шевырёв",
+      title: "Степан Петрович Шевырёв",
       description:
         "русский литературный критик, историк литературы, поэт, общественный деятель",
     },
     {
       id: 2,
       src: portrait_2.src,
+      srcOrig: portrait__orig_2.src,
       alt: "Грановский",
-      fullName: "Тимофей Николаевич Грановский",
+      title: "Тимофей Николаевич Грановский",
       description: "русский историк-медиевист",
     },
     {
       id: 3,
       src: portrait_3.src,
+      srcOrig: portrait__orig_3.src,
       alt: "Плетнёв",
-      fullName: "Петр Александрович Плетнёв",
+      title: "Петр Александрович Плетнёв",
       description: "русский литературный критик, поэт и журналист",
     },
     {
       id: 4,
       src: portrait_4.src,
+      srcOrig: portrait__orig_4.src,
       alt: "Жуковский",
-      fullName: "Василий Андреевич Жуковский",
+      title: "Василий Андреевич Жуковский",
       description:
         "русский поэт, один из основоположников романтизма в русской поэзии",
     },
     {
       id: 5,
       src: portrait_5.src,
+      srcOrig: portrait__orig_5.src,
       alt: "Погодин",
-      fullName: "Михаил Петрович Погодин",
+      title: "Михаил Петрович Погодин",
       description:
         "русский историк, коллекционер, журналист и публицист, писатель-беллетрист, издатель",
     },
@@ -318,6 +337,7 @@ export const expeditionsAssets = {
     {
       id: 1,
       src: research1.src,
+      srcOrig: research__orig_1.src,
       alt: "Ольвия. Внутренняя часть кургана",
       author: "М.Б. Вебель",
       location: "Ольвия. Внутренняя часть кургана",
@@ -327,6 +347,7 @@ export const expeditionsAssets = {
     {
       id: 2,
       src: research2.src,
+      srcOrig: research__orig_2.src,
       alt: "Мангуп. Развалины греческой церкви и гробницы",
       author: "М.Б. Вебель",
       location: "Мангуп. Развалины греческой церкви и гробницы",
@@ -336,6 +357,7 @@ export const expeditionsAssets = {
     {
       id: 3,
       src: research3.src,
+      srcOrig: research__orig_3.src,
       alt: "Бакла-Кая. Внутренняя часть большой пещеры",
       author: "М.Б. Вебель",
       location: "Бакла-Кая. Внутренняя часть большой пещеры",
@@ -345,6 +367,7 @@ export const expeditionsAssets = {
     {
       id: 4,
       src: research4.src,
+      srcOrig: research__orig_4.src,
       alt: "Фресковая роспись храма «Трех всадников»",
       author: "М.Б. Вебель",
       location: "Фресковая роспись храма «Трех всадников»",
@@ -354,6 +377,7 @@ export const expeditionsAssets = {
     {
       id: 5,
       src: research5.src,
+      srcOrig: research__orig_5.src,
       alt: "Фрагменты фресковой росписи пещерного храма",
       author: "М.Б. Вебель",
       location: "Фрагменты фресковой росписи пещерного храма",
@@ -363,6 +387,7 @@ export const expeditionsAssets = {
     {
       id: 6,
       src: research6.src,
+      srcOrig: research__orig_6.src,
       alt: "Гурзуф. Развалины крепости Юстиниана",
       author: "М.Б. Вебель",
       location: "Гурзуф. Развалины крепости Юстиниана",
@@ -372,6 +397,7 @@ export const expeditionsAssets = {
     {
       id: 7,
       src: research7.src,
+      srcOrig: research__orig_7.src,
       alt: "Археологические разыскания в 1853 году",
       description:
         "Всеподданнейший отчет министра уделов и управляющего Кабинетом Е.И.В. графа Л.А. Перовского императору Николаю I об археологических разысканиях в 1853 году. ",
