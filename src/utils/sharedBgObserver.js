@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Unified Background Observer
   function createBgObserver(bgSectionMap) {
     bgSectionMap.forEach(({ bgElement, sectionIds, threshold = 0.5 }) => {
       const visibleSections = new Set();
 
-      // Create an observer for this specific background element with a custom threshold
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
+            console.log(entry.target.id, entry.isIntersecting);
             if (entry.isIntersecting) {
               visibleSections.add(entry.target.id);
             } else {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           });
         },
-        { threshold } // Use custom or default threshold
+        { threshold }
       );
 
       // Attach observer to all target sections for this background
@@ -85,6 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
       bgElement: document.getElementById("porechye-bg"),
       sectionIds: ["porechye"],
       threshold: 0.3
+    },
+    {
+      bgElement: document.getElementById("venice-bg"),
+      sectionIds: ["venice"],
+      threshold: 0.1
     },
   ];
 

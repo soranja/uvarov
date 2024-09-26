@@ -16,23 +16,43 @@ import { familyAssets } from "../../data/data";
     <!-- Header -->
     <HeaderWrapper />
 
-    <!-- Uvarov & Wife -->
-    <Section id="uvarov-wife" extraClass="bg-[url('../data/biography/_images/family/uvarov-wife-bg.png')] bg-center bg-cover 2xl:bg-contain bg-no-repeat">
-        <div class="h-full w-full flex flex-col justify-end items-center pb-[5%]">
-            <div class="grid grid-cols-2 w-full">
-                <div class="flex justify-center">
-                    <img src={familyAssets.husband.src} alt={familyAssets.husband.alt} class="max-w-[450px] 2xl:max-w-[550px]"/>
-                </div>
-                <div class="flex justify-center">
-                    <img src={familyAssets.wife.src} alt={familyAssets.wife.alt} class="max-w-[450px] 2xl:max-w-[550px]"/>
+    <!-- Uvarov & Wife BG -->
+    <div 
+    id="uvarov-wife-bg" 
+    class="
+        relative 
+        top-0 
+        left-0 
+        w-full 
+        h-screen
+        mx-auto
+        
+        bg-[url('../data/biography/_images/family/uvarov-wife-bg.png')]
+        bg-center
+        bg-cover
+        bg-no-repeat 
+
+        ">
+
+        <!-- Uvarov & Wife -->
+        <Section id="uvarov-wife">
+            <div class="h-full w-full flex flex-col justify-end 2xl:justify-center items-center">
+                <div class="flex justify-center items-center">
+                    <div class="flex justify-center">
+                        <img src={familyAssets.husband.src} alt={familyAssets.husband.alt} class="max-w-[70%] 2xl:max-w-[90%]"/>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src={familyAssets.wife.src} alt={familyAssets.wife.alt} class="max-w-[70%] 2xl:max-w-[90%]"/>
+                    </div>
                 </div>
             </div>
-        </div>
-    </Section>
+        </Section>
+
+    </div>
 
     <!-- Praskovya -->
-    <Section id="praskovya">
-        <div class="flex flex-col justify-center gap-y-[10vh] 4xl:gap-y-[5vh] text-4xl leading-normal px-[5%]">
+    <Section id="praskovya" contentHeight="h-auto" sectionSize="w-full 2xl:h-[70vh]" sectionFlex="flex flex-col justify-center">
+        <div class="flex flex-col justify-center gap-y-[10vh] 4xl:gap-y-[5vh] text-2xl 2xl:text-4xl leading-normal px-[5%]">
             <p>
                 В 1859 году граф Уваров венчался с юной княжной Прасковьей Сергеевной. 
             </p>
@@ -43,38 +63,57 @@ import { familyAssets } from "../../data/data";
     </Section>
 
     <!-- Wife Young -->
-    <Section id="wife-young" >
+    <Section id="wife-young" contentWidth="w-[75%]" contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
         <div class="grid grid-cols-3 w-full">
             <div class="col-span-1 flex flex-col justify-center items-center">
-                <p class="max-w-4xl text-3xl italic">
+                <p class="max-w-5xl text-2xl 2xl:text-4xl italic">
                     «Ты всегда участвовала во всех моих путешествиях и постоянно содействовала мне в моих изысканиях».
                 </p>
             </div>
             <div id="wife-young-image" class="col-span-2 flex justify-end">
-                <img src={familyAssets.wifeYoung.src} alt={familyAssets.wifeYoung.alt} class="w-[400px] 2xl:w-[600px]"/>
+                <img src={familyAssets.wifeYoung.src} alt={familyAssets.wifeYoung.alt} class="max-w-[65%]"/>
             </div>
         </div>
     </Section>
 
     <!-- Venice Image -->
-    <Section id="venice"  extraClass="bg-[url('../data/biography/_images/family/venice.png')] bg-center bg-contain bg-no-repeat">
-    </Section>
+    <div 
+    id="venice-bg" 
+    class="
+        relative 
+        top-0 
+        left-0 
+        w-full 
+        h-[140vh]
+        
+        bg-[url('../data/biography/_images/family/venice.png')]
+        bg-center
+        bg-cover
+        bg-no-repeat 
+        ">
+        <Section id="venice" sectionSize="w-full h-[140vh]" sectionFlex="flex flex-col justify-start" contentHeight="h-auto">
+            <p class="text-left text-sm 2xl:text-xl max-w-xl 2xl:max-w-3xl leading-normal mt-[15vh]">
+                В 1859 году супруги отправились в длительное путешествие по Западной Европе. Главной целью поездки был сбор материалов для работы графа по истории византийского искусства и работы по христианской символике. В Венеции, испытавший влияние Византии, он знакомился с архитектурой храмов и дворцов, построенных по византийским образцам.
+            </p>
+        </Section>
+
+    </div>
 
     <!-- Italy Text -->
-    <Section id="italy">
-        <p class="text-5xl leading-normal px-[5%]">
+    <Section id="italy" contentHeight="h-auto" sectionSize="w-full h-[80vh] 2xl:h-[50vh]" sectionFlex="flex flex-col justify-center">
+        <p class="text-4xl 2xl:text-5xl leading-normal px-[5%]">
             В Риме, Флоренции и Неаполе ученый изучал книжные, музейные, документальные коллекции, работая в архивах, музеях, городских и монастырских библиотеках.
         </p>
     </Section>
 
     <!-- Children -->
-    <Section id="children-young">
+    <Section id="children-young" contentWidth="w-[75%]">
             <div class="grid grid-cols-3 w-full">
                 <div id="children-image" class="col-span-2 flex flex-col justify-center">
-                    <img src={familyAssets.children.src} alt={familyAssets.children.alt} class="w-[400px] 2xl:w-[600px]"/>
+                    <img src={familyAssets.children.src} alt={familyAssets.children.alt} class="max-w-[60%]"/>
                 </div>
                 <div class="col-span-1 flex flex-col justify-center">
-                    <p class="max-w-4xl text-3xl">
+                    <p class="max-w-4xl text-xl 2xl:text-3xl">
                         Графиня Прасковья Сергеевна сдержала слово и была не только хранительницей очага и матерью шестерых детей. Граф высоко ценил способность жены делить с ним все заботы, и, прежде всего, связанные с его деятельностью в Археологическом обществе.
                     </p>
                 </div>
@@ -82,12 +121,12 @@ import { familyAssets } from "../../data/data";
     </Section>
 
     <!-- Family Conclusion -->
-    <Section id="family-conclusion">
-        <div class="flex flex-col justify-between text-4xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
+    <Section id="family-conclusion" contentHeight="h-auto" sectionSize="w-full h-[80vh]" sectionFlex="flex flex-col justify-center">
+        <div class="flex flex-col justify-between text-2xl 2xl:text-4xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh] px-[5%]">
             <p>
                 Возглавив Московское археологическое общество после кончины мужа, П.С. Уварова многое сделала для развития Общества. При ней прошли восемь археологических съездов; под ее редакцией выходили почти все издания Общества и Труды Съездов, благодаря ей увидела свет и большая часть творческого наследия А. С. Уварова, и, в частности, «любимое детище графа» первый том исследования «Христианская символика».
             </p>
-            <div class="relative flex flex-col gap-y-[5vh] 4xl:gap-y-[2vh] text-3xl w-[22%]">
+            <div class="w-full text-center relative flex flex-col gap-y-[5vh] 4xl:gap-y-[2vh] text-3xl">
                 <p>следующая глава</p>
                 
                 <ScrollArrow 
@@ -96,7 +135,7 @@ import { familyAssets } from "../../data/data";
                     visible="opacity-100" 
                     size="w-auto"
                     animated={false}
-                    redirectUrl="/biography/activities"
+                    redirectUrl="/biography/family"
                     />
             </div>
         </div>
