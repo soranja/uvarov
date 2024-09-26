@@ -147,9 +147,13 @@ const research = expeditionsAssets.research;
     </Section>
 
     <!-- Research --- Trip to the South --- Slider -->
-    <Section id="research-slider" contentHeight="h-[50vh]" sectionSize="w-full h-[90vh]" sectionFlex="flex flex-col justify-center">
-                <div class="w-full flex flex-col items-center justify-center">
-                    <div x-data="{ init() {
+    <Section id="research-slider" contentHeight="h-[65vh]" sectionSize="w-full h-screen" sectionFlex="flex flex-col justify-center">
+                <div class="w-full flex flex-col items-center justify-between h-full">
+                    <p class="max-w-[1250px] text-xl 2xl:text-3xl leading-normal">
+                        Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного Моря.
+                    </p>
+                    <div 
+                        x-data="{ init() {
                             new Splide(this.$refs.splide, {
                                 perPage: 3,
                                 perMove: 1,
@@ -259,13 +263,12 @@ const research = expeditionsAssets.research;
     >
         <Section id="olvia" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col justify-center" contentWidth="w-full" contentHeight="h-[150vh]">
             <div class="h-full flex flex-col justify-center ml-[20vh]">
-                <p class="text-4xl leading-normal max-w-5xl h-[80vh] border-4 border-orange-500">
+                <p class="text-4xl leading-normal max-w-5xl h-[80vh]">
                     Позднее, в 1853–1854 годах Уваров возглавил экспедицию в Таврическую губернию, работал в Ольвии, Неаполе Скифском, Херсонесе. 
                 </p>
             </div>
         </Section>
     </div>
-
 
     <!-- Hersones Slider -->
     <Section id="hersones-slider" contentHeight='h-[1024px] 2xl:h-[1536px]' contentWidth="w-full" sectionSize="w-full h-[1024px] 2xl:h-[1536px]" extraClass="bg-[url('../data/biography/_images/expeditions/kherson-bg.png')] bg-center bg-cover bg-no-repeat flex justify-end items-end">
