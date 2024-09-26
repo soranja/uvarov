@@ -24,7 +24,7 @@ import { common, museumAssets } from "../../data/data";
     <HeaderWrapper />
 
     <!-- Museum Image -->
-    <Section id="museum-image" w="w-[1440px]" h="h-[800px]" extraClass="bg-[url('../data/biography/_images/museum/gim.png')] bg-center bg-contain bg-no-repeat">
+    <Section id="museum-image" extraClass="bg-[url('../data/biography/_images/museum/gim.png')] bg-center bg-contain bg-no-repeat">
         <div class="h-[350px] w-full flex flex-col justify-center items-end text-xl leading-normal px-[5%]">
             <p class="max-w-xl">
                 Программа Общества, ориентированная на изучение преимущественно русской археологии, популяризацию археологических и исторических знаний, ставила целью пробудить интерес к прошлому России и отечественным древностям.
@@ -45,7 +45,7 @@ import { common, museumAssets } from "../../data/data";
     </Section>
 
     <!-- Museum Grid -->
-    <Section id="museum-grid" w="w-[1440px]" h="h-[1024px]" extraClass="bg-[url('../data/biography/_images/museum/gim-bg.png')] bg-center bg-contain bg-no-repeat">
+    <Section id="museum-grid" extraClass="bg-[url('../data/biography/_images/museum/gim-bg.png')] bg-center bg-contain bg-no-repeat">
         <div class="grid grid-rows-5 grid-cols-[25%,50%,25%] w-full h-full">
 
             <!-- Left Column (spans rows 2-4) -->
@@ -96,7 +96,7 @@ import { common, museumAssets } from "../../data/data";
     </Section>
 
     <!-- Ustav Text -->
-    <Section id="ustav-text" w="w-[1160px]">
+    <Section id="ustav-text">
         <div class="grid grid-cols-2 w-full text-3xl leading-normal">
             <div class="flex justify-center items-start">
                 <p class="max-w-md">
@@ -130,7 +130,7 @@ import { common, museumAssets } from "../../data/data";
     </Section>
 
     <!-- Museum Building Slider -->
-    <Section id="museum-building-slider" w="w-full 2xl:w-[1360px]">
+    <Section id="museum-building-slider">
         <div class="w-full">
             <div x-data="{ init() {
                     new Splide(this.$refs.splide, {
@@ -194,7 +194,7 @@ import { common, museumAssets } from "../../data/data";
     </Section>
 
     <!-- Museum Photo -->
-    <Section id="museum-photo" maxH="" w="w-[1440px]" h="h-[1024px]" extraClass="bg-[url('../data/biography/_images/museum/gim-photo.png')] bg-left bg-contain bg-no-repeat flex flex-col justify-center items-end">
+    <Section id="museum-photo" extraClass="bg-[url('../data/biography/_images/museum/gim-photo.png')] bg-left bg-contain bg-no-repeat flex flex-col justify-center items-end">
         <div class="h-[550px] flex flex-col justify-start items-end text-xl leading-normal px-[5%]">
             <p class="max-w-md">
                 Организация и деятельность МАО, создание Исторического музея позволяют утверждать, что благодаря А.С. Уварову в Москве сформировался второй, после Петербурга, археологический центр России.
