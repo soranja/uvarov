@@ -90,6 +90,10 @@ import { familyAssets } from "../../data/data";
         bg-center
         bg-cover
         bg-no-repeat 
+
+        transition-opacity 
+        duration-1000 
+        opacity-0 
         ">
         <Section id="venice" sectionSize="w-full h-[140vh]" sectionFlex="flex flex-col justify-start" contentHeight="h-auto">
             <p class="text-left text-sm 2xl:text-xl max-w-xl 2xl:max-w-3xl leading-normal mt-[15vh]">
@@ -141,3 +145,5 @@ import { familyAssets } from "../../data/data";
     </Section>
     
 </BioWrapper>
+
+<script src="../../utils/sharedBgObserver.js"></script>

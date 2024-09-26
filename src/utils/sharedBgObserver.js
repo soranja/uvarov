@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       bgElement: document.getElementById("venice-bg"),
       sectionIds: ["venice"],
-      threshold: 0.1
+      threshold: 0.3
     },
     {
       bgElement: document.getElementById("mao-image-1-bg"),
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       bgElement: document.getElementById("museum-grid-bg"),
       sectionIds: ["museum-grid"],
-      threshold: 0.1
+      threshold: 0.3
     },
     {
       bgElement: document.getElementById("museum-photo-bg"),

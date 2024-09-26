@@ -77,6 +77,10 @@ const museumHalls = museumAssets.hallsSlider;
         bg-contain 
         bg-no-repeat
         bg-center
+
+        transition-opacity 
+        duration-1000 
+        opacity-0 
     "
     >
         <Section id="museum-grid" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-full" contentHeight="h-[150vh]">
@@ -252,10 +256,14 @@ const museumHalls = museumAssets.hallsSlider;
         w-full
         h-[300vh]
 
-        bg-[url('../data/biography/_images/museum/gim-photo.png')]
+        bg-[url('../data/biography/_images/museum/museum-photo-bg.png')]
         bg-cover
         bg-no-repeat
         bg-center
+
+        transition-opacity 
+        duration-1000 
+        opacity-0 
     "
     >
         <Section id="museum-photo" sectionSize="w-full h-[300vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-[50%] 2xl:w-[60%]" contentHeight="h-auto">
@@ -353,6 +361,7 @@ const museumHalls = museumAssets.hallsSlider;
 
 </BioWrapper>
 
+<script src="../../utils/sharedBgObserver.js"></script>
 <script>
     // 6 BLOCKS --- GSAP
     import { gsap } from "gsap";

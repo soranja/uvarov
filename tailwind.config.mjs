@@ -21,7 +21,10 @@ export default {
         "family-bg": "url('../data/biography/_images/family/family-img.png')",
         "activities-bg":
           "url('../data/biography/_images/activities/activities-img.png')",
-
+        "museum-bg":
+          "url('../data/biography/_images/museum/museum-img.jpg')",
+        "epilogue-bg":
+          "url('../data/biography/_images/epilogue/epilogue-img.jpg')",
         "header-white": "url('../data/common/_images/header-white.svg')",
         "header-black": "url('../data/common/_images/header-black.svg')",
       },

@@ -141,7 +141,6 @@ import uvarovMedalBack from "./biography/_images/activities/uvarov-medal-back.pn
 // MUSEUM ASSETS
 import gim from "./biography/_images/museum/gim.png";
 import ustav from "./biography/_images/museum/ustav.png";
-import gimPhoto from "./biography/_images/museum/gim-photo.png";
 
 // BUILDING SLIDER
 import building1 from "./biography/_images/museum/building/1.jpg";
@@ -445,7 +444,6 @@ export const activitiesAssets = {
 export const museumAssets = {
   gim: { src: gim.src, alt: "Здание ГИМ (Государственный Исторический Музей)" },
   ustav: { src: ustav.src, alt: "Устав Государственного Исторического Музея" },
-  gimPhoto: { src: gimPhoto.src, alt: "Фотография ГИМ" },
 
   buildingSlider: [
     {
