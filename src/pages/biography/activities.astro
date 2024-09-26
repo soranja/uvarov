@@ -18,14 +18,20 @@ const princes = [activitiesAssets.princesLection, activitiesAssets.lectionFull]
 
     <!-- Header -->
     <HeaderWrapper />
-    
-    <!-- Moscow Image -->
-    <Section id="moscow" extraClass="bg-[url('../data/biography/_images/activities/kremlin.png')] bg-center bg-contain bg-no-repeat">
+
+    <!-- Moscow -->
+    <Section id="moscow" contentHeight="h-[120vh]" contentWidth="w-full" sectionSize="w-full h-[120vh]" sectionFlex="flex flex-col justify-start items-center">
+        <div class="flex flex-col justify-between items-center h-full">
+            <p class="w-[90%] text-center text-xl leading-normal mt-[15vh]">
+                Смерть Л. А. Перовского в 1856 году заставила его покинуть Петербург и с 1857 года и до конца дней все планы и начинания он связал с Москвой.
+            </p>
+            <div id="moscow-bg" class="relative top-0 left-0 w-full h-[90vh] bg-[url('../data/biography/_images/activities/kremlin.png')] bg-center bg-cover bg-no-repeat"></div>
+        </div>
     </Section>
 
     <!-- MAO Text 1 -->
-    <Section id="mao-text-1">
-        <div class="flex flex-col justify-center text-4xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
+    <Section id="mao-text-1" contentHeight="h-auto" sectionSize="w-full h-[90vh] 2xl:h-[60vh]" sectionFlex="flex flex-col justify-center">
+        <div class="flex flex-col justify-center text-2xl 2xl:text-4xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
             <p>
                 Свой замысел о создании Московского Археологического общества (МАО) Уваров обнародовал 17 февраля 1864 года.
             </p>
@@ -36,42 +42,99 @@ const princes = [activitiesAssets.princesLection, activitiesAssets.lectionFull]
     </Section>
 
     <!-- MAO Image 1 -->
-    <Section id="mao-image-1" extraClass="bg-[url('../data/biography/_images/activities/mao.png')] bg-center bg-contain bg-no-repeat">
-    </Section>
+    <div 
+    id="mao-image-1-bg"
+    class="
+        relative 
+        top-0 
+        left-0 
+        w-full
+        h-[150vh]
+
+        bg-[url('../data/biography/_images/activities/mao.png')]
+        bg-cover 
+        bg-no-repeat
+        bg-center
+
+        transition-opacity 
+        duration-1000 
+        opacity-0 
+    "
+    >
+        <Section id="mao-image-1" sectionSize="w-full h-[150vh]" contentWidth="w-full" contentHeight="h-[150vh]">
+        </Section>
+    </div>
 
     <!-- MAO Text 2 -->
-    <Section id="mao-text-2">
-            <p class="text-5xl leading-normal px-[5%]">
-                Уваров стремился привлечь в МАО всех интересующихся русской историей. Образование и сословная принадлежность не имели здесь решающего значения.
-            </p>
-    </Section>
-
-    <!-- MAO Image 2 -->
-    <Section id="mao-image-2" extraClass="bg-[url('../data/biography/_images/activities/mao-bg.png')] bg-center bg-cover bg-no-repeat flex justify-center items-center">
-            <p class="text-4xl leading-normal px-[2%] max-w-[1180px] pb-[10%]">
-                Программа нового Общества, организационные принципы его деятельности привлекли к участию в нем профессоров Московского университета, литераторов, архитекторов, художников: среди них – Ф. И. Буслаев, С. М. Соловьев, И. Е. Забелин, М. П. Погодин, Л. В. Даль.
-            </p>
-    </Section>
-
-    <!-- MAO Text 3 -->
-    <Section id="mao-text-3">
-        <p class="text-5xl leading-normal px-[5%]">
-            Поставив задачу поистине общенационального масштаба – обратить русское общество к своим истокам, Уваров не ограничил деятельность МАО лишь Москвой.
+    <Section id="mao-text-2" contentHeight="h-auto" sectionSize="w-full h-[80vh] 2xl:h-[50vh]" sectionFlex="flex flex-col justify-center">
+        <p class="text-3xl 2xl:text-5xl leading-normal px-[5%]">
+            Уваров стремился привлечь в МАО всех интересующихся русской историей. Образование и сословная принадлежность не имели здесь решающего значения.
         </p>
     </Section>
 
-    <!-- Uvarov Medal -->
-    <Section id="uvarov-medal"
-    extraClass="bg-[url('../data/biography/_images/activities/uvarov-medal-portait.png')] bg-center bg-cover bg-no-repeat flex items-center px-[5%]">
-        <div class="w-[530px] max-h-[500px] 2xl:max-h-[730px] flex flex-col items-start">
-            <img src={activitiesAssets.uvarovMedal.src} alt={activitiesAssets.uvarovMedal.alt} class="max-w-[250px] 2xl:max-w-[360px]"/>
-            <img src={activitiesAssets.uvarovMedalBack.src} alt={activitiesAssets.uvarovMedalBack.alt} class="max-w-[180px] 2xl:max-w-[310px] self-end"/>
-        </div>
-    </Section>
+    <!-- MAO Image 2 -->
+    <div 
+    id="mao-image-2-bg"
+    class="
+        relative 
+        top-0 
+        left-0 
+        w-full
+        h-[120vh]
 
-    <!-- MAO Text 4 -->
-    <Section id="mao-text-4">
-        <div class="flex flex-col justify-center items-start text-2xl leading-normal px-[2%] gap-y-[8vh] 4xl:gap-y-[3vh]">
+        bg-[url('../data/biography/_images/activities/mao-bg.png')]
+        bg-cover 
+        bg-no-repeat
+        bg-center
+
+        transition-opacity 
+        duration-1000 
+        opacity-0 
+    "
+    >
+        <Section id="mao-image-2" sectionSize="w-full h-[120vh]" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
+            <div class="h-full flex flex-col justify-center">
+                <p class="text-4xl max-w-6xl leading-normal">
+                    Программа нового Общества, организационные принципы его деятельности привлекли к участию в нем профессоров Московского университета, литераторов, архитекторов, художников: среди них – Ф. И. Буслаев, С. М. Соловьев, И. Е. Забелин, М. П. Погодин, Л. В. Даль.
+                </p>
+            </div>
+        </Section>
+    </div>
+
+    <!-- Uvarov Medal -->
+    <div 
+    id="uvarov-medal-bg"
+    class="
+        relative 
+        top-0 
+        left-0 
+        w-full
+        h-[150vh]
+
+        bg-[url('../data/biography/_images/activities/uvarov-medal-portait.png')]
+        bg-cover 
+        bg-no-repeat
+        bg-center
+
+        transition-opacity 
+        duration-1000 
+        opacity-0 
+    "
+    >
+        <Section id="uvarov-medal" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col justify-center" contentHeight="h-[110vh]">
+            <div class="max-w-[50%] h-full flex flex-col justify-between items-start">
+                <p class="text-xl 2xl:text-2xl leading-normal px-[5%]">
+                    Поставив задачу поистине общенационального масштаба – обратить русское общество к своим истокам, Уваров не ограничил деятельность МАО лишь Москвой.
+                </p>
+                <img src={activitiesAssets.uvarovMedal.src} alt={activitiesAssets.uvarovMedal.alt} class="max-w-[45%]"/>
+                <img src={activitiesAssets.uvarovMedalBack.src} alt={activitiesAssets.uvarovMedalBack.alt} class="max-w-[35%] self-center"/>
+            </div>
+        </Section>
+    </div>
+
+    <!-- MAO Text 3 -->
+    <Section id="mao-text-3" >
+        <div class="flex flex-col justify-center items-start text-xl 2xl:text-2xl leading-normal px-[2%] gap-y-[8vh] 4xl:gap-y-[3vh]">
             <p>
                 С 1869 года по его инициативе начинают собираться всероссийские археологические съезды в различных городах России – Москве, Петербурге, Киеве, Казани, Тифлисе, Одессе. Съездам предшествовало всестороннее изучение памятников истории и культуры тех регионов, где они проводились. На съездах обсуждались вопросы изучения и охраны памятников, состояние архивного дела, анализировалось положение с изучением древностей данного региона. В рамках дискуссий регулярно подчеркивалась необходимость преподавания археологии в российских университетах.
             </p>
@@ -84,11 +147,28 @@ const princes = [activitiesAssets.princesLection, activitiesAssets.lectionFull]
         </div>
     </Section>
 
-    <!-- Princes Images -->
-    <div class="relative w-full overflow-hidden">
-        <div id="princes-bg" class="absolute top-0 left-0 w-full h-full bg-[url('../data/biography/_images/activities/princes-lection.png')] bg-center bg-contain bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
-        <Section id="princes">
-            <div class="w-full flex justify-end">
+    <!-- Princes -->
+    <div 
+    id="princes-bg"
+    class="
+        relative 
+        top-0 
+        left-0 
+        w-full
+        h-[150vh]
+
+        bg-[url('../data/biography/_images/activities/princes-lection.png')]
+        bg-cover 
+        bg-no-repeat
+        bg-center
+
+        transition-opacity 
+        duration-1000 
+        opacity-0 
+    "
+    >
+        <Section id="princes" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col justify-center" contentWidth="w-full" contentHeight="h-[150vh]">
+            <div class="flex items-center justify-end h-full mr-[5vh] border-4 border-orange-500">
                 <img src={activitiesAssets.lection.src} alt={activitiesAssets.lection.alt}>
             </div>
             <InfoOverlay contentType="slider" images={princes} isIconInverted={true} overlayId="princes" iconPosition="absolute bottom-[1vh] left-1/2"/>
@@ -97,11 +177,11 @@ const princes = [activitiesAssets.princesLection, activitiesAssets.lectionFull]
 
     <!-- Princes Text -->
     <Section id="princes-text">
-        <div class="flex flex-col justify-between text-4xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
+        <div class="flex flex-col justify-between text-3xl 2xl:text-4xl leading-normal gap-y-[15vh] 4xl:gap-y-[5vh] px-[7%] 2xl:px-[5px]">
             <p>
                 Будучи приближенным к Императорской чете и располагая их доверием, А. С. Уваров с середины 1870-х годов читал курс лекций по археологии и руководил образовательными археологическими экскурсиями великих князей Сергея и Павла Александровичей в Крым, Новгород и Псков.
             </p>
-            <div class="relative flex flex-col gap-y-[5vh] 4xl:gap-y-[2vh] text-3xl w-[22%]">
+            <div class="w-full text-center relative flex flex-col gap-y-[5vh] 4xl:gap-y-[2vh] text-3xl">
                 <p>следующая глава</p>
                 
                 <ScrollArrow 

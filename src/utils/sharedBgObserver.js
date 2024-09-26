@@ -84,12 +84,42 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       bgElement: document.getElementById("porechye-bg"),
       sectionIds: ["porechye"],
-      threshold: 0.3
+      threshold: 0.2
     },
     {
       bgElement: document.getElementById("venice-bg"),
       sectionIds: ["venice"],
       threshold: 0.1
+    },
+    {
+      bgElement: document.getElementById("mao-image-1-bg"),
+      sectionIds: ["mao-image-1"],
+      threshold: 0.2
+    },
+    {
+      bgElement: document.getElementById("mao-image-2-bg"),
+      sectionIds: ["mao-image-2"],
+      threshold: 0.2
+    },
+    {
+      bgElement: document.getElementById("uvarov-medal-bg"),
+      sectionIds: ["uvarov-medal"],
+      threshold: 0.2
+    },
+    {
+      bgElement: document.getElementById("princes-bg"),
+      sectionIds: ["princes"],
+      threshold: 0.2
+    },
+    {
+      bgElement: document.getElementById("museum-grid-bg"),
+      sectionIds: ["museum-grid"],
+      threshold: 0.1
+    },
+    {
+      bgElement: document.getElementById("museum-photo-bg"),
+      sectionIds: ["museum-photo"],
+      threshold: 0.2
     },
   ];
 
