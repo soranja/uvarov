@@ -9,6 +9,7 @@ import InfoOverlay from "../../components/global/InfoOverlay.astro";
 import { activitiesAssets } from "../../data/data";
 
 const princes = [activitiesAssets.princesLection, activitiesAssets.lectionFull]
+const maoChairs = [activitiesAssets.maoChairs]
 ---
 
 
@@ -94,11 +95,12 @@ const princes = [activitiesAssets.princesLection, activitiesAssets.lectionFull]
     >
         <Section id="mao-image-2" sectionSize="w-full h-[120vh]" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
             <div class="h-full flex flex-col justify-center">
-                <p class="text-4xl max-w-6xl leading-normal">
+                <p class="text-4xl max-w-6xl 2xl:max-w-full leading-normal px-[5%]">
                     Программа нового Общества, организационные принципы его деятельности привлекли к участию в нем профессоров Московского университета, литераторов, архитекторов, художников: среди них – Ф. И. Буслаев, С. М. Соловьев, И. Е. Забелин, М. П. Погодин, Л. В. Даль.
                 </p>
             </div>
         </Section>
+        <InfoOverlay contentType="image" images={maoChairs} overlayId="mao-chairs" iconPosition="absolute bottom-[5vh] left-1/2"/>
     </div>
 
     <!-- Uvarov Medal -->
@@ -171,7 +173,7 @@ const princes = [activitiesAssets.princesLection, activitiesAssets.lectionFull]
             <div class="flex items-center justify-end h-full mr-[5vh]">
                 <img src={activitiesAssets.lection.src} alt={activitiesAssets.lection.alt}>
             </div>
-            <InfoOverlay contentType="slider" images={princes} isIconInverted={true} overlayId="princes" iconPosition="absolute bottom-[1vh] left-1/2"/>
+            <InfoOverlay contentType="slider" images={princes} isIconInverted={true} overlayId="princes" iconPosition="absolute bottom-[5vh] left-1/2"/>
         </Section>
     </div>
 

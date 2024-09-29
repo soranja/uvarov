@@ -9,6 +9,7 @@ import InfoOverlay from "../../components/global/InfoOverlay.astro";
 import { common, expeditionsAssets } from "../../data/data";
 
 const research = expeditionsAssets.research;
+const cover = [expeditionsAssets.researchCoverFull];
 ---
 
 
@@ -123,7 +124,7 @@ const research = expeditionsAssets.research;
                     Он посетил Каменское городище, Херсон, Ольвию, Херсонес и другие.
                 </p>
                 <p>
-                    Раскопки ученый не вел, все приобретенные им антики либо «подъемный» материал (фрагменты керамических стеклянных сосудов, лепная керамика, монеты), либо покупки у местного населения.
+                    Раскопки ученый не вел, все приобретенные им античные артефакты либо «подъемный» материал (фрагменты керамических стеклянных сосудов, лепная керамика, монеты), либо покупки у местного населения.
                 </p>
             </div>
         </Section>
@@ -135,7 +136,7 @@ const research = expeditionsAssets.research;
         <div class="grid grid-cols-3 w-full h-full">
             <div id="research-image" class="col-span-1 relative flex flex-col justify-center items-center">
                 <img src={expeditionsAssets.researchCover.src} alt={expeditionsAssets.researchCover.alt} class="max-w-[75%]"/>
-                <InfoOverlay contentType="image" images={[]} overlayId="research" iconPosition="absolute bottom-[2vh]"/>
+                <InfoOverlay contentType="image" images={cover} overlayId="research" iconPosition="absolute bottom-[2vh]"/>
             </div>
             <div class="col-span-2 flex flex-col justify-center items-end text-2xl 2xl:text-3xl gap-y-[1vh]">
                 <p class="max-w-md 2xl:max-w-xl">
@@ -202,7 +203,7 @@ const research = expeditionsAssets.research;
     </Section>
 
     <!-- Nord Map BG -->
-    <div id="nord-map-bg" class="fixed top-0 left-0 w-full h-screen bg-[url('../data/biography/_images/expeditions/nord-map-bg.png')] bg-center bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
+    <div id="nord-map-bg" class="fixed top-0 left-0 w-full h-screen bg-[url('../data/biography/_images/expeditions/nord-map-bg-50.png')] bg-center bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
 
     <!-- Nord Text -->
     <Section id="nord-text"  contentHeight="h-auto mb-[10vh]" sectionSize="w-full h-[90vh]" sectionFlex="flex flex-col justify-end">
@@ -275,7 +276,7 @@ const research = expeditionsAssets.research;
     <Section id="hersones-slider" contentHeight='h-[1024px] 2xl:h-[1536px]' contentWidth="w-full" sectionSize="w-full h-[1024px] 2xl:h-[1536px]" extraClass="bg-[url('../data/biography/_images/expeditions/kherson-bg.png')] bg-center bg-cover bg-no-repeat flex justify-end items-end">
         <div class="flex flex-col justify-between items-center mx-auto ">
             <p class="absolute top-1/4 max-w-[1250px] text-2xl 2xl:text-4xl leading-normal flex-shrink-0">
-                В Херсонесе археолог открыл кафедральный храм VI века.
+                В Херсонесе археолог археолог обнаружил остатки храма VI века.
             </p>
             <div class="max-w-[100%] flex-grow">
                 <section

@@ -1,6 +1,5 @@
 ---
 import header from '../../../data/common/_images/header.svg';
-import burger from '../../../data/common/_images/burger.svg';
 ---
 
 <header 
@@ -15,6 +14,9 @@ import burger from '../../../data/common/_images/burger.svg';
 		items-center
 		
 		text-sm 2xl:text-lg 3xl:text-xl 4xl:text-3xl
+
+		bg-black
+		text-white
 
 	`>
 	<nav 
@@ -40,19 +42,6 @@ import burger from '../../../data/common/_images/burger.svg';
 			ease-in-out
 		`>
 
-		<!-- HOME (TEMP) -->
-		<a
-			href='/'
-			class="
-			flex-shrink-0
-			hover:underline
-			self-start
-			md:self-center
-			px-2
-			">
-			←
-		</a>
-
 		<!-- LINKS -->
 		<div 
 			id="links" 
@@ -64,29 +53,6 @@ import burger from '../../../data/common/_images/burger.svg';
 			md:pl-0
 		">
 			<!-- links are inserted here -->
-		</div>
-
-		<!-- BURGER -->
-		<div 
-			class="
-			self-start
-			md:self-center
-			flex
-			justify-center
-			items-center
-		">
-			<button 
-			id="toggle-header-button" 
-			class="
-				w-6
-				h-6
-				md:w-8
-				md:h-8
-				lg:w-10
-				lg:h-10
-			">
-				<img src={burger.src} alt="Бургер">
-			</button>
 		</div>
 	</nav>
 	<img 
@@ -104,8 +70,7 @@ import burger from '../../../data/common/_images/burger.svg';
 </header>
 
 <script>
-	import { isHeaderToggled } from "../../../store";
-	import { BIO_NAV_LINKS, MATERIALS_NAV_LINKS } from "../../../consts";
+	import { BIO_NAV_LINKS } from "../../../consts";
 
 	const isLinkActive = (href: string) => {
 		const pathname = window.location.pathname;
@@ -113,26 +78,10 @@ import burger from '../../../data/common/_images/burger.svg';
 		return href === pathname || href === '/' + subpath?.[0];
 	};
   
-	const renderLinks = (links: any[], isMaterials: boolean) => {
+	const renderLinks = (links: any[]) => {
 		const navLinks = document.getElementById('links');
-		const header = document.getElementById('header-content');
-		const switchBtn = document.querySelector('#toggle-header-button img');
-		const headerBg = document.getElementById('header-bg') as HTMLImageElement;
-		const nav = document.getElementById('nav') as HTMLImageElement; 
 
 		navLinks!.innerHTML = '';
-
-		if (isMaterials) {
-			header!.classList.remove('bg-black','text-white');
-			header!.classList.add('bg-white', 'text-black');
-			switchBtn!.classList.add('invert');
-			headerBg!.classList.add('invert');
-		} else {
-			header!.classList.remove('bg-white', 'text-black');
-			header!.classList.add('bg-black','text-white');
-			switchBtn!.classList.remove('invert');
-			headerBg!.classList.remove('invert');
-		}
 
 		const linksWrapper = document.createElement('div');
 		linksWrapper.className = 'flex md:justify-center flex-col md:flex-row gap-x-0 lg:gap-x-2 xl:gap-x-6 py-2';
@@ -147,20 +96,10 @@ import burger from '../../../data/common/_images/burger.svg';
 		// Insert the wrapper into the nav
 		navLinks!.appendChild(linksWrapper);
 
-		document.getElementById('toggle-header-button')!.addEventListener('click', toggleHeader);
   	};
 
-	const toggleHeader = () => {
-		const toggled = !isHeaderToggled.get(); // Toggle the state
-		isHeaderToggled.set(toggled);
-
-		const links = toggled ? BIO_NAV_LINKS : MATERIALS_NAV_LINKS;
-		renderLinks(links, !toggled);
-	};
-
 	document.addEventListener('DOMContentLoaded', () => {
-		renderLinks(BIO_NAV_LINKS, false);
-		isHeaderToggled.set(true);
+		renderLinks(BIO_NAV_LINKS);
 	});
 </script>
 

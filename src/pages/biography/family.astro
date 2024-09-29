@@ -52,9 +52,9 @@ import { familyAssets } from "../../data/data";
 
     <!-- Praskovya -->
     <Section id="praskovya" contentHeight="h-auto" sectionSize="w-full h-[90vh] 2xl:h-[85vh]" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center gap-y-[10vh] 4xl:gap-y-[5vh] text-2xl 2xl:text-4xl leading-normal px-[5%]">
+        <div class="flex flex-col justify-center gap-y-[10vh] 4xl:gap-y-[5vh] text-2xl 2xl:text-4xl leading-normal px-[2%]">
             <p>
-                В 1859 году граф Уваров венчался с юной княжной Прасковьей Сергеевной. 
+                В 1859 году граф Уваров венчался с юной княжной Прасковьей Сергеевной Щербатовой. 
             </p>
             <p>
                 Умная, красивая, получившая прекрасное домашнее образование, княжна Щербатова стала прообразом одной из любимых героинь Л. Н. Толстого – Кити Щербацкой. Юная Щербатова была замечательно воспитана любящими и строгими родителями. Серьезная и ответственная, приняв предложение А. С. Уварова, она обещала ему быть не только хорошей женой, но и помощницей.
@@ -77,30 +77,14 @@ import { familyAssets } from "../../data/data";
     </Section>
 
     <!-- Venice -->
-    <div 
-    id="venice-bg" 
-    class="
-        relative 
-        top-0 
-        left-0 
-        w-full 
-        h-[140vh]
-        
-        bg-[url('../data/biography/_images/family/venice.png')]
-        bg-center
-        bg-cover
-        bg-no-repeat 
-
-        transition-opacity 
-        duration-1000 
-        opacity-0 
-        ">
-        <Section id="venice" sectionSize="w-full h-[140vh]" sectionFlex="flex flex-col justify-start" contentHeight="h-auto">
-            <p class="text-left text-sm 2xl:text-xl max-w-xl 2xl:max-w-3xl leading-normal mt-[15vh]">
-                В 1859 году супруги отправились в длительное путешествие по Западной Европе. Главной целью поездки был сбор материалов для работы графа по истории византийского искусства и работы по христианской символике. В Венеции, испытавший влияние Византии, он знакомился с архитектурой храмов и дворцов, построенных по византийским образцам.
-            </p>
-        </Section>
-    </div>
+    <Section id="venice" sectionSize="max-w-[87%] h-[140vh]" sectionFlex="flex flex-col justify-start items-center mx-auto" contentWidth="w-full" contentHeight="h-auto">
+        <video class="absolute top-0 left-0 h-[140vh]" autoplay loop muted>
+            <source src={familyAssets.venice.src}>
+        </video>
+        <p class="text-left text-sm 2xl:text-xl max-w-xl 2xl:max-w-3xl leading-normal ml-[5vh] mt-[15vh]">
+            В 1859 году супруги отправились в длительное путешествие по Западной Европе. Главной целью поездки был сбор материалов для работы графа по истории византийского искусства и работы по христианской символике. В Венеции, испытавший влияние Византии, он знакомился с архитектурой храмов и дворцов, построенных по византийским образцам.
+        </p>
+    </Section>
 
     <!-- Italy Text -->
     <Section id="italy" contentHeight="h-auto" sectionSize="w-full h-[80vh] 2xl:h-[70vh]" sectionFlex="flex flex-col justify-center">

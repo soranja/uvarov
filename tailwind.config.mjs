@@ -18,14 +18,16 @@ export default {
         "junost-bg": "url('../data/biography/_images/junost/junost-img.jpg')",
         "expeditions-bg":
           "url('../data/biography/_images/expeditions/expeditions-img.jpg')",
+        "porechye-bg":
+          "url('../data/biography/_images/porechye/porechye-img.jpg')",
+        "praskovya-bg":
+          "url('../data/biography/_images/praskovya/praskovya-img.jpg')",
         "family-bg": "url('../data/biography/_images/family/family-img.png')",
         "activities-bg":
           "url('../data/biography/_images/activities/activities-img.png')",
-        "museum-bg":
-          "url('../data/biography/_images/museum/museum-img.jpg')",
+        "museum-bg": "url('../data/biography/_images/museum/museum-img.jpg')",
         "epilogue-bg":
           "url('../data/biography/_images/epilogue/epilogue-img.jpg')",
-        "header-white": "url('../data/common/_images/header-white.svg')",
         "header-black": "url('../data/common/_images/header-black.svg')",
       },
       keyframes: {
