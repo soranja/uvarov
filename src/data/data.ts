@@ -108,6 +108,22 @@ import research__orig_7 from "./biography/_images/expeditions/research/originals
 
 /* ==========
 
+    PORECHYE
+
+  ========== */
+
+import porechye2 from "./biography/_images/porechye/porechye-2.png";
+import porechye3 from "./biography/_images/porechye/porechye-3.png";
+import porechye4 from "./biography/_images/porechye/porechye-4.png";
+import porechyeImg from "./biography/_images/porechye/porechye-img.jpg";
+import porechyeInterior1 from "./biography/_images/porechye/porechye-interior-1.png";
+import porechyeInterior2 from "./biography/_images/porechye/porechye-interior-2.png";
+import porechyePeople1 from "./biography/_images/porechye/porechye-people-1.png";
+import porechyePeople2 from "./biography/_images/porechye/porechye-people-2.png";
+import razumovsky from "./biography/_images/porechye/razumovsky.png";
+
+/* ==========
+
     FAMILY
 
   ========== */
@@ -120,6 +136,22 @@ import wifeYoung from "./biography/_images/family/wife-young.png";
 import children from "./biography/_images/family/children.png";
 // import venice from "./biography/_images/family/venice.png";
 import venice from "./biography/_videos/family/venice.webm";
+
+/* ==========
+
+    PRASKOVYA UVAROVA
+
+  ========== */
+
+import praskovyaFinal from "./biography/_images/praskovya/praskovya-final.png";
+import praskovyaLivingRoom from "./biography/_images/praskovya/praskovya-living-room.png";
+import praskovyaPortrait from "./biography/_images/praskovya/praskovya-portrait.png";
+import praskovyaRuins from "./biography/_images/praskovya/praskovya-ruins.png";
+import praskovyaScientists1 from "./biography/_images/praskovya/praskovya-scientists-1.png";
+import praskovyaScientists2 from "./biography/_images/praskovya/praskovya-scientists-2.png";
+import praskovyaSerbia from "./biography/_images/praskovya/praskovya-serbia.png";
+import praskovyaUvarovPortrait from "./biography/_images/praskovya/praskovya-uvarov-portrait.png";
+import praskovyaWorking from "./biography/_images/praskovya/praskovya-working.png";
 
 /* ==========
 
@@ -430,6 +462,17 @@ export const expeditionsAssets = {
   ],
 };
 
+export const porechyeAssets = {
+  porechye2: { src: porechye2.src, alt: "Усадьба Поречье, вид 2" },
+  porechye3: { src: porechye3.src, alt: "Усадьба Поречье, вид 3" },
+  porechye4: { src: porechye4.src, alt: "Усадьба Поречье, вид 4" },
+  porechyeInterior1: { src: porechyeInterior1.src, alt: "Интерьер комнаты в Поречье, вид 1" },
+  porechyeInterior2: { src: porechyeInterior2.src, alt: "Интерьер комнаты в Поречье, вид 2" },
+  porechyePeople1: { src: porechyePeople1.src, alt: "Группа людей в Поречье, вид 1" },
+  porechyePeople2: { src: porechyePeople2.src, alt: "Группа людей в Поречье, вид 2" },
+  razumovsky: { src: razumovsky.src, alt: "Портрет Разумовского" },
+};
+
 export const familyAssets = {
   children: { src: children.src, alt: "Фото детей" },
   uvarovWifeBg: { src: uvarovWifeBg.src, alt: "Фон для жены и мужа" },
@@ -437,6 +480,30 @@ export const familyAssets = {
   wife: { src: wife.src, alt: "Фото жены" },
   wifeYoung: { src: wifeYoung.src, alt: "Портрет жены" },
   venice: { src: venice, alt: "Венеция" },
+};
+
+export const praskovyaAssets = {
+  praskovyaFinal: { src: praskovyaFinal.src, alt: "Прасковья - концовка" },
+  praskovyaLivingRoom: { src: praskovyaLivingRoom.src, alt: "Гостиная" },
+  praskovyaPortrait: { src: praskovyaPortrait.src, alt: "Портрет Прасковьи" },
+  praskovyaRuins: { src: praskovyaRuins.src, alt: "Прасковья на раскопках" },
+  praskovyaScientists1: {
+    src: praskovyaScientists1.src,
+    alt: "Прасковья с учеными - 1",
+  },
+  praskovyaScientists2: {
+    src: praskovyaScientists2.src,
+    alt: "Прасковья с учеными - 2",
+  },
+  praskovyaSerbia: {
+    src: praskovyaSerbia.src,
+    alt: "Посещение Сербии Прасковьей",
+  },
+  praskovyaUvarovPortrait: {
+    src: praskovyaUvarovPortrait.src,
+    alt: "Портрет Уварова",
+  },
+  praskovyaWorking: { src: praskovyaWorking.src, alt: "Прасковья за работой" },
 };
 
 export const activitiesAssets = {
