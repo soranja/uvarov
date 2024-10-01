@@ -256,6 +256,8 @@ import hall__orig_12 from "./biography/_images/museum/halls/originals/12.jpg";
 import uvarovDead from "./biography/_images/epilogue/uvarov-dead.png";
 import uvarovTomb from "./biography/_images/epilogue/uvarov-tomb.png";
 import uvarovPhotoEpilogue from "./biography/_images/epilogue/uvarov-photo-epilogue.png";
+import epilogueSeparator from "./biography/_images/epilogue/arrow-epilogue.svg";
+import fioLogo from "./biography/_images/epilogue/fio_logo.png";
 
 /* ============================================================
 
@@ -738,4 +740,6 @@ export const epilogueAssets = {
     alt: "Фотография Уварова",
   },
   uvarovTomb: { src: uvarovTomb.src, alt: "Гробница Уварова" },
+  epilogueSeparator: { src: epilogueSeparator.src, alt: "Стрелка - Титры" },
+  fioLogo: { src: fioLogo.src, alt: "ФИО - Лого" },
 };

@@ -17,7 +17,7 @@ import { epilogueAssets } from "../../data/data";
 
     <!-- Uvarov Dead -->
     <Section id="uvarov-dead">
-        <div class="flex flex-col justify-center items-center text-2xl 2xl:text-4xl leading-normal gap-y-[5vh] text-center">
+        <div class="flex flex-col justify-center items-center text-2xl 2xl:text-4xl leading-snug 2xl:leading-snug gap-y-[5vh] text-center">
             <p class="max-w-3xl">
                 29 декабря 1884 года (10 января 1885 года) 
                 <br>
@@ -33,7 +33,7 @@ import { epilogueAssets } from "../../data/data";
     <Section id="uvarov-tomb">
         <div class="grid grid-cols-2 gap-x-8">
             <div class="flex flex-col justify-center">
-                <p class="max-w-md 2xl:max-w-2xl text-2xl 2xl:text-4xl leading-normal px-[10%]">
+                <p class="max-w-md 2xl:max-w-2xl text-2xl 2xl:text-4xl leading-snug 2xl:leading-snug px-[10%]">
                     Его смерть стала невосполнимой потерей для русской науки, для русской культуры, но замыслы и начинания ученого не ушли в небытие.
                 </p>
             </div>
@@ -59,5 +59,49 @@ import { epilogueAssets } from "../../data/data";
             </div>
         </div>
     </Section>
+
+    <!-- Epilogue Titles Separator -->
+    <Section id="separator" contentHeight="h-auto" sectionFlex="flex flex-col justify-center items-center">
+            <div id="separator-image" class="flex flex-col justify-center items-center">
+                <img src={epilogueAssets.epilogueSeparator.src} alt={epilogueAssets.epilogueSeparator.alt} class="max-w-[50%]"/>
+            </div>
+    </Section>
     
+    <!-- Uvarov Titles -->
+    <Section id="uvarov-dead" contentHeight="h-auto" sectionSize="" sectionFlex="flex flex-col justify-center items-center">
+        <div class="flex flex-col justify-center items-center text-2xl 2xl:text-4xl leading-relaxed 2xl:leading-relaxed text-center">
+            <p class="max-w-3xl">
+                <span class="italic">Куратор проекта</span> - Мария Лемигова
+                <br>
+                <span class="italic">Автор текста</span> - Наталья Стрижова
+                <br>
+                <span class="italic">Видео</span> - Дмитрий Садовников
+                <br>
+                <br>
+                <br>
+                <span class="italic">Продюсер</span> - Дмитрий Трушников
+                <br>
+                <span class="italic">Арт-директор</span> - Антон Рамирес
+                <br>
+                <span class="italic">Дизайнер</span> - Александра Георге
+                <br>
+                <span class="italic">Вёрстка</span> - Иван Захаров
+                <br>
+                <span class="italic">Анимация</span> - Константин Елкин
+            </p>
+        </div>
+    </Section>
+    
+    <!-- FIO -->
+    <Section id="uvarov-dead">
+        <div class="flex flex-col justify-center items-center text-2xl 2xl:text-4xl leading-relaxed 2xl:leading-relaxed gap-y-[5vh] text-center">
+            <p class="max-w-3xl">
+                Проект реализован при поддержке
+            </p>
+            <div id="fio" class="flex flex-col justify-center items-center">
+                <img src={epilogueAssets.fioLogo.src} alt={epilogueAssets.fioLogo.alt} class=""/>
+            </div>
+        </div>
+    </Section>
+
 </BioWrapper>
