@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       bgElement: document.getElementById("library-bg"),
-      sectionIds: ["library"],
+      sectionIds: ["library", "porechye-history"],
     },
     {
       bgElement: document.getElementById("uvarov-bg"),
@@ -119,6 +119,31 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       bgElement: document.getElementById("museum-photo-bg"),
       sectionIds: ["museum-photo"],
+      threshold: 0.2
+    },
+    {
+      bgElement: document.getElementById("porechye-2"),
+      sectionIds: ["porechye-view"],
+      threshold: 0.2
+    },
+    {
+      bgElement: document.getElementById("porechye-people-1-image"),
+      sectionIds: ["porechye-people-1"],
+      threshold: 0.4
+    },
+    {
+      bgElement: document.getElementById("porechye-people-2-image"),
+      sectionIds: ["porechye-people-2"],
+      threshold: 0.3
+    },
+    {
+      bgElement: document.getElementById("porechye-3"),
+      sectionIds: ["porechye-view-2"],
+      threshold: 0.2
+    },
+    {
+      bgElement: document.getElementById("porechye-4"),
+      sectionIds: ["porechye-view-3"],
       threshold: 0.2
     },
   ];
