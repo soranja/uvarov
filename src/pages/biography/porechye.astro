@@ -97,14 +97,14 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     </Section>
 
     <!-- Porechye Interior 1 -->
-    <Section id="porechye-interior-1" contentHeight="h-auto" extraClass="my-[20vh]" sectionFlex="flex flex-col justify-center" sectionSize="w-[95%] h-screen mx-auto my-[10vh]">
+    <Section id="porechye-interior-1" contentHeight="h-auto" sectionFlex="flex flex-col justify-center" sectionSize="w-[95%] h-screen mx-auto my-[10vh]">
         <div class="grid grid-cols-2 max-w-full">
             <div id="porechye-interior-1-image" class="flex items-start justify-center w-full">
                 <img src={porechyeAssets.porechyeInterior1.src} alt={porechyeAssets.porechyeInterior1.alt} class="max-w-[60%]"/>
-                <InfoOverlay contentType="slider" images={interiors} overlayId="porechye-interior-1" iconPosition="absolute bottom-[2vh]"/>
+                <InfoOverlay contentType="slider" images={interiors} overlayId="porechye-interior-1" iconPosition="absolute bottom-[3vh]"/>
             </div>
             <div class="flex flex-col justify-center items-start italic">
-                <p class="text-xl 2xl:text-3xl">
+                <p class="text-lg 2xl:text-2xl">
                     «Внутри дома обширная прихожая с широкою двухстороннею лестницей наверх, расписанною в помпеянском стиле, с двумя мраморными рельефными изображениями работы Торвальдсена, малая прихожая, буфет, огромная столовая с фамильными портретами, бильярдная, влево кабинет мужа с витой лестницей в музей, вправо большая гостиная с зеленой бархатною мебелью и картинами, огромною малахитовою вазою (подарок Императора Николая I моему свекру) и большим великолепным мраморным бюстом графа Кирилла Разумовского над камином, украшенным его девизом «Famam extendere factis», то есть - «Славу распространять делами»».
                 </p>
             </div>
@@ -114,15 +114,15 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     <!-- Porechye Interior 2 -->
     <Section id="porechye-interior-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center" sectionSize="w-[95%] h-screen mx-auto my-[10vh]">
         <div class="grid grid-cols-2 max-w-full">
-            <div id="porechye-interior-2-image" class="flex items-start justify-center">
+            <div id="porechye-interior-2-image" class="flex items-start justify-center w-full">
                 <img src={porechyeAssets.porechyeInterior2.src} alt={porechyeAssets.porechyeInterior2.alt} class="max-w-[60%]"/>
                 <InfoOverlay contentType="slider" images={interiors} overlayId="porechye-interior-2" iconPosition="absolute bottom-[3vh]"/>
             </div>
             <div class="flex flex-col justify-center items-start italic gap-y-[5vh]">
-                <p class="text-base 2xl:text-xl">
+                <p class="text-sm 2xl:text-xl">
                     «Дальше моя маленькая гостиная (с лестницей наверх к дочерям) с расписным темным потолком и мебелью из мореного резного дуба, большая часть которой вывезена нами из Венеции, мой кабинет с китайскими шкапами и остальною мебелью из розового дерева, частью принадлежавшая моей свекрови и частью заказанная мужем для нашей свадьбы; наша спальня, шкапная и две комнаты, - туалетная мужа с выходом на террасу и внутренним широким мозаичным коридором.
                 </p>
-                <p class="text-base 2xl:text-xl">
+                <p class="text-sm 2xl:text-xl">
                     В верхнем этаже три комнаты дочерей и гувернантки (сыновья занимали комнаты в флигеле, так как в большом доме, несмотря на его громадные размеры, не хватало более жилых помещений), комната для прислуги и брант-моер, отделяющий от жилого помещения залы музея, библиотеку, рукописную, расположенную в бывшем кабинете свекра».
                 </p>
             </div>
@@ -140,10 +140,11 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     </Section>
 
     <!-- Porechye History 5 -->
-    <Section id="porechye-history-5"  contentHeight="h-auto" sectionSize="w-full h-[80vh] 2xl:h-[60vh]" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-xl 2xl:text-3xl leading-normal 2xl:leading-normal px-[3%]">
+    <Section id="porechye-history-5"  contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
+        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-xl 2xl:text-3xl leading-normal 2xl:leading-normal px-[4%]">
             <p class="italic">
                 «В верхнем этаже несколько комнат с видом на сад и далекую даль, кладовые и запасная библиотека с изданиями мужа.
+                <br>
                 <br>
                 Со стороны сада устроена пред домом широкая терраса - с чугунной решеткой, мраморными вазами на столбах и обсаженная по всей длине штамбовыми розами; вторая терраса, меньших размеров, более уютная, отделенная от первой каменною стенкою и верандой, обвитой вьющимися растениями, засаженная штамбовыми розами и фуксиями,и с бьющим фонтаном посреди, соединяла большой  дом с флигелем и имела входные двери в мой кабинет и туалетную мужа».
             </p>
