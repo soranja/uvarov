@@ -115,12 +115,15 @@ import research__orig_7 from "./biography/_images/expeditions/research/originals
 import porechye2 from "./biography/_images/porechye/porechye-2.png";
 import porechye3 from "./biography/_images/porechye/porechye-3.png";
 import porechye4 from "./biography/_images/porechye/porechye-4.png";
-import porechyeImg from "./biography/_images/porechye/porechye-img.jpg";
 import porechyeInterior1 from "./biography/_images/porechye/porechye-interior-1.png";
 import porechyeInterior2 from "./biography/_images/porechye/porechye-interior-2.png";
 import porechyePeople1 from "./biography/_images/porechye/porechye-people-1.png";
 import porechyePeople2 from "./biography/_images/porechye/porechye-people-2.png";
 import razumovsky from "./biography/_images/porechye/razumovsky.png";
+
+// PORECHYE INTERIORS SLIDER
+import porechyeInterior1Full from "./biography/_images/porechye/porechye-interior-1-full.jpg";
+import porechyeInterior2Full from "./biography/_images/porechye/porechye-interior-2-full.jpg";
 
 /* ==========
 
@@ -466,10 +469,30 @@ export const porechyeAssets = {
   porechye2: { src: porechye2.src, alt: "Усадьба Поречье, вид 2" },
   porechye3: { src: porechye3.src, alt: "Усадьба Поречье, вид 3" },
   porechye4: { src: porechye4.src, alt: "Усадьба Поречье, вид 4" },
-  porechyeInterior1: { src: porechyeInterior1.src, alt: "Интерьер комнаты в Поречье, вид 1" },
-  porechyeInterior2: { src: porechyeInterior2.src, alt: "Интерьер комнаты в Поречье, вид 2" },
-  porechyePeople1: { src: porechyePeople1.src, alt: "Группа людей в Поречье, вид 1" },
-  porechyePeople2: { src: porechyePeople2.src, alt: "Группа людей в Поречье, вид 2" },
+  porechyeInterior1: {
+    src: porechyeInterior1.src,
+    alt: "Интерьер комнаты в Поречье, вид 1",
+  },
+  porechyeInterior2: {
+    src: porechyeInterior2.src,
+    alt: "Интерьер комнаты в Поречье, вид 2",
+  },
+  porechyeInterior1Full: {
+    src: porechyeInterior1Full.src,
+    alt: "Интерьер комнаты в Поречье, вид 1",
+  },
+  porechyeInterior2Full: {
+    src: porechyeInterior2Full.src,
+    alt: "Интерьер комнаты в Поречье, вид 2",
+  },
+  porechyePeople1: {
+    src: porechyePeople1.src,
+    alt: "Группа людей в Поречье, вид 1",
+  },
+  porechyePeople2: {
+    src: porechyePeople2.src,
+    alt: "Группа людей в Поречье, вид 2",
+  },
   razumovsky: { src: razumovsky.src, alt: "Портрет Разумовского" },
 };
 

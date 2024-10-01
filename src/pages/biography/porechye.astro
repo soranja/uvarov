@@ -4,8 +4,10 @@ import HeaderWrapper from "../../components/global/header/HeaderWrapper.astro";
 import Section from "../../components/global/Section.astro";
 import Chapter from "../../components/biography/Chapter.astro";
 import ScrollArrow from "../../components/global/ScrollArrow.astro";
+import InfoOverlay from "../../components/global/InfoOverlay.astro";
 
 import { porechyeAssets } from "../../data/data";
+const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechyeInterior2Full]
 ---
 
 
@@ -17,19 +19,19 @@ import { porechyeAssets } from "../../data/data";
     <HeaderWrapper />
 
     <!-- Razumovsky -->
-    <Section id="razumovsky">
-        <div class="grid grid-cols-2 gap-x-[10vh]">
-            <div id="razumovsky-image" class="flex items-start justify-end">
-                <img src={porechyeAssets.razumovsky.src} alt={porechyeAssets.razumovsky.alt} class="max-w-[65%]"/>
+    <Section id="razumovsky" contentWidth="w-[85%]">
+        <div class="grid grid-cols-5 h-full">
+            <div id="razumovsky-image" class="col-span-2 flex flex-col items-center justify-start w-full">
+                <img src={porechyeAssets.razumovsky.src} alt={porechyeAssets.razumovsky.alt} class="max-w-[70%]"/>
             </div>
-            <div class="flex flex-col justify-between items-start text-left h-[50%]">
-                <p class="max-w-md text-2xl 2xl:text-4xl 2xl:max-w-xl">
+            <div class="col-span-3 flex flex-col justify-start items-start max-w-[80%] gap-y-[5vh]">
+                <p class="text-3xl 2xl:text-5xl leading-tight 2xl:leading-tight mb-[5vh]">
                     Поречье Можайского уезда Московской губернии – любимая усадьба семьи Уваровых.
                 </p>
-                <p class="max-w-sm text-sm 2xl:text-lg 2xl:max-w-md">
+                <p class="text-lg 2xl:text-2xl mb-[3vh]">
                     В 1742 г. земли были подарены императрицей Елизаветой Петровной графу А.Г. Разумовскому.
                 </p>
-                <p class="max-w-sm text-sm 2xl:text-lg 2xl:max-w-lg">
+                <p class="text-lg 2xl:text-2xl">
                     Формирование архитектурного ансамбля и парка начато при графе А.К. Разумовском (1756–1818).
                 </p>
             </div>
@@ -57,7 +59,7 @@ import { porechyeAssets } from "../../data/data";
 
     <!-- Porechye History 2 -->
     <Section id="porechye-history-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
-        <p class="text-3xl 2xl:text-5xl leading-normal 2xl:leading-normal px-[5%]">
+        <p class="text-3xl 2xl:text-5xl leading-normal 2xl:leading-normal">
             В конце 1860-х – начале 1870-х гг. по указаниям нового хозяина усадьбы графа Алексея Уварова весь архитектурный ансамбль и усадебный парк реконструированы. Для размещения коллекций Музея русских древностей дом был перестроен М.Н. Чичаговым и А.П. Поповым.
         </p>
     </Section>
@@ -97,8 +99,9 @@ import { porechyeAssets } from "../../data/data";
     <!-- Porechye Interior 1 -->
     <Section id="porechye-interior-1" contentHeight="h-auto" extraClass="my-[20vh]" sectionFlex="flex flex-col justify-center" sectionSize="w-[95%] h-screen mx-auto my-[10vh]">
         <div class="grid grid-cols-2 max-w-full">
-            <div id="porechye-interior-image" class="flex items-start justify-start">
+            <div id="porechye-interior-1-image" class="flex items-start justify-center w-full">
                 <img src={porechyeAssets.porechyeInterior1.src} alt={porechyeAssets.porechyeInterior1.alt} class="max-w-[60%]"/>
+                <InfoOverlay contentType="slider" images={interiors} overlayId="porechye-interior-1" iconPosition="absolute bottom-[2vh]"/>
             </div>
             <div class="flex flex-col justify-center items-start italic">
                 <p class="text-xl 2xl:text-3xl">
@@ -109,10 +112,11 @@ import { porechyeAssets } from "../../data/data";
     </Section>
 
     <!-- Porechye Interior 2 -->
-    <Section id="porechye-interior-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center " sectionSize="w-[95%] h-screen mx-auto my-[10vh]">
+    <Section id="porechye-interior-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center" sectionSize="w-[95%] h-screen mx-auto my-[10vh]">
         <div class="grid grid-cols-2 max-w-full">
-            <div id="porechye-interior-image" class="flex items-start justify-start">
+            <div id="porechye-interior-2-image" class="flex items-start justify-center">
                 <img src={porechyeAssets.porechyeInterior2.src} alt={porechyeAssets.porechyeInterior2.alt} class="max-w-[60%]"/>
+                <InfoOverlay contentType="slider" images={interiors} overlayId="porechye-interior-2" iconPosition="absolute bottom-[3vh]"/>
             </div>
             <div class="flex flex-col justify-center items-start italic gap-y-[5vh]">
                 <p class="text-base 2xl:text-xl">
@@ -226,8 +230,6 @@ import { porechyeAssets } from "../../data/data";
             </div>
         </div>
     </Section>
-
-
 
 </BioWrapper>
 

@@ -146,6 +146,21 @@ document.addEventListener("DOMContentLoaded", function () {
       sectionIds: ["porechye-view-3"],
       threshold: 0.2
     },
+    {
+      bgElement: document.getElementById("uvarova-bio-7"),
+      sectionIds: ["uvarova-bio-7-image"],
+      threshold: 0.2
+    },
+    {
+      bgElement: document.getElementById("praskovya-scientists-1"),
+      sectionIds: ["praskovya-scientists-1-image"],
+      threshold: 0.4
+    },
+    {
+      bgElement: document.getElementById("praskovya-scientists-2"),
+      sectionIds: ["praskovya-scientists-2-image"],
+      threshold: 0.2
+    },
   ];
 
   // Initialize the observer with customizable thresholds

@@ -86,25 +86,28 @@ const museumHalls = museumAssets.hallsSlider;
     >
         <Section id="museum-grid" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-full" contentHeight="h-[150vh]">
             <div class="absolute inset-0 m-auto h-full w-[20%] mx-auto flex flex-col justify-start">
-                <div id="empty-area" class="h-[8%] ">
+                <div id="empty-area" class="h-[8%]">
                 </div> 
-                <div id="uvarov-1881-area" class="h-[13%]">
+                <div id="sources-area" class="h-[7%]">
                 </div> 
-                <div id="sources-area" class="h-[13%]">
+                <div id="initiative-area" class="h-[7%]">
                 </div> 
-                <div id="initiative-area" class="h-[13%]">
+                <div id="uvarov-1881-area" class="h-[7%]">
                 </div> 
-                <div id="uvarov-self-area" class="h-[13%]">
+                <div id="uvarov-self-area" class="h-[7%]">
                 </div> 
-                <div id="responsibilities-area" class="h-[13%]">
+                <div id="responsibilities-area" class="h-[7%]">
                 </div> 
-                <div id="concept-area" class="h-[13%]">
+                <div id="concept-area" class="h-[7%]">
                 </div>
             </div>
-            <div class="grid grid-rows-5 grid-cols-[25%,50%,25%] w-full h-full text-center text-sm 2xl:text-lg px-[2%]">
+            <div class="grid grid-rows-5 grid-cols-[25%,50%,25%] w-full h-full text-center text-sm 2xl:text-xl ">
                 <!-- Left Column (spans rows 2-4) -->
-                <div class="row-start-2 row-end-5 col-start-1 col-end-2 flex flex-col justify-between">
-                    <p id="uvarov-1881" class="pt-[10vh]">
+                <div class="row-start-2 row-end-5 col-start-1 col-end-2 flex flex-col justify-between px-[2%] 2xl:px-[8%]">
+                    <p id="sources">
+                        Источниками комплектования фонда археологических памятников явились университеты, археологические общества, музеи и частные лица.
+                    </p>
+                    <p id="uvarov-1881">
                         В 1881 году Уваров предложил программу комплектования фондов музея археологическими памятниками.
                     </p>
                     <p id="concept">
@@ -112,23 +115,16 @@ const museumHalls = museumAssets.hallsSlider;
                     </p>
                 </div>
     
-                <!-- Middle Column (spans rows 2-5) -->
-                <div class="row-start-2 row-end-6 col-start-2 col-end-3 flex flex-col items-center justify-between">
-                    <p id="sources" class="max-w-xs -mt-[11vh]">
-                        Источниками комплектования фонда археологических памятников явились университеты, археологические общества, музеи и частные лица.
-                    </p>
-                    <p id="responsibilities" class="mb-[5vh]">
-                        В обязанности А.С. Уварова входило: наблюдение за строительством, за работами по оформлению интерьеров, создание экспозиции.
-                    </p>
-                </div>
-    
                 <!-- Right Column (spans rows 2-4) -->
-                <div class="row-start-2 row-end-5 col-start-3 col-end-4 flex flex-col justify-between">
-                    <p id="initiative" class="pt-[10vh]">
+                <div class="row-start-2 row-end-5 col-start-3 col-end-4 flex flex-col justify-between px-[2%] 2xl:px-[8%]">
+                    <p id="initiative">
                         По инициативе графа снаряжаются экспедиции в Гнездово, на Дон, Кубань и Кавказ. А одной из первых закупок музея в 1883 году стала коллекция античных памятников П.О. Бурачкова, состоящая из 1430 предметов. 
                     </p>
                     <p id="uvarov-self">
                         Сам Уваров подарил музею две коллекции каменных орудий из Волосова и Карачарова и коллекцию кавказской бронзы, с которой начался учет фондов Исторического музея.
+                    </p>
+                    <p id="responsibilities">
+                        В обязанности А.С. Уварова входило: наблюдение за строительством, за работами по оформлению интерьеров, создание экспозиции.
                     </p>
                 </div>
     
@@ -376,12 +372,6 @@ const museumHalls = museumAssets.hallsSlider;
                 start: "top center",
                 end: "bottom center",
                 toggleActions: "play none none reverse",
-                // onLeave: () => {
-                //     tl.reverse();
-                // },
-                // onLeaveBack: () => {
-                //     tl.reverse();
-                // },
                 onEnter: () => {
                     tl.play();
                 },
@@ -400,10 +390,13 @@ const museumHalls = museumAssets.hallsSlider;
         
     }
 
-    animateSection("uvarov-1881-area", "#uvarov-1881");
+
     animateSection("sources-area", "#sources");
     animateSection("initiative-area", "#initiative");
+
+    animateSection("uvarov-1881-area", "#uvarov-1881");
     animateSection("uvarov-self-area", "#uvarov-self");
+
     animateSection("responsibilities-area", "#responsibilities");
     animateSection("concept-area", "#concept");
 
