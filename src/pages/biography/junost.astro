@@ -285,7 +285,6 @@ const portraits = junostAssets.libraryPortraits;
             <div class="col-span-1 flex flex-col justify-between items-end text-right relative left-[35%]">
                 <p class="text-xl 2xl:text-2xl">
                     Окончив университет со степенью кандидата в 1845 году, 
-                    <br>
                     Уваров поступил на службу в Министерство иностранных дел.
                 </p>
                 <p class="text-xs 2xl:text-sm">
@@ -301,19 +300,31 @@ const portraits = junostAssets.libraryPortraits;
                     <br>
                     14 июля 1845 г.
                 </p>
-                <div class="relative flex flex-col gap-y-[5vh]">
-                    <p>следующая глава</p>
-                    
-                    <ScrollArrow 
-                        position="mx-auto" 
-                        invert="invert" 
-                        visible="opacity-100" 
-                        size="w-3/4"
-                        animated={false}
-                        redirectUrl="/biography/expeditions"
-                        />
-                </div>
             </div>
+        </div>
+    </Section>
+
+    <!-- Video Uvarov 200 Excursion -->
+    <Section id="video-uvarov-200-excursion" sectionFlex="flex flex-col justify-center" contentHeight="h-[50%]" extraClass="">
+        <div class="h-full bg-black text-white flex flex-col justify-center items-center ">
+            <iframe src="" class="border-4 border-orange-500">
+            </iframe>
+            Экскурсия по выставке к 200-летию А.С. Уварова
+        </div>
+    </Section>
+
+    <!-- Next Chapter -->
+    <Section id="next-chapter" contentHeight="h-auto" sectionSize="h-[50vh]" sectionFlex="flex flex-col justify-center">
+        <div class="w-full text-center relative flex flex-col gap-y-[5vh] 4xl:gap-y-[2vh] text-3xl">
+            <p>следующая глава</p>
+            <ScrollArrow 
+                position="0" 
+                invert="invert" 
+                visible="opacity-100" 
+                size="w-auto"
+                animated={false}
+                redirectUrl="/biography/expeditions"
+                />
         </div>
     </Section>
 
