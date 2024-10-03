@@ -1,60 +1,86 @@
 ---
 import header from '../../../data/common/_images/header.svg';
+import headerMobile from '../../../data/common/_images/header-mobile.svg';
+import gim from '../../../data/common/_images/gim-logo.svg';
 ---
 
 <header 
 	id="header-content" 
 	class=`
 		absolute
-		w-full
-		h-full
-
 		flex
 		justify-center
-		items-center
-		
-		text-sm 2xl:text-lg 3xl:text-xl 4xl:text-3xl
-
-		bg-black
+		w-full
+		h-[50px] 
 		text-white
 
+		text-sm 
+		items-center
+		px-5
+
+		md:h-full
+		md:px-0
+		
+		
+		2xl:text-lg 
+		3xl:text-xl 
+		4xl:text-3xl
+		
 	`>
+
+
+	<div class="flex md:hidden w-full max-w-[92%] justify-between items-center h-[40%]">
+		<!-- Burger Icon -->
+		<div id="burger-menu" class="cursor-pointer">
+			<div class="w-6 h-1 bg-white mb-1"></div>
+			<div class="w-6 h-1 bg-white mb-1"></div>
+			<div class="w-6 h-1 bg-white"></div>
+		</div>
+
+		<!-- GIM Logo -->
+		<div id="gim" class="h-full">
+			<img src={gim.src} class="h-full">
+		</div>
+	</div>
+
+
 	<nav 
 		id="nav" 
 		class=`
-		
-			w-full
-			max-w-[94%]
-			
 			flex
-			flex-col
-			md:flex-row
-			justify-between
-			items-start
-			md:items-center
+			w-full
 
 			uppercase
-			underline-offset-4
-
 			z-20
 			transition-all
 			duration-300
 			ease-in-out
+			
+
+			absolute
+			top-[60px]
+			left-0
+			flex-col
+			justify-between		
+			items-center
+			bg-black
+			max-w-[91%]
+			mx-auto
+			inset-x-0
+
+			md:max-w-[94%]	
+			md:static
+			md:flex-row
+			md:underline-offset-4					
+
 		`>
 
 		<!-- LINKS -->
-		<div 
-			id="links" 
-			class="
-			flex-grow
-			text-left
-			md:text-center
-			pl-4
-			md:pl-0
-		">
-			<!-- links are inserted here -->
-		</div>
+		<!-- links are inserted here -->
+
 	</nav>
+
+	<!-- Header BG (Desktop) -->
 	<img 
 	id="header-bg"
 	src={header.src}
@@ -67,6 +93,23 @@ import header from '../../../data/common/_images/header.svg';
 		object-cover
 		w-full
 	">
+
+	<!-- Header BG (Mobile) -->
+	<img 
+	id="header-mobile-bg"
+	src={headerMobile.src}
+	alt="header-mobile"
+	class="
+		absolute
+		top-0
+		left-0
+		-z-20
+		block
+		md:hidden
+		object-cover
+		w-full
+	">
+
 </header>
 
 <script>
@@ -79,12 +122,32 @@ import header from '../../../data/common/_images/header.svg';
 	};
   
 	const renderLinks = (links: any[]) => {
-		const navLinks = document.getElementById('links');
+		const navLinks = document.getElementById('nav');
 
 		navLinks!.innerHTML = '';
 
 		const linksWrapper = document.createElement('div');
-		linksWrapper.className = 'flex md:justify-center flex-col md:flex-row gap-x-0 lg:gap-x-2 xl:gap-x-6 py-2';
+		linksWrapper.className = `
+		flex 
+		flex-col
+		flex-grow 
+		text-center 
+		py-[1vh]
+		gap-y-[1vh]
+		gap-x-0 
+
+
+		md:text-left 
+		md:justify-center
+		md:flex-row 
+		md:gap-y-0
+		md:py-0
+		
+
+		lg:gap-x-2 
+		xl:gap-x-6
+		
+		`;
 
 		links.forEach(link => {
 			const isActive = isLinkActive(link.href);
@@ -93,7 +156,6 @@ import header from '../../../data/common/_images/header.svg';
 			linksWrapper.insertAdjacentHTML('beforeend', linkElement);
 		});
 
-		// Insert the wrapper into the nav
 		navLinks!.appendChild(linksWrapper);
 
   	};
