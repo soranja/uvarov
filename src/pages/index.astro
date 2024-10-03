@@ -14,7 +14,6 @@ interface Props {
 
 const { title = SITE_TITLE } = Astro.props;
 const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
-
 ---
 
 <!doctype html>
@@ -29,15 +28,18 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
 
         <div class="relative w-full h-screen">
             <section id="intro-cover" class="section w-full h-full">
-                <div class="fixed-wrapper fixed inset-0 w-full h-full">
-                    <video autoplay muted loop class="w-full h-full object-cover">
+                <div class="fixed-wrapper md:fixed inset-0 w-full h-full">
+
+                    <video autoplay muted loop class="hidden md:block w-full h-full object-cover">
                         <source id="intro-cover-src" src={intro.intro1440.src} type="video/mp4">
                     </video>
+
+                    <img class="block md:hidden w-full h-full object-cover" src={intro.coverMobile.src} alt=src={intro.coverMobile.alt}>
                 </div>
             </section>
         </div>
 
-        <div class="relative w-full h-screen">
+        <div class="hidden md:block relative w-full h-screen">
             <section id="intro-hand" class="section w-full h-full">
                 <div class="fixed-wrapper fixed inset-0 w-full h-full">
                     <video autoplay muted class="w-full h-full object-cover">
@@ -70,10 +72,11 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
               <p>
                 Алексей Сергеевич Уваров, граф, археолог, историк, почетный член Петербургской Академии наук, основатель, председатель Московского археологического общества и организатор Всероссийских археологических съездов, один из основателей Российского исторического музея.
               </p>
+              
               <p>
                 Он принадлежит к когорте ярчайших личностей, которыми так богата русская история XIX столетия. Уваров был прекрасно образован, щедро одарен способностями к наукам и обладал недюжинным талантом организатора. Происхождение, титул, родственные и дружеские связи позволяли ему быть вхожим в самые высокие сферы русского общества и использовать это на благо тому делу, которому он служил.
               </p>
-              <ScrollArrow position="absolute mx-auto inset-x-0 bottom-0" visible="opacity-100" size='w-[4%]'/>
+              <ScrollArrow position="md:absolute mx-auto inset-x-0 bottom-0" visible="opacity-100" size='w-[75%] md:w-[4%]'/>
             </div>
         </Section>
         
@@ -82,7 +85,7 @@ const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
     </body>
 </html>
 
-
+<script src="../utils/mobileSwitcher"></script>
 <script src="../utils/slowScroll"></script>
 <script>
 

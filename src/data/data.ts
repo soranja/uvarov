@@ -1,5 +1,6 @@
 // INTRO
 import cover from "./intro/_images/intro-cover.png";
+import coverMobile from "./intro/_images/intro-cover-mobile.png";
 import intro1440 from "./intro/_videos/intro-1440.mp4";
 import intro1920 from "./intro/_videos/intro-1920.mp4";
 import hand1440 from "./intro/_videos/hand-1440.mp4";
@@ -137,7 +138,6 @@ import husband from "./biography/_images/family/husband.png";
 import wife from "./biography/_images/family/wife.png";
 import wifeYoung from "./biography/_images/family/wife-young.png";
 import children from "./biography/_images/family/children.png";
-// import venice from "./biography/_images/family/venice.png";
 import venice from "./biography/_videos/family/venice.webm";
 
 /* ==========
@@ -214,37 +214,19 @@ import building__orig_13 from "./biography/_images/museum/building/originals/13.
 
 // HALL SLIDER
 import hall1 from "./biography/_images/museum/halls/1.jpg";
-// import hall2 from "./biography/_images/museum/halls/2.jpg";
-// import hall3 from "./biography/_images/museum/halls/3.jpg";
 import hall4 from "./biography/_images/museum/halls/4.jpg";
-// import hall5 from "./biography/_images/museum/halls/5.jpg";
 import hall6 from "./biography/_images/museum/halls/6.jpg";
-// import hall7 from "./biography/_images/museum/halls/7.jpg";
 import hall8 from "./biography/_images/museum/halls/8.jpg";
-// import hall9 from "./biography/_images/museum/halls/9.jpg";
 import hall10 from "./biography/_images/museum/halls/10.jpg";
-// import hall11 from "./biography/_images/museum/halls/11.jpg";
 import hall12 from "./biography/_images/museum/halls/12.jpg";
-// import hall13 from "./biography/_images/museum/halls/13.jpg";
-// import hall14 from "./biography/_images/museum/halls/14.jpg";
-// import hall15 from "./biography/_images/museum/halls/15.jpg";
 
 // BUILDING SLIDER (originals)
 import hall__orig_1 from "./biography/_images/museum/halls/originals/1.jpg";
-// import hall__orig_2 from "./biography/_images/museum/halls/originals/2.jpg";
-// import hall__orig_3 from "./biography/_images/museum/halls/originals/3.jpg";
 import hall__orig_4 from "./biography/_images/museum/halls/originals/4.jpg";
-// import hall__orig_5 from "./biography/_images/museum/halls/originals/5.jpg";
 import hall__orig_6 from "./biography/_images/museum/halls/originals/6.jpg";
-// import hall__orig_7 from "./biography/_images/museum/halls/originals/7.jpg";
 import hall__orig_8 from "./biography/_images/museum/halls/originals/8.jpg";
-// import hall__orig_9 from "./biography/_images/museum/halls/originals/9.jpg";
 import hall__orig_10 from "./biography/_images/museum/halls/originals/10.jpg";
-// import hall__orig_11 from "./biography/_images/museum/halls/originals/11.jpg";
 import hall__orig_12 from "./biography/_images/museum/halls/originals/12.jpg";
-// import hall__orig_13 from "./biography/_images/museum/halls/originals/13.jpg";
-// import hall__orig_14 from "./biography/_images/museum/halls/originals/14.jpg";
-// import hall__orig_15 from "./biography/_images/museum/halls/originals/15.jpg";
 
 /* ==========
 
@@ -267,6 +249,7 @@ import fioLogo from "./biography/_images/epilogue/fio_logo.png";
 
 export const intro = {
   cover: { src: cover.src, alt: "Уварову - 200 лет!" },
+  coverMobile: { src: coverMobile.src, alt: "Уварову - 200 лет!" },
   intro1440: { src: intro1440, alt: "Уварову - 200 лет! - 1440" },
   intro1920: { src: intro1920, alt: "Уварову - 200 лет! - 1920" },
   hand1440: { src: hand1440, alt: "Видео с рукой - 1440" },
