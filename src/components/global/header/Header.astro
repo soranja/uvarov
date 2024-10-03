@@ -1,7 +1,7 @@
 ---
 import header from '../../../data/common/_images/header.svg';
 import headerMobile from '../../../data/common/_images/header-mobile.svg';
-import gim from '../../../data/common/_images/gim-logo.svg';
+// import gim from '../../../data/common/_images/gim-logo.svg';
 ---
 
 <header 
@@ -11,7 +11,7 @@ import gim from '../../../data/common/_images/gim-logo.svg';
 		flex
 		justify-center
 		w-full
-		h-[50px] 
+		h-[70px] 
 		text-white
 
 		text-sm 
@@ -21,25 +21,36 @@ import gim from '../../../data/common/_images/gim-logo.svg';
 		md:h-full
 		md:px-0
 		
-		
 		2xl:text-lg 
 		3xl:text-xl 
 		4xl:text-3xl
-		
 	`>
 
 
-	<div class="flex md:hidden w-full max-w-[92%] justify-between items-center h-[40%]">
-		<!-- Burger Icon -->
-		<div id="burger-menu" class="cursor-pointer">
-			<div class="w-6 h-1 bg-white mb-1"></div>
-			<div class="w-6 h-1 bg-white mb-1"></div>
-			<div class="w-6 h-1 bg-white"></div>
+	<div class="flex md:hidden w-full max-w-[93%] justify-between items-center h-full relative">
+
+		<div class="flex items-center absolute left-0">
+			<!-- Burger Icon -->
+			<div id="burger-icon" class="cursor-pointer">
+				<div class="w-6 h-[2px] bg-white mb-[5px]"></div>
+				<div class="w-6 h-[2px] bg-white mb-[5px]"></div>
+				<div class="w-6 h-[2px] bg-white"></div>
+			</div>
+
+			<!-- Cross Icon -->
+			<div id="cross-icon" class="hidden cursor-pointer">
+				<div class="w-6 h-6 text-white relative flex items-center justify-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-cross">
+						<line x1="18" y1="6" x2="6" y2="18"></line>
+						<line x1="6" y1="6" x2="18" y2="18"></line>
+					</svg>
+				</div>
+			</div>
 		</div>
 
-		<!-- GIM Logo -->
-		<div id="gim" class="h-full">
-			<img src={gim.src} class="h-full">
+		<!-- GIM Logo / Current Chapter -->
+		<div id="gim" class="h-[30%] absolute left-1/2 transform -translate-x-1/2">
+			<!-- Logo / Chapter inserted here -->
 		</div>
 	</div>
 
@@ -56,7 +67,6 @@ import gim from '../../../data/common/_images/gim-logo.svg';
 			duration-300
 			ease-in-out
 			
-
 			absolute
 			top-[60px]
 			left-0
@@ -71,8 +81,7 @@ import gim from '../../../data/common/_images/gim-logo.svg';
 			md:max-w-[94%]	
 			md:static
 			md:flex-row
-			md:underline-offset-4					
-
+			md:underline-offset-4
 		`>
 
 		<!-- LINKS -->
@@ -105,20 +114,32 @@ import gim from '../../../data/common/_images/gim-logo.svg';
 		left-0
 		-z-20
 		block
-		md:hidden
-		object-cover
+		object-fit
 		w-full
+		h-full
 	">
 
 </header>
 
 <script>
 	import { BIO_NAV_LINKS } from "../../../consts";
+	import gim from '../../../data/common/_images/gim-logo.svg';
+
+	const burgerIcon = document.getElementById('burger-icon') as HTMLElement;
+	const crossIcon = document.getElementById('cross-icon') as HTMLElement;
+	const nav = document.getElementById('nav') as HTMLElement;
+	const gimLogo = document.getElementById('gim') as HTMLElement;
+
 
 	const isLinkActive = (href: string) => {
 		const pathname = window.location.pathname;
 		const subpath = pathname.match(/[^\/]+/g);
 		return href === pathname || href === '/' + subpath?.[0];
+	};
+
+	const getActiveChapter = (links: { href: string; label: string }[]) => {
+		const activeLink = links.find(link => isLinkActive(link.href));
+		return activeLink ? activeLink.label : null;
 	};
   
 	const renderLinks = (links: any[]) => {
@@ -131,28 +152,23 @@ import gim from '../../../data/common/_images/gim-logo.svg';
 		flex 
 		flex-col
 		flex-grow 
+		w-full
 		text-center 
-		py-[1vh]
-		gap-y-[1vh]
 		gap-x-0 
-
 
 		md:text-left 
 		md:justify-center
 		md:flex-row 
-		md:gap-y-0
-		md:py-0
 		
 
 		lg:gap-x-2 
 		xl:gap-x-6
-		
 		`;
 
 		links.forEach(link => {
 			const isActive = isLinkActive(link.href);
-			const activeClass = isActive ? 'underline' : '';
-			const linkElement = `<a href="${link.href}" class="px-2 ${activeClass} hover:underline">${link.label}</a>`;
+			const activeClass = isActive ? 'bg-white bg-opacity-20 hover:underline' : '';
+			const linkElement = `<a href="${link.href}" class="px-2 py-[1vh] md:py-0 ${activeClass} h-full hover:bg-white hover:bg-opacity-20 md:hover:underline">${link.label}</a>`;
 			linksWrapper.insertAdjacentHTML('beforeend', linkElement);
 		});
 
@@ -160,9 +176,28 @@ import gim from '../../../data/common/_images/gim-logo.svg';
 
   	};
 
+	const toggleMenu = (isOpen: boolean, chapterName?: string | null) => {
+		if (isOpen) {
+			burgerIcon.classList.add('hidden');
+			crossIcon.classList.remove('hidden');
+			nav.classList.remove('hidden');
+			gimLogo.innerHTML = `<div class="chapter-name uppercase">${chapterName || 'ГИМ'}</div>`;
+		} else {
+			burgerIcon.classList.remove('hidden');
+			crossIcon.classList.add('hidden');
+			nav.classList.add('hidden');
+			gimLogo.innerHTML = `<img src=${gim.src} class="h-full">`;
+		}
+	};
+
 	document.addEventListener('DOMContentLoaded', () => {
+		const activeChapterName = getActiveChapter(BIO_NAV_LINKS);
+		
+		burgerIcon.addEventListener('click', () => toggleMenu(true, activeChapterName));
+		crossIcon.addEventListener('click', () => toggleMenu(false));
+
+		// Render links and ensure the menu is initially closed
 		renderLinks(BIO_NAV_LINKS);
+		toggleMenu(false);
 	});
 </script>
-
-
