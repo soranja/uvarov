@@ -65,7 +65,7 @@ const {
   >
     <div class="info-overlay fixed top-0 left-0 bottom-0 right-0 w-full h-full bg-black bg-opacity-85 z-1000">
       <button class="close-button absolute top-5 right-5 text-white text-3xl z-1100">&times;</button>
-      <div class="overlay-content relative flex justify-center items-center h-full w-full p-20 z-1000"></div>
+      <div class="overlay-content relative flex justify-center items-center h-full w-full z-1000"></div>
     </div>
 </info-overlay>
 
@@ -106,7 +106,7 @@ const {
         if (contentType === 'slider') {
           overlayContent.innerHTML = `
             <div 
-              class="w-full"
+              class="w-full border-4 border-orange-500"
               x-data="{ init() {
               new Splide(this.$refs.splideOverlay, {
                 perPage: 1,
@@ -118,7 +118,7 @@ const {
                 <div class="splide__track">
                   <ul class="splide__list">
                     ${images.map(image => `
-                      <li class="splide__slide flex flex-col justify-center">
+                      <li class="splide__slide flex flex-col justify-center px-20">
                         <img src="${image.srcOrig ?? image.src}" alt="${image.alt}" class="max-h-[80vh] object-contain" />
                         <div class="flex-grow text-center mt-6 text-white">
                           <h4 class="font-semibold text-sm 2xl:text-lg leading-snug">${image.title ?? ''}</h4>
