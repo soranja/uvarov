@@ -73,7 +73,9 @@ import portrait__orig_5 from "./biography/_images/junost/portraits/originals/pog
 import archaeologists from "./biography/_images/expeditions/archaeologists.png";
 import expeditionsImg from "./biography/_images/expeditions/expeditions-img.jpg";
 import nordMapBg from "./biography/_images/expeditions/nord-map-bg.png";
+import pozharskySketchImg from "./biography/_images/expeditions/pozharsky-sketch.png";
 import pozharskySketch from "./biography/_videos/expeditions/pozharsky-sketch.webm";
+
 import researchCover from "./biography/_images/expeditions/research-cover.png";
 import researchCoverFull from "./biography/_images/expeditions/research-cover-full.png";
 import suzdal from "./biography/_images/expeditions/suzdal.png";
@@ -387,7 +389,8 @@ export const expeditionsAssets = {
   ],
 
   nordMapBg: { src: nordMapBg.src, alt: "Карта Севера" },
-  pozharskySketch: { src: pozharskySketch, alt: "Пожарский - Рисунок" },
+  pozharskySketch: { src: pozharskySketch, alt: "Пожарский - Рисунок (Анимация)" },
+  pozharskySketchImg: { src: pozharskySketchImg.src, alt: "Пожарский - Рисунок" },
   researchCover: { src: researchCover.src, alt: "Путешествие на юг" },
   researchCoverFull: {
     src: researchCoverFull.src,

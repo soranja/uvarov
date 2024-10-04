@@ -255,8 +255,8 @@ const cover = [expeditionsAssets.researchCoverFull];
     <div id="nord-map-bg" class="fixed top-0 left-0 w-full h-screen bg-[url('../data/biography/_images/expeditions/nord-map-bg-50.png')] bg-center bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
 
     <!-- Nord Text -->
-    <Section id="nord-text"  contentHeight="h-auto mb-[10vh]" sectionSize="w-full h-[90vh]" sectionFlex="flex flex-col justify-end">
-        <div class="flex flex-col justify-center items-center gap-y-[10vh] 4xl:gap-y-[5vh] text-2xl 2xl:text-4xl leading-normal">
+    <Section id="nord-text" contentHeight="h-auto mb-[10vh]" sectionSize="w-full h-[90vh]" sectionFlex="flex flex-col justify-center md:justify-end">
+        <div class="flex flex-col justify-center items-center gap-y-[10vh] 4xl:gap-y-[5vh] text-base md:text-2xl 2xl:text-4xl leading-normal">
             <p>
                 В 1850 году молодой граф был переведен в Министерство внутренних дел, в 1853 году его причислили к Кабинету Его Императорского Величества. Начиная с 1850 и до 1856 года, он служил под началом двоюродного дяди Л. А. Перовского, который в 1852 году получил для своего ведомства право контроля над археологическими изысканиями на территории России.
             </p>
@@ -267,8 +267,8 @@ const cover = [expeditionsAssets.researchCoverFull];
     </Section>
 
     <!-- Nord Image -->
-    <Section id="nord-image">
-        <div class="flex flex-col items-center justify-center text-xl 2xl:text-4xl leading-normal">
+    <Section id="nord-image" contentHeight="h-auto md:h-[87vh]" sectionFlex="flex flex-col justify-center md:justify-end">
+        <div class="flex flex-col items-center justify-center text-base md:text-xl 2xl:text-4xl leading-normal">
             <p>
                 В 1851 году Уваров проводил раскопки и на территории суздальского Спасо-Евфимиева монастыря в поисках точного места захоронения князя Дмитрия Михайловича Пожарского.
             </p>
@@ -277,8 +277,8 @@ const cover = [expeditionsAssets.researchCoverFull];
     </Section>
 
     <!-- Pozharsky -->
-    <Section id="pozharsky" contentHeight="h-[80vh]">
-        <div class="grid grid-cols-3 gap-x-8">
+    <Section id="pozharsky" contentHeight="md:h-[80vh]" sectionFlex="flex flex-col justify-center md:justify-end">
+        <div class="hidden md:grid grid-cols-3 gap-x-8">
             <div class="col-span-2 flex flex-col justify-start items-start">
                 <p class="max-w-md 2xl:max-w-xl text-2xl 2xl:text-4xl">
                     Ему удалось обнаружить усыпальницу Пожарских и среди нескольких надгробий выявить то, которое ранее было установлено над захоронением князя.
@@ -290,6 +290,13 @@ const cover = [expeditionsAssets.researchCoverFull];
                 </video>
             </div>
         </div>
+
+        <div class="md:hidden flex flex-col justify-center items-center gap-y-[5vh]">
+            <p class="max-w-md 2xl:max-w-xl text-base md:text-2xl 2xl:text-4xl text-center md:text-left">
+                Ему удалось обнаружить усыпальницу Пожарских и среди нескольких надгробий выявить то, которое ранее было установлено над захоронением князя.
+            </p>
+            <img src={expeditionsAssets.pozharskySketchImg.src} alt={expeditionsAssets.pozharskySketchImg.alt} />
+        </div>
     </Section>
 
     <!-- Olvia -->
@@ -300,21 +307,26 @@ const cover = [expeditionsAssets.researchCoverFull];
         top-0 
         left-0 
         w-full
-        h-[150vh]
 
         bg-[url('../data/biography/_images/expeditions/olvia-bg.png')]
         bg-cover 
         bg-no-repeat
-        bg-center
+        bg-right
+
+        h-[70vh]
+
+        md:bg-center
+        md:h-[150vh]        
+
 
         transition-opacity 
         duration-1000 
         opacity-0 
     "
     >
-        <Section id="olvia" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col justify-center" contentWidth="w-full" contentHeight="h-[150vh]">
-            <div class="h-full flex flex-col justify-center ml-[20vh]">
-                <p class="text-4xl leading-normal max-w-5xl h-[80vh]">
+        <Section id="olvia" sectionSize="w-full h-[70vh] md:h-[150vh]" sectionFlex="flex flex-col justify-center" contentWidth="w-full" contentHeight="h-[70vh] md:h-[150vh]">
+            <div class="h-full flex flex-col justify-center md:ml-[20vh] text-center md:text-left">
+                <p class="text-lg md:text-4xl leading-normal max-w-5xl h-[50vh] md:h-[80vh]">
                     Позднее, в 1853–1854 годах Уваров возглавил экспедицию в Таврическую губернию, работал в Ольвии, Неаполе Скифском, Херсонесе. 
                 </p>
             </div>
@@ -322,9 +334,14 @@ const cover = [expeditionsAssets.researchCoverFull];
     </div>
 
     <!-- Hersones Slider -->
-    <Section id="hersones-slider" contentHeight='h-[1024px] 2xl:h-[1536px]' contentWidth="w-full" sectionSize="w-full h-[1024px] 2xl:h-[1536px]" extraClass="bg-[url('../data/biography/_images/expeditions/kherson-bg.png')] bg-center bg-cover bg-no-repeat flex justify-end items-end">
+    <Section id="hersones-slider" 
+    contentHeight='h-[1024px] 2xl:h-[1536px]' 
+    contentWidth="w-full" 
+    sectionSize="w-full h-[1024px] 2xl:h-[1536px]" 
+    
+    extraClass="bg-[url('../data/biography/_images/expeditions/kherson-bg.png')] bg-center bg-cover bg-no-repeat flex justify-end items-end">
         <div class="flex flex-col justify-between items-center mx-auto ">
-            <p class="absolute top-1/4 max-w-[1250px] text-2xl 2xl:text-4xl leading-normal flex-shrink-0">
+            <p class="absolute top-1/4 text-lg md:text-2xl 2xl:text-4xl text-center md:text-left leading-normal flex-shrink-0 px-[3vh] md:px-0">
                 В Херсонесе археолог археолог обнаружил остатки храма VI века.
             </p>
             <div class="max-w-[100%] flex-grow">
@@ -364,7 +381,7 @@ const cover = [expeditionsAssets.researchCoverFull];
 
     <!-- Hersones Text Conclusion -->
     <Section id="hersones-text-conclusion" contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-between text-2xl 2xl:text-4xl leading-normal gap-y-[10vh] px-[5%]">
+        <div class="flex flex-col justify-between text-base md:text-2xl 2xl:text-4xl leading-normal gap-y-[10vh] px-[5%]">
             <p>
                 Там были найдены древнегреческие надгробия с надписями, обломки мраморных колонн, пьедесталов, плит с высеченными крестами, мозаики.
             </p>
