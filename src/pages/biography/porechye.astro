@@ -19,8 +19,8 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     <HeaderWrapper />
 
     <!-- Razumovsky -->
-    <Section id="razumovsky" contentWidth="w-[85%]">
-        <div class="grid grid-cols-5 h-full">
+    <Section id="razumovsky" contentWidth="w-[85%]" contentHeight="h-auto md:h-[87vh]" sectionSize="w-full h-[130vh] md:h-screen">
+        <div class="hidden md:grid grid-cols-5 h-full">
             <div id="razumovsky-image" class="col-span-2 flex flex-col items-center justify-start w-full">
                 <img src={porechyeAssets.razumovsky.src} alt={porechyeAssets.razumovsky.alt} class="max-w-[70%]"/>
             </div>
@@ -35,7 +35,21 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
                     Формирование архитектурного ансамбля и парка начато при графе А.К. Разумовском (1756–1818).
                 </p>
             </div>
+        </div>
 
+        <div class="md:hidden flex flex-col justify-center items-center gap-y-[5vh]">
+            <div class="flex flex-col justify-start items-start gap-y-[5vh] text-lg">
+                <p class="">
+                    Поречье Можайского уезда Московской губернии – любимая усадьба семьи Уваровых.
+                </p>
+                <p class="">
+                    В 1742 г. земли были подарены императрицей Елизаветой Петровной графу А.Г. Разумовскому.
+                </p>
+                <p class="">
+                    Формирование архитектурного ансамбля и парка начато при графе А.К. Разумовском (1756–1818).
+                </p>
+            </div>
+            <img src={porechyeAssets.razumovsky.src} alt={porechyeAssets.razumovsky.alt} class=""/>
         </div>
     </Section>
     
@@ -44,7 +58,7 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
 
     <!-- Porechye History -->
     <Section id="porechye-history"  contentHeight="h-auto" sectionSize="w-full h-[90vh]" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-2xl 2xl:text-4xl leading-normal 2xl:leading-normal">
+        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-lg md:text-2xl 2xl:text-4xl leading-normal 2xl:leading-normal">
             <p>
                 В 1820 г. ее наследовали племянница графа Е.А. Разумовская и ее муж граф С.С. Уваров.
             </p>
@@ -59,15 +73,15 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
 
     <!-- Porechye History 2 -->
     <Section id="porechye-history-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
-        <p class="text-3xl 2xl:text-5xl leading-normal 2xl:leading-normal">
+        <p class="text-lg md:text-3xl 2xl:text-5xl leading-normal 2xl:leading-normal">
             В конце 1860-х – начале 1870-х гг. по указаниям нового хозяина усадьбы графа Алексея Уварова весь архитектурный ансамбль и усадебный парк реконструированы. Для размещения коллекций Музея русских древностей дом был перестроен М.Н. Чичаговым и А.П. Поповым.
         </p>
     </Section>
 
     <!-- Porechye History 3 -->
     <Section id="porechye-history-3"  contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-2xl 2xl:text-4xl leading-normal 2xl:leading-normal">
-            <p class="text-3xl 2xl:text-5xl">
+        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-base md:text-2xl 2xl:text-4xl leading-normal 2xl:leading-normal">
+            <p class="text-lg md:text-3xl 2xl:text-5xl">
                 П.С. Уварова вспоминала о работе по устройству усадьбы:
             </p>
             <p class="italic">
@@ -80,13 +94,13 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     </Section>
 
     <!-- Porechye View -->
-    <Section id="porechye-view" contentHeight="h-[200vh]" contentWidth="w-full" sectionSize="w-full h-[220vh]" sectionFlex="flex flex-col justify-center items-center">
-        <div id="porechye-2" class="relative top-0 left-0 w-full h-[200vh] bg-[url('../data/biography/_images/porechye/porechye-2.png')] bg-center bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
+    <Section id="porechye-view" contentHeight="h-[50vh] md:h-[200vh]" contentWidth="w-full" sectionSize="w-full h-[50vh] md:h-[220vh]" sectionFlex="flex flex-col justify-center items-center">
+        <div id="porechye-2" class="relative top-0 left-0 w-full h-[50vh] md:h-[200vh] bg-[url('../data/biography/_images/porechye/porechye-2.png')] bg-center bg-contain md:bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
     </Section>
 
     <!-- Porechye History 4 -->
     <Section id="porechye-history-4"  contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-xl 2xl:text-2xl leading-normal 2xl:leading-normal">
+        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-base md:text-xl 2xl:text-2xl leading-normal 2xl:leading-normal">
             <p class="italic">
                 «Все 19 окон малого размера, которые повторялись по продольным сторонам здания, были закрыты и заменены - со стороны сада шестью большими окнами с закругленным верхом и тремя значительными выступами, украшенными кариатидами из желтой обожженной глины, выписанными из Берлина; средний выступ, крупнее боковых, и служит выходом в сад двумя лестницами, по сторонам которых расположены мраморные кентавры с амурами, принадлежащие еще графу Разумовскому.
             </p>
@@ -97,14 +111,24 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     </Section>
 
     <!-- Porechye Interior 1 -->
-    <Section id="porechye-interior-1" contentHeight="h-auto" sectionFlex="flex flex-col justify-center" sectionSize="w-[95%] h-screen mx-auto my-[10vh]">
-        <div class="grid grid-cols-2 max-w-full">
-            <div id="porechye-interior-1-image" class="flex items-start justify-center w-full">
-                <img src={porechyeAssets.porechyeInterior1.src} alt={porechyeAssets.porechyeInterior1.alt} class="max-w-[60%]"/>
-                <InfoOverlay contentType="slider" images={interiors} overlayId="porechye-interior-1" iconPosition="absolute bottom-[3vh]"/>
+    <Section id="porechye-interior-1" contentHeight="h-auto" sectionFlex="flex flex-col justify-center" sectionSize="w-[95%] md:h-screen mx-auto my-[10vh]">
+        <div class="
+        grid 
+        max-w-full
+
+        h-full
+        grid-rows-2 
+
+        md:h-auto
+        md:grid-rows-1 
+        md:grid-cols-2 
+        ">
+            <div id="porechye-interior-1-image" class="flex flex-col md:flex-row items-center md:itemst-start justify-center w-full gap-y-[3vh] md:gap-y-0">
+                <img src={porechyeAssets.porechyeInterior1.src} alt={porechyeAssets.porechyeInterior1.alt} class="md:max-w-[60%]"/>
+                <InfoOverlay contentType="slider" images={interiors} overlayId="porechye-interior-1" iconPosition="md:absolute bottom-[3vh]"/>
             </div>
             <div class="flex flex-col justify-center items-start italic">
-                <p class="text-lg 2xl:text-2xl">
+                <p class="text-base md:text-lg 2xl:text-2xl">
                     «Внутри дома обширная прихожая с широкою двухстороннею лестницей наверх, расписанною в помпеянском стиле, с двумя мраморными рельефными изображениями работы Торвальдсена, малая прихожая, буфет, огромная столовая с фамильными портретами, бильярдная, влево кабинет мужа с витой лестницей в музей, вправо большая гостиная с зеленой бархатною мебелью и картинами, огромною малахитовою вазою (подарок Императора Николая I моему свекру) и большим великолепным мраморным бюстом графа Кирилла Разумовского над камином, украшенным его девизом «Famam extendere factis», то есть - «Славу распространять делами»».
                 </p>
             </div>
@@ -112,11 +136,21 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     </Section>
 
     <!-- Porechye Interior 2 -->
-    <Section id="porechye-interior-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center" sectionSize="w-[95%] h-screen mx-auto my-[10vh]">
-        <div class="grid grid-cols-2 max-w-full">
-            <div id="porechye-interior-2-image" class="flex items-start justify-center w-full">
-                <img src={porechyeAssets.porechyeInterior2.src} alt={porechyeAssets.porechyeInterior2.alt} class="max-w-[60%]"/>
-                <InfoOverlay contentType="slider" images={interiors} overlayId="porechye-interior-2" iconPosition="absolute bottom-[3vh]"/>
+    <Section id="porechye-interior-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center" sectionSize="w-[95%] md:h-screen mx-auto my-[10vh]">
+        <div class="
+            grid 
+            max-w-full
+
+            h-full
+            grid-rows-2 
+
+            md:h-auto
+            md:grid-rows-1 
+            md:grid-cols-2 
+        ">
+            <div id="porechye-interior-2-image" class="flex flex-col md:flex-row items-center md:itemst-start justify-center w-full gap-y-[3vh] md:gap-y-0">
+                <img src={porechyeAssets.porechyeInterior2.src} alt={porechyeAssets.porechyeInterior2.alt} class="md:max-w-[60%]"/>
+                <InfoOverlay contentType="slider" images={interiors} overlayId="porechye-interior-2" iconPosition="md:absolute bottom-[3vh]"/>
             </div>
             <div class="flex flex-col justify-center items-start italic gap-y-[5vh]">
                 <p class="text-sm 2xl:text-xl">
@@ -130,18 +164,18 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     </Section>
     
     <!-- Porechye People 1 -->
-    <Section id="porechye-people-1" contentHeight="h-[200vh]" contentWidth="w-full" sectionSize="w-full h-[200vh]" sectionFlex="flex flex-col justify-center items-center">
-        <div id="porechye-people-1-image" class="relative top-0 left-0 w-full h-[200vh] bg-[url('../data/biography/_images/porechye/porechye-people-1.png')] bg-center bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
+    <Section id="porechye-people-1" contentHeight="h-[40vh] md:h-[200vh]" contentWidth="w-full" sectionSize="w-full h-[40vh] md:h-[200vh]" sectionFlex="flex flex-col justify-center items-center">
+        <div id="porechye-people-1-image" class="relative top-0 left-0 w-full h-[40vh] md:h-[200vh] bg-[url('../data/biography/_images/porechye/porechye-people-1.png')] bg-center bg-contain md:bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
     </Section>
 
     <!-- Porechye People 2 -->
-    <Section id="porechye-people-2" contentHeight="h-[200vh]" contentWidth="w-full" sectionSize="w-full h-[200vh]" sectionFlex="flex flex-col justify-center items-center">
-        <div id="porechye-people-2-image" class="relative top-0 left-0 w-full h-[200vh] bg-[url('../data/biography/_images/porechye/porechye-people-2.png')] bg-center bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
+    <Section id="porechye-people-2" contentHeight="h-[60vh] md:h-[200vh]" contentWidth="w-full" sectionSize="w-full h-[60vh] md:h-[200vh]" sectionFlex="flex flex-col justify-center items-center">
+        <div id="porechye-people-2-image" class="relative top-0 left-0 w-full h-[60vh] md:h-[200vh] bg-[url('../data/biography/_images/porechye/porechye-people-2.png')] bg-center bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
     </Section>
 
     <!-- Porechye History 5 -->
     <Section id="porechye-history-5"  contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-xl 2xl:text-3xl leading-normal 2xl:leading-normal px-[4%]">
+        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-base md:text-xl 2xl:text-3xl leading-normal 2xl:leading-normal px-[4%]">
             <p class="italic">
                 «В верхнем этаже несколько комнат с видом на сад и далекую даль, кладовые и запасная библиотека с изданиями мужа.
                 <br>
@@ -152,13 +186,13 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     </Section>
 
     <!-- Porechye View 2 -->
-    <Section id="porechye-view-2" contentHeight="h-[200vh]" contentWidth="w-full" sectionSize="w-full h-[210vh]" sectionFlex="flex flex-col justify-center items-center">
-        <div id="porechye-3" class="relative top-0 left-0 w-full h-[200vh] bg-[url('../data/biography/_images/porechye/porechye-3.png')] bg-center bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
+    <Section id="porechye-view-2" contentHeight="h-[50vh] md:h-[200vh]" contentWidth="w-full" sectionSize="w-full h-[50vh] md:h-[210vh]" sectionFlex="flex flex-col justify-center items-center">
+        <div id="porechye-3" class="relative top-0 left-0 w-full h-[50vh] md:h-[200vh] bg-[url('../data/biography/_images/porechye/porechye-3.png')] bg-center bg-cover bg-no-repeat transition-opacity duration-1000 opacity-0"></div>
     </Section>
 
     <!-- Porechye History 6 -->
     <Section id="porechye-history-6" contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-xl 2xl:text-2xl leading-normal 2xl:leading-normal">
+        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-base md:text-xl 2xl:text-2xl leading-normal 2xl:leading-normal">
             <p class="italic">
                 «Мучаясь над перестройкой и окончанием дома, надо было думать и об устройстве и разборке Музея русских древностей, которые, упакованные в Петербурге после нашей свадьбы, не могли быть до сих пор открыты за неимением для них приличного помещения. Музей в Петербурге не имел особой нумерации, и потому разбирать и назначать приблизительное размещение должен был непременно муж, и только впоследствии, когда главное было разобрано и предметы рассортированы, могла и я с детьми ему помочь, нумеруя, наклеивая и прибивая в витринах и столах.
             </p>
@@ -170,7 +204,7 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
 
     <!-- Porechye History 7 -->
     <Section id="porechye-history-7" contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-xl 2xl:text-2xl leading-normal 2xl:leading-normal">
+        <div class="flex flex-col justify-center items-start gap-y-[10vh] 4xl:gap-y-[5vh] text-base md:text-xl 2xl:text-2xl leading-normal 2xl:leading-normal">
             <p class="italic">
                 Петербургские витрины и шкапы были размещены в главной зале музея и заняты предметами каменного века, бронзовыми издельями, мерянскими древностями, иконами, крестами, древними сосудами; витрины же и шкапы школьного дела заняли вторую залу и наполнились финифтью, стеклом, предметами домашнего и туалетного обихода, оружием и слепками с византийских костяных рельефов, украшавших древние Евангелия, ларцы и пр.
             </p>
@@ -202,10 +236,10 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     >
         <Section id="porechye-view-3" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
             <div class="h-full flex flex-col justify-center items-center text-white gap-y-[5vh] pt-[10vh]">
-                <p class="text-4xl leading-normal max-w-5xl 2xl:max-w-[90%] 2xl:text-5xl 2xl:leading-normal">
+                <p class="text-lg md:text-4xl leading-normal max-w-5xl 2xl:max-w-[90%] 2xl:text-5xl 2xl:leading-normal">
                     В годы Великой Отечественной войны старинная усадьба была сильно разрушена. 
                 </p>
-                <p class="text-4xl leading-normal max-w-5xl 2xl:max-w-[90%] 2xl:text-5xl 2xl:leading-normal">
+                <p class="text-lg md:text-4xl leading-normal max-w-5xl 2xl:max-w-[90%] 2xl:text-5xl 2xl:leading-normal">
                     В 1970-е годы шли работы по ее реставрации по проекту архитектора-реставратора Н.П. Яворовской, заново открывшей уникальный памятник усадебной культуры.
                 </p>
             </div>
@@ -215,7 +249,7 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     <!-- Porechye History 8 -->
     <Section id="porechye-history-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
         <div class="flex flex-col justify-center gap-y-[5vh]"> 
-            <p class="text-4xl 2xl:text-6xl leading-normal 2xl:leading-normal px-[5%]">
+            <p class="text-lg md:text-4xl 2xl:text-6xl leading-normal 2xl:leading-normal px-[5%]">
                 В настоящее время на территории усадьбы Поречье расположен ведомственный санаторий Службы внешней разведки РФ.
             </p>
             <div class="w-full text-center pt-[10vh] relative flex flex-col gap-y-[5vh] 4xl:gap-y-[2vh] text-3xl">
