@@ -377,28 +377,41 @@ const portraits = junostAssets.libraryPortraits;
 
     <!-- Diploma -->
     <Section id="diploma" sectionSize = "w-full h-[105vh]" contentHeight="h-[80vh]" extraClass="mb-[5vh]">
-        <div class="grid grid-cols-3 w-full h-full max-w-[80%] mx-auto">
-            <div id="diploma-image" class="col-span-2 flex flex-col items-center relative right-[20%]">
+        <div class="
+        grid 
+        w-full
+        h-full
+        max-w-[80%]
+        mx-auto
+        
+        grid-cols-1
+        grid-rows-2 
+
+        md:h-auto
+        md:grid-rows-1 
+        md:grid-cols-3 
+        ">
+            <div id="diploma-image" class="col-span-2 flex flex-col items-center relative md:right-[20%]">
                 <img src={junostAssets.diploma.src} alt={junostAssets.diploma.alt}/>
                 <InfoOverlay contentType="image" images={diploma} overlayId="diploma" iconPosition="absolute bottom-[3vh] 4xl:bottom-[1vh]"/>
             </div>
 
-            <div class="col-span-1 flex flex-col justify-between items-end text-right relative left-[35%]">
+            <div class="col-span-1 flex flex-col justify-between items-end text-center md:text-right relative md:left-[35%]">
                 <p class="text-xl 2xl:text-2xl">
                     Окончив университет со степенью кандидата в 1845 году, 
                     Уваров поступил на службу в Министерство иностранных дел.
                 </p>
                 <p class="text-xs 2xl:text-sm">
                     Диплом А.С. Уварова 
-                    <br>
+                    <br class="hidden md:block">
                     об окончании 1-го отделения 
-                    <br>
+                    <br class="hidden md:block">
                     Философского факультета разряда 
-                    <br>
+                    <br class="hidden md:block">
                     Общей словесности 
-                    <br>
+                    <br class="hidden md:block">
                     Санкт-Петербургского университета. 
-                    <br>
+                    <br class="hidden md:block">
                     14 июля 1845 г.
                 </p>
             </div>
@@ -407,7 +420,7 @@ const portraits = junostAssets.libraryPortraits;
 
     <!-- Video Uvarov 200 Excursion -->
     <Section id="video-uvarov-200-excursion" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
-        <div class="h-full flex flex-col justify-center items-center">
+        <div class="h-full flex flex-col justify-center items-center text-center md:text-left">
             <a href="https://mediashm.ru/?p=17677" class="pb-[3vh]">
                 <img src="https://mediashm.ru/wp-content/uploads/2024/09/57320cfcd22646e98c696ace3b1fa7d7.jpg"/>
             </a>
