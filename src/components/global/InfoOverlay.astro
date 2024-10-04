@@ -105,12 +105,14 @@ const {
 
         if (contentType === 'slider') {
           overlayContent.innerHTML = `
-            <div x-data="{ init() {
-                new Splide(this.$refs.splideOverlay, {
-                  perPage: 1,
-                  pagination: false
-                }).mount();
-              }}">
+            <div 
+              class="w-full"
+              x-data="{ init() {
+              new Splide(this.$refs.splideOverlay, {
+                perPage: 1,
+                pagination: false
+              }).mount();
+            }}">
 
               <section class="splide" aria-label="Overlay Image Slider" x-ref="splideOverlay">
                 <div class="splide__track">
