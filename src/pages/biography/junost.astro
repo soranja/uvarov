@@ -147,14 +147,16 @@ const portraits = junostAssets.libraryPortraits;
                 grid 
                 w-full
 
+                h-full
                 grid-rows-2 
 
+                md:h-auto
                 md:grid-rows-1 
                 md:grid-cols-2 
                 ">
                 <div id="graf-image" class="flex flex-col items-center justify-center relative">
                     <img src={junostAssets.graf.src} alt={junostAssets.graf.alt}/>
-                    <InfoOverlay contentType="image" images={graf} overlayId="graf" iconPosition="absolute bottom-0 md:bottom-[1vh]"/>
+                    <InfoOverlay contentType="image" images={graf} overlayId="graf" iconPosition="absolute -bottom-[2vh] md:bottom-[1vh]"/>
                 </div>
 
                 <div class="
