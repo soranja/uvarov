@@ -167,8 +167,8 @@ import headerMobile from '../../../data/common/_images/header-mobile.svg';
 
 		links.forEach(link => {
 			const isActive = isLinkActive(link.href);
-			const activeClass = isActive ? 'bg-white bg-opacity-20 hover:underline' : '';
-			const linkElement = `<a href="${link.href}" class="px-2 py-[1vh] md:py-0 ${activeClass} h-full hover:bg-white hover:bg-opacity-20 md:hover:underline">${link.label}</a>`;
+			const activeClass = isActive ? 'bg-white bg-opacity-20  md:bg-opacity-0 md:underline' : '';
+			const linkElement = `<a href="${link.href}" class="px-2 py-[1vh] md:py-0 ${activeClass} h-full hover:bg-white hover:bg-opacity-20 md:hover:bg-opacity-0 md:hover:underline">${link.label}</a>`;
 			linksWrapper.insertAdjacentHTML('beforeend', linkElement);
 		});
 
@@ -177,18 +177,28 @@ import headerMobile from '../../../data/common/_images/header-mobile.svg';
   	};
 
 	const toggleMenu = (isOpen: boolean, chapterName?: string | null) => {
-		if (isOpen) {
-			burgerIcon.classList.add('hidden');
-			crossIcon.classList.remove('hidden');
-			nav.classList.remove('hidden');
+
+		// Toggle burger and cross icons based on isOpen
+		burgerIcon.classList.toggle('hidden', isOpen || window.innerWidth > 768);
+		crossIcon.classList.toggle('hidden', !(isOpen || window.innerWidth > 768));
+
+		// Hide nav only for mobile when closed
+		nav.classList.toggle('hidden', !isOpen && window.innerWidth < 768); 
+
+		if (isOpen || window.innerWidth > 768) {
 			gimLogo.innerHTML = `<div class="chapter-name uppercase">${chapterName || 'ГИМ'}</div>`;
 		} else {
-			burgerIcon.classList.remove('hidden');
-			crossIcon.classList.add('hidden');
-			nav.classList.add('hidden');
 			gimLogo.innerHTML = `<img src=${gim.src} class="h-full">`;
 		}
 	};
+
+	window.addEventListener('resize', () => {
+		const isDesktop = window.innerWidth >= 768;
+
+		// Show nav on desktop, hide on mobile if menu is closed
+		nav.classList.toggle('hidden', !isDesktop && burgerIcon.classList.contains('hidden')); 
+
+	});
 
 	document.addEventListener('DOMContentLoaded', () => {
 		const activeChapterName = getActiveChapter(BIO_NAV_LINKS);
