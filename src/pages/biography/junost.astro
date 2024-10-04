@@ -90,8 +90,6 @@ const portraits = junostAssets.libraryPortraits;
             md:grid-rows-1 
             md:grid-cols-2 
             md:h-[87vh]
-
-            border-4 border-orange-500
             ">
             
             <div class="
@@ -145,14 +143,35 @@ const portraits = junostAssets.libraryPortraits;
 
     <!-- Graf -->
     <Section id="graf">
-            <div class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 w-full">
+            <div class="
+                grid 
+                w-full
+
+                grid-rows-2 
+
+                md:grid-rows-1 
+                md:grid-cols-2 
+                ">
                 <div id="graf-image" class="flex flex-col items-center justify-center relative">
                     <img src={junostAssets.graf.src} alt={junostAssets.graf.alt}/>
-                    <InfoOverlay contentType="image" images={graf} overlayId="graf" iconPosition="absolute bottom-[1vh]"/>
+                    <InfoOverlay contentType="image" images={graf} overlayId="graf" iconPosition="absolute bottom-0 md:bottom-[1vh]"/>
                 </div>
 
-                <div class="flex flex-col justify-between items-center md:items-end text-center md:text-right">
-                    <p class="max-w-lg text-2xl">
+                <div class="
+                flex 
+                flex-col 
+ 
+                justify-center                
+                items-center 
+                text-center
+                gap-y-[5vh]
+
+                md:gap-y-0
+                md:justify-between
+                md:items-end 
+                md:text-right
+                ">
+                    <p class="max-w-lg text-base md:text-2xl">
                         <span class="italic">
                           «За особливые заслуги и высокие достоинства»
                         </span>
@@ -160,7 +179,7 @@ const portraits = junostAssets.libraryPortraits;
                         <br>
                         Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа с нисходящим потомством.
                     </p>
-                    <p class="max-w-xl text-sm relative bottom-[1vh]">
+                    <p class="max-w-xl text-sm relative bottom-0 md:bottom-[1vh]">
                         Патент императора Николая I
                         <br>
                         действительному статскому советнику
