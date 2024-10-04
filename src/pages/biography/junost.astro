@@ -196,17 +196,17 @@ const portraits = junostAssets.libraryPortraits;
     <div id="library-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/library.png')] bg-center bg-cover bg-no-repeat z-0 transition-opacity duration-1000 opacity-0"></div>
     <Section id="library">
             <div class="flex flex-col justify-between items-center gap-y-[5vh]">
-                <p class="text-2xl leading-normal">
+                <p class="text-sm md:text-2xl text-center md:text-left leading-normal">
                     Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет возможность общения с ученой и творческой элитой.
                 </p>
-                <div class="w-full">
+                <div class="w-full h-full">
                     <div x-data="{ init() {
                             new Splide(this.$refs.splide, {
                                 perPage: 3,
                                 perMove: 1,
                                 pagination: false,
                                 breakpoints: {
-                                    640: {
+                                    768: {
                                         perPage: 1,
                                     },
                                 },
@@ -220,20 +220,37 @@ const portraits = junostAssets.libraryPortraits;
                             style="padding-left: 4rem; padding-right: 4rem;"
                             >
                             
-                            <div class="splide__arrows">
+                            <div class="hidden md:block splide__arrows">
                                 <button class="splide__arrow splide__arrow--prev">
                                     <img src={common.prevArrow.src} alt={common.prevArrow.alt}>
                                 </button>
                                 <button class="splide__arrow splide__arrow--next">
                                     <img src={common.nextArrow.src} alt={common.nextArrow.alt}>
                                 </button>
-                        </div>
+                            </div>
+
+                            <div class="md:hidden splide__arrows">
+                                <button class="splide__arrow splide__arrow--prev">
+                                    ←
+                                </button>
+                                <button class="splide__arrow splide__arrow--next">
+                                    →
+                                </button>
+                            </div>
 
                             <div class="splide__track">
                                 <ul class="splide__list">
                                     {junostAssets.libraryPortraits.map((portrait) => (
                                         <li class="splide__slide flex flex-col justify-center items-center">
-                                            <div class="w-[70%] 2xl:w-[90%] h-[60%] 2xl:h-[70%]">
+                                            <div class="
+                                            h-full
+
+                                            md:w-[70%] 
+                                            md:h-[60%] 
+
+                                            2xl:w-[90%] 
+                                            2xl:h-[70%]
+                                            ">
                                                 <img
                                                     alt={portrait.alt}
                                                     src={portrait.src}
@@ -251,7 +268,7 @@ const portraits = junostAssets.libraryPortraits;
                         </section>
                     </div>
                 </div>
-                <InfoOverlay contentType="slider" images={portraits} overlayId="library" iconPosition="absolute bottom-0"/>
+                <InfoOverlay contentType="slider" images={portraits} overlayId="library" iconPosition="md:absolute bottom-0"/>
             </div>
     </Section>
 
