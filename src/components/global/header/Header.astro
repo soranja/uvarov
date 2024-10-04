@@ -209,5 +209,6 @@ import headerMobile from '../../../data/common/_images/header-mobile.svg';
 		// Render links and ensure the menu is initially closed
 		renderLinks(BIO_NAV_LINKS);
 		toggleMenu(false);
+		window.addEventListener('popstate', () => toggleMenu(false));
 	});
 </script>
