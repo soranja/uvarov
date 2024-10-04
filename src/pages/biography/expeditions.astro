@@ -43,7 +43,7 @@ const cover = [expeditionsAssets.researchCoverFull];
     </Section>
 
     <!-- Archeologists -->
-    <Section id="archeologists"> 
+    <Section id="archeologists" contentHeight="h-full md:h-[87vh]"> 
         <div class="flex flex-col justify-between items-center h-full text-center md:text-left">
             <p class="text-base md:text-lg 2xl:text-4xl leading-normal">
                 В 1846 году, он, наряду с маститыми нумизматами И. А. Бартоломеем, Б. В. Кене, П. И. Сабатье, вошел в число учредителей Петербургского Археолого-нумизматического общества (впоследствии – Русское археологическое общество).
@@ -126,7 +126,6 @@ const cover = [expeditionsAssets.researchCoverFull];
             top-0 
             left-0 
             max-w-full
-            max-h-[2048px]
             mx-auto
 
             bg-[url('../data/biography/_images/expeditions/hersones-wall-bg.png')] 
@@ -134,12 +133,16 @@ const cover = [expeditionsAssets.researchCoverFull];
             bg-cover
             bg-no-repeat 
 
+            max-h-screen
+
+            md:max-h-[2048px]
+
             transition-opacity 
             duration-1000 
             opacity-0 
 
         ">
-        <Section id="hersones-wall" sectionSize="w-full h-[2048px]" sectionFlex="flex flex-col justify-center" contentHeight="h-[1250px]">
+        <Section id="hersones-wall" sectionSize="w-full h-screen md:h-[2048px]" sectionFlex="flex flex-col justify-center" contentHeight="h-[75vh] md:h-[1250px]">
             <div class="h-full flex flex-col justify-between items-center text-lg md:text-5xl 2xl:text-6xl leading-normal 2xl:leading-relaxed px-[5%] text-white">
                 <p>
                     Он посетил Каменское городище, Херсон, Ольвию, Херсонес и другие.
@@ -153,7 +156,7 @@ const cover = [expeditionsAssets.researchCoverFull];
     </div>
 
     <!-- Research --- Trip to the South --- Cover -->
-    <Section id="research" contentWidth="w-[75%]">
+    <Section id="research" contentWidth="w-[75%]" contentHeight="h-screen md:h-[87vh]">
         <div class="
             grid
             w-full 
@@ -167,9 +170,9 @@ const cover = [expeditionsAssets.researchCoverFull];
             ">
             <div id="research-image" class="col-span-1 relative flex flex-col justify-center items-center">
                 <img src={expeditionsAssets.researchCover.src} alt={expeditionsAssets.researchCover.alt} class="max-w-[65%] md:max-w-[75%]"/>
-                <InfoOverlay contentType="image" images={cover} overlayId="research" iconPosition="absolute -bottom-[5vh] md:bottom-[2vh]"/>
+                <InfoOverlay contentType="image" images={cover} overlayId="research" iconPosition="absolute -bottom-[1vh] md:bottom-[2vh]"/>
             </div>
-            <div class="col-span-2 flex flex-col justify-center items-end text-2xl 2xl:text-3xl gap-y-[1vh] text-center md:text-left">
+            <div class="col-span-2 flex flex-col justify-end md:justify-center items-end text-2xl 2xl:text-3xl gap-y-[1vh] text-center md:text-left">
                 <p class="max-w-md 2xl:max-w-xl">
                     Частично, эти предметы послужили источником при написании Уваровым первой части
                 </p>
