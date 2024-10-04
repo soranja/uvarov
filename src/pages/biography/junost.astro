@@ -341,14 +341,18 @@ const portraits = junostAssets.libraryPortraits;
         top-0 
         left-0 
         w-full
-        h-[300vh]
         mx-auto
+        z-0 
 
         bg-[url('../data/biography/_images/junost/uvarov_young_2_portrait.png')]
         bg-cover 
         bg-no-repeat
-        bg-right
-        z-0 
+
+        h-[70vh]
+        bg-center
+
+        md:h-[300vh]
+        md:bg-right
 
         transition-opacity 
         duration-1000 
@@ -359,9 +363,13 @@ const portraits = junostAssets.libraryPortraits;
         background-position: left 20%;
         "
     >
-        <Section id="uvarov-young" sectionSize="w-full h-[300vh]" sectionFlex="flex flex-col justify-center" contentWidth="w-full" contentHeight="h-[300vh]">
-            <div class="h-full flex flex-col justify-center">
-                <img src={junostAssets.handwrite_2.src} alt="Почерк-2" class="h-[200vh] w-full object-contain object-left-top">
+        <Section id="uvarov-young" 
+        sectionSize="w-full h-[70vh] md:h-[300vh]" 
+        sectionFlex="flex flex-col justify-center" contentWidth="w-full" 
+        contentHeight="h-[70vh] md:h-[300vh]">
+
+            <div class="h-full flex flex-col md:justify-center px-[2vh] md:px-0">
+                <img src={junostAssets.handwrite_2.src} alt="Почерк-2" class="h-[30vh] md:h-[200vh] w-full object-contain object-left-top">
             </div>
         </Section>
         <InfoOverlay contentType="slider" images={uvarovYoung2} isIconInverted={true} overlayId="u-young" iconPosition="absolute bottom-[5vh] left-1/2"/>

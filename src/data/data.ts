@@ -284,6 +284,7 @@ export const junostAssets = {
   uvarovYoung2Full: {
     src: uvarovYoung2Full.src,
     alt: "Уваров молодой - Портрет",
+    description: "Портрет графа Алексея Сергеевича Уварова в мундире студента Санкт-Петербургского университета 1843 г."
   },
   handwrite_2: { src: handwrite_2.src, alt: "Письмо 2" },
   handwrite2Full: { src: handwrite2Full.src, alt: "Письмо 2 полное" },
@@ -621,18 +622,6 @@ export const museumAssets = {
       description: "Парадные сени Исторического музея",
       alt: "Залы музея - Парадные сени Исторического музея",
     },
-    // {
-    //   id: 2,
-    //   src: hall2.src,
-    //   srcOrig: hall__orig_2.src,
-    //   alt: "Залы музея - Фото 2",
-    // },
-    // {
-    //   id: 3,
-    //   src: hall3.src,
-    //   srcOrig: hall__orig_3.src,
-    //   alt: "Залы музея - Фото 3",
-    // },
     {
       id: 4,
       src: hall4.src,
@@ -641,12 +630,6 @@ export const museumAssets = {
         "Вид из зала № 5 (Памятники железного века) в Скифский зал (№ 6).",
       alt: "Вид из зала № 5 (Памятники железного века) в Скифский зал (№ 6).",
     },
-    // {
-    //   id: 5,
-    //   src: hall5.src,
-    //   srcOrig: hall__orig_5.src,
-    //   alt: "Залы музея - Фото 5",
-    // },
     {
       id: 6,
       src: hall6.src,
@@ -654,12 +637,6 @@ export const museumAssets = {
       description: "Внутренний вид зала «А» (Памятники раннего христианства).",
       alt: "Внутренний вид зала «А» (Памятники раннего христианства).",
     },
-    // {
-    //   id: 7,
-    //   src: hall7.src,
-    //   srcOrig: hall__orig_7.src,
-    //   alt: "Залы музея - Фото 7",
-    // },
     {
       id: 8,
       src: hall8.src,
@@ -668,12 +645,6 @@ export const museumAssets = {
         "Виды анфилады залов «Б» (с фреской И. К. Айвазовского) и «В».",
       alt: "Виды анфилады залов «Б» (с фреской И. К. Айвазовского) и «В».",
     },
-    // {
-    //   id: 9,
-    //   src: hall9.src,
-    //   srcOrig: hall__orig_9.src,
-    //   alt: "Залы музея - Фото 9",
-    // },
     {
       id: 10,
       src: hall10.src,
@@ -682,12 +653,6 @@ export const museumAssets = {
         "Зал № 4 (Памятники железного века) с картинами Г. И. Семирадского.",
       alt: "Зал № 4 (Памятники железного века) с картинами Г. И. Семирадского.",
     },
-    // {
-    //   id: 11,
-    //   src: hall11.src,
-    //   srcOrig: hall__orig_11.src,
-    //   alt: "Залы музея - Фото 11",
-    // },
     {
       id: 12,
       src: hall12.src,
@@ -695,24 +660,6 @@ export const museumAssets = {
       description: "Библиотека Исторического музея до перестройки 1912 года.",
       alt: "Библиотека Исторического музея до перестройки 1912 года.",
     },
-    // {
-    //   id: 13,
-    //   src: hall13.src,
-    //   srcOrig: hall__orig_13.src,
-    //   alt: "Залы музея - Фото 13",
-    // },
-    // {
-    //   id: 14,
-    //   src: hall14.src,
-    //   srcOrig: hall__orig_14.src,
-    //   alt: "Залы музея - Фото 14",
-    // },
-    // {
-    //   id: 15,
-    //   src: hall15.src,
-    //   srcOrig: hall__orig_15.src,
-    //   alt: "Залы музея - Фото 15",
-    // },
   ],
 };
 
