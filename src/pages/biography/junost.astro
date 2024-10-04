@@ -281,7 +281,7 @@ const portraits = junostAssets.libraryPortraits;
 
     <!-- Dog Animation -->
     <Section id="dog">
-        <div class="grid grid-cols-2 w-full h-full max-w-[70%] mx-auto">
+        <div class="hidden md:grid grid-cols-2 w-full h-full max-w-[70%] mx-auto">
             <div class="relative flex flex-col justify-center items-center left-[5vh]">
                 <video id="dog-anim" autoplay muted>
                     <source src={junostAssets.dogAnim.src} type="video/mp4">
@@ -292,6 +292,15 @@ const portraits = junostAssets.libraryPortraits;
                 <img src={junostAssets.handwrite_1.src} alt={junostAssets.handwrite_1.alt} />
                 <p class="absolute text-sm bottom-[5vh] right-[5%] self-end">Алексей Уваров в юности</p>
             </div>
+        </div>
+
+        <div class="md:hidden flex flex-col justify-center items-center h-full">
+            <div class="flex flex-col justify-center items-center">
+                <img src={junostAssets.handwrite_1.src} alt={junostAssets.handwrite_1.alt} class="absolute left-[25%] top-[15%] h-[50%]"/>
+                <img src={junostAssets.uvarovYoung1.src} alt={junostAssets.uvarovYoung1.alt} />
+                <InfoOverlay contentType="slider" images={uvarovYoung1} overlayId="dog" iconPosition=""/>
+            </div>
+            <p class="text-sm">Алексей Уваров в юности</p>
         </div>
     </Section>
 
