@@ -130,7 +130,8 @@ import headerMobile from '../../../data/common/_images/header-mobile.svg';
 	const nav = document.getElementById('nav') as HTMLElement;
 	const gimLogo = document.getElementById('gim') as HTMLElement;
 
-
+	const isDesktop = window.innerWidth >= 768;
+	
 	const isLinkActive = (href: string) => {
 		const pathname = window.location.pathname;
 		const subpath = pathname.match(/[^\/]+/g);
@@ -178,16 +179,20 @@ import headerMobile from '../../../data/common/_images/header-mobile.svg';
 
 	const toggleMenu = (isOpen: boolean, chapterName?: string | null) => {
 
-		// Toggle burger and cross icons based on isOpen
-		burgerIcon.classList.toggle('hidden', isOpen || window.innerWidth > 768);
-		crossIcon.classList.toggle('hidden', !(isOpen || window.innerWidth > 768));
+		if (isOpen || isDesktop) {
 
-		// Hide nav only for mobile when closed
-		nav.classList.toggle('hidden', !isOpen && window.innerWidth < 768); 
-
-		if (isOpen || window.innerWidth > 768) {
+			// When the menu is open or on desktop
+			burgerIcon.classList.add('hidden');
+			crossIcon.classList.remove('hidden');
+			nav.classList.remove('hidden');
 			gimLogo.innerHTML = `<div class="chapter-name uppercase">${chapterName || 'ГИМ'}</div>`;
+
 		} else {
+
+			// When the menu is closed and on mobile
+			burgerIcon.classList.remove('hidden');
+			crossIcon.classList.add('hidden');
+			nav.classList.add('hidden');
 			gimLogo.innerHTML = `<img src=${gim.src} class="h-full">`;
 		}
 	};
@@ -196,8 +201,14 @@ import headerMobile from '../../../data/common/_images/header-mobile.svg';
 		const isDesktop = window.innerWidth >= 768;
 
 		// Show nav on desktop, hide on mobile if menu is closed
-		nav.classList.toggle('hidden', !isDesktop && burgerIcon.classList.contains('hidden')); 
-
+		if (isDesktop) {
+			nav.classList.remove('hidden');
+		} else {
+			const isMenuOpen = crossIcon.classList.contains('hidden'); // check if the menu is closed
+			if (isMenuOpen) {
+				nav.classList.add('hidden');
+			}
+		}
 	});
 
 	document.addEventListener('DOMContentLoaded', () => {
