@@ -140,6 +140,7 @@ import husband from "./biography/_images/family/husband.png";
 import wife from "./biography/_images/family/wife.png";
 import wifeYoung from "./biography/_images/family/wife-young.png";
 import children from "./biography/_images/family/children.png";
+import veniceImg from "./biography/_images/family/venice.png";
 import venice from "./biography/_videos/family/venice.webm";
 
 /* ==========
@@ -491,6 +492,7 @@ export const familyAssets = {
   husband: { src: husband.src, alt: "Фото мужа" },
   wife: { src: wife.src, alt: "Фото жены" },
   wifeYoung: { src: wifeYoung.src, alt: "Портрет жены" },
+  veniceImg: { src: veniceImg.src, alt: "Венеция" },
   venice: { src: venice, alt: "Венеция" },
 };
 
