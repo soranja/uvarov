@@ -37,22 +37,34 @@ const cover = [expeditionsAssets.researchCoverFull];
 
     <!-- Archeology Text -->
     <Section id="archeology-text" contentHeight="h-auto" sectionSize="w-full h-[90vh]" sectionFlex="flex flex-col justify-center">
-            <p class="text-4xl 2xl:text-5xl leading-relaxed 2xl:leading-normal px-[5%] 2xl:px-[10%]">
+            <p class="text-lg md:text-4xl 2xl:text-5xl leading-relaxed 2xl:leading-normal px-[5%] 2xl:px-[10%]">
                 Окончив университет со степенью кандидата в 1845 году, поступил на службу в Министерство иностранных дел. По окончании университета, параллельно службе, Уваров увлекся археологией.
             </p>
     </Section>
 
     <!-- Archeologists -->
     <Section id="archeologists"> 
-        <div class="flex flex-col justify-between items-center h-full">
-            <p class="text-lg 2xl:text-4xl leading-normal">
+        <div class="flex flex-col justify-between items-center h-full text-center md:text-left">
+            <p class="text-base md:text-lg 2xl:text-4xl leading-normal">
                 В 1846 году, он, наряду с маститыми нумизматами И. А. Бартоломеем, Б. В. Кене, П. И. Сабатье, вошел в число учредителей Петербургского Археолого-нумизматического общества (впоследствии – Русское археологическое общество).
             </p>
 
-            <div class="grid grid-cols-3 gap-x-8">
+            <div id="archeologists-image" class="md:hidden">
+                <img src={expeditionsAssets.archaeologists.src} alt={expeditionsAssets.archaeologists.alt}/>
+            </div>
+
+            <p class="md:hidden max-w-xl text-sm relative bottom-[5vh]">
+                Портрет членов-учредителей Петербургского Археологическо-нумизматического общества Фотограф К. Даутендей Санкт-Петербург. 1850 г. 
+                <br>
+                Стоят: И.А. Бартоломей, Б.В. Кёне, А.С. Уваров. Сидят: Я.Я. Рейхель, М.Д. Топчибашев.
+            </p>
+
+            <div class="hidden md:grid grid-cols-3 gap-x-8">
                 <div class="col-span-1 flex flex-col justify-end items-end">
-                    <p class="max-w-xl text-sm relative bottom-[5vh]">
-                        Портрет членов-учредителей Петербургского Археологическо-нумизматического общества Фотограф К. Даутендей Санкт-Петербург. 1850 г. Стоят: И.А. Бартоломей, Б.В. Кёне, А.С. Уваров. Сидят: Я.Я. Рейхель, М.Д. Топчибашев.
+                    <p class="max-w-2xl text-sm relative bottom-[5vh]">
+                        Портрет членов-учредителей Петербургского Археологическо-нумизматического общества Фотограф К. Даутендей Санкт-Петербург. 1850 г. 
+                        <br>
+                        Стоят: И.А. Бартоломей, Б.В. Кёне, А.С. Уваров. Сидят: Я.Я. Рейхель, М.Д. Топчибашев.
                     </p>
                 </div>
                 <div id="archeologists-image" class="col-span-2 flex justify-end">
@@ -64,7 +76,7 @@ const cover = [expeditionsAssets.researchCoverFull];
 
     <!-- Zabelin -->
     <Section id="zabelin">
-            <div class="grid grid-cols-2 w-full">
+            <div class="hidden md:grid grid-cols-2 w-full">
                 <div id="zabelin-image" class="flex items-start justify-start">
                     <img src={expeditionsAssets.zabelin.src} alt={expeditionsAssets.zabelin.alt} class="max-w-[55%]"/>
                 </div>
@@ -76,7 +88,16 @@ const cover = [expeditionsAssets.researchCoverFull];
                         Забелин Иван Егорович (с дагерротипа 1856 г.) Москва. 1900-е гг.
                     </p>
                 </div>
+            </div>
 
+            <div class="md:hidden flex flex-col justify-between items-center text-center gap-y-[5vh]">
+                <p class="max-w-xl text-base px-[2vh]">
+                    Он предложил начать работу по составлению Русского археологического словаря и подготовил для него ряд статей. В 1849 году Уваров назначил денежные вознаграждения за исследования в области русских древностей, и среди награжденных авторов были И. Е. Забелин и Д. А. Ровинский.
+                </p>
+                <img src={expeditionsAssets.zabelin.src} alt={expeditionsAssets.zabelin.alt} class="max-w-[80%]"/>
+                <p class="max-w-sm text-sm">
+                    Забелин Иван Егорович (с дагерротипа 1856 г.) Москва. 1900-е гг.
+                </p>
             </div>
     </Section>
     
@@ -85,15 +106,15 @@ const cover = [expeditionsAssets.researchCoverFull];
 
     <!-- Hersones Text -->
     <Section id="hersones-text" contentHeight="h-auto" sectionSize="w-full h-[90vh]" sectionFlex="flex flex-col justify-center">
-            <p class="text-4xl 2xl:text-5xl leading-normal">
+            <p class="text-lg md:text-4xl 2xl:text-5xl leading-normal">
                 По решению специальной комиссии Общества, летом 1848 года Уваров совершил путешествие по Южным землям России, обследуя наиболее важные в археологическом отношении местности.
             </p>
     </Section>
 
     <!-- Hersones Image -->
-    <Section id="hersones-image">
+    <Section id="hersones-image" contentHeight="h-auto md:h-[87vh]" sectionFlex="flex flex-col justify-center md:justify-end" contentWidth="w-full md:w-[90%]">
         <div class="flex flex-col items-center justify-center">
-            <img src={expeditionsAssets.khersones[0].src} alt={expeditionsAssets.khersones[0].alt} class="max-w-[70%]"/>
+            <img src={expeditionsAssets.khersones[0].src} alt={expeditionsAssets.khersones[0].alt} class="md:max-w-[70%]"/>
         </div>
     </Section>
 
@@ -119,7 +140,7 @@ const cover = [expeditionsAssets.researchCoverFull];
 
         ">
         <Section id="hersones-wall" sectionSize="w-full h-[2048px]" sectionFlex="flex flex-col justify-center" contentHeight="h-[1250px]">
-            <div class="h-full flex flex-col justify-between items-center text-5xl 2xl:text-6xl leading-normal 2xl:leading-relaxed px-[5%] text-white">
+            <div class="h-full flex flex-col justify-between items-center text-lg md:text-5xl 2xl:text-6xl leading-normal 2xl:leading-relaxed px-[5%] text-white">
                 <p>
                     Он посетил Каменское городище, Херсон, Ольвию, Херсонес и другие.
                 </p>
@@ -133,12 +154,22 @@ const cover = [expeditionsAssets.researchCoverFull];
 
     <!-- Research --- Trip to the South --- Cover -->
     <Section id="research" contentWidth="w-[75%]">
-        <div class="grid grid-cols-3 w-full h-full">
+        <div class="
+            grid
+            w-full 
+            h-full
+
+            grid-cols-1
+            grid-rows-2
+
+            md:grid-rows-1
+            md:grid-cols-3 
+            ">
             <div id="research-image" class="col-span-1 relative flex flex-col justify-center items-center">
-                <img src={expeditionsAssets.researchCover.src} alt={expeditionsAssets.researchCover.alt} class="max-w-[75%]"/>
-                <InfoOverlay contentType="image" images={cover} overlayId="research" iconPosition="absolute bottom-[2vh]"/>
+                <img src={expeditionsAssets.researchCover.src} alt={expeditionsAssets.researchCover.alt} class="max-w-[65%] md:max-w-[75%]"/>
+                <InfoOverlay contentType="image" images={cover} overlayId="research" iconPosition="absolute -bottom-[5vh] md:bottom-[2vh]"/>
             </div>
-            <div class="col-span-2 flex flex-col justify-center items-end text-2xl 2xl:text-3xl gap-y-[1vh]">
+            <div class="col-span-2 flex flex-col justify-center items-end text-2xl 2xl:text-3xl gap-y-[1vh] text-center md:text-left">
                 <p class="max-w-md 2xl:max-w-xl">
                     Частично, эти предметы послужили источником при написании Уваровым первой части
                 </p>
@@ -148,17 +179,23 @@ const cover = [expeditionsAssets.researchCoverFull];
     </Section>
 
     <!-- Research --- Trip to the South --- Slider -->
-    <Section id="research-slider" contentHeight="h-[65vh]" sectionSize="w-full h-screen" sectionFlex="flex flex-col justify-center">
+    <Section id="research-slider" contentHeight="h-[65vh]" sectionSize="w-full h-screen" sectionFlex="flex flex-col justify-center ">
                 <div class="w-full flex flex-col items-center justify-between h-full">
-                    <p class="max-w-[1250px] text-xl 2xl:text-3xl leading-normal">
+                    <p class="text-xl 2xl:text-3xl leading-normal">
                         Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного Моря.
                     </p>
                     <div 
+                        class="w-full"
                         x-data="{ init() {
                             new Splide(this.$refs.splide, {
                                 perPage: 3,
                                 perMove: 1,
                                 pagination: false,
+                                breakpoints: {
+                                    768: {
+                                        perPage: 1,
+                                    },
+                                },
                             }).mount();
                         },
                     }">
@@ -169,12 +206,21 @@ const cover = [expeditionsAssets.researchCoverFull];
                             style="padding-left: 4rem; padding-right: 4rem;"
                             >
                             
-                            <div class="splide__arrows">
+                            <div class="hidden md:block splide__arrows">
                                 <button class="splide__arrow splide__arrow--prev">
                                     <img src={common.prevArrow.src} alt={common.prevArrow.alt}>
                                 </button>
                                 <button class="splide__arrow splide__arrow--next">
                                     <img src={common.nextArrow.src} alt={common.nextArrow.alt}>
+                                </button>
+                            </div>
+
+                            <div class="md:hidden splide__arrows">
+                                <button class="splide__arrow splide__arrow--prev">
+                                    ←
+                                </button>
+                                <button class="splide__arrow splide__arrow--next">
+                                    →
                                 </button>
                             </div>
 
