@@ -184,7 +184,7 @@ const cover = [expeditionsAssets.researchCoverFull];
     <!-- Research --- Trip to the South --- Slider -->
     <Section id="research-slider" contentHeight="h-[65vh]" sectionSize="w-full h-screen" sectionFlex="flex flex-col justify-center ">
                 <div class="w-full flex flex-col items-center justify-between h-full">
-                    <p class="text-xl 2xl:text-3xl leading-normal">
+                    <p class="text-sm md:text-xl text-center md:text-left 2xl:text-3xl leading-normal">
                         Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного Моря.
                     </p>
                     <div 
@@ -231,7 +231,7 @@ const cover = [expeditionsAssets.researchCoverFull];
                                 <ul class="splide__list">
                                     {expeditionsAssets.research.map((researchItem) => (
                                         <li class="splide__slide flex flex-col justify-center items-center">
-                                            <div class="max-w-[60%]">
+                                            <div class="md:max-w-[60%]">
                                                 <img
                                                     alt={researchItem.alt}
                                                     src={researchItem.src}
@@ -247,7 +247,7 @@ const cover = [expeditionsAssets.researchCoverFull];
                             </div>
                         </section>
                     </div>
-                    <InfoOverlay contentType="slider" images={research} overlayId="research-slider" iconPosition="absolute bottom-[2vh]"/>
+                    <InfoOverlay contentType="slider" images={research} overlayId="research-slider" iconPosition="absolute bottom-[5vh] md:bottom-[2vh]"/>
                 </div>
     </Section>
 
@@ -276,7 +276,7 @@ const cover = [expeditionsAssets.researchCoverFull];
         </div>
     </Section>
 
-    <!-- Pozharsky
+    <!-- Pozharsky -->
     <Section id="pozharsky" contentHeight="h-[80vh]">
         <div class="grid grid-cols-3 gap-x-8">
             <div class="col-span-2 flex flex-col justify-start items-start">
@@ -290,7 +290,7 @@ const cover = [expeditionsAssets.researchCoverFull];
                 </video>
             </div>
         </div>
-    </Section> -->
+    </Section>
 
     <!-- Olvia -->
     <div 

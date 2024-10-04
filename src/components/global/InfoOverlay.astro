@@ -118,9 +118,9 @@ const {
                 <div class="splide__track">
                   <ul class="splide__list">
                     ${images.map(image => `
-                      <li class="splide__slide flex flex-col justify-center px-20">
+                      <li class="splide__slide flex flex-col justify-center items-center px-20">
                         <img src="${image.srcOrig ?? image.src}" alt="${image.alt}" class="max-h-[80vh] object-contain" />
-                        <div class="flex-grow text-center mt-6 text-white">
+                        <div class="text-center mt-6 text-white">
                           <h4 class="font-semibold text-sm 2xl:text-lg leading-snug">${image.title ?? ''}</h4>
                           <p class="text-sm">${image.description ?? ''}</p> <!-- Regular text -->
                         </div>
