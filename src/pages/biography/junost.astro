@@ -71,22 +71,43 @@ const portraits = junostAssets.libraryPortraits;
     <div id="room-bg" class="fixed top-0 left-0 w-full h-full bg-[url('../data/biography/_images/junost/room.png')] bg-center bg-cover z-0 transition-opacity duration-1000 opacity-0"></div>
 
     <Section id="father-mother" sectionSize="w-full h-[200vh]" contentHeight="h-[200vh]">
-        <div id="father-area" class="absolute top-0 h-[95vh] w-full"></div>
-        <div id="mother-area" class="absolute bottom-0 h-[95vh] w-full"></div>
+        <div id="father-area" class="absolute top-0 h-[95vh] w-full border-4 border-orange-500"></div>
+        <div id="mother-area" class="absolute bottom-0 h-[95vh] w-full border-4 border-orange-500"></div>
         
-        <div class="sticky top-[5%] left-0 grid grid-cols-2 w-full h-[87vh]">
+        <div class="
+            sticky 
+            top-[5%] 
+            left-0 
+            grid 
+            w-full 
+
+            h-[70vh] 
+            grid-rows-3 
+            grid-cols-1 
+            
+            md:grid-rows-1 
+            md:grid-cols-2 
+            md:h-[87vh]
+            ">
+            
+            <div class="top-text-mobile max-w-lg text-xs text-center md:text-2xl md:hidden flex flex-col justify-end">
+                <p>
+                    Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
+                </p>
+            </div>
+
             <div class="flex items-center justify-center relative">
                 <img src={junostAssets.father.src} alt={junostAssets.father.alt} id="father-img" class="absolute top-[2%] left-0 w-full h-full object-contain opacity-0" />
                 <img src={junostAssets.mother.src} alt={junostAssets.mother.alt} id="mother-img" class="absolute top-[2%] left-0 w-full h-full object-contain opacity-0" />
             </div>
     
-            <div class="flex flex-col justify-center items-end text-right">
-                <div class="top-text max-w-lg text-2xl">
+            <div class="flex flex-col justify-center items-end text-center md:text-right">
+                <div class="top-text max-w-lg text-xs md:text-2xl hidden md:block">
                     <p>
                         Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и государственности, а ряд исторических событий XIX века являлись для него частью семейной хроники.
                     </p>
                 </div>
-                <div class="bottom-text max-w-lg text-lg relative w-full h-[50%] overflow-x-clip">
+                <div class="bottom-text max-w-lg text-xs md:text-lg relative w-full h-[50%] overflow-x-clip">
                     <p id="father-text" class="absolute bottom-0 left-0 w-full opacity-0">
                         Отец Алексея Сергеевича, Сергей Семенович Уваров (1786–1855) – выдающийся государственный деятель, президент Петербургской Академии наук (1818–1855), министр народного просвещения (1833–1849), с именем которого связано становление в России системы общественного образования.
                     </p>
@@ -106,13 +127,13 @@ const portraits = junostAssets.libraryPortraits;
 
     <!-- Graf -->
     <Section id="graf">
-            <div class="grid grid-cols-2 w-full">
+            <div class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 w-full">
                 <div id="graf-image" class="flex flex-col items-center justify-center relative">
                     <img src={junostAssets.graf.src} alt={junostAssets.graf.alt}/>
                     <InfoOverlay contentType="image" images={graf} overlayId="graf" iconPosition="absolute bottom-[1vh]"/>
                 </div>
 
-                <div class="flex flex-col justify-between items-end text-right">
+                <div class="flex flex-col justify-between items-center md:items-end text-center md:text-right">
                     <p class="max-w-lg text-2xl">
                         <span class="italic">
                           «За особливые заслуги и высокие достоинства»
