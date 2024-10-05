@@ -50,7 +50,7 @@ const museumHalls = museumAssets.hallsSlider;
         ">
         <Section id="museum" sectionSize="w-full h-[80vh] md:h-[140vh]" sectionFlex="flex flex-col justify-start items-end" contentHeight="h-auto">
             <div class="flex flex-col justify-start items-end">
-                <p class="text-center md:text-left text-base 2xl:text-xl max-w-xl 2xl:max-w-3xl leading-normal mt-[10vh] md:mt-[20vh]">
+                <p class="text-center md:text-left text-sm 2xl:text-xl max-w-xl 2xl:max-w-3xl leading-normal mt-[10vh] md:mt-[20vh]">
                     Программа Общества, ориентированная на изучение преимущественно русской археологии, популяризацию археологических и исторических знаний, ставила целью пробудить интерес к прошлому России и отечественным древностям.
                 </p>
             </div>
@@ -156,6 +156,8 @@ const museumHalls = museumAssets.hallsSlider;
     <div 
     id="museum-grid-bg-mobile" 
     class="
+        md:hidden
+
         relative 
         top-0 
         left-0 
@@ -166,13 +168,11 @@ const museumHalls = museumAssets.hallsSlider;
         bg-contain 
         bg-no-repeat
         bg-center
-
-        h-[120vh]
-
-        md:h-[150vh]
+        
+        h-[150vh]
     "
     >
-        <Section id="museum-grid-mobile" sectionSize="w-full h-[120vh] md:h-[150vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-full" contentHeight="h-[120vh] md:h-[150vh]">
+        <Section id="museum-grid-mobile" sectionSize="md:hidden w-full h-[150vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-full" contentHeight="h-[150vh]">
             <div class="flex flex-col justify-between w-full h-full text-center text-sm 2xl:text-xl py-[5vh] px-[4%] md:px-[2%] 2xl:px-[8%]">
                     <p id="museum-grid-left">
                         В обязанности А.С. Уварова входило: наблюдение за строительством, за работами по оформлению интерьеров, создание экспозиции. В 1881 году Уваров предложил программу комплектования фондов музея археологическими памятниками. В готовящихся к открытию музея залах, в соответствии с его концепцией, предполагалось представить древнейший период истории Российского государства – от каменного века до Киевской Руси.
@@ -186,12 +186,24 @@ const museumHalls = museumAssets.hallsSlider;
 
     <!-- Ustav -->
     <Section id="ustav">
-        <div class="grid grid-cols-2 w-full">
-            <div id="ustav-image" class="flex flex-col items-center justify-center">
-                <img src={museumAssets.ustav.src} alt={museumAssets.ustav.alt} class="max-w-[75%]"/>
+        <div class="
+        grid 
+        w-full
+        mx-auto
+        
+        h-full
+        grid-cols-1
+        grid-rows-2 
+
+        md:h-auto
+        md:grid-rows-1 
+        md:grid-cols-2 
+        ">
+            <div id="ustav-image" class="flex flex-col items-center justify-center order-2 md:order-1">
+                <img src={museumAssets.ustav.src} alt={museumAssets.ustav.alt} class="md:max-w-[75%]"/>
             </div>
-            <div class="flex flex-col justify-center items-center">
-                <p class="max-w-sm text-2xl 2xl:text-4xl 2xl:max-w-xl leading-normal">
+            <div class="flex flex-col justify-center items-center order-1 md:order-2">
+                <p class="max-w-sm text-center md:text-left text-base md:text-2xl 2xl:text-4xl 2xl:max-w-xl leading-normal">
                     Уваров участвовал в разработке программы будущего музея и являлся автором первого Устава 1874 года.
                 </p>
             </div>
@@ -199,30 +211,26 @@ const museumHalls = museumAssets.hallsSlider;
     </Section>
 
     <!-- Ustav Text -->
-    <Section id="ustav-text" contentHeight="h-[75vh]">
-        <div class="grid grid-cols-2 w-full text-2xl 2xl:text-3xl leading-normal">
-            <div class="flex justify-center items-start">
-                <p class="max-w-md">
-                    Первая статья документа определила суть и смысл существования музея: 
-                    <br>
-                    <br>
-                    <span class="italic">«Учрежденный в Москве Музей… имеет целию служить наглядною историею главных эпох русского государства и содействовать распространению сведений по отечественной истории».</span>
-                </p>
-            </div>
-            <div class="flex justify-center items-start">
-                <p class="max-w-md">
-                    Вторая статья гласила:
-                    <br>
-                    <br>
-                    <span class="italic">«В Музее собираются все памятники знаменательных событий отечественной истории. Эти памятники, – в подлинниках, копиях или слепках, – расположенные в хронологической последовательности, должны представлять … полную картину каждой эпохи…». </span>
-                </p>
-            </div>
+    <Section id="ustav-text" contentHeight="md:h-[75vh]" sectionFlex="flex flex-col items-center justify-center md:justify-end">
+        <div class="flex flex-col md:flex-row justify-between md:justify-center md:gap-x-[20vh] w-full text-base md:text-2xl 2xl:text-3xl leading-normal">
+            <p class="max-w-md">
+                Первая статья документа определила суть и смысл существования музея: 
+                <br>
+                <br>
+                <span class="italic">«Учрежденный в Москве Музей… имеет целию служить наглядною историею главных эпох русского государства и содействовать распространению сведений по отечественной истории».</span>
+            </p>
+            <p class="max-w-md">
+                Вторая статья гласила:
+                <br>
+                <br>
+                <span class="italic">«В Музее собираются все памятники знаменательных событий отечественной истории. Эти памятники, – в подлинниках, копиях или слепках, – расположенные в хронологической последовательности, должны представлять … полную картину каждой эпохи…». </span>
+            </p>
         </div>
     </Section>
 
     <!-- Uvarov Resigned -->
     <Section id="resigned" contentHeight="h-auto" sectionSize="w-full h-[80vh] 2xl:h-[60vh]" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center text-4xl leading-normal px-[5%] gap-y-[10vh] 4xl:gap-y-[5vh]">
+        <div class="flex flex-col justify-center text-lg md:text-4xl leading-normal px-[5%] gap-y-[10vh] 4xl:gap-y-[5vh]">
             <p>
                 В 1878 году в связи с обострением существовавших разногласий среди устроителей по ряду принципиальных вопросов деятельности музея, Уваров ушел в отставку.
             </p>
@@ -232,16 +240,18 @@ const museumHalls = museumAssets.hallsSlider;
     <!-- Museum Building Slider -->
     <Section id="museum-building-slider" contentHeight="h-[75vh]" sectionSize="w-full h-screen" sectionFlex="flex flex-col justify-center">
         <div class="w-full flex flex-col items-center justify-between h-full">
-            <p class="max-w-[1250px] text-xl 2xl:text-3xl leading-normal px-[7%]">
+            <p class="text-base md:text-xl 2xl:text-3xl leading-normal px-[7%] text-center md:text-left">
                 В 1881 году император Александр III назначил графа Уварова Товарищем председателя музея (при Почетном председателе великом князе Сергее Александровиче), поручая ему открыть музей к коронационным торжествам 1883 года и составить проект нового Устава музея.
             </p>
-            <div x-data="{ init() {
+            <div 
+                class="w-full"
+                x-data="{ init() {
                     new Splide(this.$refs.splide, {
                         perPage: 3,
                         perMove: 1,
                         pagination: false,
                         breakpoints: {
-                            640: {
+                            768: {
                                 perPage: 1,
                             },
                         },
@@ -255,7 +265,7 @@ const museumHalls = museumAssets.hallsSlider;
                     style="padding-left: 4rem; padding-right: 4rem;"
                     >
                     
-                    <div class="splide__arrows">
+                    <div class="hidden md:block splide__arrows">
                         <button class="splide__arrow splide__arrow--prev">
                             <img src={common.prevArrow.src} alt={common.prevArrow.alt}>
                         </button>
@@ -264,11 +274,20 @@ const museumHalls = museumAssets.hallsSlider;
                         </button>
                     </div>
 
+                    <div class="md:hidden splide__arrows">
+                        <button class="splide__arrow splide__arrow--prev">
+                            ←
+                        </button>
+                        <button class="splide__arrow splide__arrow--next">
+                            →
+                        </button>
+                    </div>
+
                     <div class="splide__track">
                         <ul class="splide__list">
                             {museumAssets.buildingSlider.map((buildingItem) => (
                                 <li class="splide__slide flex flex-col justify-center items-center">
-                                    <div class="max-w-[70%]">
+                                    <div class="md:max-w-[70%]">
                                         <img
                                             alt={buildingItem.alt}
                                             src={buildingItem.src}
@@ -287,11 +306,9 @@ const museumHalls = museumAssets.hallsSlider;
 
     <!-- Alex III -->
     <Section id="alex-iii" contentHeight="h-auto" sectionSize="w-full h-[80vh] 2xl:h-[60vh]" sectionFlex="flex flex-col justify-center"> 
-        <div class="flex flex-col justify-center text-3xl 2xl:text-4xl leading-normal px-[5%] gap-y-[10vh] 4xl:gap-y-[5vh]">
-            <p>
-                27 мая 1883 года Российский Исторический музей принял почетных гостей – императора Александра III, императрицу Марию Фёдоровну, сопровождавшего их великого князя Сергея Александровича. 2 июня 1883 года, после водосвятного молебна музей, открыли для посещений.
-            </p>
-        </div>
+        <p class="text-base md:text-3xl 2xl:text-4xl leading-normal px-[5%]">
+            27 мая 1883 года Российский Исторический музей принял почетных гостей – императора Александра III, императрицу Марию Фёдоровну, сопровождавшего их великого князя Сергея Александровича. 2 июня 1883 года, после водосвятного молебна музей, открыли для посещений.
+        </p>
     </Section>
 
     <!-- Museum Photo -->
@@ -302,21 +319,26 @@ const museumHalls = museumAssets.hallsSlider;
         top-0 
         left-0 
         w-full
-        h-[300vh]
+
 
         bg-[url('../data/biography/_images/museum/gim-photo.png')]
-        bg-cover
         bg-no-repeat
         bg-center
+
+        h-screen
+        bg-contain
+
+        md:bg-cover
+        md:h-[300vh]
 
         transition-opacity 
         duration-1000 
         opacity-0 
     "
     >
-        <Section id="museum-photo" sectionSize="w-full h-[300vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-[50%] 2xl:w-[60%]" contentHeight="h-auto">
+        <Section id="museum-photo" sectionSize="w-full h-screen md:h-[300vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-[75%] md:w-[50%] 2xl:w-[60%]" contentHeight="h-auto">
             <div class="flex flex-fol justify-center items-center">
-                <p class="max-w-xl 2xl:max-w-2xl text-center text-2xl 2xl:text-3xl text-white">
+                <p class="max-w-xl 2xl:max-w-2xl text-center text-sm md:text-2xl 2xl:text-3xl text-white">
                     Организация и деятельность МАО, создание Исторического музея позволяют утверждать, что благодаря А.С. Уварову в Москве сформировался второй, после Петербурга, археологический центр России.
                 </p>
             </div>
@@ -326,16 +348,18 @@ const museumHalls = museumAssets.hallsSlider;
     <!-- Museum Halls Slider -->
     <Section id="museum-halls-slider" contentHeight="h-[65vh]" sectionSize="w-full h-screen" sectionFlex="flex flex-col justify-center">
         <div class="w-full flex flex-col items-center justify-between h-full">
-            <p class="text-xl 2xl:text-3xl leading-normal">
+            <p class="text-lg md:text-xl 2xl:text-3xl leading-normal text-center md:text-left px-[5%] md:px-0">
                 За устройство Исторического музея А.С. Уварову был пожалован орден св. Анны I степени.
             </p>
-            <div x-data="{ init() {
+            <div 
+                class="w-full"
+                x-data="{ init() {
                     new Splide(this.$refs.splide, {
                         perPage: 3,
                         perMove: 1,
                         pagination: false,
                         breakpoints: {
-                            640: {
+                            768: {
                                 perPage: 1,
                             },
                         },
@@ -349,7 +373,7 @@ const museumHalls = museumAssets.hallsSlider;
                     style="padding-left: 4rem; padding-right: 4rem;"
                     >
                     
-                    <div class="splide__arrows">
+                    <div class="hidden md:block splide__arrows">
                         <button class="splide__arrow splide__arrow--prev">
                             <img src={common.prevArrow.src} alt={common.prevArrow.alt}>
                         </button>
@@ -358,11 +382,20 @@ const museumHalls = museumAssets.hallsSlider;
                         </button>
                     </div>
 
+                    <div class="md:hidden splide__arrows">
+                        <button class="splide__arrow splide__arrow--prev">
+                            ←
+                        </button>
+                        <button class="splide__arrow splide__arrow--next">
+                            →
+                        </button>
+                    </div>
+
                     <div class="splide__track">
                         <ul class="splide__list">
                             {museumAssets.hallsSlider.map((hallItem) => (
                                 <li class="splide__slide flex flex-col justify-center items-center">
-                                    <div class="max-w-[70%]">
+                                    <div class="md:max-w-[70%]">
                                         <img
                                             alt={hallItem.alt}
                                             src={hallItem.src}
@@ -380,8 +413,8 @@ const museumHalls = museumAssets.hallsSlider;
     </Section>
 
     <!-- Museum Text Conclusion -->
-    <Section id="museum-text-conclusion" contentHeight="h-[100vh] mb-[10vh]" sectionSize="w-full h-[130vh]">
-        <div class="flex flex-col justify-between text-xl 2xl:text-3xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
+    <Section id="museum-text-conclusion" contentHeight="h-screen mb-[10vh]" sectionSize="w-full h-[130vh]">
+        <div class="flex flex-col justify-between text-sm md:text-xl 2xl:text-3xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
             <p>
                 Но граф считал необходимым совершенствовать и развивать его деятельность. Существующая служба по охране памятников не справлялась с огромным масштабом работ, и эту обязанность А.С. Уваров предложил передать Историческому музею.
             </p>
