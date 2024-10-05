@@ -36,16 +36,21 @@ const museumHalls = museumAssets.hallsSlider;
         top-0 
         left-0 
         w-full 
-        h-[140vh]
         
         bg-[url('../data/biography/_images/museum/gim.png')]
-        bg-center
-        bg-cover
         bg-no-repeat 
+
+        h-[60vh]
+        bg-bottom
+        bg-contain
+
+        md:bg-cover
+        md:bg-center
+        md:h-[140vh]
         ">
-        <Section id="museum" sectionSize="w-full h-[140vh]" sectionFlex="flex flex-col justify-start items-end" contentHeight="h-auto">
+        <Section id="museum" sectionSize="w-full h-[80vh] md:h-[140vh]" sectionFlex="flex flex-col justify-start items-end" contentHeight="h-auto">
             <div class="flex flex-col justify-start items-end">
-                <p class="text-left text-md 2xl:text-xl max-w-xl 2xl:max-w-3xl leading-normal mt-[20vh]">
+                <p class="text-center md:text-left text-base 2xl:text-xl max-w-xl 2xl:max-w-3xl leading-normal mt-[10vh] md:mt-[20vh]">
                     Программа Общества, ориентированная на изучение преимущественно русской археологии, популяризацию археологических и исторических знаний, ставила целью пробудить интерес к прошлому России и отечественным древностям.
                 </p>
             </div>
@@ -53,8 +58,8 @@ const museumHalls = museumAssets.hallsSlider;
     </div>
 
     <!-- Museum Text -->
-    <Section id="museum-text" contentHeight="h-auto" sectionSize="w-full h-[80vh] 2xl:h-[60vh]" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center items-start text-xl 2xl:text-3xl leading-normal px-[5%] gap-y-[10vh] 4xl:gap-y-[5vh]">
+    <Section id="museum-text" contentHeight="h-auto" sectionSize="w-full h-screen md:h-[80vh] 2xl:h-[60vh]" sectionFlex="flex flex-col justify-center">
+        <div class="flex flex-col justify-center items-start text-base md:text-xl 2xl:text-3xl leading-normal px-[5%] gap-y-[10vh] 4xl:gap-y-[5vh]">
             <p>
                 В 1873 году было образовано Управление музеем, Уваров назначен товарищем председателя Управления. Ему предстояло решать вопросы, касающиеся научной деятельности музея.
             </p>
@@ -64,10 +69,13 @@ const museumHalls = museumAssets.hallsSlider;
         </div>
     </Section>
 
-    <!-- Museum Grid -->
+    <!-- Museum Grid Desktop -->
     <div 
     id="museum-grid-bg" 
     class="
+        hidden
+        md:block
+        
         relative 
         top-0 
         left-0 
@@ -84,7 +92,7 @@ const museumHalls = museumAssets.hallsSlider;
         opacity-0 
     "
     >
-        <Section id="museum-grid" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-full" contentHeight="h-[150vh]">
+        <Section id="museum-grid" sectionSize="hidden md:block w-full h-[150vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-full" contentHeight="h-[150vh]">
             <div class="absolute inset-0 m-auto h-full w-[20%] mx-auto flex flex-col justify-start">
                 <!--
                 <div id="sources-area" class="h-[7%]">
@@ -140,6 +148,38 @@ const museumHalls = museumAssets.hallsSlider;
                     </p> -->
                 </div>
     
+            </div>
+        </Section>
+    </div>
+
+    <!-- Museum Grid Mobile -->
+    <div 
+    id="museum-grid-bg-mobile" 
+    class="
+        relative 
+        top-0 
+        left-0 
+        w-full
+
+
+        bg-[url('../data/biography/_images/museum/gim-bg.png')]
+        bg-contain 
+        bg-no-repeat
+        bg-center
+
+        h-[120vh]
+
+        md:h-[150vh]
+    "
+    >
+        <Section id="museum-grid-mobile" sectionSize="w-full h-[120vh] md:h-[150vh]" sectionFlex="flex flex-col items-center justify-center" contentWidth="w-full" contentHeight="h-[120vh] md:h-[150vh]">
+            <div class="flex flex-col justify-between w-full h-full text-center text-sm 2xl:text-xl py-[5vh] px-[4%] md:px-[2%] 2xl:px-[8%]">
+                    <p id="museum-grid-left">
+                        В обязанности А.С. Уварова входило: наблюдение за строительством, за работами по оформлению интерьеров, создание экспозиции. В 1881 году Уваров предложил программу комплектования фондов музея археологическими памятниками. В готовящихся к открытию музея залах, в соответствии с его концепцией, предполагалось представить древнейший период истории Российского государства – от каменного века до Киевской Руси.
+                    </p>
+                    <p id="museum-grid-right">
+                        Источниками комплектования фонда археологических памятников явились университеты, археологические общества, музеи и частные лица, которые принесли свои коллекции в дар музею. Сам Уваров подарил музею две коллекции каменных орудий из Волосова и Карачарова и коллекцию кавказской бронзы, с которой начался учет фондов Исторического музея. По инициативе графа снаряжаются экспедиции в Гнездово, на Дон, Кубань и Кавказ. А одной из первых закупок музея в 1883 году стала коллекция античных памятников П.О. Бурачкова, состоящая из 1430 предметов.
+                    </p>
             </div>
         </Section>
     </div>
