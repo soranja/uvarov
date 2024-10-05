@@ -21,18 +21,18 @@ const maoChairs = [activitiesAssets.maoChairs]
     <HeaderWrapper />
 
     <!-- Moscow -->
-    <Section id="moscow" contentHeight="h-[120vh]" contentWidth="w-full" sectionSize="w-full h-[120vh]" sectionFlex="flex flex-col justify-start items-center">
+    <Section id="moscow" contentHeight="md:h-[120vh]" contentWidth="w-full" sectionSize="w-full h-[120vh]" sectionFlex="flex flex-col justify-center md:justify-start items-center">
         <div class="flex flex-col justify-between items-center h-full w-full">
-            <p class="max-w-xl text-right text-xl 2xl:text-3xl leading-normal self-end mt-[15vh] mr-[10vh] 2xl:mt-[20vh]">
+            <p class="max-w-xl text-center md:text-right text-xl 2xl:text-3xl leading-normal self-end mt-[15vh] md:mr-[10vh] 2xl:mt-[20vh] px-[2vh] md:px-0">
                 Смерть Л. А. Перовского в 1856 году заставила его покинуть Петербург и с 1857 года и до конца дней все планы и начинания он связал с Москвой.
             </p>
-            <div id="moscow-bg" class="relative top-0 left-0 w-full h-[90vh] bg-[url('../data/biography/_images/activities/kremlin.png')] bg-center bg-cover bg-no-repeat"></div>
+            <div id="moscow-bg" class="relative top-0 left-0 w-full h-[50vh] md:h-[90vh] bg-[url('../data/biography/_images/activities/kremlin.png')] bg-center bg-cover bg-no-repeat"></div>
         </div>
     </Section>
 
     <!-- MAO Text 1 -->
     <Section id="mao-text-1" contentHeight="h-auto" sectionSize="w-full h-[90vh] 2xl:h-[60vh]" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-center text-2xl 2xl:text-4xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
+        <div class="flex flex-col justify-center text-lg md:text-2xl 2xl:text-4xl leading-normal gap-y-[10vh] 4xl:gap-y-[5vh]">
             <p>
                 Свой замысел о создании Московского Археологического общества (МАО) Уваров обнародовал 17 февраля 1864 года.
             </p>
@@ -50,25 +50,28 @@ const maoChairs = [activitiesAssets.maoChairs]
         top-0 
         left-0 
         w-full
-        h-[150vh]
 
         bg-[url('../data/biography/_images/activities/mao.png')]
         bg-cover 
         bg-no-repeat
         bg-center
 
+        h-[70vh]
+
+        md:h-[150vh]
+
         transition-opacity 
         duration-1000 
         opacity-0 
     "
     >
-        <Section id="mao-image-1" sectionSize="w-full h-[150vh]" contentWidth="w-full" contentHeight="h-[150vh]">
+        <Section id="mao-image-1" sectionSize="w-full h-[70vh] md:h-[150vh]" contentWidth="w-full" contentHeight="h-[70vh] md:h-[150vh]">
         </Section>
     </div>
 
     <!-- MAO Text 2 -->
-    <Section id="mao-text-2" contentHeight="h-auto" sectionSize="w-full h-[80vh] 2xl:h-[50vh]" sectionFlex="flex flex-col justify-center">
-        <p class="text-3xl 2xl:text-5xl leading-normal px-[5%]">
+    <Section id="mao-text-2" contentHeight="h-auto" sectionSize="w-full h-[60vh] md:h-[80vh] 2xl:h-[50vh]" sectionFlex="flex flex-col justify-center">
+        <p class="text-lg md:text-3xl 2xl:text-5xl leading-normal px-[5%]">
             Уваров стремился привлечь в МАО всех интересующихся русской историей. Образование и сословная принадлежность не имели здесь решающего значения.
         </p>
     </Section>
@@ -81,21 +84,24 @@ const maoChairs = [activitiesAssets.maoChairs]
         top-0 
         left-0 
         w-full
-        h-[120vh]
 
         bg-[url('../data/biography/_images/activities/mao-bg.png')]
         bg-cover 
         bg-no-repeat
         bg-center
 
+        h-[70vh]
+
+        md:h-[120vh]
+
         transition-opacity 
         duration-1000 
         opacity-0 
     "
     >
-        <Section id="mao-image-2" sectionSize="w-full h-[120vh]" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
+        <Section id="mao-image-2" sectionSize="w-full h-[70vh] md:h-[120vh]" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
             <div class="h-full flex flex-col justify-center">
-                <p class="text-4xl max-w-6xl 2xl:max-w-full leading-normal px-[5%]">
+                <p class="text-lg md:text-4xl max-w-6xl 2xl:max-w-full leading-normal px-[5%]">
                     Программа нового Общества, организационные принципы его деятельности привлекли к участию в нем профессоров Московского университета, литераторов, архитекторов, художников: среди них – Ф. И. Буслаев, С. М. Соловьев, И. Е. Забелин, М. П. Погодин, Л. В. Даль.
                 </p>
             </div>
@@ -111,32 +117,38 @@ const maoChairs = [activitiesAssets.maoChairs]
         top-0 
         left-0 
         w-full
-        h-[150vh]
 
-        bg-[url('../data/biography/_images/activities/uvarov-medal-portait.png')]
-        bg-cover 
         bg-no-repeat
-        bg-center
+
+        bg-contain 
+        bg-bottom
+        bg-[url('../data/biography/_images/activities/uvarov-medal-portait-vertical.png')]
+        h-[90vh]
+
+        md:bg-cover
+        md:bg-center
+        md:bg-[url('../data/biography/_images/activities/uvarov-medal-portait.png')]
+        md:h-[150vh]
 
         transition-opacity 
         duration-1000 
         opacity-0 
     "
     >
-        <Section id="uvarov-medal" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col justify-center" contentHeight="h-[110vh]">
-            <div class="max-w-[50%] h-full flex flex-col justify-between items-start">
-                <p class="text-xl 2xl:text-2xl leading-normal px-[5%]">
+        <Section id="uvarov-medal" sectionSize="w-full h-[90vh] md:h-[150vh]" sectionFlex="flex flex-col justify-center" contentHeight="h-full md:h-[110vh]">
+            <div class="md:max-w-[50%] h-full flex flex-col justify-between items-start pt-[3vh] md:pt-0">
+                <p class="text-lg md:text-xl 2xl:text-2xl leading-normal px-[5%] flex-grow md:flex-grow-0">
                     Поставив задачу поистине общенационального масштаба – обратить русское общество к своим истокам, Уваров не ограничил деятельность МАО лишь Москвой.
                 </p>
                 <img src={activitiesAssets.uvarovMedal.src} alt={activitiesAssets.uvarovMedal.alt} class="max-w-[45%]"/>
-                <img src={activitiesAssets.uvarovMedalBack.src} alt={activitiesAssets.uvarovMedalBack.alt} class="max-w-[35%] self-center"/>
+                <img src={activitiesAssets.uvarovMedalBack.src} alt={activitiesAssets.uvarovMedalBack.alt} class="max-w-[45%] md:max-w-[35%] self-end md:self-center"/>
             </div>
         </Section>
     </div>
 
     <!-- MAO Text 3 -->
     <Section id="mao-text-3" >
-        <div class="flex flex-col justify-center items-start text-xl 2xl:text-2xl leading-normal px-[2%] gap-y-[8vh] 4xl:gap-y-[3vh]">
+        <div class="flex flex-col justify-center items-start text-sm md:text-xl 2xl:text-2xl leading-normal px-[2%] gap-y-[8vh] 4xl:gap-y-[3vh]">
             <p>
                 С 1869 года по его инициативе начинают собираться всероссийские археологические съезды в различных городах России – Москве, Петербурге, Киеве, Казани, Тифлисе, Одессе. Съездам предшествовало всестороннее изучение памятников истории и культуры тех регионов, где они проводились. На съездах обсуждались вопросы изучения и охраны памятников, состояние архивного дела, анализировалось положение с изучением древностей данного региона. В рамках дискуссий регулярно подчеркивалась необходимость преподавания археологии в российских университетах.
             </p>
@@ -157,21 +169,25 @@ const maoChairs = [activitiesAssets.maoChairs]
         top-0 
         left-0 
         w-full
-        h-[150vh]
 
         bg-[url('../data/biography/_images/activities/princes-lection.png')]
         bg-cover 
         bg-no-repeat
-        bg-center
+
+        bg-left
+        h-[55vh]
+
+        md:bg-center
+        md:h-[150vh]
 
         transition-opacity 
         duration-1000 
         opacity-0 
     "
     >
-        <Section id="princes" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col justify-center" contentWidth="w-full" contentHeight="h-[150vh]">
-            <div class="flex items-center justify-end h-full mr-[5vh]">
-                <img src={activitiesAssets.lection.src} alt={activitiesAssets.lection.alt}>
+        <Section id="princes" sectionSize="w-full h-[55vh] md:h-[150vh]" sectionFlex="flex flex-col md:justify-center" contentWidth="w-full" contentHeight="h-[55vh] md:h-[150vh]">
+            <div class="flex items-end md:items-center justify-center md:justify-end h-[80%] md:h-full md:mr-[5vh] overflow-hidden">
+                <img src={activitiesAssets.lection.src} alt={activitiesAssets.lection.alt} class="max-h-[90%] md:max-h-full relative top-[18vh]">
             </div>
             <InfoOverlay contentType="slider" images={princes} isIconInverted={true} overlayId="princes" iconPosition="absolute bottom-[5vh] left-1/2"/>
         </Section>
@@ -179,7 +195,7 @@ const maoChairs = [activitiesAssets.maoChairs]
 
     <!-- Princes Text -->
     <Section id="princes-text" contentHeight="h-auto" sectionSize="h-[80vh] 2xl:h-[50vh]" sectionFlex="flex flex-col justify-center">
-        <div class="flex flex-col justify-between text-3xl 2xl:text-4xl leading-normal px-[7%] 2xl:px-[5px]">
+        <div class="flex flex-col justify-between text-base md:text-3xl 2xl:text-4xl leading-normal px-[7%] 2xl:px-[5px]">
             <p>
                 Будучи приближенным к Императорской чете и располагая их доверием, А. С. Уваров с середины 1870-х годов читал курс лекций по археологии и руководил образовательными археологическими экскурсиями великих князей Сергея и Павла Александровичей в Крым, Новгород и Псков.
             </p>
@@ -188,7 +204,7 @@ const maoChairs = [activitiesAssets.maoChairs]
 
     <!-- Video Uvarov and Cyprus -->
     <Section id="video-uvarov-cyprus" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
-        <div class="h-full flex flex-col justify-center items-center">
+        <div class="h-full flex flex-col justify-center items-center text-center md:text-left">
             <a href="https://mediashm.ru/?p=2525" class="pb-[3vh]">
                 <img src="https://mediashm.ru/wp-content/uploads/2024/03/a80646bf631e482f94fd8494d55357e0-1024x576.jpg"/>
             </a>
@@ -199,7 +215,7 @@ const maoChairs = [activitiesAssets.maoChairs]
 
     <!-- Video Uvarov and Russian Arts -->
     <Section id="video-uvarov-russian-arts" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
-        <div class="h-full flex flex-col justify-center items-center">
+        <div class="h-full flex flex-col justify-center items-center text-center md:text-left">
             <a href="https://mediashm.ru/?p=31461" class="pb-[3vh]">
                 <img src="https://mediashm.ru/wp-content/uploads/2024/05/c5d2b53587f34eeb91bd860a1acc6217.jpg"/>
             </a>
@@ -210,7 +226,7 @@ const maoChairs = [activitiesAssets.maoChairs]
 
     <!-- Video Uvarov and Fatian -->
     <Section id="video-uvarov-fatian" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
-        <div class="h-full flex flex-col justify-center items-center">
+        <div class="h-full flex flex-col justify-center items-center text-center md:text-left">
             <a href="https://mediashm.ru/?p=3799" class="pb-[3vh]">
                 <img src="https://mediashm.ru/wp-content/uploads/2024/03/472a1bf1df1548cfb5626e9e7f3778de-1024x576.jpg"/>
             </a>
