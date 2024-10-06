@@ -7,6 +7,7 @@ import ScrollArrow from "../../components/global/ScrollArrow.astro";
 import InfoOverlay from "../../components/global/InfoOverlay.astro";
 
 import { common, museumAssets } from "../../data/data";
+import { audios } from "../../data/data";
 
 const museumBuilding = museumAssets.buildingSlider;
 const museumHalls = museumAssets.hallsSlider;
@@ -309,6 +310,12 @@ const museumHalls = museumAssets.hallsSlider;
         <p class="text-base md:text-3xl 2xl:text-4xl leading-normal px-[5%]">
             27 мая 1883 года Российский Исторический музей принял почетных гостей – императора Александра III, императрицу Марию Фёдоровну, сопровождавшего их великого князя Сергея Александровича. 2 июня 1883 года, после водосвятного молебна музей, открыли для посещений.
         </p>
+        <div class="mt-10 w-full">
+            <audio controls class="w-full md:w-[50%] mx-auto">
+                <source src={audios.audio5} type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </Section>
 
     <!-- Museum Photo -->
@@ -341,6 +348,7 @@ const museumHalls = museumAssets.hallsSlider;
                 <p class="max-w-xl 2xl:max-w-2xl text-center text-sm md:text-2xl 2xl:text-3xl text-white">
                     Организация и деятельность МАО, создание Исторического музея позволяют утверждать, что благодаря А.С. Уварову в Москве сформировался второй, после Петербурга, археологический центр России.
                 </p>
+                
             </div>
         </Section>
     </div>

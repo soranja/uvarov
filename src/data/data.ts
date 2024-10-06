@@ -244,6 +244,18 @@ import uvarovPhotoEpilogue from "./biography/_images/epilogue/uvarov-photo-epilo
 import epilogueSeparator from "./biography/_images/epilogue/arrow-epilogue.svg";
 import fioLogo from "./biography/_images/epilogue/fio_logo.png";
 
+/* ==========
+
+    AUDIO
+
+  ========== */
+
+import audio_1 from "./biography/_audio/part_1.mp3";
+import audio_2 from "./biography/_audio/part_2.mp3";
+import audio_3 from "./biography/_audio/part_3.mp3";
+import audio_4 from "./biography/_audio/part_4.mp3";
+import audio_5 from "./biography/_audio/part_5.mp3";
+
 /* ============================================================
 
     EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS EXPORTS 
@@ -287,7 +299,8 @@ export const junostAssets = {
   uvarovYoung2Full: {
     src: uvarovYoung2Full.src,
     alt: "Уваров молодой - Портрет",
-    description: "Портрет графа Алексея Сергеевича Уварова в мундире студента Санкт-Петербургского университета 1843 г."
+    description:
+      "Портрет графа Алексея Сергеевича Уварова в мундире студента Санкт-Петербургского университета 1843 г.",
   },
   handwrite_2: { src: handwrite_2.src, alt: "Письмо 2" },
   handwrite2Full: { src: handwrite2Full.src, alt: "Письмо 2 полное" },
@@ -390,8 +403,14 @@ export const expeditionsAssets = {
   ],
 
   nordMapBg: { src: nordMapBg.src, alt: "Карта Севера" },
-  pozharskySketch: { src: pozharskySketch, alt: "Пожарский - Рисунок (Анимация)" },
-  pozharskySketchImg: { src: pozharskySketchImg.src, alt: "Пожарский - Рисунок" },
+  pozharskySketch: {
+    src: pozharskySketch,
+    alt: "Пожарский - Рисунок (Анимация)",
+  },
+  pozharskySketchImg: {
+    src: pozharskySketchImg.src,
+    alt: "Пожарский - Рисунок",
+  },
   researchCover: { src: researchCover.src, alt: "Путешествие на юг" },
   researchCoverFull: {
     src: researchCoverFull.src,
@@ -677,4 +696,12 @@ export const epilogueAssets = {
   uvarovTomb: { src: uvarovTomb.src, alt: "Гробница Уварова" },
   epilogueSeparator: { src: epilogueSeparator.src, alt: "Стрелка - Титры" },
   fioLogo: { src: fioLogo.src, alt: "ФИО - Лого" },
+};
+
+export const audios = {
+  audio1: audio_1,
+  audio2: audio_2,
+  audio3: audio_3,
+  audio4: audio_4,
+  audio5: audio_5,
 };

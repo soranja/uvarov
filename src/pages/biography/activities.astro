@@ -7,6 +7,7 @@ import ScrollArrow from "../../components/global/ScrollArrow.astro";
 import InfoOverlay from "../../components/global/InfoOverlay.astro";
 
 import { activitiesAssets } from "../../data/data";
+import { audios } from "../../data/data";
 
 const princes = [activitiesAssets.princesLection, activitiesAssets.lectionFull]
 const maoChairs = [activitiesAssets.maoChairs]
@@ -74,6 +75,12 @@ const maoChairs = [activitiesAssets.maoChairs]
         <p class="text-lg md:text-3xl 2xl:text-5xl leading-normal px-[5%]">
             Уваров стремился привлечь в МАО всех интересующихся русской историей. Образование и сословная принадлежность не имели здесь решающего значения.
         </p>
+        <div class="mt-10 w-full">
+            <audio controls class="w-full md:w-[50%] mx-auto">
+                <source src={audios.audio4} type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </Section>
 
     <!-- MAO Image 2 -->
