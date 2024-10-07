@@ -235,23 +235,39 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
     "
     >
         <Section id="porechye-view-3" sectionSize="w-full h-[150vh]" sectionFlex="flex flex-col justify-center" contentHeight="h-auto">
-            <div class="h-full flex flex-col justify-center items-center text-white gap-y-[5vh] pt-[10vh]">
-                <p class="text-lg md:text-4xl leading-normal max-w-5xl 2xl:max-w-[90%] 2xl:text-5xl 2xl:leading-normal">
+            <div class="h-full flex flex-col justify-center items-center text-white gap-y-[5vh] pt-[10vh] text-base md:text-3xl leading-normal max-w-5xl 2xl:max-w-[90%] 2xl:text-5xl 2xl:leading-normal">
+                <p>
                     В годы Великой Отечественной войны старинная усадьба была сильно разрушена. 
                 </p>
-                <p class="text-lg md:text-4xl leading-normal max-w-5xl 2xl:max-w-[90%] 2xl:text-5xl 2xl:leading-normal">
+                <p>
                     В 1970-е годы шли работы по ее реставрации по проекту архитектора-реставратора Н.П. Яворовской, заново открывшей уникальный памятник усадебной культуры.
+                </p>
+                <p>
+                    В настоящее время на территории усадьбы Поречье расположен ведомственный санаторий.
                 </p>
             </div>
         </Section>
     </div>
 
+    <!-- Next Chapter -->
+    <Section id="next-chapter" contentHeight="h-auto" sectionSize="h-[50vh]" sectionFlex="flex flex-col justify-center">
+        <div class="w-full text-center relative flex flex-col gap-y-[5vh] 4xl:gap-y-[2vh] text-3xl">
+            <p>следующая глава</p>
+            <ScrollArrow 
+                position="0" 
+                invert="invert" 
+                visible="opacity-100" 
+                size="w-auto"
+                animated={false}
+                redirectUrl="/biography/family"
+                />
+        </div>
+    </Section>
+
+
     <!-- Porechye History 8 -->
-    <Section id="porechye-history-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
+    <!-- <Section id="porechye-history-2" contentHeight="h-auto" sectionFlex="flex flex-col justify-center">
         <div class="flex flex-col justify-center gap-y-[5vh]"> 
-            <p class="text-lg md:text-4xl 2xl:text-6xl leading-normal 2xl:leading-normal px-[5%]">
-                В настоящее время на территории усадьбы Поречье расположен ведомственный санаторий Службы внешней разведки РФ.
-            </p>
             <div class="w-full text-center pt-[10vh] relative flex flex-col gap-y-[5vh] 4xl:gap-y-[2vh] text-3xl">
                 <p>следующая глава</p>
                 <ScrollArrow 
@@ -264,7 +280,7 @@ const interiors = [porechyeAssets.porechyeInterior1Full, porechyeAssets.porechye
                     />
             </div>
         </div>
-    </Section>
+    </Section> -->
 
 </BioWrapper>
 

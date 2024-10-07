@@ -153,9 +153,11 @@ import praskovyaFinal from "./biography/_images/praskovya/praskovya-final.png";
 import praskovyaLivingRoom from "./biography/_images/praskovya/praskovya-living-room.png";
 import praskovyaPortrait from "./biography/_images/praskovya/praskovya-portrait.png";
 import praskovyaRuins from "./biography/_images/praskovya/praskovya-ruins.png";
+import praskovyaRuinsOrig from "./biography/_images/praskovya/praskovya-ruins-orig.jpg";
 import praskovyaScientists1 from "./biography/_images/praskovya/praskovya-scientists-1.png";
 import praskovyaScientists2 from "./biography/_images/praskovya/praskovya-scientists-2.png";
 import praskovyaSerbia from "./biography/_images/praskovya/praskovya-serbia.png";
+import praskovyaSerbiaOrig from "./biography/_images/praskovya/praskovya-serbia-orig.jpg";
 import praskovyaUvarovPortrait from "./biography/_images/praskovya/praskovya-uvarov-portrait.png";
 import praskovyaWorking from "./biography/_images/praskovya/praskovya-working.png";
 
@@ -519,7 +521,7 @@ export const praskovyaAssets = {
   praskovyaFinal: { src: praskovyaFinal.src, alt: "Прасковья - концовка" },
   praskovyaLivingRoom: { src: praskovyaLivingRoom.src, alt: "Гостиная" },
   praskovyaPortrait: { src: praskovyaPortrait.src, alt: "Портрет Прасковьи" },
-  praskovyaRuins: { src: praskovyaRuins.src, alt: "Прасковья на раскопках" },
+  praskovyaRuins: { src: praskovyaRuins.src, srcOrig: praskovyaRuinsOrig.src, alt: "Прасковья на раскопках" },
   praskovyaScientists1: {
     src: praskovyaScientists1.src,
     alt: "Прасковья с учеными - 1",
@@ -530,6 +532,7 @@ export const praskovyaAssets = {
   },
   praskovyaSerbia: {
     src: praskovyaSerbia.src,
+    srcOrig: praskovyaSerbiaOrig.src,
     alt: "Посещение Сербии Прасковьей",
   },
   praskovyaUvarovPortrait: {
