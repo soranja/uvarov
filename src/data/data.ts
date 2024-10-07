@@ -521,7 +521,11 @@ export const praskovyaAssets = {
   praskovyaFinal: { src: praskovyaFinal.src, alt: "Прасковья - концовка" },
   praskovyaLivingRoom: { src: praskovyaLivingRoom.src, alt: "Гостиная" },
   praskovyaPortrait: { src: praskovyaPortrait.src, alt: "Портрет Прасковьи" },
-  praskovyaRuins: { src: praskovyaRuins.src, srcOrig: praskovyaRuinsOrig.src, alt: "Прасковья на раскопках" },
+  praskovyaRuins: {
+    src: praskovyaRuins.src,
+    srcOrig: praskovyaRuinsOrig.src,
+    alt: "Прасковья на раскопках",
+  },
   praskovyaScientists1: {
     src: praskovyaScientists1.src,
     alt: "Прасковья с учеными - 1",
@@ -546,7 +550,12 @@ export const activitiesAssets = {
   kremlin: { src: kremlin.src, alt: "Кремль" },
   mao: { src: mao.src, alt: "МАО" },
   maoChairs: { src: maoChairs.src, alt: "МАО - Зал" },
-  princesLection: { src: princesLection.src, alt: "Принцы на лекции" },
+  princesLection: {
+    src: princesLection.src,
+    alt: "Принцы на лекции",
+    description:
+      "Великий князь Павел Александрович и Великий князь Сергей Александрович",
+  },
   lection: { src: lection.src, alt: "Лекция" },
   lectionFull: { src: lectionFull.src, alt: "Полный текст лекции" },
   uvarovMedal: { src: uvarovMedal.src, alt: "Медаль Уварова" },
