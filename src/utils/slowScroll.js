@@ -7,27 +7,25 @@ let isScrolling = false;
 const sectionIds = ["intro-cover", "intro-hand", "intro-text", "intro-transition", "chapter-intro"];
 
 // SLOW SCROLL OBSERVER (JUNOST 4-5 SLIDES)
-const slowScrollObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      const id = entry.target.id;
+const slowScrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const id = entry.target.id;
 
-      if (entry.isIntersecting) {
-        scrollDelay = 2000;
-        scrollDuration = 500;
-        scrollDistance = window.innerHeight * 1.01;
-        console.log(`${id} is in view`);
-        console.log("delay:", scrollDelay);
-      } else {
-        scrollDelay = 0;
-        scrollDuration = 5;
-        scrollDistance = window.innerHeight * 0.15;
-        console.log(`${id} is not in view`);
-        console.log("delay:", scrollDelay);
-      }
-    });
-  }
-);
+    if (entry.isIntersecting) {
+      scrollDelay = 2000;
+      scrollDuration = 500;
+      scrollDistance = window.innerHeight * 1.01;
+      console.log(`${id} is in view`);
+      console.log("delay:", scrollDelay);
+    } else {
+      scrollDelay = 0;
+      scrollDuration = 5;
+      scrollDistance = window.innerHeight * 0.15;
+      console.log(`${id} is not in view`);
+      console.log("delay:", scrollDelay);
+    }
+  });
+});
 
 sectionIds.forEach((id) => {
   const section = document.getElementById(id);
@@ -87,14 +85,12 @@ window.addEventListener(
     if (!isInsideScrollable) {
       if (!isScrolling) {
         isScrolling = true;
-        let targetScrollY =
-          window.scrollY +
-          (event.deltaY > 0 ? scrollDistance : -scrollDistance);
+        let targetScrollY = window.scrollY + (event.deltaY > 0 ? scrollDistance : -scrollDistance);
         slowScroll(targetScrollY);
       }
     }
   },
-  { passive: false }
+  { passive: false },
 );
 
 window.addEventListener("keydown", (event) => {
@@ -113,8 +109,7 @@ window.addEventListener("keydown", (event) => {
     if (!isInsideScrollable && !isScrolling) {
       isScrolling = true;
       let targetScrollY =
-        window.scrollY +
-        (event.key === "ArrowDown" ? scrollDistance : -scrollDistance);
+        window.scrollY + (event.key === "ArrowDown" ? scrollDistance : -scrollDistance);
       slowScroll(targetScrollY);
     }
   }

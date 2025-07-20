@@ -1,169 +1,44 @@
 ---
-import BaseHead from '../components/global/BaseHead.astro';
-import ScrollArrow from '../components/global/ScrollArrow.astro';
-import Section from '../components/global/Section.astro';
-import Loading from '../components/global/Loading.astro';
-
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { intro } from "../data/data";
-
-interface Props {
-	nextPage: boolean;
-	title: string;
-};
-
-const { title = SITE_TITLE } = Astro.props;
-const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/global/Section.astro";
+import ScrollArrow from "../components/global/ScrollArrow.astro";
+import { intro } from "../data";
 ---
 
-<!doctype html>
-<html lang="ru">
-    <head>
-        <BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
-    </head>
+<Layout>
+  <div class="relative h-screen w-full">
+    <section id="intro-cover" class="section h-full w-full">
+      <div class="fixed-wrapper inset-0 h-full w-full md:fixed">
+        <video autoplay muted loop class="hidden h-full w-full object-cover md:block">
+          <source id="intro-cover-src" src={intro.intro.src} type="video/mp4" />
+        </video>
 
-    <body class="bg-black md:bg-[url('../data/common/_images/chapter-bg.png')] bg-cover bg-no-repeat bg-fixed">
+        <img
+          class="object-contain md:hidden"
+          src={intro.coverMobile.src}
+          alt={intro.coverMobile.alt}
+        />
+      </div>
+    </section>
+  </div>
 
-        <Loading />
-
-        <div class="relative w-full h-screen">
-            <section id="intro-cover" class="section w-full h-full">
-                <div class="fixed-wrapper md:fixed inset-0 w-full h-full">
-
-                    <video autoplay muted loop class="hidden md:block w-full h-full object-cover">
-                        <source id="intro-cover-src" src={intro.intro1440.src} type="video/mp4">
-                    </video>
-
-                    <img class="block md:hidden w-full h-full object-cover" src={intro.coverMobile.src} alt=src={intro.coverMobile.alt}>
-                </div>
-            </section>
-        </div>
-
-        <div class="hidden md:block relative w-full h-screen">
-            <section id="intro-hand" class="section w-full h-full">
-                <div class="fixed-wrapper fixed inset-0 w-full h-full">
-                    <video autoplay muted class="w-full h-full object-cover">
-                        <source id="intro-hand-src" src={intro.hand1440.src} type="video/mp4">
-                    </video>
-                </div>
-            </section>
-        </div>
-        
-        <Section id="intro-text" sectionClass='section relative w-full h-screen flex flex-col justify-center mb-[20vh]' fixedWrapperClass = "fixed-wrapper fixed inset-x-0 mx-auto" contentHeight='h-[70vh] 2xl:h-[60vh]' contentWidth='w-[90%]'>
-            <div class="
-            
-            text-white
-            flex
-            flex-col
-            justify-center
-            items-center
-            gap-y-16
-            3xl:gap-y-30
-            4xl:gap-y-80
-
-            text-base 2xl:text-2xl 4xl:text-4xl
-
-            px-[7%]
-            2xl:px-[5%]
-            3xl:px-[10%]
-            pt-[10vh]
-
-            ">
-              <p>
-                Алексей Сергеевич Уваров, граф, археолог, историк, почетный член Петербургской Академии наук, основатель, председатель Московского археологического общества и организатор Всероссийских археологических съездов, один из основателей Российского исторического музея.
-              </p>
-              
-              <p>
-                Он принадлежит к когорте ярчайших личностей, которыми так богата русская история XIX столетия. Уваров был прекрасно образован, щедро одарен способностями к наукам и обладал недюжинным талантом организатора. Происхождение, титул, родственные и дружеские связи позволяли ему быть вхожим в самые высокие сферы русского общества и использовать это на благо тому делу, которому он служил.
-              </p>
-              <ScrollArrow position="md:absolute mx-auto inset-x-0 bottom-0" visible="opacity-100" size='w-[75%] md:w-[4%]'/>
-            </div>
-        </Section>
-        
-        <Section id='intro-transition' sectionClass='section relative w-full h-[50vh] flex flex-col justify-center' fixedWrapperClass = "fixed-wrapper fixed inset-x-0 mx-auto" contentHeight='h-[50vh]' contentWidth='w-[90%]'>
-        </Section>
-    </body>
-</html>
-
-<!-- <script src="../utils/mobileSwitcher"></script> -->
-<script src="../utils/slowScroll"></script>
-<script>
-
-    // VIDEO UPDATE FOR 1440 / 1920
-    import { intro } from "../data/data";
-    let resizeTimeout: any;
-
-    function updateVideoSource() {
-        const introCoverVideo = document.querySelector('#intro-cover video') as HTMLVideoElement;
-        const introHandVideo = document.querySelector('#intro-hand video') as HTMLVideoElement;
-        const introHandSrc = document.getElementById('intro-hand-src') as HTMLSourceElement;
-        const introCoverSrc = document.getElementById('intro-cover-src') as HTMLSourceElement;
-
-        if (introCoverSrc && introHandSrc && introCoverVideo && introHandVideo) {
-            const newHandSrc = window.innerWidth > 1440 ? `${intro.hand1920.src}` : `${intro.hand1440.src}`;
-            const newCoverSrc = window.innerWidth > 1440 ? `${intro.intro1920.src}` : `${intro.intro1440.src}`;
-
-            if (introHandSrc.src !== newHandSrc) {
-                introHandSrc.src = newHandSrc;
-            }
-
-            if (introCoverSrc.src !== newCoverSrc) {
-                introCoverSrc.src = newCoverSrc;
-            }
-
-            introCoverVideo.load();
-            introHandVideo.load();
-        } else {
-            console.error("Video or source element not found");
-        }
-    }
-
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            updateVideoSource();
-        }, 200);
-    });
-
-    window.addEventListener('DOMContentLoaded', updateVideoSource);
-
-    // INTRO HAND OBSERVER
-    const introHand = document.getElementById('intro-hand') as HTMLElement;
-    const introHandVideo = document.querySelector('#intro-hand video') as HTMLVideoElement;
-
-    const handObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                introHandVideo.play();
-                introHandVideo.currentTime = 0;
-            } else {
-                introHandVideo.pause();
-                introHandVideo.currentTime = 0;
-            }
-        });
-    }, { threshold: 0.5 });
-
-    handObserver.observe(introHand);
-    const introCoverVideo = document.querySelector('#intro-cover video') as HTMLVideoElement;
-    introCoverVideo.play();
-
-    // REDIRECT AFTER SCROLL TO INTRO TEXT
-    const introTransition = document.getElementById('intro-transition') as HTMLElement;
-    const transitionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    window.location.href = '/biography/junost';
-                }, 500);
-            }
-        });
-    }, { threshold: 0.4 });
-
-    transitionObserver.observe(introTransition);
-
-    // // RESTART INTRO TO TOP
-    // window.onbeforeunload = function () {
-    //     window.scrollTo(0, 0);
-    // };
-
-</script>
+  <Section
+    id="intro-text"
+    sectionClass="section relative flex flex-col justify-center items-center"
+    fixedWrapperClass="fixed-wrapper fixed inset-x-0 mx-auto"
+    contentHeight="h-auto"
+    contentWidth="w-auto"
+  >
+    <div class="flex flex-col items-center justify-center">
+      <p
+        class="flex px-[15%] pb-[10vh] text-sm text-white md:max-w-lg md:px-0 lg:max-w-3xl 2xl:text-2xl 4xl:max-w-6xl 4xl:text-4xl"
+      >
+        Алексей Сергеевич Уваров, граф, археолог, историк, <br class="hidden md:block" /> почетный член
+        Петербургской Академии наук, основатель, <br class="hidden md:block" /> председатель Московского
+        археологического общества и организатор Всероссийских археологических съездов, один из основателей
+        Российского исторического музея.
+      </p>
+      <ScrollArrow position="" animated={false} redirectUrl="/demo/junost" size="w-full" />
+    </div>
+  </Section>
+</Layout>

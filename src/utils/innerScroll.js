@@ -15,7 +15,7 @@ scrollableElements.forEach((scrollable) => {
     const scrollAmount = event.deltaY > 0 ? 100 : -100;
     targetScrollPosition = Math.min(
       Math.max(targetScrollPosition + scrollAmount, 0),
-      imageElement.clientHeight - scrollable.clientHeight
+      imageElement.clientHeight - scrollable.clientHeight,
     );
 
     if (!isScrolling) {

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        body: "#203535",
+        body: "#111",
         junost: "#EBE9C2",
         expeditions: "#CCAD8A",
         family: "#CFD5D5",
@@ -16,18 +16,13 @@ export default {
       backgroundImage: {
         "chapter-bg": "url('../data/common/_images/chapter-bg.png')",
         "junost-bg": "url('../data/biography/_images/junost/junost-img.jpg')",
-        "expeditions-bg":
-          "url('../data/biography/_images/expeditions/expeditions-img.jpg')",
-        "porechye-bg":
-          "url('../data/biography/_images/porechye/porechye-img.jpg')",
-        "praskovya-bg":
-          "url('../data/biography/_images/praskovya/praskovya-img.jpg')",
+        "expeditions-bg": "url('../data/biography/_images/expeditions/expeditions-img.jpg')",
+        "porechye-bg": "url('../data/biography/_images/porechye/porechye-img.jpg')",
+        "praskovya-bg": "url('../data/biography/_images/praskovya/praskovya-img.jpg')",
         "family-bg": "url('../data/biography/_images/family/family-img.png')",
-        "activities-bg":
-          "url('../data/biography/_images/activities/activities-img.png')",
+        "activities-bg": "url('../data/biography/_images/activities/activities-img.png')",
         "museum-bg": "url('../data/biography/_images/museum/museum-img.jpg')",
-        "epilogue-bg":
-          "url('../data/biography/_images/epilogue/epilogue-img.jpg')",
+        "epilogue-bg": "url('../data/biography/_images/epilogue/epilogue-img.jpg')",
         "header-black": "url('../data/common/_images/header-black.svg')",
       },
       keyframes: {
@@ -76,8 +71,7 @@ export default {
         blur: "blur 2s linear",
         fadeIn: "fadeIn 1s ease-in-out forwards",
         fadeOut: "fadeOut 1s ease-in-out forwards",
-        fadeInBounce:
-          "fadeInBounce 1s ease-in-out forwards, bounce 1s infinite 1s",
+        fadeInBounce: "fadeInBounce 1s ease-in-out forwards, bounce 1s infinite 1s",
       },
       zIndex: {
         60: "60",

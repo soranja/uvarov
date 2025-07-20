@@ -1,0 +1,591 @@
+---
+import DemoWrapper from "../../components/demo/DemoWrapper.astro";
+import HeaderWrapper from "../../components/global/header/HeaderWrapper.astro";
+import Section from "../../components/global/Section.astro";
+import Chapter from "../../components/demo/Chapter.astro";
+import ScrollArrow from "../../components/global/ScrollArrow.astro";
+import InfoOverlay from "../../components/global/InfoOverlay.astro";
+
+import { common, expeditionsAssets } from "../../data";
+
+const research = expeditionsAssets.research;
+const cover = [expeditionsAssets.researchCoverFull];
+---
+
+<style>
+  .splide__arrow {
+    background: transparent;
+    width: auto;
+  }
+
+  #hersones-splide .splide__arrow {
+    background: transparent;
+    width: auto;
+    filter: invert(1);
+  }
+</style>
+
+<DemoWrapper>
+  <!-- Chapter Intro -->
+  <Chapter />
+
+  <!-- Header -->
+  <HeaderWrapper />
+
+  <!-- Archeology Text -->
+  <Section
+    id="archeology-text"
+    contentHeight="h-auto"
+    sectionSize="w-full h-[90vh]"
+    sectionFlex="flex flex-col justify-center"
+  >
+    <p
+      class="px-[5%] text-lg leading-relaxed md:text-4xl 2xl:px-[10%] 2xl:text-5xl 2xl:leading-normal"
+    >
+      Окончив университет со степенью кандидата в 1845 году, поступил на службу в Министерство
+      иностранных дел. По окончании университета, параллельно службе, Уваров увлекся археологией.
+    </p>
+  </Section>
+
+  <!-- Archeologists -->
+  <Section id="archeologists" contentHeight="h-full md:h-[87vh]">
+    <div class="flex h-full flex-col items-center justify-between text-center md:text-left">
+      <p class="text-base leading-normal md:text-lg 2xl:text-4xl">
+        В 1846 году, он, наряду с маститыми нумизматами И. А. Бартоломеем, Б. В. Кене, П. И.
+        Сабатье, вошел в число учредителей Петербургского Археолого-нумизматического общества
+        (впоследствии – Русское археологическое общество).
+      </p>
+
+      <div id="archeologists-image" class="md:hidden">
+        <img
+          src={expeditionsAssets.archaeologists.src}
+          alt={expeditionsAssets.archaeologists.alt}
+        />
+      </div>
+
+      <p class="relative bottom-[5vh] max-w-xl text-sm md:hidden">
+        Портрет членов-учредителей Петербургского Археологическо-нумизматического общества Фотограф
+        К. Даутендей Санкт-Петербург. 1850 г.
+        <br />
+        Стоят: И.А. Бартоломей, Б.В. Кёне, А.С. Уваров. Сидят: Я.Я. Рейхель, М.Д. Топчибашев.
+      </p>
+
+      <div class="hidden grid-cols-3 gap-x-8 md:grid">
+        <div class="col-span-1 flex flex-col items-end justify-end">
+          <p class="relative bottom-[5vh] max-w-2xl text-sm">
+            Портрет членов-учредителей Петербургского Археологическо-нумизматического общества
+            Фотограф К. Даутендей Санкт-Петербург. 1850 г.
+            <br />
+            Стоят: И.А. Бартоломей, Б.В. Кёне, А.С. Уваров. Сидят: Я.Я. Рейхель, М.Д. Топчибашев.
+          </p>
+        </div>
+        <div id="archeologists-image" class="col-span-2 flex justify-end">
+          <img
+            src={expeditionsAssets.archaeologists.src}
+            alt={expeditionsAssets.archaeologists.alt}
+            class="max-w-[65%]"
+          />
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Zabelin -->
+  <Section id="zabelin">
+    <div class="hidden w-full grid-cols-2 md:grid">
+      <div id="zabelin-image" class="flex items-start justify-start">
+        <img
+          src={expeditionsAssets.zabelin.src}
+          alt={expeditionsAssets.zabelin.alt}
+          class="max-w-[55%]"
+        />
+      </div>
+      <div class="flex flex-col items-end justify-between text-right">
+        <p class="max-w-xl text-xl">
+          Он предложил начать работу по составлению Русского археологического словаря и подготовил
+          для него ряд статей. В 1849 году Уваров назначил денежные вознаграждения за исследования в
+          области русских древностей, и среди награжденных авторов были И. Е. Забелин и Д. А.
+          Ровинский.
+        </p>
+        <p class="relative bottom-[5vh] max-w-sm text-sm">
+          Забелин Иван Егорович (с дагерротипа 1856 г.) Москва. 1900-е гг.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-between gap-y-[5vh] text-center md:hidden">
+      <p class="max-w-xl px-[2vh] text-base">
+        Он предложил начать работу по составлению Русского археологического словаря и подготовил для
+        него ряд статей. В 1849 году Уваров назначил денежные вознаграждения за исследования в
+        области русских древностей, и среди награжденных авторов были И. Е. Забелин и Д. А.
+        Ровинский.
+      </p>
+      <img
+        src={expeditionsAssets.zabelin.src}
+        alt={expeditionsAssets.zabelin.alt}
+        class="max-w-[80%]"
+      />
+      <p class="max-w-sm text-sm">
+        Забелин Иван Егорович (с дагерротипа 1856 г.) Москва. 1900-е гг.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Hersones Map BG -->
+  <div
+    id="hersones-bg"
+    class="fixed left-0 top-[10vh] h-screen w-full bg-[url('../../data/biography/_images/expeditions/hersones-bg.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"
+  >
+  </div>
+
+  <!-- Hersones Text -->
+  <Section
+    id="hersones-text"
+    contentHeight="h-auto"
+    sectionSize="w-full h-[90vh]"
+    sectionFlex="flex flex-col justify-center"
+  >
+    <p class="text-lg leading-normal md:text-4xl 2xl:text-5xl">
+      По решению специальной комиссии Общества, летом 1848 года Уваров совершил путешествие по Южным
+      землям России, обследуя наиболее важные в археологическом отношении местности.
+    </p>
+  </Section>
+
+  <!-- Hersones Image -->
+  <Section
+    id="hersones-image"
+    contentHeight="h-auto md:h-[87vh]"
+    sectionFlex="flex flex-col justify-center md:justify-end"
+    contentWidth="w-full md:w-[90%]"
+  >
+    <div class="flex flex-col items-center justify-center">
+      <img
+        src={expeditionsAssets.khersones[0].src}
+        alt={expeditionsAssets.khersones[0].alt}
+        class="md:max-w-[70%]"
+      />
+    </div>
+  </Section>
+
+  <!-- Hersones Wall -->
+  <div
+    id="hersones-wall-bg"
+    class="relative left-0 top-0 mx-auto max-h-screen max-w-full bg-[url('../../data/biography/_images/expeditions/hersones-wall-bg.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 md:max-h-[2048px]"
+  >
+    <Section
+      id="hersones-wall"
+      sectionSize="w-full h-screen md:h-[2048px]"
+      sectionFlex="flex flex-col justify-center"
+      contentHeight="h-[75vh] md:h-[1250px]"
+    >
+      <div
+        class="flex h-full flex-col items-center justify-between px-[5%] text-lg leading-normal text-white md:text-5xl 2xl:text-6xl 2xl:leading-relaxed"
+      >
+        <p>Он посетил Каменское городище, Херсон, Ольвию, Херсонес.</p>
+        <p>
+          Раскопки ученый не вел, все приобретенные им античные артефакты — либо «подъемный»
+          материал (фрагменты керамических стеклянных сосудов, лепная керамика, монеты), либо
+          покупки у местного населения.
+        </p>
+      </div>
+    </Section>
+  </div>
+
+  <!-- Research --- Trip to the South --- Cover -->
+  <Section id="research" contentWidth="w-[75%]" contentHeight="h-screen md:h-[87vh]">
+    <div class="grid h-full w-full grid-cols-1 grid-rows-2 md:grid-cols-3 md:grid-rows-1">
+      <div
+        id="research-image"
+        class="relative col-span-1 flex flex-col items-center justify-center"
+      >
+        <img
+          src={expeditionsAssets.researchCover.src}
+          alt={expeditionsAssets.researchCover.alt}
+          class="max-w-[65%] md:max-w-[75%]"
+        />
+        <InfoOverlay
+          contentType="image"
+          images={cover}
+          overlayId="research"
+          iconPosition="absolute -bottom-[1vh] md:bottom-[2vh]"
+        />
+      </div>
+      <div
+        class="col-span-2 flex flex-col items-end justify-end gap-y-[1vh] text-center text-2xl md:justify-center md:text-left 2xl:text-3xl"
+      >
+        <p class="max-w-md 2xl:max-w-xl">
+          Частично, эти предметы послужили источником при написании Уваровым первой части
+        </p>
+        <p class="max-w-md italic 2xl:max-w-xl">
+          «Исследования о древностях Южной России и берегов Чёрного моря».
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Research --- Trip to the South --- Slider -->
+  <Section
+    id="research-slider"
+    contentHeight="h-[80vh] md:h-[65vh]"
+    sectionSize="w-full h-screen"
+    sectionFlex="flex flex-col justify-center "
+  >
+    <div class="flex h-full w-full flex-col items-center justify-between">
+      <p class="text-center text-sm leading-normal md:text-left md:text-xl 2xl:text-3xl">
+        Собрание карт и рисунков к Исследованиям о древностях Южной России и берегов Черного моря.
+      </p>
+      <div
+        class="w-full"
+        x-data="{ init() {
+                            new Splide(this.$refs.splide, {
+                                perPage: 3,
+                                perMove: 1,
+                                pagination: false,
+                                breakpoints: {
+                                    768: {
+                                        perPage: 1,
+                                    },
+                                },
+                            }).mount();
+                        },
+                    }"
+      >
+        <section
+          class="splide"
+          aria-label="Trip to the South Slider"
+          x-ref="splide"
+          style="padding-left: 4rem; padding-right: 4rem;"
+        >
+          <div class="splide__arrows hidden md:block">
+            <button class="splide__arrow splide__arrow--prev">
+              <img src={common.prevArrow.src} alt={common.prevArrow.alt} />
+            </button>
+            <button class="splide__arrow splide__arrow--next">
+              <img src={common.nextArrow.src} alt={common.nextArrow.alt} />
+            </button>
+          </div>
+
+          <div class="splide__arrows md:hidden">
+            <button class="splide__arrow splide__arrow--prev"> ← </button>
+            <button class="splide__arrow splide__arrow--next"> → </button>
+          </div>
+
+          <div class="splide__track">
+            <ul class="splide__list">
+              {
+                expeditionsAssets.research.map((researchItem) => (
+                  <li class="splide__slide flex flex-col items-center justify-center">
+                    <div class="md:max-w-[60%]">
+                      <img
+                        alt={researchItem.alt}
+                        src={researchItem.src}
+                        class="bottom-0 h-full w-full object-contain"
+                      />
+                    </div>
+                    <div class="mt-6 flex-grow text-center">
+                      <h4 class="2xl:text-md text-xs font-semibold leading-snug">
+                        {researchItem.title}
+                      </h4>
+                    </div>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </section>
+      </div>
+      <InfoOverlay
+        contentType="slider"
+        images={research}
+        overlayId="research-slider"
+        iconPosition="md:absolute md:bottom-[2vh]"
+      />
+    </div>
+  </Section>
+
+  <!-- Nord Map BG -->
+  <div
+    id="nord-map-bg"
+    class="fixed left-0 top-0 h-screen w-full bg-[url('../../data/biography/_images/expeditions/nord-map-bg-50.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"
+  >
+  </div>
+
+  <!-- Nord Text -->
+  <Section
+    id="nord-text"
+    contentHeight="h-auto mb-[10vh]"
+    sectionSize="w-full h-[90vh]"
+    sectionFlex="flex flex-col justify-center md:justify-end"
+  >
+    <div
+      class="flex flex-col items-center justify-center gap-y-[10vh] text-base leading-normal md:text-2xl 2xl:text-4xl 4xl:gap-y-[5vh]"
+    >
+      <p>
+        В 1850 году молодой граф был переведен в Министерство внутренних дел, в 1853 году его
+        причислили к Кабинету Его Императорского Величества. Начиная с 1850 и до 1856 года, он
+        служил под началом двоюродного дяди Л. А. Перовского, который в 1852 году получил для своего
+        ведомства право контроля над археологическими изысканиями на территории России.
+      </p>
+      <p>
+        В 1851–1852 годах Уваров возглавил археологическую экспедицию в Суздальский уезд. Материалы,
+        полученные им в ходе работ, стали основным источником для исследования «Меряне и их быт по
+        курганным раскопкам».
+      </p>
+    </div>
+  </Section>
+
+  <!-- Nord Image -->
+  <Section
+    id="nord-image"
+    contentHeight="h-auto md:h-[87vh]"
+    sectionFlex="flex flex-col justify-center md:justify-end"
+  >
+    <div
+      class="flex flex-col items-center justify-center text-base leading-normal md:text-xl 2xl:text-4xl"
+    >
+      <p>
+        В 1851 году Уваров проводил раскопки и на территории суздальского Спасо-Евфимиева монастыря
+        в поисках точного места захоронения князя Дмитрия Михайловича Пожарского.
+      </p>
+      <img
+        src={expeditionsAssets.suzdal.src}
+        alt={expeditionsAssets.suzdal.alt}
+        class="max-w-[90%] 2xl:max-w-[100%]"
+      />
+    </div>
+  </Section>
+
+  <!-- Pozharsky -->
+  <Section
+    id="pozharsky"
+    contentHeight="md:h-[80vh]"
+    sectionFlex="flex flex-col justify-center md:justify-end"
+  >
+    <div class="hidden grid-cols-3 gap-x-8 md:grid">
+      <div class="col-span-2 flex flex-col items-start justify-start">
+        <p class="max-w-md text-2xl 2xl:max-w-xl 2xl:text-4xl">
+          Ему удалось обнаружить усыпальницу Пожарских и среди нескольких надгробий выявить то,
+          которое ранее было установлено над захоронением князя.
+        </p>
+      </div>
+      <div id="pozharsky-image" class="relative col-span-1 flex flex-col items-end justify-center">
+        <video class="max-w-[550px] 2xl:max-w-[650px]" autoplay loop muted>
+          <source src={expeditionsAssets.pozharskySketch.src} />
+        </video>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center gap-y-[5vh] md:hidden">
+      <p class="max-w-md text-center text-base md:text-left md:text-2xl 2xl:max-w-xl 2xl:text-4xl">
+        Ему удалось обнаружить усыпальницу Пожарских и среди нескольких надгробий выявить то,
+        которое ранее было установлено над захоронением князя.
+      </p>
+      <img
+        src={expeditionsAssets.pozharskySketchImg.src}
+        alt={expeditionsAssets.pozharskySketchImg.alt}
+      />
+    </div>
+  </Section>
+
+  <!-- Olvia -->
+  <div
+    id="olvia-bg"
+    class="relative left-0 top-0 h-[70vh] w-full bg-[url('../../data/biography/_images/expeditions/olvia-bg.png')] bg-cover bg-right bg-no-repeat opacity-0 transition-opacity duration-1000 md:h-[150vh] md:bg-center"
+  >
+    <Section
+      id="olvia"
+      sectionSize="w-full h-[70vh] md:h-[150vh]"
+      sectionFlex="flex flex-col justify-center"
+      contentWidth="w-full"
+      contentHeight="h-[70vh] md:h-[150vh]"
+    >
+      <div class="flex h-full flex-col justify-center text-center md:ml-[20vh] md:text-left">
+        <p class="h-[50vh] max-w-5xl text-lg leading-normal md:h-[80vh] md:text-4xl">
+          Позднее, в 1853–1854 годах Уваров возглавил экспедицию в Таврическую губернию, работал в
+          Ольвии, Неаполе Скифском, Херсонесе.
+        </p>
+      </div>
+    </Section>
+  </div>
+
+  <!-- Hersones Slider -->
+  <Section
+    id="hersones-slider"
+    contentHeight="md:h-[1024px] 2xl:h-[1536px]"
+    contentWidth="w-full"
+    sectionSize="w-full md:h-[1024px] 2xl:h-[1536px]"
+    extraClass="bg-[url('../../data/biography/_images/expeditions/kherson-bg.png')] bg-center bg-cover bg-no-repeat flex justify-end items-end"
+  >
+    <div class="mx-auto flex flex-col items-center justify-between">
+      <p
+        class="absolute top-1/4 flex-shrink-0 px-[3vh] text-center text-lg leading-normal md:px-0 md:text-left md:text-2xl 2xl:text-4xl"
+      >
+        В Херсонесе археолог обнаружил остатки храма VI века.
+      </p>
+      <div class="max-w-[100%] flex-grow">
+        <section id="hersones-splide" class="splide" aria-label="Hersones Slider">
+          <div class="splide__arrows">
+            <button class="splide__arrow splide__arrow--prev">
+              <img src={common.prevArrow.src} alt={common.prevArrow.alt} />
+            </button>
+            <button class="splide__arrow splide__arrow--next">
+              <img src={common.nextArrow.src} alt={common.nextArrow.alt} />
+            </button>
+          </div>
+
+          <div class="splide__track h-full">
+            <ul class="splide__list h-full">
+              {
+                expeditionsAssets.kherson.map((khersonItem) => (
+                  <li class="splide__slide flex h-full flex-col items-center justify-end">
+                    <div class="h-full w-full">
+                      <img
+                        alt={khersonItem.alt}
+                        src={khersonItem.src}
+                        class="mx-auto min-h-[70vh] object-contain object-bottom md:min-h-screen md:min-w-[70%] md:object-center 2xl:min-w-full"
+                      />
+                    </div>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Hersones Text Conclusion -->
+  <Section
+    id="hersones-text-conclusion"
+    contentHeight="h-auto"
+    sectionFlex="flex flex-col justify-center"
+  >
+    <div
+      class="flex flex-col justify-between gap-y-[10vh] px-[5%] text-base leading-normal md:text-2xl 2xl:text-4xl"
+    >
+      <p>
+        Там были найдены древнегреческие надгробия с надписями, обломки мраморных колонн,
+        пьедесталов, плит с высеченными крестами, мозаики.
+      </p>
+      <p>
+        Уже в XX веке, рядом с Уваровской базиликой – такое название получила церковь во имя Святых
+        Апостолов в научной литературе – был обнаружен баптистерий, в котором, предположительно,
+        принял крещение Великий князь Владимир.
+      </p>
+      <p>
+        Благодаря этим исследованиям, А. С. Уваров внес значительный вклад в изучение
+        археологических памятников юга России.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Video Uvarov and Caucasus Archeology -->
+  <Section
+    id="video-uvarov-caucasus"
+    sectionFlex="flex flex-col justify-center"
+    contentHeight="h-auto"
+  >
+    <div class="flex flex-col items-center justify-center text-center md:text-left">
+      <div class="relative aspect-video h-full w-full md:h-[50%] md:w-[50%]">
+        <iframe
+          class="h-full w-full"
+          src="https://mediashm.ru/?p=48062&emb=1"
+          width="560"
+          height="315"
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          allowfullscreen
+          scrolling="no"
+        >
+        </iframe>
+      </div>
+      <p class="mt-[2vh] px-[3vh] md:px-0">Граф Уваров и археология Кавказа</p>
+    </div>
+  </Section>
+
+  <!-- Video Uvarov and Vladimir Kurgans -->
+  <Section
+    id="video-uvarov-vladimir-kurgans"
+    sectionFlex="flex flex-col justify-center"
+    contentHeight="h-auto"
+  >
+    <div class="flex flex-col items-center justify-center text-center md:text-left">
+      <div class="relative aspect-video h-full w-full md:h-[50%] md:w-[50%]">
+        <iframe
+          class="h-full w-full"
+          src="https://mediashm.ru/?p=6915&emb=1"
+          width="560"
+          height="315"
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          allowfullscreen
+          scrolling="no"
+        >
+        </iframe>
+      </div>
+      <p class="mt-[2vh] px-[3vh] md:px-0">Граф Уваров и исследования Владимирских курганов</p>
+    </div>
+  </Section>
+
+  <!-- Porechye Text -->
+  <Section
+    id="porechye-text"
+    contentHeight="h-auto"
+    sectionSize="w-full h-[80vh]"
+    sectionFlex="flex flex-col justify-center"
+  >
+    <div
+      class="flex flex-col justify-between gap-y-[10vh] px-[2%] text-base leading-normal md:text-4xl 2xl:text-4xl"
+    >
+      <p>
+        После смерти отца Уваров стал владельцем почти 100 тысяч десятин земли (в Московской,
+        Владимирской, Пензенской, Саратовской губерниях) и дома в Москве.
+      </p>
+      <p>В числе прочих имений он унаследовал подмосковную усадьбу Поречье.</p>
+    </div>
+  </Section>
+
+  <!-- Porechye -->
+  <Section
+    id="porechye"
+    contentHeight="h-screen md:h-[250vh]"
+    contentWidth="w-full"
+    sectionSize="w-full h-screen md:h-[250vh]"
+    sectionFlex="flex flex-col justify-end items-center"
+  >
+    <div
+      id="porechye-bg"
+      class="relative left-0 top-0 h-[60vh] w-full bg-[url('../../data/biography/_images/expeditions/porechye-bg.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 md:h-[200vh]"
+    >
+    </div>
+    <div
+      class="relative flex w-full flex-col gap-y-[5vh] pt-[10vh] text-center text-3xl 4xl:gap-y-[2vh]"
+    >
+      <p>следующая глава</p>
+
+      <ScrollArrow
+        position="0"
+        invert="invert"
+        visible="opacity-100"
+        size="w-auto"
+        animated={false}
+        redirectUrl="/porechye"
+      />
+    </div>
+  </Section>
+</DemoWrapper>
+
+<script src="../../utils/sharedBgObserver.js"></script>
+<script>
+  import Splide from "@splidejs/splide";
+  document.addEventListener("DOMContentLoaded", function () {
+    const splide = new Splide("#hersones-splide", {
+      perPage: 1,
+      perMove: 1,
+      pagination: false,
+    }).mount();
+  });
+</script>

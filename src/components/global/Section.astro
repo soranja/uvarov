@@ -1,120 +1,123 @@
 ---
 interface Props {
-    id: string,
+  id: string;
 
-    sectionClass?: string,
-    sectionFlex?: string,
-    sectionSize?: string,
+  sectionClass?: string;
+  sectionFlex?: string;
+  sectionSize?: string;
 
-    extraClass?: string,
-    fixedWrapperClass?: string,
+  extraClass?: string;
+  fixedWrapperClass?: string;
 
-    contentWidth?: string,
-    contentHeight?:string
+  contentWidth?: string;
+  contentHeight?: string;
 
-    isFixed?: boolean
-};
+  isFixed?: boolean;
+}
 
-const { 
-    id, 
-    extraClass = "",
+const {
+  id,
+  extraClass = "",
 
-    sectionClass = "section relative",
-    sectionSize = "w-full h-screen",
-    sectionFlex =  "flex flex-col justify-end",
+  sectionClass = "section relative",
+  sectionSize = "w-full h-screen",
+  sectionFlex = "flex flex-col justify-end",
 
-    fixedWrapperClass = "fixed-wrapper inset-x-0 mx-auto",
-    isFixed = false,
+  fixedWrapperClass = "fixed-wrapper inset-x-0 mx-auto",
+  isFixed = false,
 
-    contentWidth = 'w-[87%]',
-    contentHeight = 'h-[85vh]',
-    
+  contentWidth = "w-[87%]",
+  contentHeight = "h-[85vh]",
 } = Astro.props;
-
 ---
 
-<section 
-    id={id} class=`${sectionSize} ${sectionFlex} ${sectionClass} `>
-    <div class={`${contentHeight} ${contentWidth} ${fixedWrapperClass} ${isFixed ? "fixed" : 'relative'} ${extraClass}`}>
-        <slot />
-    </div>
+<section id={id} class=`${sectionSize} ${sectionFlex} ${sectionClass} `>
+  <div
+    class={`${contentHeight} ${contentWidth} ${fixedWrapperClass} ${isFixed ? "fixed" : "relative"} ${extraClass}`}
+  >
+    <slot />
+  </div>
 </section>
 
 <script>
-    // SECTIONS OBSERVER
+  // SECTIONS OBSERVER
 
-    // all sections with the corresponding class picked
-    const sections = document.querySelectorAll('.section') as NodeListOf<HTMLElement>; 
+  // all sections with the corresponding class picked
+  const sections = document.querySelectorAll(".section") as NodeListOf<HTMLElement>;
 
-    // sections to crossfade + custom threshhold (null - default [0.5 - 0.7])
-    const crossfadeSections: { [sectionId: string]: number | null } = {
-        'intro-cover': null,
-        'intro-hand': null,
-        'intro-text': null,
-        'intro-transition': null,
-        'chapter-intro': null,
-        'hersones-wall': 0.1,
-        'hersones-slider': 0.1
-    };
+  // sections to crossfade + custom threshhold (null - default [0.5 - 0.7])
+  const crossfadeSections: { [sectionId: string]: number | null } = {
+    "intro-cover": null,
+    "intro-hand": null,
+    "intro-text": null,
+    "intro-transition": null,
+    "chapter-intro": null,
+    "hersones-wall": 0.1,
+    "hersones-slider": 0.1,
+  };
 
-    // Dynamically add overlay sections to crossfadeSections
-    const overlays = document.querySelectorAll('info-overlay') as NodeListOf<HTMLElement>;
-    overlays.forEach((overlay: HTMLElement) => {
-        const overlayId = overlay.dataset.overlayId;
-        if (overlayId) {
-            crossfadeSections[overlayId] = null; // Default to null or set a custom threshold if needed
-        }
-    });
-
-    // function to get the threshold based on the section's ID
-    function getSectionThreshold(section: HTMLElement): number | number[] {
-        const sectionId = section.id;
-        return crossfadeSections[sectionId] ?? [0.5, 0.7];
+  // Dynamically add overlay sections to crossfadeSections
+  const overlays = document.querySelectorAll("info-overlay") as NodeListOf<HTMLElement>;
+  overlays.forEach((overlay: HTMLElement) => {
+    const overlayId = overlay.dataset.overlayId;
+    if (overlayId) {
+      crossfadeSections[overlayId] = null; // Default to null or set a custom threshold if needed
     }
-    
+  });
 
-    sections.forEach((section: HTMLElement) => {
-        const sectionId = section.id;
+  // function to get the threshold based on the section's ID
+  function getSectionThreshold(section: HTMLElement): number | number[] {
+    const sectionId = section.id;
+    return crossfadeSections[sectionId] ?? [0.5, 0.7];
+  }
 
-        // check if the section should have a crossfade effect
-        const hasCrossfade = crossfadeSections.hasOwnProperty(sectionId);
+  sections.forEach((section: HTMLElement) => {
+    const sectionId = section.id;
 
-        if (hasCrossfade) {
-            const threshold = getSectionThreshold(section);
+    // check if the section should have a crossfade effect
+    const hasCrossfade = crossfadeSections.hasOwnProperty(sectionId);
 
-            const sectionsObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    const wrapper = entry.target.querySelector('.fixed-wrapper') as HTMLElement;
-                    if (wrapper) {
-                        if (entry.isIntersecting) {
-                            wrapper.classList.add('show');
-                        } else {
-                            wrapper.classList.remove('show');
-                        }
-                    }
-                });
-            }, { threshold });
+    if (hasCrossfade) {
+      const threshold = getSectionThreshold(section);
 
-            sectionsObserver.observe(section);
-        } else {
-            // if the section does not have a crossfade, ensure it remains visible
-            const wrapper = section.querySelector('.fixed-wrapper') as HTMLElement;
+      const sectionsObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const wrapper = entry.target.querySelector(".fixed-wrapper") as HTMLElement;
             if (wrapper) {
-                wrapper.style.opacity = '1';
-                wrapper.style.zIndex = '5';
+              if (entry.isIntersecting) {
+                wrapper.classList.add("show");
+              } else {
+                wrapper.classList.remove("show");
+              }
             }
-        }
-    });
+          });
+        },
+        { threshold },
+      );
+
+      sectionsObserver.observe(section);
+    } else {
+      // if the section does not have a crossfade, ensure it remains visible
+      const wrapper = section.querySelector(".fixed-wrapper") as HTMLElement;
+      if (wrapper) {
+        wrapper.style.opacity = "1";
+        wrapper.style.zIndex = "5";
+      }
+    }
+  });
 </script>
 
 <style is:global>
-    .fixed-wrapper {
-        opacity: 0;
-        z-index: 0;
-        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    }
-    .show {
-        opacity: 1;
-        z-index: 10;
-    }
+  .fixed-wrapper {
+    opacity: 0;
+    z-index: 0;
+    transition:
+      opacity 0.5s ease-in-out,
+      transform 0.5s ease-in-out;
+  }
+  .show {
+    opacity: 1;
+    z-index: 10;
+  }
 </style>

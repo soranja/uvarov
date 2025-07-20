@@ -1,6 +1,7 @@
 // INTRO
 import cover from "./intro/_images/intro-cover.png";
 import coverMobile from "./intro/_images/intro-cover-mobile.png";
+import uvarovIntro from "./intro/_videos/uvarov-intro.mp4";
 import intro1440 from "./intro/_videos/intro-1440.mp4";
 import intro1920 from "./intro/_videos/intro-1920.mp4";
 import hand1440 from "./intro/_videos/hand-1440.mp4";
@@ -267,6 +268,7 @@ import audio_5 from "./biography/_audio/part_5.mp3";
 export const intro = {
   cover: { src: cover.src, alt: "Уварову - 200 лет!" },
   coverMobile: { src: coverMobile.src, alt: "Уварову - 200 лет!" },
+  intro: { src: uvarovIntro, alt: "Уварову - 200 лет!" },
   intro1440: { src: intro1440, alt: "Уварову - 200 лет! - 1440" },
   intro1920: { src: intro1920, alt: "Уварову - 200 лет! - 1920" },
   hand1440: { src: hand1440, alt: "Видео с рукой - 1440" },
@@ -324,8 +326,7 @@ export const junostAssets = {
       srcOrig: portrait__orig_1.src,
       alt: "Шевырёв",
       title: "Степан Петрович Шевырёв",
-      description:
-        "русский литературный критик, историк литературы, поэт, общественный деятель",
+      description: "русский литературный критик, историк литературы, поэт, общественный деятель",
     },
     {
       id: 2,
@@ -349,8 +350,7 @@ export const junostAssets = {
       srcOrig: portrait__orig_4.src,
       alt: "Жуковский",
       title: "Василий Андреевич Жуковский",
-      description:
-        "русский поэт, один из основоположников романтизма в русской поэзии",
+      description: "русский поэт, один из основоположников романтизма в русской поэзии",
     },
     {
       id: 5,
@@ -470,8 +470,7 @@ export const expeditionsAssets = {
       src: research7.src,
       srcOrig: research__orig_7.src,
       alt: "Археологические разыскания в 1853 году",
-      title:
-        "Изображение серебряной наградной пайцзы монгольской династии Юань (1279–1368)",
+      title: "Изображение серебряной наградной пайцзы монгольской династии Юань (1279–1368)",
     },
   ],
 };
@@ -553,8 +552,7 @@ export const activitiesAssets = {
   princesLection: {
     src: princesLection.src,
     alt: "Принцы на лекции",
-    description:
-      "Великий князь Павел Александрович и Великий князь Сергей Александрович",
+    description: "Великий князь Павел Александрович и Великий князь Сергей Александрович",
   },
   lection: { src: lection.src, alt: "Лекция" },
   lectionFull: { src: lectionFull.src, alt: "Полный текст лекции" },
@@ -662,8 +660,7 @@ export const museumAssets = {
       id: 4,
       src: hall4.src,
       srcOrig: hall__orig_4.src,
-      description:
-        "Вид из зала № 5 (Памятники железного века) в Скифский зал (№ 6).",
+      description: "Вид из зала № 5 (Памятники железного века) в Скифский зал (№ 6).",
       alt: "Вид из зала № 5 (Памятники железного века) в Скифский зал (№ 6).",
     },
     {
@@ -677,16 +674,14 @@ export const museumAssets = {
       id: 8,
       src: hall8.src,
       srcOrig: hall__orig_8.src,
-      description:
-        "Виды анфилады залов «Б» (с фреской И. К. Айвазовского) и «В».",
+      description: "Виды анфилады залов «Б» (с фреской И. К. Айвазовского) и «В».",
       alt: "Виды анфилады залов «Б» (с фреской И. К. Айвазовского) и «В».",
     },
     {
       id: 10,
       src: hall10.src,
       srcOrig: hall__orig_10.src,
-      description:
-        "Зал № 4 (Памятники железного века) с картинами Г. И. Семирадского.",
+      description: "Зал № 4 (Памятники железного века) с картинами Г. И. Семирадского.",
       alt: "Зал № 4 (Памятники железного века) с картинами Г. И. Семирадского.",
     },
     {

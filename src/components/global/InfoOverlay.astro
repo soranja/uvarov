@@ -1,27 +1,31 @@
 ---
 interface Props {
-    isVisible?: boolean;
-    contentType: 'slider' | 'image';
-    images: Array<{ src: string; srcOrig?: string; alt: string; title?: string; description?: string }>
-    captions?: Array<string>;
-    iconPosition?: string;
-    isIconInverted?: boolean;
-    overlayId: string;
+  isVisible?: boolean;
+  contentType: "slider" | "image";
+  images: Array<{
+    src: string;
+    srcOrig?: string;
+    alt: string;
+    title?: string;
+    description?: string;
+  }>;
+  captions?: Array<string>;
+  iconPosition?: string;
+  isIconInverted?: boolean;
+  overlayId: string;
 }
 
-const { 
-  isVisible = false, 
-  contentType, 
-  images = [], 
-  iconPosition = "absolute bottom-20 left-1/2 transform -translate-x-1/2", 
+const {
+  isVisible = false,
+  contentType,
+  images = [],
+  iconPosition = "absolute bottom-20 left-1/2 transform -translate-x-1/2",
   isIconInverted = false,
   overlayId,
 } = Astro.props;
-
 ---
 
 <style>
-
   .info-overlay {
     display: none;
   }
@@ -30,9 +34,8 @@ const {
     display: block;
   }
 
-
   .splide__slide img {
-    max-width: 90%; 
+    max-width: 90%;
     max-height: 90vh;
     margin: 20px auto;
     object-fit: contain;
@@ -41,69 +44,74 @@ const {
   .splide__track {
     padding-bottom: 10vh;
   }
-  
-
 </style>
 
-
-<button 
+<button
   class=`
     info-icon-${overlayId} 
     z-200
     cursor-pointer 
     ${iconPosition} 
     ${isIconInverted ? 'invert' : ''}
-    `>
+    `
+>
   <i class="fas fa-info-circle text-2xl text-black"></i>
 </button>
 <info-overlay
-  data-visible={isVisible} 
-  data-content-type={contentType} 
+  data-visible={isVisible}
+  data-content-type={contentType}
   data-images={JSON.stringify(images)}
   data-overlay-id={overlayId}
   class="relative z-1000"
+>
+  <div
+    class="info-overlay fixed bottom-0 left-0 right-0 top-0 z-1000 h-full w-full bg-black bg-opacity-85"
   >
-    <div class="info-overlay fixed top-0 left-0 bottom-0 right-0 w-full h-full bg-black bg-opacity-85 z-1000">
-      <button class="close-button absolute top-5 right-5 text-white text-3xl z-1100">&times;</button>
-      <div class="overlay-content relative flex justify-center items-center h-full w-full z-1000"></div>
+    <button class="close-button absolute right-5 top-5 z-1100 text-3xl text-white">&times;</button>
+    <div class="overlay-content relative z-1000 flex h-full w-full items-center justify-center">
     </div>
+  </div>
 </info-overlay>
-
 
 <script>
   class InfoOverlay extends HTMLElement {
     connectedCallback() {
       const overlayId = this.dataset.overlayId;
       const contentType = this.dataset.contentType;
-      const images: Array<{ src: string; srcOrig?: string; alt: string; title?: string; description?: string }> = JSON.parse(this.dataset.images ?? '[]');
-      const overlayWrapper = this.querySelector('.info-overlay') as HTMLElement;
-      const overlayContent = this.querySelector('.overlay-content') as HTMLElement;
-      const closeButton = this.querySelector('.close-button') as HTMLElement;
+      const images: Array<{
+        src: string;
+        srcOrig?: string;
+        alt: string;
+        title?: string;
+        description?: string;
+      }> = JSON.parse(this.dataset.images ?? "[]");
+      const overlayWrapper = this.querySelector(".info-overlay") as HTMLElement;
+      const overlayContent = this.querySelector(".overlay-content") as HTMLElement;
+      const closeButton = this.querySelector(".close-button") as HTMLElement;
       const infoButton = document.querySelector(`.info-icon-${overlayId}`) as HTMLElement;
-      let isVisible: boolean = this.dataset.visible === 'false';
+      let isVisible: boolean = this.dataset.visible === "false";
 
-      const header = document.getElementById('header') as HTMLElement;
+      const header = document.getElementById("header") as HTMLElement;
 
-      const updateHeaderZIndex = (visible : boolean) => {
-        header.style.zIndex = visible ? '10' : '50';
+      const updateHeaderZIndex = (visible: boolean) => {
+        header.style.zIndex = visible ? "10" : "50";
       };
 
-
-      closeButton.addEventListener('click', () => {
+      closeButton.addEventListener("click", () => {
         isVisible = false;
-        overlayWrapper.classList.remove('visible');
-        overlayWrapper.classList.add('hidden');
-        overlayContent.innerHTML = '';
+        overlayWrapper.classList.remove("visible");
+        overlayWrapper.classList.add("hidden");
+        overlayContent.innerHTML = "";
         updateHeaderZIndex(false);
       });
 
-      infoButton.addEventListener('click', () => {
+      infoButton.addEventListener("click", () => {
         isVisible = true;
-        overlayWrapper.classList.add('visible');
-        overlayWrapper.classList.remove('hidden');
-        updateHeaderZIndex(true); 
+        overlayWrapper.classList.add("visible");
+        overlayWrapper.classList.remove("hidden");
+        updateHeaderZIndex(true);
 
-        if (contentType === 'slider') {
+        if (contentType === "slider") {
           overlayContent.innerHTML = `
             <div 
               class="w-full"
@@ -117,21 +125,25 @@ const {
               <section class="splide" aria-label="Overlay Image Slider" x-ref="splideOverlay">
                 <div class="splide__track">
                   <ul class="splide__list">
-                    ${images.map(image => `
+                    ${images
+                      .map(
+                        (image) => `
                       <li class="splide__slide flex flex-col justify-center items-center px-20">
                         <img src="${image.srcOrig ?? image.src}" alt="${image.alt}" class="max-h-[80vh] object-contain" />
                         <div class="text-center mt-6 text-white">
-                          <h4 class="font-semibold text-sm 2xl:text-lg leading-snug">${image.title ?? ''}</h4>
-                          <p class="text-sm">${image.description ?? ''}</p> <!-- Regular text -->
+                          <h4 class="font-semibold text-sm 2xl:text-lg leading-snug">${image.title ?? ""}</h4>
+                          <p class="text-sm">${image.description ?? ""}</p> <!-- Regular text -->
                         </div>
                       </li>
-                    `).join('')}
+                    `,
+                      )
+                      .join("")}
                   </ul>
                 </div>
               </section>
             </div>
           `;
-        } else if (contentType === 'image') {
+        } else if (contentType === "image") {
           overlayContent.innerHTML = `
             <img src="${images[0].srcOrig ?? images[0].src}" alt="${images[0].alt}" class="object-cover max-w-[90%] max-h-[90vh]" />
           `;
@@ -140,5 +152,5 @@ const {
     }
   }
 
-  customElements.define('info-overlay', InfoOverlay);
+  customElements.define("info-overlay", InfoOverlay);
 </script>

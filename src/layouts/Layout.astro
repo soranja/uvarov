@@ -1,33 +1,44 @@
 ---
-import BaseHead from '../components/global/BaseHead.astro';
-import Footer from '../components/global/Footer.astro';
-import Loading from '../components/global/Loading.astro';
+import BaseHead from "../components/global/BaseHead.astro";
+import Footer from "../components/global/Footer.astro";
+import Loading from "../components/global/Loading.astro";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const { title = SITE_TITLE } = Astro.props;
 const pageTitle = title === SITE_TITLE ? title : `УВАРОВ 200 - ${title}`;
-
 ---
+
 <!doctype html>
 <html lang="ru">
-    <head>
-        <BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
-        <!-- Slider Script (Splide) -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css"/>
-        <script is:inline defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
-        <script is:inline defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <head>
+    <BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
+    <!-- Slider Script (Splide) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css"
+    />
+    <script
+      is:inline
+      defer
+      src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+    <script is:inline defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
 
-        <!-- Lottie Player -->
-        <script is:inline src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Lottie Player -->
+    <script
+      is:inline
+      src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-        
-    </head>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
 
-    <body class="bg-body">
-        <Loading />
-        <slot/>
-    </body>
+  <body class="bg-body">
+    <Loading />
+    <slot />
+  </body>
 </html>

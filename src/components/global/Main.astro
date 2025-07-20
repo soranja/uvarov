@@ -1,24 +1,24 @@
 ---
 interface Props {
-    bgColor: string
+  bgColor: string;
+}
+
+const { bgColor } = Astro.props;
+
+const bgColors: any = {
+  body: "bg-body",
+  junost: "bg-junost md:bg-junost-bg",
+  expeditions: "bg-expeditions md:bg-expeditions-bg",
+  porechye: "bg-junost md:bg-junost-bg",
+  family: "bg-family md:bg-family-bg",
+  praskovya: "bg-junost md:bg-junost-bg",
+  activities: "bg-activities md:bg-activities-bg",
+  museum: "bg-museum md:bg-museum-bg",
+  epilogue: "bg-epilogue md:bg-epilogue-bg",
+  white: "bg-white",
 };
-
-const { bgColor} = Astro.props;
-
-const bgColors : any = {
-    body: "bg-body",
-    junost: "bg-junost md:bg-junost-bg",
-    expeditions: "bg-expeditions md:bg-expeditions-bg",
-    porechye: "bg-junost md:bg-junost-bg",
-    family: "bg-family md:bg-family-bg",
-    praskovya: "bg-junost md:bg-junost-bg",
-    activities: "bg-activities md:bg-activities-bg",
-    museum: "bg-museum md:bg-museum-bg",
-    epilogue: "bg-epilogue md:bg-epilogue-bg",
-    white: "bg-white",
-    }
 ---
 
 <main class={`${bgColors[bgColor]} bg-fixed bg-center bg-cover bg-no-repeat mx-auto`}>
-        <slot />
+  <slot />
 </main>

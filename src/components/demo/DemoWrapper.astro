@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Main from "../global/Main.astro";
+
+import { getCurrentChapter } from "../../utils/currentChapter.astro";
+const currentChapter = getCurrentChapter(Astro);
+---
+
+<Layout title={currentChapter!.alt}>
+  <Main bgColor={`${currentChapter!.id}`}>
+    <!-- <div class="border-4 border-orange-500"> -->
+    <slot />
+    <!-- </div> -->
+  </Main>
+</Layout>
+
+<script src="../../utils/slowScroll"></script>

@@ -1,0 +1,50 @@
+---
+import { getCurrentChapter } from "../../utils/currentChapter.astro";
+const currentChapter = getCurrentChapter(Astro);
+import ScrollArrow from "../../components/global/ScrollArrow.astro";
+---
+
+<section id="chapter-intro" class="section relative min-h-screen w-full">
+  <div
+    class="fixed-wrapper transform-all fixed left-0 top-0 flex h-screen w-full items-center justify-center bg-chapter-bg bg-cover bg-no-repeat duration-1000 ease-in-out"
+  >
+    <ScrollArrow
+      position="absolute bottom-6 transform -translate-x-1/2"
+      size="w-[75%] md:w-[5vw]"
+    />
+    {
+      currentChapter ? (
+        <img
+          src={currentChapter.src}
+          alt={currentChapter.alt}
+          class="h-auto max-w-[80%] 2xl:max-w-full"
+        />
+      ) : (
+        <p class="text-white">Chapter not found</p>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  // SCROLL FADE CHAPTER OBSERVER
+  const scrollArrow = document.querySelector("#scroll-arrow") as HTMLElement;
+  const introSection = document.querySelector("#chapter-intro") as HTMLElement;
+
+  const introObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.target.id === "chapter-intro") {
+          if (entry.isIntersecting) {
+            scrollArrow.classList.add("opacity-100");
+          } else {
+            scrollArrow.classList.remove("opacity-100");
+          }
+        }
+      });
+    },
+    { threshold: [0.5, 0.7] },
+  );
+
+  introObserver.observe(introSection);
+</script>
