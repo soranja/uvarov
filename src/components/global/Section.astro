@@ -5,6 +5,7 @@ interface Props {
   sectionFlex?: string;
   sectionFlexed?: boolean;
   sectionSize?: string;
+  contentFlex?: boolean;
   contentWidth?: string;
   contentHeight?: string;
   fixedWrapper?: boolean;
@@ -21,6 +22,7 @@ const {
   sectionFlexed = false,
   fixedWrapper = false,
   fixed = false,
+  contentFlex = false,
   contentWidth = "w-[87%]",
   contentHeight = "h-[85vh]",
 } = Astro.props;
@@ -31,7 +33,7 @@ const {
   class=`${sectionClass} ${sectionSize} ${sectionFlexed ? "flex flex-col items-center justify-center" : ''} ${sectionFlex}`
 >
   <div
-    class={`${contentHeight} ${contentWidth}  ${fixed ? "fixed" : "relative"} ${fixedWrapper ? "fixed-wrapper inset-x-0 mx-auto" : ""}  ${extraClass}`}
+    class={`${contentHeight} ${contentWidth}  ${fixed ? "fixed" : "relative"} ${fixedWrapper ? "fixed-wrapper inset-x-0 mx-auto" : ""} ${contentFlex ? "flex flex-col items-center justify-center" : ""}  ${extraClass}`}
   >
     <slot />
   </div>

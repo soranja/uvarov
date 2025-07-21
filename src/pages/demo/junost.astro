@@ -36,8 +36,9 @@ const portraits = junostAssets.libraryPortraits;
     contentHeight="h-auto"
     sectionFlex="flex flex-col justify-end items-center"
     sectionSize="w-[90vw] h-[50vh] md:h-screen mx-auto"
+    extraClass="relative"
   >
-    <p class="text-sm md:text-lg 2xl:text-xl 4xl:text-4xl">
+    <p class="absolute left-0 top-0 md:text-lg 2xl:text-xl 4xl:static 4xl:text-4xl">
       А. С. Уваров родился 28 февраля (11 марта)
       <br />
       1824 года в Петербурге.
@@ -52,8 +53,8 @@ const portraits = junostAssets.libraryPortraits;
   >
   </div>
 
+  <!-- Father / Mother -->
   <div>
-    <!-- Father / Mother -->
     <Section
       id="father-mother"
       sectionSize="w-full h-[200vh]"
@@ -65,7 +66,7 @@ const portraits = junostAssets.libraryPortraits;
       <div id="mother-area" class="absolute bottom-0 h-[95vh] w-full"></div>
 
       <div
-        class="sticky left-0 top-[15%] grid h-[80vh] w-full grid-cols-1 grid-rows-3 md:top-[7%] md:h-[90vh] md:grid-cols-2 md:grid-rows-1"
+        class="sticky left-0 top-[15%] grid h-[90vh] w-full grid-cols-1 grid-rows-3 md:top-[7%] md:grid-cols-2 md:grid-rows-1"
       >
         <div
           class="top-text-mobile flex h-full max-w-lg flex-col justify-end text-center text-base md:mx-0 md:hidden md:text-2xl"
@@ -95,7 +96,7 @@ const portraits = junostAssets.libraryPortraits;
 
         <!-- Father / Mother Texts -->
         <div
-          class="flex h-full flex-col items-end justify-between self-center text-center md:text-right md:text-base lg:h-1/2 lg:text-lg 2xl:text-2xl 4xl:text-4xl"
+          class="flex h-4/5 flex-col items-end justify-center gap-y-4 self-center text-center md:text-right md:text-base lg:text-lg xl:h-1/2 2xl:text-2xl 4xl:text-4xl"
         >
           <p
             class="top-text hidden rounded-2xl bg-white/60 p-6 italic shadow-md backdrop-blur-2xl md:block"
@@ -126,57 +127,73 @@ const portraits = junostAssets.libraryPortraits;
         </div>
       </div>
     </Section>
+  </div>
 
-    <!-- Graf -->
-    <Section id="graf">
-      <div class="grid h-full w-full grid-rows-2 md:h-auto md:grid-cols-2 md:grid-rows-1">
-        <div id="graf-image" class="relative flex flex-col items-center justify-center">
-          <img src={junostAssets.graf.src} alt={junostAssets.graf.alt} />
-          <InfoOverlay
-            contentType="image"
-            images={graf}
-            overlayId="graf"
-            iconPosition="absolute -bottom-[2vh] md:bottom-[1vh]"
-          />
-        </div>
+  <!-- Graf -->
+  <Section
+    id="graf"
+    sectionSize="w-full h-auto"
+    contentHeight="h-auto"
+    contentWidth="w-full"
+    sectionFlex=""
+    sectionFlexed
+    contentFlex
+    extraClass="relative"
+  >
+    <img
+      id="graf-image"
+      class="h-auto w-full"
+      src={junostAssets.graf.src}
+      alt={junostAssets.graf.alt}
+    />
 
-        <div
-          class="flex flex-col items-center justify-center gap-y-[5vh] text-center md:items-end md:justify-between md:gap-y-0 md:text-right"
+    <div class="absolute inset-y-0 z-10 mx-auto grid grid-cols-8 grid-rows-8">
+      <div
+        class="col-span-3 col-start-5 row-start-2 flex items-start justify-end text-sm opacity-100 transition-opacity duration-300 hover:opacity-10 xl:text-lg 4xl:text-3xl"
+      >
+        <p
+          class="pointer-events-none rounded-2xl bg-white/80 p-6 text-right shadow-md backdrop-blur-2xl"
         >
-          <p class="max-w-lg text-base md:text-2xl">
-            <span class="italic"> «За особливые заслуги и высокие достоинства» </span>
-            <br />
-            <br />
-            Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа
-            с нисходящим потомством.
-          </p>
-          <p class="relative bottom-0 max-w-xl text-sm md:bottom-[1vh]">
-            Патент императора Николая I
-            <br />
-            действительному статскому советнику
-            <br />
-            С. С. Уварову на чин тайного советника.
-          </p>
-        </div>
-      </div>
-    </Section>
-
-    <!-- Library -->
-    <div
-      id="library-bg"
-      class="fixed left-0 top-0 z-0 h-full w-full bg-[url('../data/biography/_images/junost/library.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"
-    >
-    </div>
-    <Section id="library">
-      <div class="flex flex-col items-center justify-between gap-y-[5vh]">
-        <p class="text-center text-sm leading-normal md:text-left md:text-2xl">
-          Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая
-          библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных
-          лет возможность общения с ученой и творческой элитой.
+          <span class="italic">«За особливые заслуги и высокие достоинства»</span><br /><br />
+          Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа
+          с нисходящим потомством.
         </p>
-        <div class="h-full w-full">
-          <div
-            x-data="{ init() {
+      </div>
+
+      <div
+        class="col-span-2 col-start-2 row-start-6 flex w-full items-end justify-end text-sm opacity-100 transition-opacity duration-300 hover:opacity-10 xl:text-lg 4xl:text-3xl"
+      >
+        <p class="pointer-events-none rounded-2xl bg-white/60 p-6 shadow-md backdrop-blur-2xl">
+          Патент императора Николая I <br />действительному статскому советнику <br /> С. С. Уварову
+          на чин тайного советника.
+        </p>
+      </div>
+    </div>
+
+    <InfoOverlay
+      contentType="image"
+      images={graf}
+      overlayId="graf"
+      iconPosition="absolute bottom-[2vh] left-1/2 -translate-x-1/2"
+    />
+  </Section>
+
+  <!-- Library -->
+  <div
+    id="library-bg"
+    class="fixed left-0 top-0 z-0 h-full w-full bg-[url('../data/biography/_images/junost/library.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"
+  >
+  </div>
+  <Section id="library">
+    <div class="flex flex-col items-center justify-between gap-y-[5vh]">
+      <p class="text-center text-sm leading-normal md:text-left md:text-2xl">
+        Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая
+        библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет
+        возможность общения с ученой и творческой элитой.
+      </p>
+      <div class="h-full w-full">
+        <div
+          x-data="{ init() {
                             new Splide(this.$refs.splide, {
                                 perPage: 3,
                                 perMove: 1,
@@ -189,356 +206,346 @@ const portraits = junostAssets.libraryPortraits;
                             }).mount();
                         },
                     }"
+        >
+          <section
+            class="splide"
+            aria-label="Library Slider"
+            x-ref="splide"
+            style="padding-left: 4rem; padding-right: 4rem;"
           >
-            <section
-              class="splide"
-              aria-label="Library Slider"
-              x-ref="splide"
-              style="padding-left: 4rem; padding-right: 4rem;"
-            >
-              <div class="splide__arrows hidden md:block">
-                <button class="splide__arrow splide__arrow--prev">
-                  <img src={common.prevArrow.src} alt={common.prevArrow.alt} />
-                </button>
-                <button class="splide__arrow splide__arrow--next">
-                  <img src={common.nextArrow.src} alt={common.nextArrow.alt} />
-                </button>
-              </div>
+            <div class="splide__arrows hidden md:block">
+              <button class="splide__arrow splide__arrow--prev">
+                <img src={common.prevArrow.src} alt={common.prevArrow.alt} />
+              </button>
+              <button class="splide__arrow splide__arrow--next">
+                <img src={common.nextArrow.src} alt={common.nextArrow.alt} />
+              </button>
+            </div>
 
-              <div class="splide__arrows md:hidden">
-                <button class="splide__arrow splide__arrow--prev"> ← </button>
-                <button class="splide__arrow splide__arrow--next"> → </button>
-              </div>
+            <div class="splide__arrows md:hidden">
+              <button class="splide__arrow splide__arrow--prev"> ← </button>
+              <button class="splide__arrow splide__arrow--next"> → </button>
+            </div>
 
-              <div class="splide__track">
-                <ul class="splide__list">
-                  {
-                    junostAssets.libraryPortraits.map((portrait) => (
-                      <li class="splide__slide flex flex-col items-center justify-center">
-                        <div class="h-full md:h-[60%] md:w-[70%] 2xl:h-[70%] 2xl:w-[90%]">
-                          <img
-                            alt={portrait.alt}
-                            src={portrait.src}
-                            class="bottom-0 h-full w-full object-contain"
-                          />
-                        </div>
-                        <div class="mt-6 flex-grow text-center">
-                          <h4 class="text-sm font-semibold leading-snug 2xl:text-lg">
-                            {portrait.title}
-                          </h4>
-                          <p class="text-sm">{portrait.description}</p>
-                        </div>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </div>
-            </section>
-          </div>
+            <div class="splide__track">
+              <ul class="splide__list">
+                {
+                  junostAssets.libraryPortraits.map((portrait) => (
+                    <li class="splide__slide flex flex-col items-center justify-center">
+                      <div class="h-full md:h-[60%] md:w-[70%] 2xl:h-[70%] 2xl:w-[90%]">
+                        <img
+                          alt={portrait.alt}
+                          src={portrait.src}
+                          class="bottom-0 h-full w-full object-contain"
+                        />
+                      </div>
+                      <div class="mt-6 flex-grow text-center">
+                        <h4 class="text-sm font-semibold leading-snug 2xl:text-lg">
+                          {portrait.title}
+                        </h4>
+                        <p class="text-sm">{portrait.description}</p>
+                      </div>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </section>
         </div>
+      </div>
+      <InfoOverlay
+        contentType="slider"
+        images={portraits}
+        overlayId="library"
+        iconPosition="md:absolute bottom-0"
+      />
+    </div>
+  </Section>
+
+  <!-- Father Influence Text -->
+  <Section
+    id="father-influence"
+    contentHeight="h-auto"
+    sectionSize="w-full h-[70vh]"
+    sectionFlex="flex flex-col justify-center"
+  >
+    <p class="px-[5%] text-base leading-normal md:text-4xl">
+      Но главным в формировании личности А.С. Уварова стало влияние отца. Во многом, благодаря ему,
+      Алексей Уваров сложился как человек европейской образованности и глубочайшей преданности
+      России.
+    </p>
+  </Section>
+
+  <!-- Dog Animation -->
+  <Section id="dog">
+    <div class="mx-auto hidden h-full w-full max-w-[70%] grid-cols-2 md:grid">
+      <div class="relative left-[5vh] flex flex-col items-center justify-center">
+        <video id="dog-anim" autoplay muted>
+          <source src={junostAssets.dogAnim.src} type="video/mp4" />
+        </video>
         <InfoOverlay
           contentType="slider"
-          images={portraits}
-          overlayId="library"
-          iconPosition="md:absolute bottom-0"
+          images={uvarovYoung1}
+          overlayId="dog"
+          iconPosition="absolute bottom-[8vh]"
         />
       </div>
-    </Section>
+      <div class="relative right-[5vh] flex flex-col items-center justify-center">
+        <img src={junostAssets.handwrite_1.src} alt={junostAssets.handwrite_1.alt} />
+        <p class="absolute bottom-[5vh] right-[5%] self-end text-sm">Алексей Уваров в юности</p>
+      </div>
+    </div>
 
-    <!-- Father Influence Text -->
-    <Section
-      id="father-influence"
-      contentHeight="h-auto"
-      sectionSize="w-full h-[70vh]"
-      sectionFlex="flex flex-col justify-center"
-    >
-      <p class="px-[5%] text-base leading-normal md:text-4xl">
-        Но главным в формировании личности А.С. Уварова стало влияние отца. Во многом, благодаря
-        ему, Алексей Уваров сложился как человек европейской образованности и глубочайшей
-        преданности России.
+    <div id="dog-mobile" class="flex h-full flex-col items-center justify-center md:hidden">
+      <div class="flex flex-col items-center justify-center">
+        <img
+          src={junostAssets.handwrite_1.src}
+          alt={junostAssets.handwrite_1.alt}
+          class="absolute left-[25%] top-[15%] h-[50%]"
+        />
+        <img src={junostAssets.uvarovYoung1.src} alt={junostAssets.uvarovYoung1.alt} />
+        <InfoOverlay contentType="slider" images={uvarovYoung1} overlayId="dog-mobile" />
+      </div>
+      <p class="text-sm">Алексей Уваров в юности</p>
+    </div>
+  </Section>
+
+  <!-- Uni -->
+  <Section
+    id="uni"
+    contentWidth="w-full max-w-[1100px] 2xl:max-w-[1440px]"
+    contentHeight="h-[60vh] md:h-[87vh]"
+    sectionFlex="flex flex-col justify-center md:justify-end"
+  >
+    <p class="ml-[6%] max-w-lg text-left text-sm leading-normal 2xl:max-w-2xl 2xl:text-xl">
+      В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший
+      получил основательную подготовку по истории, словесности, географии, древним и новым
+      европейским языкам, точным и естественным наукам.
+      <br />
+      <br />
+      Интерес к истории, древностям привел его на словесное отделение философского факультета Петербургского
+      университета.
+    </p>
+    <img src={junostAssets.spbgu.src} src={junostAssets.spbgu.alt} class="absolute bottom-[-2vh]" />
+  </Section>
+
+  <!-- Grefe -->
+  <Section
+    id="grefe"
+    contentHeight="h-auto md:h-[95vh] 2xl:h-[50vh]"
+    sectionSize="w-full h-[120vh] 2xl:h-[90vh]"
+    sectionFlex="flex flex-col justify-center"
+  >
+    <div class="flex flex-col justify-center gap-y-20 px-[5%] text-base leading-normal md:text-4xl">
+      <p>
+        Серьезное влияние на формирование будущего ученого оказали профессор Ф.Б. Грефе, читавший
+        курс греческой словесности, и профессор русской истории Н.Г. Устрялов.
       </p>
-    </Section>
-
-    <!-- Dog Animation -->
-    <Section id="dog">
-      <div class="mx-auto hidden h-full w-full max-w-[70%] grid-cols-2 md:grid">
-        <div class="relative left-[5vh] flex flex-col items-center justify-center">
-          <video id="dog-anim" autoplay muted>
-            <source src={junostAssets.dogAnim.src} type="video/mp4" />
-          </video>
-          <InfoOverlay
-            contentType="slider"
-            images={uvarovYoung1}
-            overlayId="dog"
-            iconPosition="absolute bottom-[8vh]"
-          />
-        </div>
-        <div class="relative right-[5vh] flex flex-col items-center justify-center">
-          <img src={junostAssets.handwrite_1.src} alt={junostAssets.handwrite_1.alt} />
-          <p class="absolute bottom-[5vh] right-[5%] self-end text-sm">Алексей Уваров в юности</p>
-        </div>
-      </div>
-
-      <div id="dog-mobile" class="flex h-full flex-col items-center justify-center md:hidden">
-        <div class="flex flex-col items-center justify-center">
-          <img
-            src={junostAssets.handwrite_1.src}
-            alt={junostAssets.handwrite_1.alt}
-            class="absolute left-[25%] top-[15%] h-[50%]"
-          />
-          <img src={junostAssets.uvarovYoung1.src} alt={junostAssets.uvarovYoung1.alt} />
-          <InfoOverlay contentType="slider" images={uvarovYoung1} overlayId="dog-mobile" />
-        </div>
-        <p class="text-sm">Алексей Уваров в юности</p>
-      </div>
-    </Section>
-
-    <!-- Uni -->
-    <Section
-      id="uni"
-      contentWidth="w-full max-w-[1100px] 2xl:max-w-[1440px]"
-      contentHeight="h-[60vh] md:h-[87vh]"
-      sectionFlex="flex flex-col justify-center md:justify-end"
-    >
-      <p class="ml-[6%] max-w-lg text-left text-sm leading-normal 2xl:max-w-2xl 2xl:text-xl">
-        В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший
-        получил основательную подготовку по истории, словесности, географии, древним и новым
-        европейским языкам, точным и естественным наукам.
+      <p>
+        Под его влиянием Уваров выбрал тему диссертации
         <br />
-        <br />
-        Интерес к истории, древностям привел его на словесное отделение философского факультета Петербургского
-        университета.
+        <span class="italic">
+          «Исследование, в какой степени дополняются сведения о первом самозванце актами, изданными
+          Археографической комиссией».
+        </span>
       </p>
-      <img
-        src={junostAssets.spbgu.src}
-        src={junostAssets.spbgu.alt}
-        class="absolute bottom-[-2vh]"
-      />
-    </Section>
+    </div>
+  </Section>
 
-    <!-- Grefe -->
-    <Section
-      id="grefe"
-      contentHeight="h-auto md:h-[95vh] 2xl:h-[50vh]"
-      sectionSize="w-full h-[120vh] 2xl:h-[90vh]"
-      sectionFlex="flex flex-col justify-center"
-    >
-      <div
-        class="flex flex-col justify-center gap-y-20 px-[5%] text-base leading-normal md:text-4xl"
-      >
-        <p>
-          Серьезное влияние на формирование будущего ученого оказали профессор Ф.Б. Грефе, читавший
-          курс греческой словесности, и профессор русской истории Н.Г. Устрялов.
-        </p>
-        <p>
-          Под его влиянием Уваров выбрал тему диссертации
-          <br />
-          <span class="italic">
-            «Исследование, в какой степени дополняются сведения о первом самозванце актами,
-            изданными Археографической комиссией».
-          </span>
-        </p>
-      </div>
-    </Section>
-
-    <!-- Uvarov Young -->
-    <div
-      id="uvarov-bg"
-      class="relative left-0 top-0 z-0 mx-auto h-[70vh] w-full bg-[url('../data/biography/_images/junost/uvarov_young_2_portrait.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 md:h-[300vh] md:bg-right"
-      style="
+  <!-- Uvarov Young -->
+  <div
+    id="uvarov-bg"
+    class="relative left-0 top-0 z-0 mx-auto h-[70vh] w-full bg-[url('../data/biography/_images/junost/uvarov_young_2_portrait.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 md:h-[300vh] md:bg-right"
+    style="
         background-size: 120%;
         background-position: left 20%;
         "
-    >
-      <Section
-        id="uvarov-young"
-        sectionSize="w-full h-[70vh] md:h-[300vh]"
-        sectionFlex="flex flex-col justify-center"
-        contentWidth="w-full"
-        contentHeight="h-[70vh] md:h-[300vh]"
-      >
-        <div class="flex h-full flex-col px-[2vh] md:justify-center md:px-0">
-          <img
-            src={junostAssets.handwrite_2.src}
-            alt="Почерк-2"
-            class="h-[30vh] w-full object-contain object-left-top md:h-[200vh]"
-          />
-        </div>
-      </Section>
-      <InfoOverlay
-        contentType="slider"
-        images={uvarovYoung2}
-        isIconInverted={true}
-        overlayId="u-young"
-        iconPosition="absolute bottom-[5vh] left-1/2"
-      />
-    </div>
-
-    <!-- Diploma -->
+  >
     <Section
-      id="diploma"
-      sectionSize="w-full h-[105vh]"
-      contentHeight="h-[80vh]"
-      extraClass="mb-[5vh]"
-    >
-      <div
-        class="mx-auto grid h-full w-full max-w-[80%] grid-cols-1 grid-rows-2 md:h-auto md:grid-cols-3 md:grid-rows-1"
-      >
-        <div
-          id="diploma-image"
-          class="relative col-span-2 flex flex-col items-center md:right-[20%]"
-        >
-          <img src={junostAssets.diploma.src} alt={junostAssets.diploma.alt} />
-          <InfoOverlay
-            contentType="image"
-            images={diploma}
-            overlayId="diploma"
-            iconPosition="absolute bottom-[3vh] 4xl:bottom-[1vh]"
-          />
-        </div>
-
-        <div
-          class="relative col-span-1 flex flex-col items-end justify-center text-center md:left-[35%] md:text-right"
-        >
-          <!-- <p class="text-xl 2xl:text-2xl">
-                    Окончив университет со степенью кандидата в 1845 году, 
-                    Уваров поступил на службу в Министерство иностранных дел.
-                </p> -->
-          <p class="text-xs 2xl:text-sm">
-            Диплом А.С. Уварова
-            <br class="hidden md:block" />
-            об окончании 1-го отделения
-            <br class="hidden md:block" />
-            Философского факультета разряда
-            <br class="hidden md:block" />
-            Общей словесности
-            <br class="hidden md:block" />
-            Санкт-Петербургского университета.
-            <br class="hidden md:block" />
-            14 июля 1845 г.
-          </p>
-        </div>
-      </div>
-    </Section>
-
-    <!-- Video Uvarov 200 Excursion -->
-    <Section
-      id="video-uvarov-200-excursion"
+      id="uvarov-young"
+      sectionSize="w-full h-[70vh] md:h-[300vh]"
       sectionFlex="flex flex-col justify-center"
-      contentHeight="h-auto"
+      contentWidth="w-full"
+      contentHeight="h-[70vh] md:h-[300vh]"
     >
-      <div class="flex flex-col items-center justify-center text-center md:text-left">
-        <div class="relative aspect-video h-full w-full md:h-[50%] md:w-[50%]">
-          <iframe
-            class="h-full w-full"
-            src="https://mediashm.ru/?p=17677&emb=1"
-            width="560"
-            height="315"
-            encrypted-media;
-            gyroscope;
-            picture-in-picture;
-            allowfullscreen
-            scrolling="no"
-          >
-          </iframe>
-        </div>
-        <p class="mt-[2vh] px-[3vh] md:px-0">Экскурсия по выставке к 200-летию А.С. Уварова</p>
-      </div>
-    </Section>
-
-    <!-- Next Chapter -->
-    <Section
-      id="next-chapter"
-      contentHeight="h-auto"
-      sectionSize="h-[50vh]"
-      sectionFlex="flex flex-col justify-center"
-    >
-      <div class="relative flex w-full flex-col gap-y-[5vh] text-center text-3xl 4xl:gap-y-[2vh]">
-        <p>следующая глава</p>
-        <ScrollArrow
-          position="0"
-          invert="invert"
-          visible="opacity-100"
-          size="w-auto"
-          animated={false}
-          redirectUrl="/expeditions"
+      <div class="flex h-full flex-col px-[2vh] md:justify-center md:px-0">
+        <img
+          src={junostAssets.handwrite_2.src}
+          alt="Почерк-2"
+          class="h-[30vh] w-full object-contain object-left-top md:h-[200vh]"
         />
       </div>
     </Section>
+    <InfoOverlay
+      contentType="slider"
+      images={uvarovYoung2}
+      isIconInverted={true}
+      overlayId="u-young"
+      iconPosition="absolute bottom-[5vh] left-1/2"
+    />
   </div>
 
-  <script src="../../utils/sharedBgObserver.js"></script>
-  <script src="../../utils/innerScroll.js"></script>
-  <script>
-    // FATHER / MOTHER SCROLL --- GSAP
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-    gsap.registerPlugin(ScrollTrigger);
+  <!-- Diploma -->
+  <Section
+    id="diploma"
+    sectionSize="w-full h-[105vh]"
+    contentHeight="h-[80vh]"
+    extraClass="mb-[5vh]"
+  >
+    <div
+      class="mx-auto grid h-full w-full max-w-[80%] grid-cols-1 grid-rows-2 md:h-auto md:grid-cols-3 md:grid-rows-1"
+    >
+      <div id="diploma-image" class="relative col-span-2 flex flex-col items-center md:right-[20%]">
+        <img src={junostAssets.diploma.src} alt={junostAssets.diploma.alt} />
+        <InfoOverlay
+          contentType="image"
+          images={diploma}
+          overlayId="diploma"
+          iconPosition="absolute bottom-[3vh] 4xl:bottom-[1vh]"
+        />
+      </div>
 
-    function animateSection(
-      sectionId: string,
-      imageSelector: string,
-      bottomTextSelector: string,
-      delay = 0,
-    ) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: `#${sectionId}`,
-          start: "top center",
-          end: "bottom center",
-          toggleActions: "play none none reverse",
-          onLeave: () => {
-            tl.reverse();
-          },
-          onLeaveBack: () => {
-            tl.reverse();
-          },
-          onEnter: () => {
-            tl.play();
-          },
-          onEnterBack: () => {
-            tl.play();
-          },
-        },
-      });
+      <div
+        class="relative col-span-1 flex flex-col items-end justify-center text-center md:left-[35%] md:text-right"
+      >
+        <!-- <p class="text-xl 2xl:text-2xl">
+                    Окончив университет со степенью кандидата в 1845 году, 
+                    Уваров поступил на службу в Министерство иностранных дел.
+                </p> -->
+        <p class="text-xs 2xl:text-sm">
+          Диплом А.С. Уварова
+          <br class="hidden md:block" />
+          об окончании 1-го отделения
+          <br class="hidden md:block" />
+          Философского факультета разряда
+          <br class="hidden md:block" />
+          Общей словесности
+          <br class="hidden md:block" />
+          Санкт-Петербургского университета.
+          <br class="hidden md:block" />
+          14 июля 1845 г.
+        </p>
+      </div>
+    </div>
+  </Section>
 
-      tl.fromTo(
-        imageSelector,
-        { autoAlpha: 0, x: -600 },
-        { autoAlpha: 1, x: 0, duration: 1.2, ease: "power2.out", delay: delay },
-      ).fromTo(
-        bottomTextSelector,
-        { autoAlpha: 0, x: 600 },
-        { autoAlpha: 1, x: 0, duration: 1.2, ease: "power2.out", delay: delay },
-        0,
-      );
-    }
+  <!-- Video Uvarov 200 Excursion -->
+  <Section
+    id="video-uvarov-200-excursion"
+    sectionFlex="flex flex-col justify-center"
+    contentHeight="h-auto"
+  >
+    <div class="flex flex-col items-center justify-center text-center md:text-left">
+      <div class="relative aspect-video h-full w-full md:h-[50%] md:w-[50%]">
+        <iframe
+          class="h-full w-full"
+          src="https://mediashm.ru/?p=17677&emb=1"
+          width="560"
+          height="315"
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          allowfullscreen
+          scrolling="no"
+        >
+        </iframe>
+      </div>
+      <p class="mt-[2vh] px-[3vh] md:px-0">Экскурсия по выставке к 200-летию А.С. Уварова</p>
+    </div>
+  </Section>
 
-    animateSection("father-area", "#father-img", ".bottom-text #father-text");
-    animateSection("mother-area", "#mother-img", ".bottom-text #mother-text", 1);
-
-    // VIDEO PLAY ON HOVER
-    const dogAnimation = document.getElementById("dog-anim") as HTMLVideoElement;
-    let reverseInterval: any;
-
-    dogAnimation.addEventListener("mouseenter", () => {
-      clearInterval(reverseInterval); // Clear reverse interval if already running
-      dogAnimation.play(); // Play the video when mouse enters
-    });
-
-    dogAnimation.addEventListener("mouseleave", () => {
-      dogAnimation.pause(); // Pause the video on mouse leave
-      reverseVideo(); // Start reverse playback
-    });
-
-    function reverseVideo() {
-      reverseInterval = setInterval(() => {
-        if (dogAnimation.currentTime <= 0) {
-          clearInterval(reverseInterval); // Stop when the video reaches the start
-        } else {
-          dogAnimation.currentTime -= 0.05; // Move the video time backwards
-        }
-      }, 50); // Adjust the speed of reverse playback
-    }
-  </script>
+  <!-- Next Chapter -->
+  <Section
+    id="next-chapter"
+    contentHeight="h-auto"
+    sectionSize="h-[50vh]"
+    sectionFlex="flex flex-col justify-center"
+  >
+    <div class="relative flex w-full flex-col gap-y-[5vh] text-center text-3xl 4xl:gap-y-[2vh]">
+      <p>следующая глава</p>
+      <ScrollArrow
+        position="0"
+        invert="invert"
+        visible="opacity-100"
+        size="w-auto"
+        animated={false}
+        redirectUrl="/expeditions"
+      />
+    </div>
+  </Section>
 </DemoWrapper>
+
+<script src="../../utils/sharedBgObserver.js"></script>
+<script src="../../utils/innerScroll.js"></script>
+<script>
+  // FATHER / MOTHER SCROLL --- GSAP
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  function animateSection(
+    sectionId: string,
+    imageSelector: string,
+    bottomTextSelector: string,
+    delay = 0,
+  ) {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: `#${sectionId}`,
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play none none reverse",
+        onLeave: () => {
+          tl.reverse();
+        },
+        onLeaveBack: () => {
+          tl.reverse();
+        },
+        onEnter: () => {
+          tl.play();
+        },
+        onEnterBack: () => {
+          tl.play();
+        },
+      },
+    });
+
+    tl.fromTo(
+      imageSelector,
+      { autoAlpha: 0, x: -600 },
+      { autoAlpha: 1, x: 0, duration: 1.2, ease: "power2.out", delay: delay },
+    ).fromTo(
+      bottomTextSelector,
+      { autoAlpha: 0, x: 600 },
+      { autoAlpha: 1, x: 0, duration: 1.2, ease: "power2.out", delay: delay },
+      0,
+    );
+  }
+
+  animateSection("father-area", "#father-img", ".bottom-text #father-text");
+  animateSection("mother-area", "#mother-img", ".bottom-text #mother-text", 1);
+
+  // VIDEO PLAY ON HOVER
+  const dogAnimation = document.getElementById("dog-anim") as HTMLVideoElement;
+  let reverseInterval: any;
+
+  dogAnimation.addEventListener("mouseenter", () => {
+    clearInterval(reverseInterval); // Clear reverse interval if already running
+    dogAnimation.play(); // Play the video when mouse enters
+  });
+
+  dogAnimation.addEventListener("mouseleave", () => {
+    dogAnimation.pause(); // Pause the video on mouse leave
+    reverseVideo(); // Start reverse playback
+  });
+
+  function reverseVideo() {
+    reverseInterval = setInterval(() => {
+      if (dogAnimation.currentTime <= 0) {
+        clearInterval(reverseInterval); // Stop when the video reaches the start
+      } else {
+        dogAnimation.currentTime -= 0.05; // Move the video time backwards
+      }
+    }, 50); // Adjust the speed of reverse playback
+  }
+</script>
