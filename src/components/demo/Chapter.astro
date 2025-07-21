@@ -1,17 +1,14 @@
 ---
+import ScrollArrow from "../../components/global/ScrollArrow.astro";
 import { getCurrentChapter } from "../../utils/currentChapter.astro";
 const currentChapter = getCurrentChapter(Astro);
-import ScrollArrow from "../../components/global/ScrollArrow.astro";
 ---
 
-<section id="chapter-intro" class="section relative min-h-screen w-full">
+<section id="chapter-intro" class="relative min-h-screen w-full">
   <div
-    class="fixed-wrapper transform-all fixed left-0 top-0 flex h-screen w-full items-center justify-center bg-chapter-bg bg-cover bg-no-repeat duration-1000 ease-in-out"
+    class="transform-all bg-chapter-tile flex h-screen w-full items-center justify-center bg-[length:125px_125px] duration-1000 ease-in-out"
   >
-    <ScrollArrow
-      position="absolute bottom-6 transform -translate-x-1/2"
-      size="w-[75%] md:w-[5vw]"
-    />
+    <ScrollArrow position="absolute bottom-6 transform -translate-x-1/2" size="w-[75%] " />
     {
       currentChapter ? (
         <img
@@ -20,13 +17,13 @@ import ScrollArrow from "../../components/global/ScrollArrow.astro";
           class="h-auto max-w-[80%] 2xl:max-w-full"
         />
       ) : (
-        <p class="text-white">Chapter not found</p>
+        <p class="text-white">Глава не найдена</p>
       )
     }
   </div>
 </section>
 
-<script>
+<!-- <script>
   // SCROLL FADE CHAPTER OBSERVER
   const scrollArrow = document.querySelector("#scroll-arrow") as HTMLElement;
   const introSection = document.querySelector("#chapter-intro") as HTMLElement;
@@ -47,4 +44,4 @@ import ScrollArrow from "../../components/global/ScrollArrow.astro";
   );
 
   introObserver.observe(introSection);
-</script>
+</script> -->

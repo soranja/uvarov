@@ -15,7 +15,9 @@ export default {
       },
       backgroundImage: {
         "chapter-bg": "url('../data/common/_images/chapter-bg.png')",
+        "chapter-tile": "url('../data/common/_images/chapter-tile-bg.png')",
         "junost-bg": "url('../data/biography/_images/junost/junost-img.jpg')",
+        "junost-tile": "url('../data/biography/_images/junost/junost-tile-bg.png')",
         "expeditions-bg": "url('../data/biography/_images/expeditions/expeditions-img.jpg')",
         "porechye-bg": "url('../data/biography/_images/porechye/porechye-img.jpg')",
         "praskovya-bg": "url('../data/biography/_images/praskovya/praskovya-img.jpg')",

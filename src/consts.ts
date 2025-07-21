@@ -1,5 +1,6 @@
-export const SITE_TITLE = "УВАРОВ 200";
-export const SITE_DESCRIPTION = "Сайт посвященный 200-летию Уварова А. С.";
+export const SITE_TITLE = "Уварову А. С. 200 лет!";
+export const SITE_DESCRIPTION =
+  "ГИМ: Граф А. С. Уваров — археолог, коллекционер, просветитель. К 200-летию со дня рождения";
 
 export const BIO_NAV_LINKS = [
   { href: "/demo/junost", label: "Юность" },

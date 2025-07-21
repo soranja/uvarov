@@ -1,6 +1,6 @@
 // INTRO
 import cover from "./intro/_images/intro-cover.png";
-import coverMobile from "./intro/_images/intro-cover-mobile.png";
+import coverMobile from "./intro/_images/uvarov-intro-mobile.png";
 import uvarovIntro from "./intro/_videos/uvarov-intro.mp4";
 import intro1440 from "./intro/_videos/intro-1440.mp4";
 import intro1920 from "./intro/_videos/intro-1920.mp4";

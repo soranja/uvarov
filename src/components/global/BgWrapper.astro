@@ -1,0 +1,32 @@
+---
+interface Props {
+  bgColor: string;
+}
+
+const { bgColor } = Astro.props;
+---
+
+<main
+  class={`${
+    {
+      body: "bg-body",
+      junost: "bg-junost md:bg-junost-tile",
+      expeditions: "bg-expeditions md:bg-expeditions-bg",
+      porechye: "bg-junost md:bg-junost-bg",
+      family: "bg-family md:bg-family-bg",
+      praskovya: "bg-junost md:bg-junost-bg",
+      activities: "bg-activities md:bg-activities-bg",
+      museum: "bg-museum md:bg-museum-bg",
+      epilogue: "bg-epilogue md:bg-epilogue-bg",
+      white: "bg-white",
+    }[bgColor]
+  } bg-fixed bg-center bg-[length:125px_125px]`}
+>
+  <slot />
+
+  <!-- Vignette -->
+  <div
+    class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)40%,rgba(0,0,0,0.5)100%)]"
+  >
+  </div>
+</main>

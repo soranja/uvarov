@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Main from "../../components/global/Main.astro";
+import BgWrapper from "../../components/global/BgWrapper.astro";
 import { ID_NOT_FOUND } from "../../consts";
 
 if (ID_NOT_FOUND) {
@@ -11,7 +11,7 @@ if (ID_NOT_FOUND) {
 ---
 
 <Layout title="404">
-  <Main bgColor="bg-body">
+  <BgWrapper bgColor="bg-body">
     <div class="flex flex-col items-center justify-center text-center text-white">
       <p class="text-4xl">Этой страницы не существует или она была удалена.</p>
       <br />
@@ -19,5 +19,5 @@ if (ID_NOT_FOUND) {
         Перейти <a href="/" class="text-junost underline-offset-4 hover:underline">в начало →</a>
       </p>
     </div>
-  </Main>
+  </BgWrapper>
 </Layout>

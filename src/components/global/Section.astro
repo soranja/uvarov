@@ -1,39 +1,37 @@
 ---
 interface Props {
   id: string;
-
   sectionClass?: string;
   sectionFlex?: string;
+  sectionFlexed?: boolean;
   sectionSize?: string;
-
-  extraClass?: string;
-  fixedWrapperClass?: string;
-
   contentWidth?: string;
   contentHeight?: string;
-
-  isFixed?: boolean;
+  fixedWrapper?: boolean;
+  fixed?: boolean;
+  extraClass?: string;
 }
 
 const {
   id,
   extraClass = "",
-
   sectionClass = "section relative",
   sectionSize = "w-full h-screen",
-  sectionFlex = "flex flex-col justify-end",
-
-  fixedWrapperClass = "fixed-wrapper inset-x-0 mx-auto",
-  isFixed = false,
-
+  sectionFlex = "flex flex-col items-center justify-center",
+  sectionFlexed = false,
+  fixedWrapper = false,
+  fixed = false,
   contentWidth = "w-[87%]",
   contentHeight = "h-[85vh]",
 } = Astro.props;
 ---
 
-<section id={id} class=`${sectionSize} ${sectionFlex} ${sectionClass} `>
+<section
+  id={id}
+  class=`${sectionClass} ${sectionSize} ${sectionFlexed ? "flex flex-col items-center justify-center" : ''} ${sectionFlex}`
+>
   <div
-    class={`${contentHeight} ${contentWidth} ${fixedWrapperClass} ${isFixed ? "fixed" : "relative"} ${extraClass}`}
+    class={`${contentHeight} ${contentWidth}  ${fixed ? "fixed" : "relative"} ${fixedWrapper ? "fixed-wrapper inset-x-0 mx-auto" : ""}  ${extraClass}`}
   >
     <slot />
   </div>
