@@ -3,7 +3,6 @@ interface Props {
   id: string;
   sectionClass?: string;
   sectionFlex?: string;
-  sectionFlexed?: boolean;
   sectionSize?: string;
   contentFlex?: boolean;
   contentWidth?: string;
@@ -19,7 +18,6 @@ const {
   sectionClass = "section relative",
   sectionSize = "w-full h-screen",
   sectionFlex = "flex flex-col items-center justify-center",
-  sectionFlexed = false,
   fixedWrapper = false,
   fixed = false,
   contentFlex = false,
@@ -28,10 +26,7 @@ const {
 } = Astro.props;
 ---
 
-<section
-  id={id}
-  class=`${sectionClass} ${sectionSize} ${sectionFlexed ? "flex flex-col items-center justify-center" : ''} ${sectionFlex}`
->
+<section id={id} class=`${sectionClass} ${sectionSize} ${sectionFlex}`>
   <div
     class={`${contentHeight} ${contentWidth}  ${fixed ? "fixed" : "relative"} ${fixedWrapper ? "fixed-wrapper inset-x-0 mx-auto" : ""} ${contentFlex ? "flex flex-col items-center justify-center" : ""}  ${extraClass}`}
   >

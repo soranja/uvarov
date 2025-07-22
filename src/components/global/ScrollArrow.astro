@@ -1,19 +1,21 @@
 ---
 interface Props {
   position?: string;
-  invert?: string;
+  invert?: boolean;
   visible?: string;
   size?: string;
   animated?: boolean;
   hover?: boolean;
   next?: boolean;
   redirectUrl?: string;
+  color?: string;
 }
 
 const {
   position = "fixed bottom-6 left-0",
   invert,
   visible,
+  color = "text-black",
   size = "w-[5vw]",
   animated = true,
   hover = false,
@@ -31,18 +33,20 @@ const {
     ${position}
     ${visible}
     flex flex-col items-center justify-center z-150
-    ${invert}
+    ${invert && "invert"}
     ${animated ? "animate-bounce" : ""}
   `}
 >
   {
     next && (
-      <span class="pointer-events-none mb-2 whitespace-nowrap text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <span
+        class={`pointer-events-none mb-2 whitespace-nowrap text-sm ${color} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
+      >
         следующая глава
       </span>
     )
   }
-  <div id="scroll-arrow-svg">
+  <div id="scroll-arrow-svg" class={color}>
     <svg
       width="92"
       height="66"
@@ -50,7 +54,7 @@ const {
       xmlns="http://www.w3.org/2000/svg"
       class={`
       ${size}
-      fill-current text-white
+      fill-current 
       transition-colors duration-200
       ${hover ? "hover:fill-[#CDA26C] cursor-pointer" : ""}
     `}

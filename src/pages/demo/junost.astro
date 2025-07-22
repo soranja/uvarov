@@ -8,7 +8,7 @@ import Chapter from "../../components/demo/Chapter.astro";
 
 import { common, junostAssets } from "../../data";
 
-const uvarovYoung1 = [junostAssets.uvarovYoung1, junostAssets.handwrite1Full];
+const uvarovYoung1 = [junostAssets.uvarovYoung1Full, junostAssets.handwrite1Full];
 const uvarovYoung2 = [junostAssets.uvarovYoung2Full, junostAssets.handwrite2Full];
 const graf = [junostAssets.graf];
 const diploma = [junostAssets.diploma];
@@ -55,13 +55,7 @@ const portraits = junostAssets.libraryPortraits;
 
   <!-- Father / Mother -->
   <div>
-    <Section
-      id="father-mother"
-      sectionSize="w-full h-[200vh]"
-      contentHeight="h-[200vh]"
-      sectionFlex=""
-      sectionFlexed
-    >
+    <Section id="father-mother" sectionSize="w-full h-[200vh]" contentHeight="h-[200vh]">
       <div id="father-area" class="absolute top-0 h-[95vh] w-full"></div>
       <div id="mother-area" class="absolute bottom-0 h-[95vh] w-full"></div>
 
@@ -135,8 +129,6 @@ const portraits = junostAssets.libraryPortraits;
     sectionSize="w-full h-auto"
     contentHeight="h-auto"
     contentWidth="w-full"
-    sectionFlex=""
-    sectionFlexed
     contentFlex
     extraClass="relative"
   >
@@ -184,9 +176,17 @@ const portraits = junostAssets.libraryPortraits;
     class="fixed left-0 top-0 z-0 h-full w-full bg-[url('../data/biography/_images/junost/library.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"
   >
   </div>
-  <Section id="library">
-    <div class="flex flex-col items-center justify-between gap-y-[5vh]">
-      <p class="text-center text-sm leading-normal md:text-left md:text-2xl">
+  <Section
+    id="library"
+    sectionSize="w-full h-[110vh]"
+    contentHeight="h-auto"
+    contentWidth="w-full"
+    sectionFlex="flex flex-col items-center justify-end"
+  >
+    <div class="flex flex-col items-center justify-center gap-y-[2vh]">
+      <p
+        class="pointer-events-none w-4/5 rounded-2xl bg-white/60 px-[5%] py-6 text-center text-sm leading-normal shadow-md backdrop-blur-2xl md:text-xl"
+      >
         Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая
         библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет
         возможность общения с ученой и творческой элитой.
@@ -267,12 +267,11 @@ const portraits = junostAssets.libraryPortraits;
     id="father-influence"
     contentHeight="h-auto"
     sectionSize="w-full h-[70vh]"
-    sectionFlex="flex flex-col justify-center"
+    sectionFlex="flex flex-col items-center justify-center"
   >
-    <p class="px-[5%] text-base leading-normal md:text-4xl">
-      Но главным в формировании личности А.С. Уварова стало влияние отца. Во многом, благодаря ему,
-      Алексей Уваров сложился как человек европейской образованности и глубочайшей преданности
-      России.
+    <p class="text-center text-base leading-normal md:text-2xl lg:px-[5%] 2xl:px-[15%]">
+      Но главным в формировании личности А.С. Уварова стало влияние отца. <br /> Во многом, благодаря
+      ему, Алексей Уваров сложился как человек европейской образованности и глубочайшей преданности России.
     </p>
   </Section>
 
@@ -292,7 +291,6 @@ const portraits = junostAssets.libraryPortraits;
       </div>
       <div class="relative right-[5vh] flex flex-col items-center justify-center">
         <img src={junostAssets.handwrite_1.src} alt={junostAssets.handwrite_1.alt} />
-        <p class="absolute bottom-[5vh] right-[5%] self-end text-sm">Алексей Уваров в юности</p>
       </div>
     </div>
 
@@ -306,18 +304,19 @@ const portraits = junostAssets.libraryPortraits;
         <img src={junostAssets.uvarovYoung1.src} alt={junostAssets.uvarovYoung1.alt} />
         <InfoOverlay contentType="slider" images={uvarovYoung1} overlayId="dog-mobile" />
       </div>
-      <p class="text-sm">Алексей Уваров в юности</p>
     </div>
   </Section>
 
   <!-- Uni -->
   <Section
     id="uni"
-    contentWidth="w-full max-w-[1100px] 2xl:max-w-[1440px]"
-    contentHeight="h-[60vh] md:h-[87vh]"
-    sectionFlex="flex flex-col justify-center md:justify-end"
+    sectionSize="w-full h-auto "
+    sectionFlex="flex flex-col justify-center items-center"
+    contentWidth="w-auto"
+    contentHeight="h-auto"
+    extraClass="flex flex-col items-start justify-center py-10"
   >
-    <p class="ml-[6%] max-w-lg text-left text-sm leading-normal 2xl:max-w-2xl 2xl:text-xl">
+    <p class="mx-auto max-w-lg text-center text-sm 2xl:max-w-2xl 2xl:text-lg">
       В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший
       получил основательную подготовку по истории, словесности, географии, древним и новым
       европейским языкам, точным и естественным наукам.
@@ -326,26 +325,31 @@ const portraits = junostAssets.libraryPortraits;
       Интерес к истории, древностям привел его на словесное отделение философского факультета Петербургского
       университета.
     </p>
-    <img src={junostAssets.spbgu.src} src={junostAssets.spbgu.alt} class="absolute bottom-[-2vh]" />
+    <img src={junostAssets.spbgu.src} src={junostAssets.spbgu.alt} />
   </Section>
 
-  <!-- Grefe -->
+  <!-- Grefe / Ustryalov -->
   <Section
     id="grefe"
-    contentHeight="h-auto md:h-[95vh] 2xl:h-[50vh]"
-    sectionSize="w-full h-[120vh] 2xl:h-[90vh]"
-    sectionFlex="flex flex-col justify-center"
+    sectionSize="w-auto h-auto my-[20vh]"
+    contentWidth="w-auto"
+    contentHeight="h-auto"
   >
-    <div class="flex flex-col justify-center gap-y-20 px-[5%] text-base leading-normal md:text-4xl">
+    <div
+      class="flex flex-col items-center justify-center gap-y-10 px-[10%] text-center text-lg leading-normal 2xl:text-2xl"
+    >
       <p>
-        Серьезное влияние на формирование будущего ученого оказали профессор Ф.Б. Грефе, читавший
-        курс греческой словесности, и профессор русской истории Н.Г. Устрялов.
+        Серьезное влияние на формирование будущего ученого оказали профессор <span
+          class="font-bold italic">Ф. Б. Грефе</span
+        >, читавший курс греческой словесности, и профессор русской истории <span
+          class="font-bold italic">Н. Г. Устрялов</span
+        >.
       </p>
       <p>
-        Под его влиянием Уваров выбрал тему диссертации
+        Под их влиянием Уваров выбрал тему диссертации
         <br />
         <span class="italic">
-          «Исследование, в какой степени дополняются сведения о первом самозванце актами, изданными
+          «Исследование, в какой степени дополняются сведения <br /> о первом самозванце актами, изданными
           Археографической комиссией».
         </span>
       </p>
@@ -355,7 +359,7 @@ const portraits = junostAssets.libraryPortraits;
   <!-- Uvarov Young -->
   <div
     id="uvarov-bg"
-    class="relative left-0 top-0 z-0 mx-auto h-[70vh] w-full bg-[url('../data/biography/_images/junost/uvarov_young_2_portrait.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 md:h-[300vh] md:bg-right"
+    class="relative left-0 top-0 mx-auto h-[70vh] w-full bg-[url('../data/biography/_images/junost/uvarov_young_2_portrait.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 md:h-[300vh] md:bg-right"
     style="
         background-size: 120%;
         background-position: left 20%;
@@ -388,54 +392,36 @@ const portraits = junostAssets.libraryPortraits;
   <!-- Diploma -->
   <Section
     id="diploma"
-    sectionSize="w-full h-[105vh]"
-    contentHeight="h-[80vh]"
-    extraClass="mb-[5vh]"
+    sectionSize="w-full h-full mb-[20vh]"
+    contentHeight="h-full"
+    contentWidth="w-full"
   >
     <div
-      class="mx-auto grid h-full w-full max-w-[80%] grid-cols-1 grid-rows-2 md:h-auto md:grid-cols-3 md:grid-rows-1"
+      id="diploma-image"
+      class="relative flex h-full w-full flex-col items-center justify-center"
     >
-      <div id="diploma-image" class="relative col-span-2 flex flex-col items-center md:right-[20%]">
-        <img src={junostAssets.diploma.src} alt={junostAssets.diploma.alt} />
-        <InfoOverlay
-          contentType="image"
-          images={diploma}
-          overlayId="diploma"
-          iconPosition="absolute bottom-[3vh] 4xl:bottom-[1vh]"
-        />
-      </div>
-
-      <div
-        class="relative col-span-1 flex flex-col items-end justify-center text-center md:left-[35%] md:text-right"
-      >
-        <!-- <p class="text-xl 2xl:text-2xl">
-                    Окончив университет со степенью кандидата в 1845 году, 
-                    Уваров поступил на службу в Министерство иностранных дел.
-                </p> -->
-        <p class="text-xs 2xl:text-sm">
-          Диплом А.С. Уварова
-          <br class="hidden md:block" />
-          об окончании 1-го отделения
-          <br class="hidden md:block" />
-          Философского факультета разряда
-          <br class="hidden md:block" />
-          Общей словесности
-          <br class="hidden md:block" />
-          Санкт-Петербургского университета.
-          <br class="hidden md:block" />
-          14 июля 1845 г.
-        </p>
-      </div>
+      <img
+        class="h-full w-full object-cover"
+        src={junostAssets.diploma.src}
+        alt={junostAssets.diploma.alt}
+      />
+      <InfoOverlay
+        contentType="image"
+        images={diploma}
+        overlayId="diploma"
+        iconPosition="absolute bottom-[3vh]"
+      />
     </div>
   </Section>
 
   <!-- Video Uvarov 200 Excursion -->
   <Section
     id="video-uvarov-200-excursion"
-    sectionFlex="flex flex-col justify-center"
+    sectionFlex="flex flex-col justify-center items-center"
+    contentWidth="w-full"
     contentHeight="h-auto"
   >
-    <div class="flex flex-col items-center justify-center text-center md:text-left">
+    <div class="flex flex-col items-center justify-center text-center">
       <div class="relative aspect-video h-full w-full md:h-[50%] md:w-[50%]">
         <iframe
           class="h-full w-full"
@@ -446,30 +432,26 @@ const portraits = junostAssets.libraryPortraits;
           gyroscope;
           picture-in-picture;
           allowfullscreen
-          scrolling="no"
         >
         </iframe>
       </div>
-      <p class="mt-[2vh] px-[3vh] md:px-0">Экскурсия по выставке к 200-летию А.С. Уварова</p>
+      <p class="mt-[2vh] px-[3vh] italic md:px-0">
+        Экскурсия по выставке к 200-летию А. С. Уварова
+      </p>
     </div>
   </Section>
 
   <!-- Next Chapter -->
-  <Section
-    id="next-chapter"
-    contentHeight="h-auto"
-    sectionSize="h-[50vh]"
-    sectionFlex="flex flex-col justify-center"
-  >
+  <Section id="next-chapter" contentHeight="h-auto" sectionSize="h-auto w-full pb-[15vh] pt-[5vh]">
     <div class="relative flex w-full flex-col gap-y-[5vh] text-center text-3xl 4xl:gap-y-[2vh]">
-      <p>следующая глава</p>
       <ScrollArrow
         position="0"
-        invert="invert"
         visible="opacity-100"
         size="w-auto"
-        animated={false}
-        redirectUrl="/expeditions"
+        hover
+        animated
+        next
+        redirectUrl="/demo/expeditions"
       />
     </div>
   </Section>

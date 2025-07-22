@@ -299,6 +299,11 @@ export const junostAssets = {
   handwrite_1: { src: handwrite_1.src, alt: "Письмо 1" },
   handwrite1Full: { src: handwrite1Full.src, alt: "Письмо 1 полное" },
   uvarovYoung1: { src: uvarovYoung1.src, alt: "Уваров молодой - Рисунок" },
+  uvarovYoung1Full: {
+    src: uvarovYoung1.src,
+    alt: "Уваров молодой - Рисунок",
+    description: "Алексей Уваров в юности",
+  },
   uvarovYoung2: { src: uvarovYoung2.src, alt: "Уваров молодой - Фон" },
   uvarovYoung2Full: {
     src: uvarovYoung2Full.src,
@@ -318,7 +323,12 @@ export const junostAssets = {
     description:
       "Патент императора Николая I действительному статскому советнику С. С. Уварову на чин тайного советника",
   },
-  diploma: { src: diploma.src, alt: "Диплом" },
+  diploma: {
+    src: diploma.src,
+    alt: "Диплом",
+    description:
+      "Диплом А. С. Уварова об окончании 1-го отделения Философского факультета разряда Общей словесности Санкт-Петербургского университета. 14 июля 1845 г.",
+  },
   libraryPortraits: [
     {
       id: 1,
