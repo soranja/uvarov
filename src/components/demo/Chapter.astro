@@ -15,13 +15,6 @@ const { section, hover } = Astro.props;
   <div
     class="transform-all flex h-screen w-full items-center justify-center bg-chapter-tile bg-[length:125px_125px] duration-1000 ease-in-out"
   >
-    <ScrollArrow
-      position="absolute bottom-6 transform -translate-x-1/2"
-      size="w-[75%] mx-auto"
-      color="text-white"
-      redirectUrl={section}
-      hover={hover}
-    />
     {
       currentChapter ? (
         <img
@@ -33,6 +26,13 @@ const { section, hover } = Astro.props;
         <p class="text-white">Глава не найдена</p>
       )
     }
+    <ScrollArrow
+      position="absolute bottom-[10vh] lg:bottom-6 inset-x-0"
+      size="w-[75%] mx-auto"
+      color="text-white"
+      redirectUrl={section}
+      hover={hover}
+    />
   </div>
 </section>
 
