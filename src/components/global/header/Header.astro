@@ -26,13 +26,14 @@ import headerMobile from "../../../data/common/_images/header-mobile.svg";
 		4xl:text-3xl
 	`
 >
-  <div class="relative flex h-full w-full max-w-[93%] items-center justify-between md:hidden">
-    <div class="absolute left-0 flex items-center">
+  <!-- Mobile Header -->
+  <div class="relative flex h-auto w-full max-w-[93%] items-center justify-between md:hidden">
+    <div class="flex items-center justify-center">
       <!-- Burger Icon -->
       <div id="burger-icon" class="cursor-pointer">
-        <div class="mb-[5px] h-[2px] w-6 bg-white"></div>
-        <div class="mb-[5px] h-[2px] w-6 bg-white"></div>
-        <div class="h-[2px] w-6 bg-white"></div>
+        <div class="mb-[5px] h-[1px] w-4 bg-white"></div>
+        <div class="mb-[5px] h-[1px] w-4 bg-white"></div>
+        <div class="h-[1px] w-4 bg-white"></div>
       </div>
 
       <!-- Cross Icon -->
@@ -58,11 +59,12 @@ import headerMobile from "../../../data/common/_images/header-mobile.svg";
     </div>
 
     <!-- GIM Logo / Current Chapter -->
-    <div id="gim" class="absolute left-1/2 h-[30%] -translate-x-1/2 transform">
+    <div id="gim" class="flex h-[20%] items-center justify-center">
       <!-- Logo / Chapter inserted here -->
     </div>
   </div>
 
+  <!-- Desktop Header -->
   <nav
     id="nav"
     class=`
@@ -180,7 +182,7 @@ import headerMobile from "../../../data/common/_images/header-mobile.svg";
       burgerIcon.classList.remove("hidden");
       crossIcon.classList.add("hidden");
       nav.classList.add("hidden");
-      gimLogo.innerHTML = `<img src=${gim.src} class="h-full">`;
+      gimLogo.innerHTML = `<img src=${gim.src}>`;
     }
   };
 

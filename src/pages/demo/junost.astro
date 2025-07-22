@@ -35,15 +35,17 @@ const portraits = junostAssets.libraryPortraits;
     contentWidth="w-auto"
     contentHeight="h-auto"
     sectionFlex="flex flex-col justify-end items-center"
-    sectionSize="w-[90vw] h-[50vh] md:h-screen mx-auto"
+    sectionSize="w-[90vw] h-[60vh] md:h-screen mx-auto"
     extraClass="relative"
   >
-    <p class="absolute left-0 top-0 md:text-lg 2xl:text-xl 4xl:static 4xl:text-4xl">
+    <p
+      class="absolute inset-x-0 left-0 top-0 text-center text-sm md:inset-auto md:text-left md:text-lg 2xl:text-xl 4xl:static 4xl:text-4xl"
+    >
       А. С. Уваров родился 28 февраля (11 марта)
       <br />
       1824 года в Петербурге.
     </p>
-    <img src={junostAssets.spb.src} alt={junostAssets.spb.alt} />
+    <img class="py-[10vh] md:py-0" src={junostAssets.spb.src} alt={junostAssets.spb.alt} />
   </Section>
 
   <!-- Father / Mother BG -->
@@ -60,11 +62,9 @@ const portraits = junostAssets.libraryPortraits;
       <div id="mother-area" class="absolute bottom-0 h-[95vh] w-full"></div>
 
       <div
-        class="sticky left-0 top-[15%] grid h-[90vh] w-full grid-cols-1 grid-rows-3 md:top-[7%] md:grid-cols-2 md:grid-rows-1"
+        class="sticky left-0 top-[15%] grid h-2/5 w-full grid-cols-1 grid-rows-[auto_2fr_3fr] md:top-[7%] md:grid-cols-2 md:grid-rows-1"
       >
-        <div
-          class="top-text-mobile flex h-full max-w-lg flex-col justify-end text-center text-base md:mx-0 md:hidden md:text-2xl"
-        >
+        <div class="top-text-mobile max-w-md py-5 text-center text-sm md:hidden md:text-2xl">
           <p>
             Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и
             государственности, а ряд исторических событий XIX века являлись для него частью семейной
@@ -73,24 +73,24 @@ const portraits = junostAssets.libraryPortraits;
         </div>
 
         <!-- Father / Mother Images -->
-        <div class="relative flex h-full items-center justify-center">
+        <div class="relative flex items-center justify-center lg:my-auto lg:h-[90%]">
           <img
             src={junostAssets.father.src}
             alt={junostAssets.father.alt}
             id="father-img"
-            class="absolute left-0 top-0 h-full w-full object-contain opacity-0"
+            class="absolute inset-0 h-full w-full object-contain opacity-0"
           />
           <img
             src={junostAssets.mother.src}
             alt={junostAssets.mother.alt}
             id="mother-img"
-            class="absolute left-0 top-0 h-full w-full object-contain opacity-0"
+            class="absolute inset-0 h-full w-full object-contain opacity-0"
           />
         </div>
 
         <!-- Father / Mother Texts -->
         <div
-          class="flex h-4/5 flex-col items-end justify-center self-center text-center md:text-right md:text-base lg:py-0 lg:text-lg 2xl:text-2xl 4xl:text-4xl"
+          class="flex h-4/5 flex-col items-end justify-center self-center text-center text-sm md:text-right md:text-base lg:py-0 lg:text-lg 2xl:text-2xl 4xl:text-4xl"
         >
           <p
             class="top-text hidden rounded-2xl bg-white/60 p-4 italic shadow-md backdrop-blur-2xl md:block"
@@ -141,7 +141,7 @@ const portraits = junostAssets.libraryPortraits;
 
     <div class="absolute inset-y-0 z-10 mx-auto grid grid-cols-8 grid-rows-8">
       <div
-        class="col-span-3 col-start-5 row-start-2 flex items-start justify-end text-sm opacity-100 transition-opacity duration-300 hover:opacity-10 xl:text-base 4xl:text-3xl"
+        class="col-span-3 col-start-1 row-start-6 flex items-start justify-end pl-2 pt-10 text-[6px] opacity-20 transition-opacity duration-300 lg:col-start-5 lg:pl-0 lg:opacity-100 lg:hover:opacity-10 xl:text-base 4xl:text-3xl"
       >
         <p
           class="pointer-events-none rounded-2xl bg-white/80 p-6 text-right shadow-md backdrop-blur-2xl"
@@ -149,15 +149,6 @@ const portraits = junostAssets.libraryPortraits;
           <span class="italic">«За особливые заслуги и высокие достоинства»</span><br /><br />
           Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа
           с нисходящим потомством.
-        </p>
-      </div>
-
-      <div
-        class="col-span-3 col-start-1 row-start-6 flex w-full items-end justify-end text-sm opacity-100 transition-opacity duration-300 hover:opacity-10 xl:text-base 4xl:text-3xl"
-      >
-        <p class="pointer-events-none rounded-2xl bg-white/60 p-6 shadow-md backdrop-blur-2xl">
-          Патент императора Николая I <br />действительному статскому советнику <br /> С. С. Уварову
-          на чин тайного советника.
         </p>
       </div>
     </div>
@@ -316,7 +307,9 @@ const portraits = junostAssets.libraryPortraits;
     contentHeight="h-auto"
     extraClass="flex flex-col items-start justify-center py-10"
   >
-    <p class="mx-auto max-w-lg text-center text-sm 2xl:max-w-2xl 2xl:text-lg">
+    <p
+      class="mx-auto max-w-lg px-5 text-center text-xs md:px-0 md:text-sm 2xl:max-w-2xl 2xl:text-lg"
+    >
       В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший
       получил основательную подготовку по истории, словесности, географии, древним и новым
       европейским языкам, точным и естественным наукам.
@@ -372,11 +365,11 @@ const portraits = junostAssets.libraryPortraits;
       contentWidth="w-full"
       contentHeight="h-[70vh] md:h-[300vh]"
     >
-      <div class="flex h-full flex-col px-[2vh] md:justify-center md:px-0">
+      <div class="flex h-full flex-col justify-center px-[2vh] md:px-0">
         <img
           src={junostAssets.handwrite_2.src}
           alt="Почерк-2"
-          class="h-[30vh] w-full object-contain object-left-top md:h-[200vh]"
+          class="h-[50vh] w-full object-contain object-left-top md:h-[200vh]"
         />
       </div>
     </Section>
@@ -385,7 +378,7 @@ const portraits = junostAssets.libraryPortraits;
       images={uvarovYoung2}
       isIconInverted={true}
       overlayId="u-young"
-      iconPosition="absolute bottom-[5vh] left-1/2"
+      iconPosition="absolute bottom-[5vh] left-1/2 -translate-x-1/2"
     />
   </div>
 
@@ -420,6 +413,7 @@ const portraits = junostAssets.libraryPortraits;
     sectionFlex="flex flex-col justify-center items-center"
     contentWidth="w-full"
     contentHeight="h-auto"
+    sectionSize="w-full h-auto mb-10 lg:mb-0 lg:h-screen"
   >
     <div class="flex flex-col items-center justify-center text-center">
       <div class="relative aspect-video h-full w-full md:h-[50%] md:w-[50%]">
