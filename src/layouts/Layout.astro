@@ -6,7 +6,7 @@ import Loading from "../components/global/Loading.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const { title = SITE_TITLE } = Astro.props;
-const pageTitle = title === SITE_TITLE ? title : `УВАРОВУ 200 лет! - ${title}`;
+const pageTitle = title === SITE_TITLE ? title : `${SITE_TITLE} - ${title}`;
 ---
 
 <!doctype html>

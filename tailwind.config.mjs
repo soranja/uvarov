@@ -1,31 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,ts,tsx}"],
   theme: {
     extend: {
       colors: {
         body: "#111",
         junost: "#EBE9C2",
         expeditions: "#CCAD8A",
-        family: "#CFD5D5",
-        activities: "#E3CCA3",
         museum: "#E8DFCC",
-        epilogue: "#CDA26C",
-        materials: "#EEE",
       },
       backgroundImage: {
-        "chapter-bg": "url('../data/common/_images/chapter-bg.png')",
         "chapter-tile": "url('../data/common/_images/chapter-tile-bg.png')",
-        "junost-bg": "url('../data/biography/_images/junost/junost-img.jpg')",
         "junost-tile": "url('../data/biography/_images/junost/junost-tile-bg.png')",
-        "expeditions-bg": "url('../data/biography/_images/expeditions/expeditions-img.jpg')",
-        "porechye-bg": "url('../data/biography/_images/porechye/porechye-img.jpg')",
-        "praskovya-bg": "url('../data/biography/_images/praskovya/praskovya-img.jpg')",
-        "family-bg": "url('../data/biography/_images/family/family-img.png')",
-        "activities-bg": "url('../data/biography/_images/activities/activities-img.png')",
-        "museum-bg": "url('../data/biography/_images/museum/museum-img.jpg')",
-        "epilogue-bg": "url('../data/biography/_images/epilogue/epilogue-img.jpg')",
-        "header-black": "url('../data/common/_images/header-black.svg')",
+        "expeditions-tile": "url('../data/biography/_images/expeditions/expeditions-tile-bg.png')",
+        "museum-tile": "url('../data/biography/_images/museum/museum-tile-bg.png')",
       },
       keyframes: {
         blur: {
@@ -76,18 +64,7 @@ export default {
         fadeInBounce: "fadeInBounce 1s ease-in-out forwards, bounce 1s infinite 1s",
       },
       zIndex: {
-        60: "60",
-        70: "70",
-        80: "80",
-        90: "90",
-        100: "100",
-        110: "110",
-        120: "120",
-        130: "130",
-        140: "140",
         150: "150",
-        160: "160",
-        200: "200",
         1000: "1000",
         1100: "1100",
       },

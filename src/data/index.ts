@@ -112,74 +112,6 @@ import research__orig_7 from "./biography/_images/expeditions/research/originals
 
 /* ==========
 
-    PORECHYE
-
-  ========== */
-
-import porechye2 from "./biography/_images/porechye/porechye-2.png";
-import porechye3 from "./biography/_images/porechye/porechye-3.png";
-import porechye4 from "./biography/_images/porechye/porechye-4.png";
-import porechyeInterior1 from "./biography/_images/porechye/porechye-interior-1.png";
-import porechyeInterior2 from "./biography/_images/porechye/porechye-interior-2.png";
-import porechyePeople1 from "./biography/_images/porechye/porechye-people-1.png";
-import porechyePeople2 from "./biography/_images/porechye/porechye-people-2.png";
-import razumovsky from "./biography/_images/porechye/razumovsky.png";
-
-// PORECHYE INTERIORS SLIDER
-import porechyeInterior1Full from "./biography/_images/porechye/porechye-interior-1-full.jpg";
-import porechyeInterior2Full from "./biography/_images/porechye/porechye-interior-2-full.jpg";
-
-/* ==========
-
-    FAMILY
-
-  ========== */
-
-// FAMILY ASSETS
-import uvarovWifeBg from "./biography/_images/family/uvarov-wife-bg.png";
-import husband from "./biography/_images/family/husband.png";
-import wife from "./biography/_images/family/wife.png";
-import wifeYoung from "./biography/_images/family/wife-young.png";
-import children from "./biography/_images/family/children.png";
-import veniceImg from "./biography/_images/family/venice.png";
-import venice from "./biography/_videos/family/venice.webm";
-
-/* ==========
-
-    PRASKOVYA UVAROVA
-
-  ========== */
-
-import praskovyaFinal from "./biography/_images/praskovya/praskovya-final.png";
-import praskovyaLivingRoom from "./biography/_images/praskovya/praskovya-living-room.png";
-import praskovyaPortrait from "./biography/_images/praskovya/praskovya-portrait.png";
-import praskovyaRuins from "./biography/_images/praskovya/praskovya-ruins.png";
-import praskovyaRuinsOrig from "./biography/_images/praskovya/praskovya-ruins-orig.jpg";
-import praskovyaScientists1 from "./biography/_images/praskovya/praskovya-scientists-1.png";
-import praskovyaScientists2 from "./biography/_images/praskovya/praskovya-scientists-2.png";
-import praskovyaSerbia from "./biography/_images/praskovya/praskovya-serbia.png";
-import praskovyaSerbiaOrig from "./biography/_images/praskovya/praskovya-serbia-orig.jpg";
-import praskovyaUvarovPortrait from "./biography/_images/praskovya/praskovya-uvarov-portrait.png";
-import praskovyaWorking from "./biography/_images/praskovya/praskovya-working.png";
-
-/* ==========
-
-    ACTIVITIES
-
-  ========== */
-
-// ACTIVITIES ASSETS
-import kremlin from "./biography/_images/activities/kremlin.png";
-import lection from "./biography/_images/activities/lection.png";
-import lectionFull from "./biography/_images/activities/lection-full.png";
-import mao from "./biography/_images/activities/mao.png";
-import maoChairs from "./biography/_images/activities/mao-chairs.png";
-import princesLection from "./biography/_images/activities/princes-lection.png";
-import uvarovMedal from "./biography/_images/activities/uvarov-medal.png";
-import uvarovMedalBack from "./biography/_images/activities/uvarov-medal-back.png";
-
-/* ==========
-
     MUSEUM
 
   ========== */
@@ -233,19 +165,6 @@ import hall__orig_6 from "./biography/_images/museum/halls/originals/6.jpg";
 import hall__orig_8 from "./biography/_images/museum/halls/originals/8.jpg";
 import hall__orig_10 from "./biography/_images/museum/halls/originals/10.jpg";
 import hall__orig_12 from "./biography/_images/museum/halls/originals/12.jpg";
-
-/* ==========
-
-    EPILOGUE
-
-  ========== */
-
-// Epilogue Files
-import uvarovDead from "./biography/_images/epilogue/uvarov-dead.png";
-import uvarovTomb from "./biography/_images/epilogue/uvarov-tomb.png";
-import uvarovPhotoEpilogue from "./biography/_images/epilogue/uvarov-photo-epilogue.png";
-import epilogueSeparator from "./biography/_images/epilogue/arrow-epilogue.svg";
-import fioLogo from "./biography/_images/epilogue/fio_logo.png";
 
 /* ==========
 
@@ -485,94 +404,6 @@ export const expeditionsAssets = {
   ],
 };
 
-export const porechyeAssets = {
-  porechye2: { src: porechye2.src, alt: "Усадьба Поречье, вид 2" },
-  porechye3: { src: porechye3.src, alt: "Усадьба Поречье, вид 3" },
-  porechye4: { src: porechye4.src, alt: "Усадьба Поречье, вид 4" },
-  porechyeInterior1: {
-    src: porechyeInterior1.src,
-    alt: "Интерьер комнаты в Поречье, вид 1",
-  },
-  porechyeInterior2: {
-    src: porechyeInterior2.src,
-    alt: "Интерьер комнаты в Поречье, вид 2",
-  },
-  porechyeInterior1Full: {
-    src: porechyeInterior1Full.src,
-    alt: "Интерьер комнаты в Поречье, вид 1",
-  },
-  porechyeInterior2Full: {
-    src: porechyeInterior2Full.src,
-    alt: "Интерьер комнаты в Поречье, вид 2",
-  },
-  porechyePeople1: {
-    src: porechyePeople1.src,
-    alt: "Группа людей в Поречье, вид 1",
-  },
-  porechyePeople2: {
-    src: porechyePeople2.src,
-    alt: "Группа людей в Поречье, вид 2",
-  },
-  razumovsky: { src: razumovsky.src, alt: "Портрет Разумовского" },
-};
-
-export const familyAssets = {
-  children: { src: children.src, alt: "Фото детей" },
-  uvarovWifeBg: { src: uvarovWifeBg.src, alt: "Фон для жены и мужа" },
-  husband: { src: husband.src, alt: "Фото мужа" },
-  wife: { src: wife.src, alt: "Фото жены" },
-  wifeYoung: { src: wifeYoung.src, alt: "Портрет жены" },
-  veniceImg: { src: veniceImg.src, alt: "Венеция" },
-  venice: { src: venice, alt: "Венеция" },
-};
-
-export const praskovyaAssets = {
-  praskovyaFinal: { src: praskovyaFinal.src, alt: "Прасковья - концовка" },
-  praskovyaLivingRoom: { src: praskovyaLivingRoom.src, alt: "Гостиная" },
-  praskovyaPortrait: { src: praskovyaPortrait.src, alt: "Портрет Прасковьи" },
-  praskovyaRuins: {
-    src: praskovyaRuins.src,
-    srcOrig: praskovyaRuinsOrig.src,
-    alt: "Прасковья на раскопках",
-  },
-  praskovyaScientists1: {
-    src: praskovyaScientists1.src,
-    alt: "Прасковья с учеными - 1",
-  },
-  praskovyaScientists2: {
-    src: praskovyaScientists2.src,
-    alt: "Прасковья с учеными - 2",
-  },
-  praskovyaSerbia: {
-    src: praskovyaSerbia.src,
-    srcOrig: praskovyaSerbiaOrig.src,
-    alt: "Посещение Сербии Прасковьей",
-  },
-  praskovyaUvarovPortrait: {
-    src: praskovyaUvarovPortrait.src,
-    alt: "Портрет Уварова",
-  },
-  praskovyaWorking: { src: praskovyaWorking.src, alt: "Прасковья за работой" },
-};
-
-export const activitiesAssets = {
-  kremlin: { src: kremlin.src, alt: "Кремль" },
-  mao: { src: mao.src, alt: "МАО" },
-  maoChairs: { src: maoChairs.src, alt: "МАО - Зал" },
-  princesLection: {
-    src: princesLection.src,
-    alt: "Принцы на лекции",
-    description: "Великий князь Павел Александрович и Великий князь Сергей Александрович",
-  },
-  lection: { src: lection.src, alt: "Лекция" },
-  lectionFull: { src: lectionFull.src, alt: "Полный текст лекции" },
-  uvarovMedal: { src: uvarovMedal.src, alt: "Медаль Уварова" },
-  uvarovMedalBack: {
-    src: uvarovMedalBack.src,
-    alt: "Медаль Уварова (обратная сторона)",
-  },
-};
-
 export const museumAssets = {
   gim: { src: gim.src, alt: "Здание ГИМ (Государственный Исторический Музей)" },
   ustav: { src: ustav.src, alt: "Устав Государственного Исторического Музея" },
@@ -702,17 +533,6 @@ export const museumAssets = {
       alt: "Библиотека Исторического музея до перестройки 1912 года.",
     },
   ],
-};
-
-export const epilogueAssets = {
-  uvarovDead: { src: uvarovDead.src, alt: "Уваров на смертном одре" },
-  uvarovPhotoEpilogue: {
-    src: uvarovPhotoEpilogue.src,
-    alt: "Фотография Уварова",
-  },
-  uvarovTomb: { src: uvarovTomb.src, alt: "Гробница Уварова" },
-  epilogueSeparator: { src: epilogueSeparator.src, alt: "Стрелка - Титры" },
-  fioLogo: { src: fioLogo.src, alt: "ФИО - Лого" },
 };
 
 export const audios = {
