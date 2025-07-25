@@ -3,6 +3,7 @@ import DemoWrapper from "../../components/demo/DemoWrapper.astro";
 import HeaderWrapper from "../../components/global/header/HeaderWrapper.astro";
 import ScrollArrow from "../../components/global/ScrollArrow.astro";
 import Section from "../../components/global/Section.astro";
+import Note from "../../components/global/Note.jsx";
 import InfoOverlay from "../../components/global/InfoOverlay.astro";
 import Chapter from "../../components/demo/Chapter.astro";
 
@@ -139,19 +140,11 @@ const portraits = junostAssets.libraryPortraits;
       alt={junostAssets.graf.alt}
     />
 
-    <div class="absolute inset-y-0 z-10 mx-auto grid grid-cols-8 grid-rows-8">
-      <div
-        class="col-span-3 col-start-2 row-start-6 flex items-start justify-end pt-24 text-[6px] opacity-80 transition-opacity duration-300 lg:col-start-5 lg:pt-10 lg:opacity-100 lg:hover:opacity-10 xl:text-base 4xl:text-3xl"
-      >
-        <p
-          class="pointer-events-none rounded-2xl bg-white/80 p-2 text-right shadow-md backdrop-blur-2xl lg:p-6"
-        >
-          <span class="italic">«За особливые заслуги и высокие достоинства»</span><br /><br />
-          Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа
-          с нисходящим потомством.
-        </p>
-      </div>
-    </div>
+    <Note client:load position="right">
+      <span class="italic">«За особливые заслуги и высокие достоинства»</span><br /><br />
+      Высочайшим указом от 1 июля 1846 года С. С. Уваров был пожалован титулом сиятельного графа с нисходящим
+      потомством.
+    </Note>
 
     <InfoOverlay
       contentType="image"

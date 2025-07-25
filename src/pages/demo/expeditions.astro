@@ -2,6 +2,7 @@
 import DemoWrapper from "../../components/demo/DemoWrapper.astro";
 import HeaderWrapper from "../../components/global/header/HeaderWrapper.astro";
 import Section from "../../components/global/Section.astro";
+import Note from "../../components/global/Note.jsx";
 import Chapter from "../../components/demo/Chapter.astro";
 import ScrollArrow from "../../components/global/ScrollArrow.astro";
 import InfoOverlay from "../../components/global/InfoOverlay.astro";
@@ -35,7 +36,7 @@ const cover = [expeditionsAssets.researchCoverFull];
   <!-- Archeology Text -->
   <Section id="archeology-text" contentHeight="h-auto" sectionSize="w-full h-[90vh]">
     <p
-      class="mx-auto max-w-3xl text-center text-lg leading-relaxed lg:max-w-5xl lg:text-2xl 3xl:text-3xl 4xl:max-w-7xl 4xl:text-4xl"
+      class="mx-auto max-w-3xl text-center text-lg leading-relaxed lg:max-w-5xl lg:text-2xl 2xl:leading-loose 3xl:text-3xl 4xl:max-w-7xl 4xl:text-4xl"
     >
       Окончив университет со степенью кандидата в 1845 году, поступил на службу в Министерство
       иностранных дел. По окончании университета, параллельно службе, <br /> Уваров увлекся археологией.
@@ -50,7 +51,7 @@ const cover = [expeditionsAssets.researchCoverFull];
     extraClass="z-20"
   >
     <div class="flex h-full w-full flex-col items-center justify-between text-center">
-      <p class="text-center">
+      <p class="text-center 2xl:text-2xl 2xl:leading-relaxed">
         В 1846 году, он, наряду с маститыми нумизматами <span
           ><a
             class="font-bold italic hover:underline"
@@ -64,19 +65,19 @@ const cover = [expeditionsAssets.researchCoverFull];
           <span class="italic">(впоследствии – Русское археологическое общество)</span>.
         </span>
       </p>
-      <div id="archeologists-image" class="relative my-5 h-full w-full">
+      <div id="archeologists-image" class="relative my-5 h-full w-full text-left">
         <img
+          class="h-full w-full object-cover"
           src={expeditionsAssets.archaeologists.src}
           alt={expeditionsAssets.archaeologists.alt}
         />
-        <div class="absolute bottom-0 right-0 flex items-center justify-center">
-          <p class="max-w-md rounded-2xl bg-white/80 px-4 py-6 text-sm shadow-md backdrop-blur-2xl">
-            Портрет членов-учредителей Петербургского Археологическо-нумизматического общества. <br
-            />
-            Фотограф: К. Даутендей, Санкт-Петербург, 1850 г. <br /><br /> Стоят: И. А. Бартоломей, Б.
-            В. Кёне, А. С. Уваров. <br />Сидят: Я. Я. Рейхель, М. Д. Топчибашев.
-          </p>
-        </div>
+        <Note client:load position="right">
+          Портрет членов-учредителей Петербургского Археологическо-нумизматического общества. <br />
+          <br />
+          Фотограф: К. Даутендей, Санкт-Петербург, 1850 г. <br /><br />
+          Стоят: И. А. Бартоломей, Б. В. Кёне, А. С. Уваров. <br />
+          Сидят: Я. Я. Рейхель, М. Д. Топчибашев.
+        </Note>
       </div>
     </div>
   </Section>
@@ -89,7 +90,7 @@ const cover = [expeditionsAssets.researchCoverFull];
     extraClass="z-20"
   >
     <div class="flex h-full w-full flex-col items-center justify-between text-center">
-      <p class="text-center">
+      <p class="text-center 2xl:text-2xl 2xl:leading-relaxed">
         Он предложил начать работу по составлению Русского археологического словаря и подготовил для
         него ряд статей. В 1849 году Уваров назначил денежные вознаграждения за исследования в
         области русских древностей, и среди награжденных авторов были <a
@@ -104,11 +105,9 @@ const cover = [expeditionsAssets.researchCoverFull];
       </p>
       <div id="zabelin-image" class="relative my-10 flex h-full w-full justify-center">
         <img src={expeditionsAssets.zabelin.src} alt={expeditionsAssets.zabelin.alt} />
-        <div class="absolute bottom-0 left-0 flex items-center justify-center">
-          <p class="max-w-md rounded-2xl bg-white/80 p-4 text-sm shadow-md backdrop-blur-2xl">
-            Забелин Иван Егорович (с дагерротипа, 1856 г.)
-          </p>
-        </div>
+        <Note client:load position="left">
+          Забелин Иван Егорович <br /> (с дагерротипа, 1856 г.)
+        </Note>
       </div>
     </div>
   </Section>
@@ -123,7 +122,7 @@ const cover = [expeditionsAssets.researchCoverFull];
   <!-- Hersones Text -->
   <Section id="hersones-text" contentHeight="h-auto" sectionSize="w-full h-[90vh]">
     <p
-      class="mx-auto max-w-3xl text-center text-lg leading-relaxed lg:max-w-5xl lg:text-2xl 3xl:text-3xl 4xl:max-w-7xl 4xl:text-4xl"
+      class="mx-auto max-w-3xl text-center text-lg leading-relaxed lg:max-w-5xl lg:text-2xl 2xl:leading-loose 3xl:text-3xl 4xl:max-w-7xl 4xl:text-4xl"
     >
       По решению специальной комиссии Общества, летом 1848 года Уваров совершил путешествие по Южным
       землям России, обследуя наиболее важные в археологическом отношении местности.
@@ -135,12 +134,12 @@ const cover = [expeditionsAssets.researchCoverFull];
     id="hersones-image"
     contentHeight="h-auto"
     contentWidth="w-full"
-    sectionSize="w-full h-auto "
+    sectionSize="w-full h-auto"
   >
     <img
       src={expeditionsAssets.khersones[0].src}
       alt={expeditionsAssets.khersones[0].alt}
-      class=""
+      class="mx-auto object-cover object-center 2xl:h-full 2xl:w-full"
     />
   </Section>
 
@@ -154,9 +153,10 @@ const cover = [expeditionsAssets.researchCoverFull];
       sectionSize="w-full h-screen md:h-[2048px]"
       sectionFlex="flex flex-col justify-center"
       contentHeight="h-[75vh] md:h-[1250px]"
+      contentWidth="w-full"
     >
       <div
-        class="flex h-full flex-col items-center justify-between px-[5%] text-lg leading-normal lg:text-3xl 2xl:text-4xl 2xl:leading-relaxed"
+        class="flex h-full w-full flex-col items-center justify-between px-[5%] text-center text-lg leading-normal lg:text-3xl 2xl:text-4xl 2xl:leading-relaxed"
       >
         <p class="rounded-2xl bg-white/80 p-6 shadow-md backdrop-blur-2xl">
           Он посетил Каменское городище, Херсон, Ольвию, Херсонес.
@@ -165,7 +165,7 @@ const cover = [expeditionsAssets.researchCoverFull];
           Раскопки ученый не вел, все приобретенные им античные артефакты — либо «подъемный»
           материал <span class="italic"
             >(фрагменты керамических стеклянных сосудов, лепная керамика, монеты)</span
-          >, либо покупки у местного населения.
+          >, либо покупки у местных.
         </p>
       </div>
     </Section>
@@ -291,7 +291,7 @@ const cover = [expeditionsAssets.researchCoverFull];
     contentHeight="h-auto"
     sectionSize="w-full h-auto mb-[10vh]"
     contentFlex
-    extraClass="gap-y-[10vh] 4xl:gap-y-[5vh] text-center px-[5%]"
+    extraClass="gap-y-[10vh] 4xl:gap-y-[5vh] text-center px-[5%] 2xl:text-2xl 2xl:leading-relaxed"
   >
     <p>
       В 1850 году молодой граф был переведен в Министерство внутренних дел, в 1853 году его
@@ -312,7 +312,7 @@ const cover = [expeditionsAssets.researchCoverFull];
     contentHeight="h-auto"
     sectionSize="w-full h-auto mb-[10vh]"
     contentFlex
-    extraClass="gap-y-[10vh] 4xl:gap-y-[5vh] text-center px-[5%]"
+    extraClass="gap-y-[10vh] 4xl:gap-y-[5vh] text-center px-[5%] 2xl:text-2xl 2xl:leading-relaxed"
   >
     <p>
       В 1851 году Уваров проводил раскопки и на территории суздальского Спасо-Евфимиева монастыря в
@@ -329,7 +329,7 @@ const cover = [expeditionsAssets.researchCoverFull];
   <Section id="pozharsky" sectionSize="w-full h-auto" contentWidth="w-10/12" contentHeight="h-auto">
     <div class="hidden grid-cols-3 gap-x-8 md:grid">
       <div class="col-span-2 flex flex-col items-start justify-start">
-        <p class="max-w-md text-xl 2xl:max-w-xl 2xl:text-2xl">
+        <p class="max-w-md text-xl 2xl:max-w-xl 2xl:text-2xl 2xl:leading-relaxed">
           Ему удалось обнаружить усыпальницу Пожарских и среди нескольких надгробий выявить то,
           которое ранее было установлено над захоронением князя.
         </p>
@@ -366,7 +366,9 @@ const cover = [expeditionsAssets.researchCoverFull];
       contentHeight="h-[70vh] md:h-[150vh]"
     >
       <div class="flex h-full flex-col justify-center text-center md:ml-[20vh] md:text-left">
-        <p class="h-[50vh] max-w-2xl text-lg leading-normal lg:h-[80vh] lg:text-2xl">
+        <p
+          class="h-[50vh] max-w-2xl text-lg leading-normal lg:h-[80vh] 2xl:text-2xl 2xl:leading-relaxed"
+        >
           Позднее, в 1853–1854 годах Уваров возглавил экспедицию в Таврическую губернию, работал в
           Ольвии, Неаполе Скифском, Херсонесе.
         </p>
@@ -427,7 +429,7 @@ const cover = [expeditionsAssets.researchCoverFull];
     contentHeight="h-auto"
     sectionSize="w-full h-auto my-[10vh]"
     contentFlex
-    extraClass="gap-y-[10vh] 4xl:gap-y-[5vh] text-center px-[5%]"
+    extraClass="gap-y-[10vh] 4xl:gap-y-[5vh] text-center px-[5%] 2xl:text-2xl 2xl:leading-relaxed"
   >
     <p>
       Там были найдены древнегреческие надгробия с надписями, обломки мраморных колонн, пьедесталов,
@@ -500,7 +502,7 @@ const cover = [expeditionsAssets.researchCoverFull];
     contentHeight="h-auto"
     sectionSize="w-full h-auto my-[10vh]"
     contentFlex
-    extraClass="gap-y-[10vh] text-center px-[5%]"
+    extraClass="gap-y-[10vh] text-center px-[5%] 2xl:text-2xl 2xl:leading-relaxed"
   >
     <p>
       После смерти отца Уваров стал владельцем почти 100 тысяч десятин земли (в Московской,

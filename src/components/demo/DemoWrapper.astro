@@ -8,9 +8,7 @@ const currentChapter = getCurrentChapter(Astro);
 
 <Layout title={currentChapter!.alt}>
   <BgWrapper bgColor={`${currentChapter!.id}`}>
-    <!-- <div class="border-4 border-orange-500"> -->
     <slot />
-    <!-- </div> -->
   </BgWrapper>
 </Layout>
 
