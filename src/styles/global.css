@@ -4,16 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
-   html {
-      @apply 2xl:text-xl 3xl:text-2xl 4xl:text-3xl 5xl:text-5xl;
-   }
-} */
+@layer base {
+  html {
+    @apply 3xl:text-3xl 4xl:text-4xl 5xl:text-5xl;
+    @apply 3xl:leading-loose;
+  }
+
+  main,
+  .page-wrapper {
+    @apply 3xl:gap-y-10 4xl:gap-y-12 5xl:gap-y-16;
+  }
+}
 
 .no-scrollbar::-webkit-scrollbar {
-  display: none;   /* Chrome, Safari and Opera */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 html {
@@ -27,4 +33,3 @@ body {
   text-align: left;
   font-size: 20px;
 }
-

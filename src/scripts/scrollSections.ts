@@ -65,9 +65,6 @@ function handleSpacebarScroll(event: KeyboardEvent): void {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (!sectionList.length) {
-    console.warn(`No section list found for chapter: "${chapterKey}"`);
-    return;
-  }
+  if (!sectionList.length) return;
   window.addEventListener("keydown", handleSpacebarScroll);
 });

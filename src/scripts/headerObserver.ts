@@ -21,7 +21,5 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     headerObserver.observe(chapterIntro);
-  } else {
-    console.error("One or more elements were not found: chapterIntro, header, scrollArrow");
   }
 });
