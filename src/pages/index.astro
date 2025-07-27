@@ -2,21 +2,21 @@
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/global/Section.astro";
 import ScrollArrow from "../components/global/ScrollArrow.astro";
-import { intro } from "../data";
+import { home } from "../data";
 ---
 
 <Layout>
   <div class="relative h-screen w-full">
     <section id="intro-cover" class="section h-full w-full">
-      <div class="fixed-wrapper inset-0 h-full w-full md:fixed">
-        <video autoplay muted loop class="hidden h-full w-full object-cover md:block">
-          <source id="intro-cover-src" src={intro.intro.src} type="video/mp4" />
+      <div class="fixed-wrapper inset-0 h-full w-full lg:fixed">
+        <video autoplay muted loop class="hidden h-full w-full object-cover lg:block">
+          <source id="intro-cover-src" src={home.intro.src} type="video/mp4" />
         </video>
 
         <img
-          class="object-contain md:hidden"
-          src={intro.coverMobile.src}
-          alt={intro.coverMobile.alt}
+          class="object-contain lg:hidden"
+          src={home.introMobile.src}
+          alt={home.introMobile.alt}
         />
       </div>
     </section>
@@ -31,10 +31,10 @@ import { intro } from "../data";
   >
     <div class="flex flex-col items-center justify-center">
       <p
-        class="flex px-[15%] pb-[10vh] text-center text-sm text-white md:max-w-lg md:px-0 lg:max-w-2xl 2xl:text-xl 4xl:max-w-6xl 4xl:text-4xl"
+        class="flex px-[15%] pb-[10vh] text-center text-base text-white lg:max-w-2xl lg:px-0 2xl:text-xl 4xl:max-w-6xl 4xl:text-4xl"
       >
-        Алексей Сергеевич Уваров, граф, археолог, историк, <br class="hidden md:block" /> почетный член
-        Петербургской Академии наук, основатель, <br class="hidden md:block" /> председатель Московского
+        Алексей Сергеевич Уваров, граф, археолог, историк, <br class="hidden lg:block" /> почетный член
+        Петербургской Академии наук, основатель, <br class="hidden lg:block" /> председатель Московского
         археологического общества и организатор Всероссийских археологических съездов, один из основателей
         Российского исторического музея.
       </p>

@@ -34,74 +34,7 @@ const {
   </div>
 </section>
 
-<script>
-  // SECTIONS OBSERVER
-
-  // all sections with the corresponding class picked
-  const sections = document.querySelectorAll(".section") as NodeListOf<HTMLElement>;
-
-  // sections to crossfade + custom threshhold (null - default [0.5 - 0.7])
-  const crossfadeSections: { [sectionId: string]: number | null } = {
-    "intro-cover": null,
-    "intro-hand": null,
-    "intro-text": null,
-    "intro-transition": null,
-    "chapter-intro": null,
-    "hersones-wall": 0.1,
-    "hersones-slider": 0.1,
-  };
-
-  // Dynamically add overlay sections to crossfadeSections
-  const overlays = document.querySelectorAll("info-overlay") as NodeListOf<HTMLElement>;
-  overlays.forEach((overlay: HTMLElement) => {
-    const overlayId = overlay.dataset.overlayId;
-    if (overlayId) {
-      crossfadeSections[overlayId] = null; // Default to null or set a custom threshold if needed
-    }
-  });
-
-  // function to get the threshold based on the section's ID
-  function getSectionThreshold(section: HTMLElement): number | number[] {
-    const sectionId = section.id;
-    return crossfadeSections[sectionId] ?? [0.5, 0.7];
-  }
-
-  sections.forEach((section: HTMLElement) => {
-    const sectionId = section.id;
-
-    // check if the section should have a crossfade effect
-    const hasCrossfade = crossfadeSections.hasOwnProperty(sectionId);
-
-    if (hasCrossfade) {
-      const threshold = getSectionThreshold(section);
-
-      const sectionsObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const wrapper = entry.target.querySelector(".fixed-wrapper") as HTMLElement;
-            if (wrapper) {
-              if (entry.isIntersecting) {
-                wrapper.classList.add("show");
-              } else {
-                wrapper.classList.remove("show");
-              }
-            }
-          });
-        },
-        { threshold },
-      );
-
-      sectionsObserver.observe(section);
-    } else {
-      // if the section does not have a crossfade, ensure it remains visible
-      const wrapper = section.querySelector(".fixed-wrapper") as HTMLElement;
-      if (wrapper) {
-        wrapper.style.opacity = "1";
-        wrapper.style.zIndex = "5";
-      }
-    }
-  });
-</script>
+<script src="../../scripts/crossfadeObserver.ts"></script>
 
 <style is:global>
   .fixed-wrapper {

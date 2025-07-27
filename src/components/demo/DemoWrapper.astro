@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import BgWrapper from "../global/BgWrapper.astro";
 
-import { getCurrentChapter } from "../../utils/currentChapter.astro";
+import { getCurrentChapter } from "../../scripts/currentChapter";
 const currentChapter = getCurrentChapter(Astro);
 ---
 
@@ -12,4 +12,4 @@ const currentChapter = getCurrentChapter(Astro);
   </BgWrapper>
 </Layout>
 
-<!-- <script src="../../utils/slowScroll"></script> -->
+<script src="../../scripts/scrollSections.ts"></script>

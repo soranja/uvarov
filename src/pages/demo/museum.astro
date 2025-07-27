@@ -8,6 +8,7 @@ import InfoOverlay from "../../components/global/InfoOverlay.astro";
 
 import { common, museumAssets } from "../../data";
 import { audios } from "../../data";
+import Footer from "../../components/global/Footer.astro";
 
 const museumBuilding = museumAssets.buildingSlider;
 const museumHalls = museumAssets.hallsSlider;
@@ -30,17 +31,17 @@ const museumHalls = museumAssets.hallsSlider;
   <!-- Museum -->
   <div
     id="museum-bg"
-    class="relative left-0 top-0 h-[60vh] w-full bg-[url('../data/biography/_images/museum/gim.png')] bg-contain bg-bottom bg-no-repeat md:h-[140vh] md:bg-cover md:bg-center"
+    class="relative left-0 top-0 h-[60vh] w-full bg-[url('../data/biography/_images/museum/gim.png')] bg-contain bg-bottom bg-no-repeat lg:h-[140vh] lg:bg-cover lg:bg-center"
   >
     <Section
       id="museum"
-      sectionSize="w-full h-[80vh] md:h-[140vh]"
-      sectionFlex="flex flex-col justify-start items-end"
+      sectionSize="w-full h-[80vh] lg:h-[140vh]"
+      sectionFlex="flex flex-col items-center lg:items-end justify-start"
       contentHeight="h-auto"
     >
-      <div class="flex flex-col items-end justify-start">
+      <div class="flex flex-col items-center justify-start lg:items-end">
         <p
-          class="mt-[10vh] max-w-xl pr-[5vw] text-center text-sm leading-normal lg:mt-[20vh] lg:text-right 2xl:max-w-3xl 2xl:text-2xl 2xl:leading-relaxed"
+          class="mt-[10vh] max-w-xl text-center text-sm leading-normal lg:mt-[20vh] lg:pr-[5vw] lg:text-right 2xl:max-w-3xl 2xl:text-2xl 2xl:leading-relaxed"
         >
           С начала 1870-х годов Алексей Сергеевич Уваров включился в работу по устройству в Москве
           Музея имени Его Императорского Высочества Государя Наследника Цесаревича (с 1881 года
@@ -54,9 +55,9 @@ const museumHalls = museumAssets.hallsSlider;
   <Section
     id="museum-text"
     contentHeight="h-auto"
-    sectionSize="w-full h-screen md:h-[80vh] 2xl:h-[60vh]"
+    sectionSize="w-full h-screen lg:h-[80vh] 2xl:h-[60vh]"
     contentFlex
-    extraClass="text-center gap-y-[10vh] px-[5%] text-base leading-normal md:text-xl 2xl:text-3xl 4xl:gap-y-[5vh]"
+    extraClass="text-center gap-y-[10vh] px-[5%] text-base leading-normal lg:text-xl 2xl:text-3xl 4xl:gap-y-[5vh]"
   >
     <p>
       В 1873 году было образовано Управление музеем, Уваров назначен товарищем председателя
@@ -72,7 +73,7 @@ const museumHalls = museumAssets.hallsSlider;
   <!-- Museum Grid Desktop -->
   <div
     id="museum-grid-bg"
-    class="relative left-0 top-0 hidden h-[150vh] w-full bg-[url('../data/biography/_images/museum/gim-bg.png')] bg-contain bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 md:block"
+    class="relative left-0 top-0 hidden h-[150vh] w-full bg-[url('../data/biography/_images/museum/gim-bg.png')] bg-contain bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 lg:block"
   >
     <Section
       id="museum-grid"
@@ -94,7 +95,7 @@ const museumHalls = museumAssets.hallsSlider;
         <div id="museum-grid-right-area" class="h-[7%]"></div>
       </div>
       <div
-        class="grid h-full w-full grid-cols-[25%,50%,25%] grid-rows-5 text-center text-sm 2xl:text-xl"
+        class="grid h-full w-full grid-cols-[25%,50%,25%] grid-rows-5 text-center text-base 2xl:text-xl"
       >
         <!-- Left Column (spans rows 2-4) -->
         <div
@@ -139,18 +140,16 @@ const museumHalls = museumAssets.hallsSlider;
   <!-- Museum Grid Mobile -->
   <div
     id="museum-grid-bg-mobile"
-    class="relative left-0 top-0 h-[150vh] w-full bg-[url('../data/biography/_images/museum/gim-bg.png')] bg-contain bg-center bg-no-repeat md:hidden"
+    class="relative left-0 top-0 h-[160vh] w-full bg-[url('../data/biography/_images/museum/gim-bg.png')] bg-contain bg-center bg-no-repeat lg:hidden"
   >
     <Section
       id="museum-grid-mobile"
-      sectionSize="md:hidden w-full h-[150vh]"
+      sectionSize="w-full h-[160vh]"
       sectionFlex="flex flex-col items-center justify-center"
       contentWidth="w-full"
-      contentHeight="h-[150vh]"
+      contentHeight="h-[160vh]"
     >
-      <div
-        class="flex h-full w-full flex-col justify-between px-[4%] py-[5vh] text-center text-sm md:px-[2%] 2xl:px-[8%] 2xl:text-xl"
-      >
+      <div class="flex h-full w-full flex-col justify-between px-10 py-10 text-center text-sm">
         <p id="museum-grid-left">
           В обязанности А.С. Уварова входило: наблюдение за строительством, за работами по
           оформлению интерьеров, создание экспозиции. В 1881 году Уваров предложил программу
@@ -174,12 +173,12 @@ const museumHalls = museumAssets.hallsSlider;
   <!-- Ustav -->
   <Section id="ustav">
     <div
-      class="mx-auto grid h-full w-full grid-cols-1 grid-rows-2 md:h-auto md:grid-cols-2 md:grid-rows-1"
+      class="mx-auto grid h-full w-full grid-cols-1 grid-rows-2 lg:h-auto lg:grid-cols-2 lg:grid-rows-1"
     >
-      <div id="ustav-image" class="order-2 flex flex-col items-center justify-center md:order-1">
-        <img src={museumAssets.ustav.src} alt={museumAssets.ustav.alt} class="md:max-w-[75%]" />
+      <div id="ustav-image" class="order-2 flex flex-col items-center justify-center lg:order-1">
+        <img src={museumAssets.ustav.src} alt={museumAssets.ustav.alt} class="lg:max-w-[75%]" />
       </div>
-      <div class="order-1 flex flex-col items-center justify-center md:order-2">
+      <div class="order-1 flex flex-col items-center justify-center lg:order-2">
         <p
           class="max-w-sm text-center text-base leading-normal lg:text-right lg:text-xl 2xl:max-w-lg 2xl:text-3xl"
         >
@@ -194,12 +193,12 @@ const museumHalls = museumAssets.hallsSlider;
   <Section
     id="ustav-text"
     contentHeight="lg:h-[75vh]"
-    sectionFlex="flex flex-col items-center justify-center md:justify-end"
+    sectionFlex="flex flex-col items-center justify-center lg:justify-end"
     contentFlex
     contentWidth="w-full"
     extraClass="text-center justify-between text-base leading-normal lg:flex-row lg:justify-center lg:gap-x-[20vh] gap-y-[5vh] lg:text-2xl 2xl:text-3xl px-[5%] lg:px-0"
   >
-    <p class="max-w-md">
+    <p class="max-w-md pb-4 lg:pb-0">
       <span class="font-bold"
         >Первая статья документа определила суть и смысл существования музея:</span
       >
@@ -226,9 +225,9 @@ const museumHalls = museumAssets.hallsSlider;
   <Section
     id="resigned"
     contentHeight="h-auto"
-    sectionSize="w-full h-[80vh] 2xl:h-[60vh]"
+    sectionSize="w-full h-auto my-[10vh] lg:my-[30vh]"
     contentFlex
-    extraClass="text-center px-[5%] text-lg leading-normal lg:text-2xl 3xl:text-4xl 4xl:gap-y-[5vh]"
+    extraClass="text-center px-10 pb-20 lg:px-[5%] text-base leading-normal lg:text-2xl 3xl:text-4xl 4xl:gap-y-[5vh]"
   >
     <p>
       В 1878 году в связи с обострением существовавших разногласий среди устроителей по ряду
@@ -245,7 +244,7 @@ const museumHalls = museumAssets.hallsSlider;
     contentFlex
     extraClass="text-center text-base leading-normal lg:text-xl 3xl:text-3xl lg:justify-between gap-y-[5vh]"
   >
-    <p class="px-[7%] text-base leading-normal lg:text-xl 2xl:text-3xl">
+    <p class="px-16 text-sm leading-normal lg:px-[10%] lg:text-xl 2xl:text-3xl">
       В 1881 году император Александр III назначил графа Уварова Товарищем председателя музея (при
       Почетном председателе великом князе Сергее Александровиче), поручая ему открыть музей к
       коронационным торжествам 1883 года и составить проект нового Устава музея.
@@ -272,7 +271,7 @@ const museumHalls = museumAssets.hallsSlider;
         x-ref="splide"
         style="padding-left: 4rem; padding-right: 4rem;"
       >
-        <div class="splide__arrows hidden md:block">
+        <div class="splide__arrows hidden lg:block">
           <button class="splide__arrow splide__arrow--prev">
             <img src={common.prevArrow.src} alt={common.prevArrow.alt} />
           </button>
@@ -281,7 +280,7 @@ const museumHalls = museumAssets.hallsSlider;
           </button>
         </div>
 
-        <div class="splide__arrows md:hidden">
+        <div class="splide__arrows lg:hidden">
           <button class="splide__arrow splide__arrow--prev"> ← </button>
           <button class="splide__arrow splide__arrow--next"> → </button>
         </div>
@@ -291,7 +290,7 @@ const museumHalls = museumAssets.hallsSlider;
             {
               museumAssets.buildingSlider.map((buildingItem) => (
                 <li class="splide__slide flex flex-col items-center justify-center">
-                  <div class="md:max-w-[70%]">
+                  <div class="lg:max-w-[70%]">
                     <img
                       alt={buildingItem.alt}
                       src={buildingItem.src}
@@ -320,16 +319,16 @@ const museumHalls = museumAssets.hallsSlider;
   <Section
     id="alex-iii"
     contentHeight="h-auto"
-    sectionSize="w-full h-[80vh] 2xl:h-[60vh]"
+    sectionSize="w-full h-auto my-[10vh] lg:my-[20vh]"
     extraClass="text-center"
   >
-    <p class="px-[5%] text-base leading-normal md:text-3xl 2xl:text-4xl">
+    <p class="px-[5%] text-base leading-normal lg:text-3xl 2xl:text-4xl">
       27 мая 1883 года Российский Исторический музей принял почетных гостей – императора Александра
       III, императрицу Марию Фёдоровну, сопровождавшего их великого князя Сергея Александровича. 2
       июня 1883 года, после водосвятного молебна музей, открыли для посещений.
     </p>
     <div
-      class="mt-10 flex w-full flex-col items-center justify-center gap-y-[1vh] text-center text-sm italic lg:text-xl"
+      class="mt-20 flex w-full flex-col items-center justify-center gap-y-[1vh] text-center text-base italic lg:text-xl"
     >
       <p class="px-[10%] lg:px-0">Из воспоминаний Прасковьи Сергеевны Уваровой. Часть 5</p>
       <audio controls class="mx-auto w-full lg:w-[50%]">
@@ -342,18 +341,18 @@ const museumHalls = museumAssets.hallsSlider;
   <!-- Museum Photo -->
   <div
     id="museum-photo-bg"
-    class="relative left-0 top-0 h-screen w-full bg-[url('../data/biography/_images/museum/gim-photo.png')] bg-contain bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 md:h-[300vh] md:bg-cover"
+    class="relative left-0 top-0 h-screen w-full bg-[url('../data/biography/_images/museum/gim-photo.png')] bg-contain bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 lg:h-[300vh] lg:bg-cover"
   >
     <Section
       id="museum-photo"
-      sectionSize="w-full h-screen md:h-[300vh]"
+      sectionSize="w-full h-screen lg:h-[300vh]"
       sectionFlex="flex flex-col items-center justify-center"
-      contentWidth="w-[75%] md:w-[50%] 2xl:w-[60%]"
+      contentWidth="w-[75%] lg:w-[50%] 2xl:w-[60%]"
       contentHeight="h-auto"
     >
       <div class="flex-fol flex items-center justify-center">
         <p
-          class="max-w-xl rounded-2xl bg-white/80 p-6 text-center text-sm shadow-md backdrop-blur-2xl lg:text-xl 2xl:max-w-2xl 2xl:text-2xl"
+          class="max-w-xl rounded-2xl bg-white/80 p-6 text-center text-base shadow-md backdrop-blur-2xl lg:text-xl 2xl:max-w-2xl 2xl:text-2xl"
         >
           Организация и деятельность МАО, создание Исторического музея позволяют утверждать, что
           благодаря А.С. Уварову в Москве сформировался второй, после Петербурга, археологический
@@ -367,7 +366,7 @@ const museumHalls = museumAssets.hallsSlider;
   <Section id="museum-halls-slider" contentHeight="h-[65vh]" sectionSize="w-full h-screen">
     <div class="flex h-full w-full flex-col items-center justify-between">
       <p
-        class="px-[5%] text-center text-lg leading-normal md:px-0 md:text-left md:text-xl 2xl:text-3xl"
+        class="px-5 text-center text-base leading-normal lg:px-0 lg:text-left lg:text-xl 2xl:text-3xl"
       >
         За устройство Исторического музея А.С. Уварову был пожалован орден св. Анны I степени.
       </p>
@@ -393,7 +392,7 @@ const museumHalls = museumAssets.hallsSlider;
           x-ref="splide"
           style="padding-left: 4rem; padding-right: 4rem;"
         >
-          <div class="splide__arrows hidden md:block">
+          <div class="splide__arrows hidden lg:block">
             <button class="splide__arrow splide__arrow--prev">
               <img src={common.prevArrow.src} alt={common.prevArrow.alt} />
             </button>
@@ -402,7 +401,7 @@ const museumHalls = museumAssets.hallsSlider;
             </button>
           </div>
 
-          <div class="splide__arrows md:hidden">
+          <div class="splide__arrows lg:hidden">
             <button class="splide__arrow splide__arrow--prev"> ← </button>
             <button class="splide__arrow splide__arrow--next"> → </button>
           </div>
@@ -412,7 +411,7 @@ const museumHalls = museumAssets.hallsSlider;
               {
                 museumAssets.hallsSlider.map((hallItem) => (
                   <li class="splide__slide flex flex-col items-center justify-center">
-                    <div class="md:max-w-[70%]">
+                    <div class="lg:max-w-[70%]">
                       <img
                         alt={hallItem.alt}
                         src={hallItem.src}
@@ -438,13 +437,13 @@ const museumHalls = museumAssets.hallsSlider;
   <!-- Museum Text Conclusion -->
   <Section
     id="museum-text-conclusion"
-    contentHeight="h-screen mb-[10vh]"
-    sectionSize="w-full h-[130vh]"
+    contentHeight="h-auto"
+    sectionSize="w-full h-auto my-[10vh] lg:my-[20vh]"
     sectionFlex="flex flex-col items-center justify-center lg:justify-end"
     extraClass="text-center"
   >
     <div
-      class="flex flex-col justify-between gap-y-[10vh] text-sm leading-normal md:text-xl 2xl:text-3xl 4xl:gap-y-[5vh]"
+      class="flex flex-col justify-between gap-y-[10vh] text-base leading-normal lg:text-xl 2xl:text-3xl 4xl:gap-y-[5vh]"
     >
       <p>
         Но граф считал необходимым совершенствовать и развивать его деятельность. Существующая
@@ -463,7 +462,17 @@ const museumHalls = museumAssets.hallsSlider;
       </p>
     </div>
   </Section>
+
+  <Section
+    id="footer"
+    sectionSize="w-full h-auto"
+    contentHeight="h-auto"
+    contentWidth="w-full"
+    contentFlex
+  >
+    <Footer />
+  </Section>
 </DemoWrapper>
 
-<script src="../../utils/sharedBgObserver.js"></script>
-<script src="../../scripts/sixBlocksGrid.js"></script>
+<script src="../../scripts/sharedBgObserver.ts"></script>
+<script src="../../scripts/sixBlocksGrid.ts"></script>

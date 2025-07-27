@@ -1,6 +1,6 @@
 ---
 import ScrollArrow from "../../components/global/ScrollArrow.astro";
-import { getCurrentChapter } from "../../utils/currentChapter.astro";
+import { getCurrentChapter } from "../../scripts/currentChapter";
 const currentChapter = getCurrentChapter(Astro);
 
 interface Props {
@@ -35,26 +35,3 @@ const { section, hover } = Astro.props;
     />
   </div>
 </section>
-
-<!-- <script>
-  // SCROLL FADE CHAPTER OBSERVER
-  const scrollArrow = document.querySelector("#scroll-arrow") as HTMLElement;
-  const introSection = document.querySelector("#chapter-intro") as HTMLElement;
-
-  const introObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.target.id === "chapter-intro") {
-          if (entry.isIntersecting) {
-            scrollArrow.classList.add("opacity-100");
-          } else {
-            scrollArrow.classList.remove("opacity-100");
-          }
-        }
-      });
-    },
-    { threshold: [0.5, 0.7] },
-  );
-
-  introObserver.observe(introSection);
-</script> -->

@@ -33,6 +33,3 @@ animateSection("uvarov-self-area", "#uvarov-self");
 
 animateSection("responsibilities-area", "#responsibilities");
 animateSection("concept-area", "#concept");
-
-// animateSection("museum-grid-left-area", "#museum-grid-left");
-// animateSection("museum-grid-right-area", "#museum-grid-right");

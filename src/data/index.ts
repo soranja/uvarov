@@ -1,21 +1,12 @@
 // INTRO
-import cover from "./intro/_images/intro-cover.png";
-import coverMobile from "./intro/_images/uvarov-intro-mobile.png";
-import uvarovIntro from "./intro/_videos/uvarov-intro.mp4";
-import intro1440 from "./intro/_videos/intro-1440.mp4";
-import intro1920 from "./intro/_videos/intro-1920.mp4";
-import hand1440 from "./intro/_videos/hand-1440.mp4";
-import hand1920 from "./intro/_videos/hand-1920.mp4";
+import introMobile from "./intro/_images/uvarov-intro-mobile.png";
+import intro from "./intro/_videos/uvarov-intro.mp4";
 
 // CHAPTERS INTROS
 import junost from "./biography/_images/chapters/junost.svg";
 import expeditions from "./biography/_images/chapters/expeditions.svg";
 import family from "./biography/_images/chapters/family.svg";
-import activities from "./biography/_images/chapters/activities.svg";
 import museum from "./biography/_images/chapters/museum.svg";
-import epilogue from "./biography/_images/chapters/epilogue.svg";
-import porechye from "./biography/_images/chapters/porechye.svg";
-import praskovya from "./biography/_images/chapters/praskovya.svg";
 
 // COMMON
 import scrollArrow from "./common/_images/down-arrow.svg";
@@ -46,9 +37,8 @@ import handwrite_1 from "./biography/_images/junost/handwrite_1.png";
 import handwrite1Full from "./biography/_images/junost/handwrite_1_full.png";
 import handwrite_2 from "./biography/_images/junost/handwrite_2.png";
 import handwrite2Full from "./biography/_images/junost/handwrite_2_full.png";
-import uvarovYoung1 from "./biography/_images/junost/uvarov_young_1.png";
-import uvarovYoung2 from "./biography/_images/junost/uvarov_young_2.png";
-import uvarovYoung2Full from "./biography/_images/junost/uvarov_young_2_portrait.png";
+import uvarovYoung from "./biography/_images/junost/uvarov_young_1.png";
+import uvarovYoungPortrait from "./biography/_images/junost/uvarov_young_2_portrait.png";
 
 // LIBRARY PORTRAITS
 import portrait_1 from "./biography/_images/junost/portraits/shevyrev.png";
@@ -72,7 +62,6 @@ import portrait__orig_5 from "./biography/_images/junost/portraits/originals/pog
 
 // BGs, MAPS, ETC.
 import archaeologists from "./biography/_images/expeditions/archaeologists.png";
-import expeditionsImg from "./biography/_images/expeditions/expeditions-img.jpg";
 import nordMapBg from "./biography/_images/expeditions/nord-map-bg.png";
 import pozharskySketchImg from "./biography/_images/expeditions/pozharsky-sketch.png";
 import pozharskySketch from "./biography/_videos/expeditions/pozharsky-sketch.webm";
@@ -172,10 +161,6 @@ import hall__orig_12 from "./biography/_images/museum/halls/originals/12.jpg";
 
   ========== */
 
-import audio_1 from "./biography/_audio/part_1.mp3";
-import audio_2 from "./biography/_audio/part_2.mp3";
-import audio_3 from "./biography/_audio/part_3.mp3";
-import audio_4 from "./biography/_audio/part_4.mp3";
 import audio_5 from "./biography/_audio/part_5.mp3";
 
 /* ============================================================
@@ -184,14 +169,9 @@ import audio_5 from "./biography/_audio/part_5.mp3";
 
   ============================================================ */
 
-export const intro = {
-  cover: { src: cover.src, alt: "Уварову - 200 лет!" },
-  coverMobile: { src: coverMobile.src, alt: "Уварову - 200 лет!" },
-  intro: { src: uvarovIntro, alt: "Уварову - 200 лет!" },
-  intro1440: { src: intro1440, alt: "Уварову - 200 лет! - 1440" },
-  intro1920: { src: intro1920, alt: "Уварову - 200 лет! - 1920" },
-  hand1440: { src: hand1440, alt: "Видео с рукой - 1440" },
-  hand1920: { src: hand1920, alt: "Видео с рукой - 1920" },
+export const home = {
+  introMobile: { src: introMobile.src, alt: "Уварову - 200 лет!" },
+  intro: { src: intro, alt: "Уварову - 200 лет!" },
 };
 
 export const common = {
@@ -204,11 +184,7 @@ export const chapters = [
   { id: "junost", src: junost.src, alt: "Юность" },
   { id: "expeditions", src: expeditions.src, alt: "Экспедиции" },
   { id: "family", src: family.src, alt: "Семья" },
-  { id: "activities", src: activities.src, alt: "Деятельность" },
   { id: "museum", src: museum.src, alt: "Музей" },
-  { id: "epilogue", src: epilogue.src, alt: "Эпилог" },
-  { id: "porechye", src: porechye.src, alt: "Поречье" },
-  { id: "praskovya", src: praskovya.src, alt: "Прасковья Уваровa" },
 ];
 
 export const junostAssets = {
@@ -217,15 +193,15 @@ export const junostAssets = {
   dogAnim: { src: dogAnim, alt: "Анимация с собакой" },
   handwrite_1: { src: handwrite_1.src, alt: "Письмо 1" },
   handwrite1Full: { src: handwrite1Full.src, alt: "Письмо 1 полное" },
-  uvarovYoung1: { src: uvarovYoung1.src, alt: "Уваров молодой - Рисунок" },
-  uvarovYoung1Full: {
-    src: uvarovYoung1.src,
+  uvarovYoung: { src: uvarovYoung.src, alt: "Уваров молодой - Рисунок" },
+  uvarovYoungFull: {
+    src: uvarovYoung.src,
     alt: "Уваров молодой - Рисунок",
     description: "Алексей Уваров в юности",
   },
-  uvarovYoung2: { src: uvarovYoung2.src, alt: "Уваров молодой - Фон" },
-  uvarovYoung2Full: {
-    src: uvarovYoung2Full.src,
+  uvarovYoungPortrait: { src: uvarovYoungPortrait.src, alt: "Уваров молодой - Фон" },
+  uvarovYoungPortraitFull: {
+    src: uvarovYoungPortrait.src,
     alt: "Уваров молодой - Портрет",
     description:
       "Портрет графа Алексея Сергеевича Уварова в мундире студента Санкт-Петербургского университета 1843 г.",
@@ -295,8 +271,6 @@ export const junostAssets = {
 
 export const expeditionsAssets = {
   archaeologists: { src: archaeologists.src, alt: "Группа археологов" },
-  expeditionsImg: { src: expeditionsImg.src, alt: "Изображение экспедиции" },
-
   khersones: [
     {
       id: 1,
@@ -314,7 +288,6 @@ export const expeditionsAssets = {
       alt: "Стена Херсонеса",
     },
   ],
-
   kherson: [
     {
       id: 1,
@@ -332,7 +305,6 @@ export const expeditionsAssets = {
       alt: "Херсон - изображение 3",
     },
   ],
-
   nordMapBg: { src: nordMapBg.src, alt: "Карта Севера" },
   pozharskySketch: {
     src: pozharskySketch,
@@ -349,7 +321,6 @@ export const expeditionsAssets = {
   },
   suzdal: { src: suzdal.src, alt: "Суздаль" },
   zabelin: { src: zabelin.src, alt: "Портрет Забелина" },
-
   research: [
     {
       id: 1,
@@ -407,7 +378,6 @@ export const expeditionsAssets = {
 export const museumAssets = {
   gim: { src: gim.src, alt: "Здание ГИМ (Государственный Исторический Музей)" },
   ustav: { src: ustav.src, alt: "Устав Государственного Исторического Музея" },
-
   buildingSlider: [
     {
       id: 1,
@@ -488,7 +458,6 @@ export const museumAssets = {
       alt: "Постройка музея - Фото 13",
     },
   ],
-
   hallsSlider: [
     {
       id: 1,
@@ -536,9 +505,5 @@ export const museumAssets = {
 };
 
 export const audios = {
-  audio1: audio_1,
-  audio2: audio_2,
-  audio3: audio_3,
-  audio4: audio_4,
   audio5: audio_5,
 };

@@ -9,8 +9,8 @@ import Chapter from "../../components/demo/Chapter.astro";
 
 import { common, junostAssets } from "../../data";
 
-const uvarovYoung1 = [junostAssets.uvarovYoung1Full, junostAssets.handwrite1Full];
-const uvarovYoung2 = [junostAssets.uvarovYoung2Full, junostAssets.handwrite2Full];
+const uvarovYoung = [junostAssets.uvarovYoungFull, junostAssets.handwrite1Full];
+const uvarovYoungPortrait = [junostAssets.uvarovYoungPortrait, junostAssets.handwrite2Full];
 const graf = [junostAssets.graf];
 const diploma = [junostAssets.diploma];
 const portraits = junostAssets.libraryPortraits;
@@ -36,17 +36,17 @@ const portraits = junostAssets.libraryPortraits;
     contentWidth="w-auto"
     contentHeight="h-auto"
     sectionFlex="flex flex-col justify-end items-center"
-    sectionSize="w-[90vw] h-[60vh] md:h-screen mx-auto"
+    sectionSize="w-[90vw] h-[60vh] lg:h-screen mx-auto"
     extraClass="relative"
   >
     <p
-      class="absolute inset-x-0 left-0 top-0 text-center text-sm md:inset-auto md:text-left md:text-lg 2xl:text-xl 4xl:static 4xl:text-4xl"
+      class="absolute inset-x-0 left-0 top-0 text-center text-base lg:inset-auto lg:text-left lg:text-lg 2xl:text-xl 4xl:static 4xl:text-4xl"
     >
       А. С. Уваров родился 28 февраля (11 марта)
       <br />
       1824 года в Петербурге.
     </p>
-    <img class="py-[10vh] md:py-0" src={junostAssets.spb.src} alt={junostAssets.spb.alt} />
+    <img class="py-[10vh] lg:py-0" src={junostAssets.spb.src} alt={junostAssets.spb.alt} />
   </Section>
 
   <!-- Father / Mother BG -->
@@ -63,15 +63,15 @@ const portraits = junostAssets.libraryPortraits;
       <div id="mother-area" class="absolute bottom-0 h-[95vh] w-full"></div>
 
       <div
-        class="sticky left-0 top-[15%] mb-10 grid h-2/5 w-full grid-cols-1 grid-rows-[auto_15fr_1fr] lg:top-[7%] lg:mb-0 lg:grid-cols-2 lg:grid-rows-1"
+        class="sticky left-0 top-[12%] mb-10 grid h-2/5 w-full grid-cols-1 grid-rows-[auto_15fr_1fr] lg:top-[7%] lg:mb-0 lg:grid-cols-2 lg:grid-rows-1"
       >
-        <div class="top-text-mobile max-w-md py-5 text-center text-sm md:hidden md:text-2xl">
-          <p>
-            Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и
-            государственности, а ряд исторических событий XIX века являлись для него частью семейной
-            хроники.
-          </p>
-        </div>
+        <p
+          class="top-text-mobile max-w-md px-5 py-5 text-center text-base lg:hidden lg:px-0 lg:text-2xl"
+        >
+          Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и
+          государственности, а ряд исторических событий XIX века являлись для него частью семейной
+          хроники.
+        </p>
 
         <!-- Father / Mother Images -->
         <div class="relative flex items-center justify-center lg:my-auto lg:h-[90%]">
@@ -91,10 +91,10 @@ const portraits = junostAssets.libraryPortraits;
 
         <!-- Father / Mother Texts -->
         <div
-          class="flex h-4/5 flex-col items-end justify-center self-center text-center text-sm md:text-right md:text-base lg:py-0 lg:text-lg 2xl:text-2xl 4xl:text-4xl"
+          class="flex h-4/5 flex-col items-end justify-center self-center text-center text-base lg:py-0 lg:text-right lg:text-lg 2xl:text-2xl 4xl:text-4xl"
         >
           <p
-            class="top-text hidden rounded-2xl bg-white/60 p-4 italic shadow-md backdrop-blur-2xl md:block"
+            class="top-text hidden rounded-2xl bg-white/60 p-4 italic shadow-md backdrop-blur-2xl lg:block"
           >
             Семейными связями и родословной А. С. Уваров был укоренен в русской культуре и
             государственности, а ряд исторических событий XIX века являлись для него частью семейной
@@ -104,14 +104,14 @@ const portraits = junostAssets.libraryPortraits;
           <div class="bottom-text relative h-4/5 w-full max-w-3xl overflow-x-clip 3xl:max-w-6xl">
             <p
               id="father-text"
-              class="absolute bottom-0 left-0 z-10 w-full rounded-2xl bg-white/80 p-6 opacity-0 shadow-md backdrop-blur-2xl"
+              class="absolute bottom-0 left-0 z-10 w-full rounded-2xl bg-white/80 p-6 text-base opacity-0 shadow-md backdrop-blur-2xl"
             >
               Отец Алексея Сергеевича, <span class="font-bold italic">Сергей Семенович Уваров</span>
               – <br />президент Петербургской Академии наук, <br /> министр народного просвещения.
             </p>
             <p
               id="mother-text"
-              class="absolute bottom-0 left-0 z-20 w-full rounded-2xl bg-white/80 p-6 opacity-0 shadow-md backdrop-blur-2xl"
+              class="absolute bottom-0 left-0 z-20 w-full rounded-2xl bg-white/80 p-6 text-sm opacity-0 shadow-md backdrop-blur-2xl"
             >
               Мать А. С. Уварова, <span class="font-bold italic"
                 >Екатерина Алексеевна Разумовская</span
@@ -170,7 +170,7 @@ const portraits = junostAssets.libraryPortraits;
   >
     <div class="flex flex-col items-center justify-center gap-y-[2vh]">
       <p
-        class="pointer-events-none w-4/5 rounded-2xl bg-white/60 px-[5%] py-6 text-center text-sm leading-normal shadow-md backdrop-blur-2xl md:text-xl"
+        class="pointer-events-none w-4/5 rounded-2xl bg-white/60 px-[5%] py-6 text-center text-sm leading-normal shadow-md backdrop-blur-2xl lg:text-xl"
       >
         Вся атмосфера семьи Уваровых располагала к занятиям наукой и искусством. Богатейшая
         библиотека, коллекция живописи и антиков, собранная отцом, давала Алексею Уварову с юных лет
@@ -198,7 +198,7 @@ const portraits = junostAssets.libraryPortraits;
             x-ref="splide"
             style="padding-left: 4rem; padding-right: 4rem;"
           >
-            <div class="splide__arrows hidden md:block">
+            <div class="splide__arrows hidden lg:block">
               <button class="splide__arrow splide__arrow--prev">
                 <img src={common.prevArrow.src} alt={common.prevArrow.alt} />
               </button>
@@ -207,7 +207,7 @@ const portraits = junostAssets.libraryPortraits;
               </button>
             </div>
 
-            <div class="splide__arrows md:hidden">
+            <div class="splide__arrows lg:hidden">
               <button class="splide__arrow splide__arrow--prev"> ← </button>
               <button class="splide__arrow splide__arrow--next"> → </button>
             </div>
@@ -217,7 +217,7 @@ const portraits = junostAssets.libraryPortraits;
                 {
                   junostAssets.libraryPortraits.map((portrait) => (
                     <li class="splide__slide flex flex-col items-center justify-center">
-                      <div class="h-full md:h-[60%] md:w-[70%] 2xl:h-[70%] 2xl:w-[90%]">
+                      <div class="h-full lg:h-[60%] lg:w-[70%] 2xl:h-[70%] 2xl:w-[90%]">
                         <img
                           alt={portrait.alt}
                           src={portrait.src}
@@ -242,7 +242,7 @@ const portraits = junostAssets.libraryPortraits;
         contentType="slider"
         images={portraits}
         overlayId="library"
-        iconPosition="md:absolute bottom-0"
+        iconPosition="lg:absolute bottom-0"
       />
     </div>
   </Section>
@@ -251,25 +251,24 @@ const portraits = junostAssets.libraryPortraits;
   <Section
     id="father-influence"
     contentHeight="h-auto"
-    sectionSize="w-full h-[70vh]"
-    sectionFlex="flex flex-col items-center justify-center"
+    sectionSize="w-full h-auto my-[10vh] lg:my-[20vh]"
   >
-    <p class="text-center text-base leading-normal md:text-2xl lg:px-[5%] 2xl:px-[15%]">
+    <p class="text-center text-base leading-normal lg:px-[5%] lg:text-2xl 2xl:px-[15%]">
       Но главным в формировании личности А.С. Уварова стало влияние отца. <br /> Во многом, благодаря
       ему, Алексей Уваров сложился как человек европейской образованности и глубочайшей преданности России.
     </p>
   </Section>
 
   <!-- Dog Animation -->
-  <Section id="dog">
-    <div class="mx-auto hidden h-full w-full max-w-[70%] grid-cols-2 md:grid">
+  <Section id="dog" sectionSize="w-full h-auto my-[10vh] lg:my-[20vh]">
+    <div class="mx-auto hidden h-full w-full max-w-[70%] grid-cols-2 lg:grid">
       <div class="relative left-[5vh] flex flex-col items-center justify-center">
         <video id="dog-anim" autoplay muted>
           <source src={junostAssets.dogAnim.src} type="video/mp4" />
         </video>
         <InfoOverlay
           contentType="slider"
-          images={uvarovYoung1}
+          images={uvarovYoung}
           overlayId="dog"
           iconPosition="absolute bottom-[8vh]"
         />
@@ -279,15 +278,15 @@ const portraits = junostAssets.libraryPortraits;
       </div>
     </div>
 
-    <div id="dog-mobile" class="flex h-full flex-col items-center justify-center md:hidden">
+    <div id="dog-mobile" class="flex h-full flex-col items-center justify-center lg:hidden">
       <div class="flex flex-col items-center justify-center">
         <img
           src={junostAssets.handwrite_1.src}
           alt={junostAssets.handwrite_1.alt}
           class="absolute left-[25%] top-[15%] h-[50%]"
         />
-        <img src={junostAssets.uvarovYoung1.src} alt={junostAssets.uvarovYoung1.alt} />
-        <InfoOverlay contentType="slider" images={uvarovYoung1} overlayId="dog-mobile" />
+        <img src={junostAssets.uvarovYoung.src} alt={junostAssets.uvarovYoung.alt} />
+        <InfoOverlay contentType="slider" images={uvarovYoung} overlayId="dog-mobile" />
       </div>
     </div>
   </Section>
@@ -295,14 +294,14 @@ const portraits = junostAssets.libraryPortraits;
   <!-- Uni -->
   <Section
     id="uni"
-    sectionSize="w-full h-auto "
+    sectionSize="w-full h-auto"
     sectionFlex="flex flex-col justify-center items-center"
     contentWidth="w-auto"
     contentHeight="h-auto"
     extraClass="flex flex-col items-start justify-center py-10"
   >
     <p
-      class="mx-auto max-w-lg px-5 text-center text-xs md:px-0 md:text-sm 2xl:max-w-2xl 2xl:text-lg"
+      class="mx-auto max-w-lg px-5 text-center text-sm lg:px-0 lg:text-sm 2xl:max-w-2xl 2xl:text-lg"
     >
       В детстве и юности, обучаясь дома, по программе отца под его наблюдением, Уваров-младший
       получил основательную подготовку по истории, словесности, географии, древним и новым
@@ -323,7 +322,7 @@ const portraits = junostAssets.libraryPortraits;
     contentHeight="h-auto"
   >
     <div
-      class="flex flex-col items-center justify-center gap-y-10 px-[10%] text-center text-lg leading-normal 2xl:text-2xl"
+      class="flex flex-col items-center justify-center gap-y-10 px-[10%] text-center text-base leading-normal 2xl:text-2xl"
     >
       <p>
         Серьезное влияние на формирование будущего ученого оказали профессор <span
@@ -353,7 +352,7 @@ const portraits = junostAssets.libraryPortraits;
   <!-- Uvarov Young -->
   <div
     id="uvarov-bg"
-    class="relative left-0 top-0 mx-auto h-[70vh] w-full bg-[url('../data/biography/_images/junost/uvarov_young_2_portrait.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 md:h-[300vh] md:bg-right"
+    class="relative left-0 top-0 mx-auto h-[70vh] w-full bg-[url('../data/biography/_images/junost/uvarov_young_2_portrait.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000 lg:h-[300vh] lg:bg-right"
     style="
         background-size: 120%;
         background-position: left 20%;
@@ -361,22 +360,22 @@ const portraits = junostAssets.libraryPortraits;
   >
     <Section
       id="uvarov-young"
-      sectionSize="w-full h-[70vh] md:h-[300vh]"
+      sectionSize="w-full h-[70vh] lg:h-[300vh]"
       sectionFlex="flex flex-col justify-center"
       contentWidth="w-full"
-      contentHeight="h-[70vh] md:h-[300vh]"
+      contentHeight="h-[70vh] lg:h-[300vh]"
     >
-      <div class="flex h-full flex-col justify-center px-[2vh] md:px-0">
+      <div class="flex h-full flex-col justify-center px-[2vh] lg:px-0">
         <img
           src={junostAssets.handwrite_2.src}
           alt="Почерк-2"
-          class="h-[50vh] w-full object-contain object-left-top md:h-[200vh]"
+          class="h-[50vh] w-full object-contain object-left-top lg:h-[200vh]"
         />
       </div>
     </Section>
     <InfoOverlay
       contentType="slider"
-      images={uvarovYoung2}
+      images={uvarovYoungPortrait}
       isIconInverted={true}
       overlayId="u-young"
       iconPosition="absolute bottom-[5vh] left-1/2 -translate-x-1/2"
@@ -416,7 +415,7 @@ const portraits = junostAssets.libraryPortraits;
     sectionSize="w-full h-auto mb-10 lg:mb-0 lg:h-screen"
   >
     <div class="flex flex-col items-center justify-center gap-y-4 text-center">
-      <div class="relative aspect-video h-full w-full md:h-[50%] md:w-[50%]">
+      <div class="relative aspect-video h-full w-full lg:h-[50%] lg:w-[50%]">
         <iframe
           class="h-full w-full"
           src="https://mediashm.ru/?p=17677&emb=1"
@@ -429,7 +428,7 @@ const portraits = junostAssets.libraryPortraits;
         >
         </iframe>
       </div>
-      <p class="italic">
+      <p class="text-base italic lg:text-lg 2xl:text-xl 4xl:text-2xl">
         Экскурсия по выставке <br class="lg:hidden" /> к 200-летию А. С. Уварова
       </p>
     </div>
@@ -455,6 +454,6 @@ const portraits = junostAssets.libraryPortraits;
   </Section>
 </DemoWrapper>
 
-<script src="../../utils/sharedBgObserver.js"></script>
-<script src="../../utils/innerScroll.js"></script>
+<script src="../../scripts/sharedBgObserver.ts"></script>
 <script src="../../scripts/fatherMotherScroll.ts"></script>
+<!-- <script  src="../../scripts/scrollInContainer.ts"></script> -->
